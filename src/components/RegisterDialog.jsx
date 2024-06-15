@@ -6,9 +6,15 @@ import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box, InputAdornment, TextField } from "@mui/material";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 import { useMediaQuery } from "@mui/material";
 
-export default function LoginDialog({ open, setOpen, setOpenRegister }) {
+
+export default function RegisterDialog({ open, setOpen, setOpenLogin }) {
   const isSmallScreen = useMediaQuery("(max-width: 625px)");
 
   const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -20,7 +26,7 @@ export default function LoginDialog({ open, setOpen, setOpenRegister }) {
     },
     "& .MuiPaper-root": {
       width: "800px",
-      height: isSmallScreen ? "800px" : "400px",
+      height: isSmallScreen ? "550px" : "500px",
       maxWidth: "none",
     },
   }));
@@ -28,8 +34,8 @@ export default function LoginDialog({ open, setOpen, setOpenRegister }) {
     setOpen(false);
   };
 
-  const handleAgree = () => {
-    setOpenRegister(true);
+  const handleToggle = () => {
+    setOpenLogin(true);
     setOpen(false);
   };
 
@@ -57,17 +63,32 @@ export default function LoginDialog({ open, setOpen, setOpenRegister }) {
         <DialogContent className="login-dialog">
           <Box
             sx={{
-              width: isSmallScreen ? "95%" : "50%",
+              width: "50%",
+              display: isSmallScreen ? "none" : "block",
             }}
           >
             <img
-              src="/wall.png"
+              src="/reg.png"
               style={{
                 width: "100%",
               }}
             />
           </Box>
-          <Box className="login-left">
+          <Box className="register-left">
+            <TextField
+              id="standard-basic"
+              label="Enter Full Name"
+              variant="standard"
+              type="number"
+              fullWidth
+            />
+            <TextField
+              id="standard-basic"
+              label="Enter Email"
+              variant="standard"
+              type="number"
+              fullWidth
+            />
             <TextField
               id="standard-basic"
               label="Enter Mobile Number"
@@ -87,16 +108,35 @@ export default function LoginDialog({ open, setOpen, setOpenRegister }) {
               type="password"
               fullWidth
             />
-            <button className="login-btn-primary">Get Login</button>
-            <div className="login-text">
-              We no more support email based login. You can now login via mobile
-              number & link email to access your account.
-            </div>
-            <div className="login-text-register" onClick={handleAgree}>
-              Don't Have Account? Click Here
-            </div>
-            <div className="login-text-agree">
-              you agree to Your's Hospitality privacy policy & terms of use.
+            <FormControl sx={{ alignSelf: "self-start" }}>
+              <FormLabel id="demo-row-radio-buttons-group-label">
+                Gender
+              </FormLabel>
+              <RadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="row-radio-buttons-group"
+              >
+                <FormControlLabel
+                  value="female"
+                  control={<Radio />}
+                  label="Female"
+                />
+                <FormControlLabel
+                  value="male"
+                  control={<Radio />}
+                  label="Male"
+                />
+                <FormControlLabel
+                  value="other"
+                  control={<Radio />}
+                  label="Other"
+                />
+              </RadioGroup>
+            </FormControl>
+            <button className="login-btn-primary">Get Register</button>
+            <div className="register-text-login" onClick={handleToggle}>
+              Login
             </div>
           </Box>
         </DialogContent>
