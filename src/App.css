@@ -24,13 +24,20 @@ body {
   object-fit: contain;
 }
 .login-btn {
-  background-color: #254eaf;
+  background-color: #624FA8;
+  font-family: 'Euclid Circular A', sans-serif;
+  font-size: 14px;
   border: none;
-  padding: 12px;
+  padding: 10px 20px;
   color: white;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 15px;
   cursor: pointer;
+}
+.login-btn:hover{
+  background-color: #4c3f90;
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 12px rgba(98, 79, 168, 0.2);
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -117,7 +124,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /*** sidenav CSS ***/
 
-.sidenav .nav-link{
+.sidenav .nav-link {
   font-family: 'Euclid Circular A', sans-serif;
   font-size: 16px;
   color: #3d3d3d;
@@ -125,16 +132,315 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 20px 0;
   display: block;
   padding: 8px 16px;
+  position: relative;
 }
+
 .nav-link.active {
   background-color: #d6cbff;
   color: #624FA8;
   font-weight: 500;
   border-radius: 5px;
 }
+.nav-link:hover{
+  background-color: #d6cbff;
+  color: #624FA8;
+  border-radius: 5px;
+}
+.nav-link .active:hover{
+  background-color: #e5deff;
+  color: #624FA8;
+  border-radius: 5px;
+}
+
 .nav-link .MuiSvgIcon-root {
   font-size: 18px;
 }
-.nav-link .nav-icon{
+
+.nav-link .nav-icon {
   margin-right: 8px;
+}
+
+.nav-link span {
+  background-color: #624FA8;
+  font-size: 12px;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 8px;
+}
+
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  left:100%;
+  width: 200px;
+  top: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 9;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  color: #3d3d3d;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #d7ccff;
+}
+
+.dropdown-item .nav-icon {
+  margin-right: 8px;
+}
+.drop-link{
+  text-decoration: none;
+  font-family: 'Euclid Circular A', sans-serif;
+  font-size: 16px;
+  color: #3d3d3d;
+}
+.drop-link:hover{
+  background-color: #e5deff;
+  color: #624FA8;
+  border-radius: 5px;
+}
+
+.search-column {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+  padding: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-column:hover {
+  box-shadow: 0px 12px 32px rgba(149, 157, 165, 0.3);
+}
+
+.small-radio {
+  padding: 6px;
+}
+
+.small-radio .MuiSvgIcon-root {
+  font-size: 18px; 
+}
+
+.small-label {
+  font-size: 14px !important;
+  font-family: 'Euclid Circular A', sans-serif !important;
+}
+
+.trip-buttons .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+  color: #624FA8 !important;
+}
+.search-input-column input{
+  height: 60px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-family: 'Euclid Circular A', sans-serif;
+  color: #666;
+  font-size: 14px;
+}
+.input-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-label {
+  font-family: 'Euclid Circular A', sans-serif;
+  position: absolute;
+  left: 8px;
+  top: 20px;
+  color: #999;
+  font-size: 12px;
+  transition: top 0.3s, font-size 0.3s, color 0.3s;
+  pointer-events: none;
+}
+
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: -10px;
+  font-size: 10px;
+  color: #333;
+}
+.place-field .flight-icon{
+  font-size: 15px;
+}
+
+.input-field:focus {
+  outline: none;
+}
+.place-field{
+  display: flex;
+}
+.from-input input{
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+.to-input input{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-label {
+  position: absolute;
+  color: #666;
+  left: 12px;
+  font-size: 14px;
+  transition: top 0.2s, font-size 0.2s, color 0.2s;
+  pointer-events: none;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-field:focus {
+  outline: none;
+}
+
+.input-wrapper.active .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.from-input input{
+  font-family: 'Euclid Circular A', sans-serif;
+  color: #666;
+  font-size: 14px;
+}
+.to-input input{
+  font-family: 'Euclid Circular A', sans-serif;
+  color: #666;
+  font-size: 14px;
+}
+
+.passenger-popover {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  width: 250px !important;
+}
+
+.passenger-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.passenger-item button {
+  border-radius: 50%; 
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  padding: 0;
+}
+
+.passenger-count {
+  margin: 0 8px;
+}
+.popover-box input{
+  cursor: pointer;
+}
+
+@keyframes slideIcon {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px); /* Adjust the forward slide distance */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.search-button {
+  position: relative;
+}
+
+.search-button button {
+  position: relative;
+  z-index: 1;
+  background-color: #624fa8;
+  color: #fff;
+  padding: 12px 30px;
+  font-family: 'Euclid Circular A', sans-serif;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.search-button button:hover {
+  background-color: #4c3f90;
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 12px rgba(98, 79, 168, 0.2);
+}
+
+.search-button button:hover .icon-wrapper {
+  animation: slideIcon 0.5s ease forwards;
+}
+
+.icon-wrapper {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+@keyframes slideIcon {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(6px); /* Adjust the forward slide distance */
+  }
+}
+
+.search-button button svg {
+  font-size: 18px;
+  margin-left: 5px;
 }
