@@ -22,7 +22,7 @@ const Footer = () => {
         container
         spacing={2}
         justifyContent="space-between"
-        style={{ width: "100%", paddingLeft: "10%", paddingRight: "10%" }}
+        style={{ width: "100%", paddingLeft: "8%", paddingRight: "8%" }}
       >
         <Grid item xs={12} md={4}>
           <img
@@ -34,9 +34,9 @@ const Footer = () => {
             Yours Hospitality
           </Typography>
           <Typography variant="body2">
-            Vivanta Faridabad, Faridabad
+            Vivanta Hotel, Faridabad
             <br />
-            Faridabad, Haryana, 121009
+             Haryana, 121009
             <br />
             Country
           </Typography>
