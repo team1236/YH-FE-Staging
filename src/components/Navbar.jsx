@@ -6,7 +6,7 @@ const Navbar = () => {
     const [open, setOpen] = React.useState(false);
     const [openRegister, setOpenRegister] = React.useState(false);
   return (
-    <section className='navbar'>
+    <section className='navbar sticky-top'>
         <img src='/mainLogo.png' className='nav-logo'/>
         <button className='login-btn' onClick={() => setOpen(true)}>Login / Sign up</button>
         {<LoginDialog open={open} setOpen={setOpen} setOpenRegister={setOpenRegister}/>}

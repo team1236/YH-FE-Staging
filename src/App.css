@@ -1,5 +1,12 @@
+@import url('https://fonts.cdnfonts.com/css/euclid-circular-a');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: rgb(235, 231, 224);
+  background-color: rgb(255, 255, 255);
   margin: 0;
 }
 .navbar {
@@ -8,8 +15,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 8%;
+  padding-right: 8%;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 .nav-logo {
   height: 30px;
@@ -104,4 +112,29 @@ input[type="number"]::-webkit-inner-spin-button {
   @media screen and (max-width: 625px) {
     flex-direction: column;
   }
+}
+
+
+/*** sidenav CSS ***/
+
+.sidenav .nav-link{
+  font-family: 'Euclid Circular A', sans-serif;
+  font-size: 16px;
+  color: #3d3d3d;
+  font-weight: 500;
+  margin: 20px 0;
+  display: block;
+  padding: 8px 16px;
+}
+.nav-link.active {
+  background-color: #d6cbff;
+  color: #624FA8;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.nav-link .MuiSvgIcon-root {
+  font-size: 18px;
+}
+.nav-link .nav-icon{
+  margin-right: 8px;
 }
