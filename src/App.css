@@ -387,7 +387,7 @@ input[type="number"]::-webkit-inner-spin-button {
     transform: translateX(0);
   }
   50% {
-    transform: translateX(4px); /* Adjust the forward slide distance */
+    transform: translateX(4px);
   }
   100% {
     transform: translateX(0);
@@ -436,7 +436,7 @@ input[type="number"]::-webkit-inner-spin-button {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(6px); /* Adjust the forward slide distance */
+    transform: translateX(6px);
   }
 }
 

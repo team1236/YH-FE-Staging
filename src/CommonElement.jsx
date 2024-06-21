@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Sidenav from "./components/Sidenav";
 import { Toaster } from "react-hot-toast";
 import Searchbar from "./components/Searchbar";
+import Footer from "./components/Footers";
 
 function CommonElement() {
   return (
@@ -21,6 +22,7 @@ function CommonElement() {
           </div>
         </div>
         <Outlet />
+        <Footer/>
       </main>
       <Toaster position="top-center" reverseOrder={false} />
     </div>

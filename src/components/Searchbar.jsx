@@ -10,8 +10,6 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
-import FlightIcon from '@mui/icons-material/Flight';
-
 
 const Searchbar = () => {
   const [tripType, setTripType] = useState('oneWay');
@@ -36,19 +34,10 @@ const Searchbar = () => {
   };
 
   const handlePassengerChange = (type, increment) => {
-    if (increment) {
-      setPassengerValue((prev) => ({
-        ...prev,
-        [type]: prev[type] + 1,
-      }));
-    } else {
-      if (passengerValue[type] > 0) {
-        setPassengerValue((prev) => ({
-          ...prev,
-          [type]: prev[type] - 1,
-        }));
-      }
-    }
+    setPassengerValue((prev) => ({
+      ...prev,
+      [type]: increment ? prev[type] + 1 : Math.max(prev[type] - 1, 0),
+    }));
   };
 
   const open = Boolean(anchorEl);
@@ -66,21 +55,25 @@ const Searchbar = () => {
         >
           <FormControlLabel
             value="oneWay"
-            control={<Radio 
-                      icon={<RadioButtonUncheckedIcon />} 
-                      checkedIcon={<RadioButtonCheckedIcon />} 
-                      className="small-radio" 
-                    />}
+            control={
+              <Radio
+                icon={<RadioButtonUncheckedIcon />}
+                checkedIcon={<RadioButtonCheckedIcon />}
+                className="small-radio"
+              />
+            }
             label="One Way"
             classes={{ label: 'small-label' }}
           />
           <FormControlLabel
             value="roundTrip"
-            control={<Radio 
-                      icon={<RadioButtonUncheckedIcon />} 
-                      checkedIcon={<RadioButtonCheckedIcon />} 
-                      className="small-radio" 
-                    />}
+            control={
+              <Radio
+                icon={<RadioButtonUncheckedIcon />}
+                checkedIcon={<RadioButtonCheckedIcon />}
+                className="small-radio"
+              />
+            }
             label="Round Trip"
             classes={{ label: 'small-label' }}
           />
@@ -88,10 +81,10 @@ const Searchbar = () => {
       </div>
 
       <div className="row search-input-column mt-3">
-        <div className='col-lg-4 place-field'>
+        <div className="col-lg-4 place-field">
           <div className={`input-wrapper from-input ${fromValue ? 'active' : ''}`}>
             <label htmlFor="from" className="input-label">
-            <FlightTakeoffIcon className='flight-icon' /> From
+              <FlightTakeoffIcon className="flight-icon" /> From
             </label>
             <input
               type="text"
@@ -103,7 +96,7 @@ const Searchbar = () => {
           </div>
           <div className={`input-wrapper to-input ${toValue ? 'active' : ''}`}>
             <label htmlFor="to" className="input-label">
-            <FlightTakeoffIcon className='flight-icon' /> To
+              <FlightTakeoffIcon className="flight-icon" /> To
             </label>
             <input
               type="text"
@@ -115,11 +108,8 @@ const Searchbar = () => {
           </div>
         </div>
 
-        <div className='col-lg-4 place-field'>
+        <div className="col-lg-4 place-field">
           <div className={`input-wrapper from-input ${departureDateValue ? 'active' : ''}`}>
-            {/* <label htmlFor="departureDate" className="input-label">
-              Departure Date
-            </label> */}
             <input
               type="date"
               id="departureDate"
@@ -129,20 +119,18 @@ const Searchbar = () => {
             />
           </div>
           <div className={`input-wrapper to-input ${returnDateValue ? 'active' : ''}`}>
-            {/* <label htmlFor="returnDate" className="input-label">
-              Return Date
-            </label> */}
             <input
               type="date"
               id="returnDate"
               className="input-field"
               value={returnDateValue}
               onChange={(event) => handleInputChange(event, setReturnDateValue)}
+              disabled={tripType === 'oneWay'}
             />
           </div>
         </div>
 
-        <div className='col-lg-4 popover-box'>
+        <div className="col-lg-4 popover-box">
           <div className={`input-wrapper passenger-input ${passengerValue.adults > 0 || passengerValue.children > 0 || passengerValue.infants > 0 ? 'active' : ''}`}>
             <label htmlFor="passenger" className="input-label">
               Passenger
@@ -176,7 +164,7 @@ const Searchbar = () => {
               <Box p={2} className="passenger-popover">
                 <div className="passenger-item">
                   <div>Adults:</div>
-                  <Button onClick={() => handlePassengerChange('adults', false)} variant="outlined" size="small" className='ms-3'>
+                  <Button onClick={() => handlePassengerChange('adults', false)} variant="outlined" size="small" className="ms-3">
                     <RemoveIcon />
                   </Button>
                   <span className="passenger-count">{passengerValue.adults}</span>
@@ -186,7 +174,7 @@ const Searchbar = () => {
                 </div>
                 <div className="passenger-item">
                   <div>Children:</div>
-                  <Button onClick={() => handlePassengerChange('children', false)} variant="outlined" size="small" className='ms-1'>
+                  <Button onClick={() => handlePassengerChange('children', false)} variant="outlined" size="small" className="ms-1">
                     <RemoveIcon />
                   </Button>
                   <span className="passenger-count">{passengerValue.children}</span>
@@ -196,7 +184,7 @@ const Searchbar = () => {
                 </div>
                 <div className="passenger-item">
                   <div>Infants:</div>
-                  <Button onClick={() => handlePassengerChange('infants', false)} variant="outlined" size="small" className='ms-3'>
+                  <Button onClick={() => handlePassengerChange('infants', false)} variant="outlined" size="small" className="ms-3">
                     <RemoveIcon />
                   </Button>
                   <span className="passenger-count">{passengerValue.infants}</span>
@@ -210,13 +198,10 @@ const Searchbar = () => {
         </div>
       </div>
       <div className="search-button">
-  <button>
-    Search Flights <span className="icon-wrapper"><FlightTakeoffIcon /></span>
-  </button>
-</div>
-
-
-
+        <button>
+          Search Flights <span className="icon-wrapper"><FlightTakeoffIcon /></span>
+        </button>
+      </div>
     </div>
   );
 };
