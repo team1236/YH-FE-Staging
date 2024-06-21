@@ -544,25 +544,47 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .recent-search-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
-.date-box{
+
+@media (max-width: 1024px) {
+  .recent-search-container {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+@media (max-width: 768px) {
+  .recent-search-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .recent-search-container {
+    grid-template-columns: 1fr; 
+  }
+}
+
+.date-box {
   padding: 20px;
   border: 1px solid rgb(199, 199, 199);
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.date-box h5{
+
+.date-box h5 {
   font-size: 12px;
   font-family: 'Euclid Circular A', sans-serif;
   color: #6f6f6f;
 }
+
 .date-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+
 .recent-box {
   display: flex;
   justify-content: space-between;
@@ -582,10 +604,16 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #6f6f6f; 
   transition: transform 0.3s ease;
 }
-.recent-search-heading h4{
+
+.recent-search-heading h4 {
   font-family: 'Euclid Circular A', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: #222020;
   font-weight: 600;
+}
+
+.placeholder {
+  width: 100%;
+  height: 0;
 }
