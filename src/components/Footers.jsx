@@ -28,11 +28,8 @@ const Footer = () => {
           <img
             src="/mainLogo.png"
             alt="Yours Host Logo"
-            style={{ marginBottom: "10px" }}
+            style={{ marginBottom: "10px",width:"175px" }}
           />
-          <Typography variant="h6" gutterBottom>
-            Yours Hospitality
-          </Typography>
           <Typography variant="body2">
             Vivanta Hotel, Faridabad
             <br />
