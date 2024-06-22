@@ -617,3 +617,104 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%;
   height: 0;
 }
+
+.flight-banner img{
+  width: 100%;
+}
+
+
+.flight-offer {
+  padding-top: 5rem;
+}
+
+.flight-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.flight-box {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 4.43px 17.71px 0px #9e9e9e40;
+  border-radius: 20px;
+  padding: 20px 10px;
+  flex: 1 1 calc(50% - 20px);
+  max-width: calc(50% - 20px);
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .flight-box {
+    flex: 1 1 100%;
+    max-width: 100%; 
+  }
+}
+
+@media (max-width: 576px) {
+  .flight-box {
+    flex: 1 1 100%; 
+    max-width: 100%;
+  }
+}
+
+.plane-box {
+  display: flex;
+  align-items: center;
+  max-width: 200px;
+  margin-right: 20px;
+}
+
+.plane-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.plane-content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.plane-content-box p {
+  margin-bottom: 0;
+  font-family: 'Euclid Circular A', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #5d5d5d;
+}
+
+.plane-content-box h5 {
+  font-family: 'Euclid Circular A', sans-serif;
+  color: #2f2b2b;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.plane-content-box span {
+  color: #624fa8;
+}
+
+.plane-content-box h6 {
+  font-family: 'Euclid Circular A', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 5px 0;
+  color: #343434;
+}
+
+.plane-content-box button {
+  padding: 10px 20px;
+  background-color: #624fa8;
+  color: #fff;
+  font-family: 'Euclid Circular A', sans-serif;
+  font-size: 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}

@@ -7,6 +7,8 @@ import Searchbar from "./components/Searchbar";
 import Footer from "./components/Footers";
 import Populardestination from "./components/Populardestination";
 import Recentsearch from "./components/Recentsearch";
+import Flightbanner from "./components/Flightbanner";
+import Flightsoffer from "./components/Flightsoffer";
 
 function CommonElement() {
   return (
@@ -22,6 +24,8 @@ function CommonElement() {
             <Searchbar/>
             <Recentsearch/>
             <Populardestination/>
+            <Flightsoffer/>
+            <Flightbanner/>
           </div>
           </div>
         </div>
