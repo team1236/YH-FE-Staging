@@ -5,7 +5,8 @@ const Recentsearch = () => {
   const searchItems = [
     { from: "Bangalore", to: "Delhi" },
     { from: "Mumbai", to: "Chennai" },
-    { from: "Kolkata", to: "Hyderabad" }
+    { from: "Kolkata", to: "Hyderabad" },
+    { from: "New Delhi", to: "Pune" }
   ];
 
   return (
@@ -14,7 +15,7 @@ const Recentsearch = () => {
         <h4>Recent Searches</h4>
       </div>
       <div className="recent-search-container">
-        {searchItems.slice(0, 3).map((item, index) => (
+        {searchItems.slice(0, 4).map((item, index) => (
           <div className="date-box" key={index}>
             <div className='checked-date'>
               <h5>21 June, Friday</h5>
