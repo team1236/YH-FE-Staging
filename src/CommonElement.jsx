@@ -30,7 +30,7 @@ function CommonElement() {
           </div>
         </div>
         <Outlet />
-        <Footer/>
+        <Footer />
       </main>
       <Toaster position="top-center" reverseOrder={false} />
     </div>
