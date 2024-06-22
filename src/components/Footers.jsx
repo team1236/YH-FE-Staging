@@ -15,6 +15,7 @@ const Footer = () => {
         backgroundColor: "#f9f9f9",
         padding: "20px 0",
         marginTop: "50px",
+        fontFamily: "Euclid Circular A', sans-serif",
       }}
     >
       <Grid
@@ -27,11 +28,8 @@ const Footer = () => {
           <img
             src="/mainLogo.png"
             alt="Yours Host Logo"
-            style={{ marginBottom: "10px" }}
+            style={{ marginBottom: "10px", width: "175px" }}
           />
-          <Typography variant="h6" gutterBottom>
-            Yours Hospitality
-          </Typography>
           <Typography variant="body2">
             V 504, The Atrium Hotel, (Sarovar portico) Near By Shooting Range
             Rd, Surajkund, Faridabad , <br />New Delhi, Haryana 121009
@@ -39,7 +37,7 @@ const Footer = () => {
           <Typography variant="body2" style={{ marginTop: "10px" }}>
             Email: contact@yourshost.com
             <br />
-            Phone: +91 85100 05461, +91 85100 05460
+            Phone: 8510005461,62,63,64,65,67
           </Typography>
           <Grid container spacing={1} style={{ marginTop: "10px" }}>
             <Grid item>
