@@ -7,19 +7,19 @@ const NewsletterSubscription = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '3rem',
-        borderRadius: '8px',
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-        backgroundColor: '#fff',
-        maxWidth: '1200px',
-        margin: 'auto',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: "3rem",
+        borderRadius: "8px",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+        backgroundColor: "#fff",
+        maxWidth: "1200px",
+        margin: "auto",
         // mt: '0.5rem'
       }}
     >
-      <MailOutlineIcon sx={{ fontSize: 40, color: 'primary.main' }} />
+      <MailOutlineIcon sx={{ fontSize: 40, color: "#624fa8" }} />
       <Typography variant="h5" gutterBottom>
         Subscribe To Our Newsletter!
       </Typography>
@@ -29,9 +29,9 @@ const NewsletterSubscription = () => {
       <Box
         component="form"
         sx={{
-          display: 'flex',
-          width: '100%',
-          mt: '1rem'
+          display: "flex",
+          width: "100%",
+          mt: "1rem",
         }}
       >
         <TextField
@@ -46,17 +46,19 @@ const NewsletterSubscription = () => {
               </InputAdornment>
             ),
             sx: {
-              borderRadius: '4px 0 0 4px'
-            }
+              borderRadius: "4px 0 0 4px",
+            },
           }}
         />
         <Button
           variant="contained"
-          color="primary"
+          //   color="primary"
           type="submit"
           sx={{
-            borderRadius: '0 4px 4px 0',
-            px: '1.5rem'
+            borderRadius: "0 4px 4px 0",
+            px: "1.5rem",
+            // color: "#624fa8",
+            background: "#624fa8",
           }}
         >
           <SendIcon />
