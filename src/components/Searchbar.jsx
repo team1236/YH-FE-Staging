@@ -44,7 +44,19 @@ const Searchbar = () => {
   const id = open ? 'passenger-popover' : undefined;
 
   return (
-    <div className="search-column mt-3">
+    <div className="search-section mt-3">
+
+<div className="search-banner">
+  <div className='search-banner-text'>
+    <h4>Search Flights</h4>
+    <p>Enjoy hassle free bookings with Hospitality</p>
+  </div>
+  <div>
+    <img src="human.png" alt="" width={167} height={150} />
+  </div>
+</div>
+
+    <div className="search-column">
       <div className="trip-buttons">
         <RadioGroup
           row
@@ -202,6 +214,8 @@ const Searchbar = () => {
           Search Flights <span className="icon-wrapper"><FlightTakeoffIcon /></span>
         </button>
       </div>
+    </div>
+
     </div>
   );
 };

@@ -6,8 +6,7 @@ const Footer = () => {
   const linkStyle = {
     lineHeight: "1.5",
     color: "textSecondary",
-    textDecoration: 'none'
-
+    textDecoration: "none",
   };
 
   return (
@@ -33,11 +32,7 @@ const Footer = () => {
           />
           <Typography variant="body2">
             V 504, The Atrium Hotel, (Sarovar portico) Near By Shooting Range
-            Rd, Surajkund, Faridabad ,New Delhi
-            <br />
-            Haryana, 121009
-            <br />
-            Country
+            Rd, Surajkund, Faridabad , <br />New Delhi, Haryana 121009
           </Typography>
           <Typography variant="body2" style={{ marginTop: "10px" }}>
             Email: contact@yourshost.com
