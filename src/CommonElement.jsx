@@ -7,6 +7,7 @@ import Searchbar from "./components/Searchbar";
 import Footer from "./components/Footers";
 import Populardestination from "./components/Populardestination";
 import Recentsearch from "./components/Recentsearch";
+import HomeBanner from "./components/HomeBanner";
 
 function CommonElement() {
   return (
@@ -15,18 +16,19 @@ function CommonElement() {
         <Navbar />
         <div className="container mt-4">
           <div className="row">
-          <div className="col-lg-2">
-          <Sidenav/>
-          </div>
-          <div className="col-lg-10">
-            <Searchbar/>
-            <Recentsearch/>
-            <Populardestination/>
-          </div>
+            <div className="col-lg-2">
+              <Sidenav />
+            </div>
+            <div className="col-lg-10">
+              <Searchbar />
+              <Recentsearch />
+              <HomeBanner />
+              <Populardestination />
+            </div>
           </div>
         </div>
         <Outlet />
-        <Footer/>
+        <Footer />
       </main>
       <Toaster position="top-center" reverseOrder={false} />
     </div>
