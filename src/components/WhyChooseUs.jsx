@@ -1,9 +1,9 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+// import { Grid, Typography } from "@mui/material";
 
 const WhyChooseUs = () => {
   return (
-    <div style={{ padding: "50px 8px", width: "100%" }}>
+    <div className="why-us-section pt-5">
       <h1>Why Book on Yours Hospitality?</h1>
       <p>
         On Yours Hospitality.com, you can turn all your plans into trips. From flight

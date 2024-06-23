@@ -12,6 +12,7 @@ import Recentsearch from "./components/Recentsearch";
 import Flightbanner from "./components/Flightbanner";
 import Flightsoffer from "./components/Flightsoffer";
 import Newsletter from "./components/NewsLetter";
+import Testimonials from "./components/Testimonials";
 
 function CommonElement() {
   return (
@@ -29,6 +30,7 @@ function CommonElement() {
               <Populardestination />
               <Flightsoffer />
               <Flightbanner />
+              <Testimonials/>
               <WhyChooseUs />
               <Newsletter/>
             </div>
