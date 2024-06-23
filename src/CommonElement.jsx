@@ -32,7 +32,7 @@ function CommonElement() {
               <Flightbanner />
               <Testimonials/>
               <WhyChooseUs />
-              <Newsletter/>
+              {/* <Newsletter/> */}
             </div>
           </div>
         </div>
