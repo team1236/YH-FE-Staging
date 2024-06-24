@@ -1,21 +1,22 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import CommonElement from "../CommonElement.jsx";
-import Footer from "../components/Footers.jsx";
+import Offer from "../pages/Offer.jsx";
+import HomePage from "../pages/HomePage.jsx";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <CommonElement />,
     children: [
-      // {
-      //   path: "/",
-      //   element: <Login />,
-      // },
-      // {
-      //   path: "/",
-      //   element: <Footer/>
-      // }
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/offer",
+        element: <Offer />,
+      },
     ],
   },
 ]);

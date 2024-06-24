@@ -31,7 +31,7 @@ const Sidenav = () => {
                 </Link>
               </div>
             </div>
-            <Link to="#" className="nav-link">
+            <Link to="/offer" className="nav-link">
               <LocalOfferIcon className="nav-icon" /> Offers
             </Link>
             <Link to="#" className="nav-link">
