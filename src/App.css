@@ -819,3 +819,150 @@ input[type="number"]::-webkit-inner-spin-button {
   .why-us-section li{
     margin: 10px 0;
   }
+
+  /*** Offer page CSS ***/
+
+  .offer-tabs button{
+    margin:0 20px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: "Euclid Circular A", sans-serif;
+    border-radius: 0;
+    padding: 2px;
+    font-size: 16px;
+    color: #454545;
+  }
+  .offer-tabs .offer-active{
+    border-bottom: 3px solid #624fa8;
+    color: #624fa8;
+    font-weight: 500;
+  }
+  .offer-cards-box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .coupon-card {
+
+}
+.flight-card{
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('plane.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 20px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+  max-width: 330px;
+  margin: 10px 0;
+}
+.hotel-card{
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hotel.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 20px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+  max-width: 330px;
+  margin: 10px 0;
+}
+.transport-card{
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('car.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 20px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+  max-width: 330px;
+  margin: 10px 0;
+}
+  .logo {
+    width: 80px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .coupon-card h3 {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Euclid Circular A", sans-serif;
+    line-height: 28px;
+  }
+  .coupon-row{
+    display: flex;
+    align-items: center;
+    margin: 25px auto;
+    width: fit-content;
+
+}
+.cpnCode{
+    border: 1px dashed #fff;
+    padding: 10px 20px;
+    border-right: 0;
+    font-family: "Euclid Circular A", sans-serif;
+}
+.cpnBtn{
+  font-family: "Euclid Circular A", sans-serif;
+    border: 1px solid #fff;
+    background: #fff;
+    padding: 10px 10px;
+    color: #7158fe;
+    cursor: pointer;
+}
+  .coupon-card p {
+    font-size: 14px;
+    font-family: "Euclid Circular A", sans-serif;
+    margin-bottom: 0;
+  }
+  
+  .coupon-row {
+    display: flex;
+    align-items: center;
+    margin: 5px auto;
+    width: fit-content;
+  }
+  
+  #cpnCode {
+    border: 1px dashed #fff;
+    padding: 10px 20px;
+    border-right: 0;
+  }
+  
+  #cpnBtn {
+    border: 1px solid #fff;
+    background: #fff;
+    padding: 10px 10px;
+    color: #7158fe;
+    cursor: pointer;
+  }
+  
+  .circle1,
+  .circle2 {
+    background: #ffffff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .circle1 {
+    left: -8px;
+  }
+  
+  .circle2 {
+    right: -8px;
+  }
+  

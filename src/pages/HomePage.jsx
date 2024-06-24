@@ -6,7 +6,7 @@ import Populardestination from "../components/Populardestination";
 import Recentsearch from "../components/Recentsearch";
 import Flightbanner from "../components/Flightbanner";
 import Flightsoffer from "../components/Flightsoffer";
-import Newsletter from "../components/NewsLetter";
+// import Newsletter from "../components/NewsLetter";
 import Testimonials from "../components/Testimonials";
 
 const HomePage = () => {
