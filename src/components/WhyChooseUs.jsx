@@ -65,7 +65,7 @@ const WhyChooseUs = () => {
           <strong>
             Special Fares For Armed Personnel, Senior Citizens and Student
             travellers:
-          </strong>{" "}
+          </strong>
           Yours Hospitality introduces discounted fares for armed personnel, senior
           citizens and students on domestic flights. Additional discounts with
           coupon codes.
