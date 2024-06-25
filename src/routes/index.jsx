@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import CommonElement from "../CommonElement.jsx";
 import Offer from "../pages/Offer.jsx";
 import HomePage from "../pages/HomePage.jsx";
+import Hotel from "../pages/Hotel.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "/offer",
         element: <Offer />,
+      },
+      {
+        path: "/hotel",
+        element: <Hotel/>,
       },
     ],
   },

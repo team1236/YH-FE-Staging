@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 
 const Searchbar = () => {
   const [tripType, setTripType] = useState('oneWay');
@@ -145,7 +146,7 @@ const Searchbar = () => {
         <div className="col-lg-4 popover-box">
           <div className={`input-wrapper passenger-input ${passengerValue.adults > 0 || passengerValue.children > 0 || passengerValue.infants > 0 ? 'active' : ''}`}>
             <label htmlFor="passenger" className="input-label">
-              Passenger
+            <PersonOutlineOutlinedIcon className='user-icon'/> Passenger
             </label>
             <input
               type="text"

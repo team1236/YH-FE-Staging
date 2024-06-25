@@ -19,8 +19,8 @@ const Sidenav = () => {
       setActiveTab('flights');
     } else if (path.includes('offer')) {
       setActiveTab('offers');
-    } else if (path.includes('hotels')) {
-      setActiveTab('hotels');
+    } else if (path.includes('hotel')) {
+      setActiveTab('hotel');
     } else if (path.includes('car')) {
       setActiveTab('car');
     } else if (path.includes('bus')) {
@@ -42,11 +42,11 @@ const Sidenav = () => {
         <FlightIcon className="nav-icon" /> Flights
       </Link>
       <Link
-        to="/hotels"
-        className={`nav-link ${activeTab === 'hotels' ? 'active' : ''}`}
-        onClick={() => setActiveTab('hotels')}
+        to="/hotel"
+        className={`nav-link ${activeTab === 'hotel' ? 'active' : ''}`}
+        onClick={() => setActiveTab('hotel')}
       >
-        <HotelIcon className="nav-icon" /> Hotels
+        <HotelIcon className="nav-icon" /> hotel
       </Link>
       <div className="nav-link dropdown">
         <Link to="#" className="drop-link">
