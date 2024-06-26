@@ -10,6 +10,7 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import BusAlertIcon from '@mui/icons-material/BusAlert';
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
+import CollectionsIcon from "@mui/icons-material/Collections";
 
 const Sidenav = () => {
   const location = useLocation();
@@ -21,8 +22,8 @@ const Sidenav = () => {
       setActiveTab('flights');
     } else if (path.includes('offer')) {
       setActiveTab('offers');
-    } else if (path.includes('hotels')) {
-      setActiveTab('hotels');
+    } else if (path.includes('hotel')) {
+      setActiveTab('hotel');
     } else if (path.includes('car')) {
       setActiveTab('car');
     } else if (path.includes('bus')) {
@@ -31,6 +32,8 @@ const Sidenav = () => {
       setActiveTab('trips');
     } else if (path.includes('holidayPackage')) {
       setActiveTab("holidayPackage");
+    } else if (path.includes('yhGallery')) {
+      setActiveTab("yhGallery");
     } else if (path.includes('myService')) {
       setActiveTab("myService");
     } else if (path.includes('support')) {
@@ -48,11 +51,11 @@ const Sidenav = () => {
         <FlightIcon className="nav-icon" /> Flights
       </Link>
       <Link
-        to="/hotels"
-        className={`nav-link ${activeTab === "hotels" ? "active" : ""}`}
-        onClick={() => setActiveTab("hotels")}
+        to="/hotel"
+        className={`nav-link ${activeTab === "hotel" ? "active" : ""}`}
+        onClick={() => setActiveTab("hotel")}
       >
-        <HotelIcon className="nav-icon" /> Hotels
+        <HotelIcon className="nav-icon" /> hotel
       </Link>
       <div className="nav-link dropdown">
         <Link to="#" className="drop-link">
@@ -96,6 +99,13 @@ const Sidenav = () => {
         onClick={() => setActiveTab("holidayPackage")}
       >
         <HolidayVillageIcon className="nav-icon" /> Holiday Package
+      </Link>
+      <Link
+        to="/yhGallery"
+        className={`nav-link ${activeTab === "holidayPackage" ? "active" : ""}`}
+        onClick={() => setActiveTab("yhGallery")}
+      >
+        <CollectionsIcon className="nav-icon" /> YH Gallery
       </Link>
       <Link
         to="/myService"
