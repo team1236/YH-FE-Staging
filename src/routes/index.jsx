@@ -4,6 +4,7 @@ import CommonElement from "../CommonElement.jsx";
 import Offer from "../pages/Offer.jsx";
 import HomePage from "../pages/HomePage.jsx";
 import Hotel from "../pages/Hotel.jsx";
+import MyService from "../pages/MyService.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/hotel",
-        element: <Hotel/>,
+        element: <Hotel />,
+      },
+      {
+        path: "/myService",
+        element: <MyService />,
       },
     ],
   },

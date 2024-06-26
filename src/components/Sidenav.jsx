@@ -8,6 +8,9 @@ import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import BusAlertIcon from '@mui/icons-material/BusAlert';
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
+import CollectionsIcon from "@mui/icons-material/Collections";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -30,6 +33,12 @@ const Sidenav = () => {
       setActiveTab('bus');
     } else if (path.includes('trips')) {
       setActiveTab('trips');
+    } else if (path.includes('holidayPackage')) {
+      setActiveTab("holidayPackage");
+    } else if (path.includes('yhGallery')) {
+      setActiveTab("yhGallery");
+    } else if (path.includes('myService')) {
+      setActiveTab("myService");
     } else if (path.includes('support')) {
       setActiveTab('support');
     }
@@ -81,29 +90,50 @@ const Sidenav = () => {
             </Link>
           </div>
         </div>
-        <Link
-          to="/offer"
-          className={`nav-link ${activeTab === 'offers' ? 'active' : ''}`}
-          onClick={() => setActiveTab('offers')}
-        >
-          <LocalOfferIcon className="nav-icon" /> Offers
-        </Link>
-        <Link
-          to="/trips"
-          className={`nav-link ${activeTab === 'trips' ? 'active' : ''}`}
-          onClick={() => setActiveTab('trips')}
-        >
-          <TripOriginIcon className="nav-icon" /> My Trips
-        </Link>
-        <Link
-          to="/support"
-          className={`nav-link ${activeTab === 'support' ? 'active' : ''}`}
-          onClick={() => setActiveTab('support')}
-        >
-          <ContactSupportIcon className="nav-icon" /> Support
-        </Link>
+      <Link
+        to="/offer"
+        className={`nav-link ${activeTab === "offers" ? "active" : ""}`}
+        onClick={() => setActiveTab("offers")}
+      >
+        <LocalOfferIcon className="nav-icon" /> Offers
+      </Link>
+      <Link
+        to="/trips"
+        className={`nav-link ${activeTab === "trips" ? "active" : ""}`}
+        onClick={() => setActiveTab("trips")}
+      >
+        <TripOriginIcon className="nav-icon" /> My Trips
+      </Link>
+      <Link
+        to="/holidayPackage"
+        className={`nav-link ${activeTab === "holidayPackage" ? "active" : ""}`}
+        onClick={() => setActiveTab("holidayPackage")}
+      >
+        <HolidayVillageIcon className="nav-icon" /> Holiday Package
+      </Link>
+      <Link
+        to="/yhGallery"
+        className={`nav-link ${activeTab === "holidayPackage" ? "active" : ""}`}
+        onClick={() => setActiveTab("yhGallery")}
+      >
+        <CollectionsIcon className="nav-icon" /> YH Gallery
+      </Link>
+      <Link
+        to="/myService"
+        className={`nav-link ${activeTab === "myService" ? "active" : ""}`}
+        onClick={() => setActiveTab("myService")}
+      >
+        <ManageAccountsIcon className="nav-icon" /> My Service
+      </Link>
+      <Link
+        to="/support"
+        className={`nav-link ${activeTab === "support" ? "active" : ""}`}
+        onClick={() => setActiveTab("support")}
+      >
+        <ContactSupportIcon className="nav-icon" /> Support
+      </Link>
       </nav>
-    </>
+      </>
   );
 };
 
