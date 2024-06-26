@@ -8,10 +8,13 @@ import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import BusAlertIcon from '@mui/icons-material/BusAlert';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Sidenav = () => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('');
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
   useEffect(() => {
     const path = location.pathname;
@@ -32,66 +35,75 @@ const Sidenav = () => {
     }
   }, [location]);
 
+  const toggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
+
   return (
-    <nav className="sidenav flex-column mt-3">
-      <Link
-        to="/"
-        className={`nav-link ${activeTab === 'flights' ? 'active' : ''}`}
-        onClick={() => setActiveTab('flights')}
-      >
-        <FlightIcon className="nav-icon" /> Flights
-      </Link>
-      <Link
-        to="/hotel"
-        className={`nav-link ${activeTab === 'hotel' ? 'active' : ''}`}
-        onClick={() => setActiveTab('hotel')}
-      >
-        <HotelIcon className="nav-icon" /> hotel
-      </Link>
-      <div className="nav-link dropdown">
-        <Link to="#" className="drop-link">
-          <DirectionsBusIcon className="nav-icon" /> Transport{' '}
-          <span className="badge">NEW</span>
+    <>
+      <button className="menu-button" onClick={toggleSidebar}>
+        {isSidebarVisible ? <CloseIcon /> : <MenuIcon />}
+      </button>
+      <nav className={`sidenav flex-column mt-3 ${isSidebarVisible ? 'visible' : ''}`}>
+        <Link
+          to="/"
+          className={`nav-link ${activeTab === 'flights' ? 'active' : ''}`}
+          onClick={() => setActiveTab('flights')}
+        >
+          <FlightIcon className="nav-icon" /> Flights
         </Link>
-        <div className="dropdown-content">
-          <Link
-            to="/car"
-            className={`dropdown-item ${activeTab === 'car' ? 'active' : ''}`}
-            onClick={() => setActiveTab('car')}
-          >
-            <DirectionsCarIcon className="nav-icon" /> Car
+        <Link
+          to="/hotel"
+          className={`nav-link ${activeTab === 'hotel' ? 'active' : ''}`}
+          onClick={() => setActiveTab('hotel')}
+        >
+          <HotelIcon className="nav-icon" /> hotel
+        </Link>
+        <div className="nav-link dropdown">
+          <Link to="#" className="drop-link">
+            <DirectionsBusIcon className="nav-icon" /> Transport{' '}
+            <span className="badge">NEW</span>
           </Link>
-          <Link
-            to="/bus"
-            className={`dropdown-item ${activeTab === 'bus' ? 'active' : ''}`}
-            onClick={() => setActiveTab('bus')}
-          >
-            <BusAlertIcon className="nav-icon" /> Bus
-          </Link>
+          <div className="dropdown-content">
+            <Link
+              to="/car"
+              className={`dropdown-item ${activeTab === 'car' ? 'active' : ''}`}
+              onClick={() => setActiveTab('car')}
+            >
+              <DirectionsCarIcon className="nav-icon" /> Car
+            </Link>
+            <Link
+              to="/bus"
+              className={`dropdown-item ${activeTab === 'bus' ? 'active' : ''}`}
+              onClick={() => setActiveTab('bus')}
+            >
+              <BusAlertIcon className="nav-icon" /> Bus
+            </Link>
+          </div>
         </div>
-      </div>
-      <Link
-        to="/offer"
-        className={`nav-link ${activeTab === 'offers' ? 'active' : ''}`}
-        onClick={() => setActiveTab('offers')}
-      >
-        <LocalOfferIcon className="nav-icon" /> Offers
-      </Link>
-      <Link
-        to="/trips"
-        className={`nav-link ${activeTab === 'trips' ? 'active' : ''}`}
-        onClick={() => setActiveTab('trips')}
-      >
-        <TripOriginIcon className="nav-icon" /> My Trips
-      </Link>
-      <Link
-        to="/support"
-        className={`nav-link ${activeTab === 'support' ? 'active' : ''}`}
-        onClick={() => setActiveTab('support')}
-      >
-        <ContactSupportIcon className="nav-icon" /> Support
-      </Link>
-    </nav>
+        <Link
+          to="/offer"
+          className={`nav-link ${activeTab === 'offers' ? 'active' : ''}`}
+          onClick={() => setActiveTab('offers')}
+        >
+          <LocalOfferIcon className="nav-icon" /> Offers
+        </Link>
+        <Link
+          to="/trips"
+          className={`nav-link ${activeTab === 'trips' ? 'active' : ''}`}
+          onClick={() => setActiveTab('trips')}
+        >
+          <TripOriginIcon className="nav-icon" /> My Trips
+        </Link>
+        <Link
+          to="/support"
+          className={`nav-link ${activeTab === 'support' ? 'active' : ''}`}
+          onClick={() => setActiveTab('support')}
+        >
+          <ContactSupportIcon className="nav-icon" /> Support
+        </Link>
+      </nav>
+    </>
   );
 };
 
