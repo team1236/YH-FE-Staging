@@ -425,6 +425,7 @@ input[type="number"]::-webkit-inner-spin-button {
     color: #666 !important;
   }
 }
+
 .passenger-popover {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -468,12 +469,10 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .search-button {
   position: relative;
-  z-index: 1;
 }
 
 .search-button button {
   position: relative;
-  z-index: 1;
   background-color: #624fa8;
   color: #fff;
   padding: 12px 30px;
