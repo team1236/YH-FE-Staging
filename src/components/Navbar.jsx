@@ -1,6 +1,7 @@
 import React from 'react'
 import LoginDialog from './LoginDialog'
 import RegisterDialog from './RegisterDialog';
+import ProfileAvator from './ProfileAvator';
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
@@ -8,7 +9,7 @@ const Navbar = () => {
   return (
     <section className='navbar sticky-top'>
         <img src='/mainLogo.png' className='nav-logo'/>
-        <button className='login-btn' onClick={() => setOpen(true)}>Login / Sign up</button>
+        {true ? <button className='login-btn' onClick={() => setOpen(true)}>Login / Sign up</button> :<ProfileAvator/>}
         {<LoginDialog open={open} setOpen={setOpen} setOpenRegister={setOpenRegister}/>}
         {<RegisterDialog open={openRegister} setOpen={setOpenRegister} setOpenLogin={setOpen} openLogin={open} />}
     </section>
