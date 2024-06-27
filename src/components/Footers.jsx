@@ -36,7 +36,7 @@ const Footer = () => {
             New Delhi, Haryana 121009
           </Typography>
           <Typography variant="body2" style={{ marginTop: "10px" }}>
-            Email: info@yourshospitality.con
+            Email: info@yourshospitality.com
             <br />
             Phone: 8510005461/62/63/64/65/67
           </Typography>
