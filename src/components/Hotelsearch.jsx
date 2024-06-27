@@ -72,6 +72,7 @@ const Hotelsearch = () => {
                 type="date"
                 id="departureDate"
                 className="input-field"
+                placeholder="dd-mm-yyyy"
                 value={departureDateValue}
                 onChange={(event) => handleInputChange(event, setDepartureDateValue)}
               />
@@ -81,6 +82,7 @@ const Hotelsearch = () => {
                 type="date"
                 id="returnDate"
                 className="input-field"
+                placeholder="dd-mm-yyyy"
                 value={returnDateValue}
                 onChange={(event) => handleInputChange(event, setReturnDateValue)}
               />

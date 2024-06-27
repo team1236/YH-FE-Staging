@@ -1088,12 +1088,7 @@ input[type="number"]::-webkit-inner-spin-button {
     border-radius: 10px;
     cursor: pointer;
   }
-@media(max-width:560px){
-  .hotel-banner-box img{
-    height: 85px;
-  }
 
-}
 
 .getaway-column img{
   width: 100%;
