@@ -32,12 +32,13 @@ const Footer = () => {
           />
           <Typography variant="body2">
             V 504, The Atrium Hotel, (Sarovar portico) Near By Shooting Range
-            Rd, Surajkund, Faridabad , <br />New Delhi, Haryana 121009
+            Rd, Surajkund, Faridabad , <br />
+            New Delhi, Haryana 121009
           </Typography>
           <Typography variant="body2" style={{ marginTop: "10px" }}>
-            Email: contact@yourshost.com
+            Email: info@yourshospitality.com
             <br />
-            Phone: 8510005461,62,63,64,65,67
+            Phone: 8510005461/62/63/64/65/67
           </Typography>
           <Grid container spacing={1} style={{ marginTop: "10px" }}>
             <Grid item>
