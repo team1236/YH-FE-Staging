@@ -417,15 +417,12 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #666;
   font-size: 14px;
 }
-@media (max-width:560px){
-  .from-input input {
-    color: #666 !important;
-  }
-  .to-input input {
-    color: #666 !important;
-  }
+.from-input .react-datepicker{
+  margin-left: 30px !important;
 }
-
+.to-input .react-datepicker{
+  margin-right: 30px !important;
+}
 .passenger-popover {
   background-color: #fff;
   border: 1px solid #ccc;
