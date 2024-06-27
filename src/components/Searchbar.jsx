@@ -127,7 +127,6 @@ const Searchbar = () => {
               type="date"
               id="departureDate"
               className="input-field"
-               placeholder="dd-mm-yyyy"
               value={departureDateValue}
               onChange={(event) => handleInputChange(event, setDepartureDateValue)}
             />
@@ -137,7 +136,6 @@ const Searchbar = () => {
               type="date"
               id="returnDate"
               className="input-field"
-               placeholder="dd-mm-yyyy"
               value={returnDateValue}
               onChange={(event) => handleInputChange(event, setReturnDateValue)}
               disabled={tripType === 'oneWay'}

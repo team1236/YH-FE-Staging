@@ -7,11 +7,13 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 const Hotelsearch = () => {
   const [fromValue, setFromValue] = useState('');
-  const [departureDateValue, setDepartureDateValue] = useState('');
-  const [returnDateValue, setReturnDateValue] = useState('');
+  const [departureDateValue, setDepartureDateValue] = useState(null);
+  const [returnDateValue, setReturnDateValue] = useState(null);
   const [passengerValue, setPassengerValue] = useState({ adults: 0, children: 0, infants: 0 });
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -68,23 +70,21 @@ const Hotelsearch = () => {
 
           <div className="col-lg-4 place-field">
             <div className={`input-wrapper from-input ${departureDateValue ? 'active' : ''}`}>
-              <input
-                type="date"
-                id="departureDate"
+              <DatePicker
+                selected={departureDateValue}
+                onChange={(date) => setDepartureDateValue(date)}
                 className="input-field"
-                placeholder="dd-mm-yyyy"
-                value={departureDateValue}
-                onChange={(event) => handleInputChange(event, setDepartureDateValue)}
+                dateFormat="dd-MM-yyyy"
+                placeholderText="dd-mm-yyyy"
               />
             </div>
             <div className={`input-wrapper to-input ${returnDateValue ? 'active' : ''}`}>
-              <input
-                type="date"
-                id="returnDate"
+              <DatePicker
+                selected={returnDateValue}
+                onChange={(date) => setReturnDateValue(date)}
                 className="input-field"
-                placeholder="dd-mm-yyyy"
-                value={returnDateValue}
-                onChange={(event) => handleInputChange(event, setReturnDateValue)}
+                dateFormat="dd-MM-yyyy"
+                placeholderText="dd-mm-yyyy"
               />
             </div>
           </div>
