@@ -5,6 +5,7 @@ import Offer from "../pages/Offer.jsx";
 import HomePage from "../pages/HomePage.jsx";
 import Hotel from "../pages/Hotel.jsx";
 import MyService from "../pages/MyService.jsx";
+import HolidayPackage from "../pages/HolidayPackage.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: "/myService",
         element: <MyService />,
+      },
+      {
+        path: "/holidayPackage",
+        element: <HolidayPackage />,
       },
     ],
   },
