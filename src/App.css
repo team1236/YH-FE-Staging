@@ -1246,6 +1246,11 @@ color: #737373;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px;
   transform: translateY(-2px);
 }
+@media (max-width:560px){
+  .deal-heading{
+    display: block;
+  }
+}
 .price-book-btn{
   display: flex;
   justify-content: space-between;
