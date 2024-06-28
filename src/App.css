@@ -956,7 +956,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 15px;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
   position: relative;
-  max-width: 330px;
+  max-width: 300px;
   margin: 10px 0;
 }
 .transport-card{
@@ -1148,4 +1148,180 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 18px;
 }
 
+.hotel-deal-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
 
+.hotel-look {
+  border-radius: 10px;
+}
+
+.deal-img img{
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.deal-img {
+  z-index: 1;
+  position: relative;
+}
+.deal-content{
+  background-color: #ffffff !important;
+  border-radius: 20px;
+  margin-top: -20px;
+  z-index: 2;
+  position: relative;
+  padding: 15px 10px;
+  border: 1px solid #f0f0f0;
+}
+.deal-content h4{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222020;
+  margin-bottom: 4px;
+}
+.deal-content small{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 11px;
+  color: #737373;
+}
+.deal-heading h4{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #222020;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.deal-heading p{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  padding-top: 5px;
+  color: #737373;
+}
+.deal-content .css-i4bv87-MuiSvgIcon-root{
+font-size: 14px;
+color: #737373;
+}
+.deal-heading{
+  display: flex;
+  justify-content: space-between;
+}
+.deal-heading button {
+  background-color: #222020;
+  color: #fff;
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.deal-heading button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-45deg);
+  transition: all 0.5s ease;
+}
+
+.deal-heading button:hover::before {
+  left: 125%;
+}
+
+.deal-heading button:hover {
+  background-color: #444;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px;
+  transform: translateY(-2px);
+}
+.price-book-btn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price-book-btn h6{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.price-book-btn span{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 12px;
+  color: 
+  #737373;
+  font-weight: 500;
+}
+.price-book-btn button{
+  background-color: #4c3f90;
+  color: #fff;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 12px;
+  border-radius: 20px;
+  padding: 8px 10px;
+  border: none;
+}
+.review-box{
+  display: flex;
+  justify-content: end;
+}
+.review-box h6{
+  border-radius: 20px;
+  border: 1px solid rgb(214, 214, 214);
+  background-color: #fff;
+  padding: 5px 10px;
+  position: absolute;
+margin-top: -30px;
+}
+.review-box h6{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 13px;
+  color: #000;
+  margin-bottom: 0;
+}
+.review-box span{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 12px;
+  color: 
+  #737373;
+}
+.review-box .css-i4bv87-MuiSvgIcon-root{
+  color: #FFC700;
+  margin-bottom: 2px;
+}
+
+
+/*** Footer Css ***/
+/* .footer-column h6{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: 
+  #252323;
+}
+.footer-column a{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  color: 
+  #737373;
+}
+.footer-link{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  color: 
+  #737373;
+  margin: 10px 0;
+} */

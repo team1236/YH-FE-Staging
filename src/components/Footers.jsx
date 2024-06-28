@@ -79,21 +79,21 @@ const Footer = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} md={7}>
+        <Grid className="footer-column" item xs={12} md={7}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} md={4}>
               <Typography variant="h6" gutterBottom style={linkStyle}>
                 Popular Domestic Flight
               </Typography>
-              <Link href="#" style={linkStyle} color="textSecondary">
+              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
                 Delhi Goa flights
               </Link>
               <br />
-              <Link href="#" style={linkStyle} color="textSecondary">
+              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
                 Mumbai Delhi flights
               </Link>
               <br />
-              <Link href="#" style={linkStyle} color="textSecondary">
+              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
                 Delhi Kolkata flights
               </Link>
               <br />
@@ -104,15 +104,15 @@ const Footer = () => {
               <Typography variant="h6" gutterBottom>
                 Popular Hotels
               </Typography>
-              <Link href="#" style={linkStyle} color="textSecondary">
+              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
                 Goa hotels
               </Link>
               <br />
-              <Link href="#" style={linkStyle} color="textSecondary">
+              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
                 Mumbai hotels
               </Link>
               <br />
-              <Link href="#" style={linkStyle} color="textSecondary">
+              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
                 Bangalore hotels
               </Link>
               <br />
@@ -122,15 +122,15 @@ const Footer = () => {
               <Typography variant="h6" gutterBottom>
                 Popular Hotel Chains
               </Typography>
-              <Link href="#" style={linkStyle} color="textSecondary">
+              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
                 Taj Group
               </Link>
               <br />
-              <Link href="#" style={linkStyle} color="textSecondary">
+              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
                 Sarovar Group of Hotels
               </Link>
               <br />
-              <Link href="#" style={linkStyle} color="textSecondary">
+              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
                 V Resorts
               </Link>
               <br />

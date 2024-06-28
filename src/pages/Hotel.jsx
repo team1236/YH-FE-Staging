@@ -5,6 +5,7 @@ import Populardestination from "../components/Populardestination";
 import Hoteloffer from '../components/Hoteloffer';
 import Hotelbanner from '../components/Hotelbanner';
 import Trendinggetaway from '../components/Trendinggetaway';
+import Hoteldeal from '../components/Hoteldeal';
 
 const Hotel = () => {
   return (
@@ -19,6 +20,7 @@ const Hotel = () => {
         <Hotelbanner/>
         <Hoteloffer/>
         <Populardestination />
+        <Hoteldeal/>
         <Trendinggetaway/>
       </div>
     </div>
