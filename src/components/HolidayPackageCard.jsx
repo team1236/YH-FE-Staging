@@ -5,8 +5,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, Grid, IconButton } from "@mui/material";
 import { BookmarkAdd } from "@mui/icons-material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function HolidayPackageCard() {
+  const isMobile = useMediaQuery("(max-width:600px)");
+
   const HolidayPackagePlace = [
     {
       title: "Manali",
@@ -37,7 +40,7 @@ export default function HolidayPackageCard() {
       duration: "9 nights and 10 days",
     },
     {
-      title: "Andaman  Islands",
+      title: "Andaman and Nicobar Islands",
       image:
         "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
       price: "$1500",
@@ -75,7 +78,7 @@ export default function HolidayPackageCard() {
           <Grid item xs={12} sm={6} md={3} key={index}>
             <Card
               sx={{
-                width: 260,
+                width: isMobile ? 350 : 260,
                 height: 360,
                 display: "flex",
                 flexDirection: "column",
@@ -89,7 +92,7 @@ export default function HolidayPackageCard() {
                 alt={item.title}
                 sx={{ objectFit: "cover" }}
               />
-              <CardContent sx={{ flexGrow: 1, padding: "20px 8px" }}>
+              <CardContent sx={{ flexGrow: 1, padding: "8px" }}>
                 <Typography variant="h6" gutterBottom>
                   {item.title}
                 </Typography>
