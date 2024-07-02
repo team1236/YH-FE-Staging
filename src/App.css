@@ -265,7 +265,7 @@ input[type="number"]::-webkit-inner-spin-button {
     top: -15px;
     padding-top: 30px;
     left: 0;
-    width: 220px;
+    width: 250px;
     height: 100%;
     background-color: white;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
@@ -464,10 +464,23 @@ input[type="number"]::-webkit-inner-spin-button {
     transform: translateX(0);
   }
 }
+.search-button .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+  width: 329px;
+}
 .search-button {
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
-
+@media(max-width:560px){
+  .search-button {
+    display: block;
+  }
+  .search-button .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
 .search-button button {
   position: relative;
   background-color: #624fa8;
@@ -1308,25 +1321,8 @@ margin-top: -30px;
   margin-bottom: 2px;
 }
 
+.slider .slick-slide {
+  padding: 0 8px;
+  cursor: grab;
+}
 
-/*** Footer Css ***/
-/* .footer-column h6{
-  font-family: "Euclid Circular A", sans-serif;
-  font-size: 17px;
-  font-weight: 500;
-  color: 
-  #252323;
-}
-.footer-column a{
-  font-family: "Euclid Circular A", sans-serif;
-  font-size: 14px;
-  color: 
-  #737373;
-}
-.footer-link{
-  font-family: "Euclid Circular A", sans-serif;
-  font-size: 14px;
-  color: 
-  #737373;
-  margin: 10px 0;
-} */

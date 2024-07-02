@@ -14,7 +14,7 @@ const Hotelsearch = () => {
   const [fromValue, setFromValue] = useState('');
   const [departureDateValue, setDepartureDateValue] = useState(null);
   const [returnDateValue, setReturnDateValue] = useState(null);
-  const [passengerValue, setPassengerValue] = useState({ adults: 0, children: 0, infants: 0 });
+  const [passengerValue, setPassengerValue] = useState({ adults: 0, children: 0, infants: 0, rooms: 0 });
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleInputChange = (event, setter) => {
@@ -75,7 +75,7 @@ const Hotelsearch = () => {
                 onChange={(date) => setDepartureDateValue(date)}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
-                placeholderText="dd-mm-yyyy"
+                placeholderText="Check-in"
               />
             </div>
             <div className={`input-wrapper to-input ${returnDateValue ? 'active' : ''}`}>
@@ -84,15 +84,15 @@ const Hotelsearch = () => {
                 onChange={(date) => setReturnDateValue(date)}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
-                placeholderText="dd-mm-yyyy"
+                placeholderText="Check-out"
               />
             </div>
           </div>
 
           <div className="col-lg-4 popover-box">
-            <div className={`input-wrapper passenger-input ${passengerValue.adults > 0 || passengerValue.children > 0 || passengerValue.infants > 0 ? 'active' : ''}`}>
+            <div className={`input-wrapper passenger-input ${passengerValue.adults > 0 || passengerValue.children > 0 || passengerValue.infants > 0 || passengerValue.rooms > 0 ? 'active' : ''}`}>
               <label htmlFor="passenger" className="input-label">
-                <PersonOutlineOutlinedIcon className='user-icon' /> Passenger
+                <PersonOutlineOutlinedIcon className='user-icon' /> Guest room
               </label>
               <input
                 type="text"
@@ -101,7 +101,8 @@ const Hotelsearch = () => {
                 value={
                   `${passengerValue.adults > 0 ? passengerValue.adults + ' Adult(s), ' : ''}`
                   + `${passengerValue.children > 0 ? passengerValue.children + ' Child(ren), ' : ''}`
-                  + `${passengerValue.infants > 0 ? passengerValue.infants + ' Infant(s)' : ''}`
+                  + `${passengerValue.infants > 0 ? passengerValue.infants + ' Infant(s), ' : ''}`
+                  + `${passengerValue.rooms > 0 ? passengerValue.rooms + ' Room(s)' : ''}`
                 }
                 readOnly
                 onClick={handleClick}
@@ -148,6 +149,16 @@ const Hotelsearch = () => {
                     </Button>
                     <span className="passenger-count">{passengerValue.infants}</span>
                     <Button onClick={() => handlePassengerChange('infants', true)} variant="outlined" size="small">
+                      <AddIcon />
+                    </Button>
+                  </div>
+                  <div className="passenger-item">
+                    <div>Infants:</div>
+                    <Button onClick={() => handlePassengerChange('rooms', false)} variant="outlined" size="small" className="ms-3">
+                      <RemoveIcon />
+                    </Button>
+                    <span className="passenger-count">{passengerValue.infants}</span>
+                    <Button onClick={() => handlePassengerChange('rooms', true)} variant="outlined" size="small">
                       <AddIcon />
                     </Button>
                   </div>

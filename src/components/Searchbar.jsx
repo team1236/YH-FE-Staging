@@ -13,6 +13,8 @@ import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 const Searchbar = () => {
   const [tripType, setTripType] = useState('oneWay');
@@ -22,6 +24,7 @@ const Searchbar = () => {
   const [returnDateValue, setReturnDateValue] = useState(null);
   const [passengerValue, setPassengerValue] = useState({ adults: 0, children: 0, infants: 0 });
   const [anchorEl, setAnchorEl] = useState(null);
+  const [cabinClass, setCabinClass] = useState('economy'); // New state for the select box
 
   const handleInputChange = (event, setter) => {
     const { value } = event.target;
@@ -129,7 +132,7 @@ const Searchbar = () => {
                 onChange={(date) => setDepartureDateValue(date)}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
-                placeholderText="dd-mm-yyyy"
+                placeholderText="Departure-date"
               />
             </div>
             <div className={`input-wrapper to-input ${returnDateValue ? 'active' : ''}`}>
@@ -138,7 +141,7 @@ const Searchbar = () => {
                 onChange={(date) => setReturnDateValue(date)}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
-                placeholderText="dd-mm-yyyy"
+                placeholderText="Return-date"
                 disabled={tripType === 'oneWay'}
               />
             </div>
@@ -211,7 +214,18 @@ const Searchbar = () => {
             </div>
           </div>
         </div>
+
         <div className="search-button">
+          <Select
+            value={cabinClass}
+            onChange={(event) => setCabinClass(event.target.value)}
+            displayEmpty
+            className="cabin-class-select col-lg-4"
+          >
+            <MenuItem value="economy">Economy</MenuItem>
+            <MenuItem value="business">Business</MenuItem>
+            <MenuItem value="firstClass">First Class</MenuItem>
+          </Select>
           <button>
             Search Flights <span className="icon-wrapper"><FlightTakeoffIcon /></span>
           </button>
