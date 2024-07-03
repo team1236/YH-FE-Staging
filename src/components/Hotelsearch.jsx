@@ -60,7 +60,7 @@ const Hotelsearch = () => {
                 type="text"
                 id="from"
                 className="input-field"
-                placeholder='Enter Locality, landmark, city or hotel'
+                placeholder='Hotel Destinations'
                 value={fromValue}
                 onChange={(event) => handleInputChange(event, setFromValue)}
               />
@@ -153,11 +153,11 @@ const Hotelsearch = () => {
                     </Button>
                   </div>
                   <div className="passenger-item">
-                    <div>Infants:</div>
+                    <div>Rooms:</div>
                     <Button onClick={() => handlePassengerChange('rooms', false)} variant="outlined" size="small" className="ms-3">
                       <RemoveIcon />
                     </Button>
-                    <span className="passenger-count">{passengerValue.infants}</span>
+                    <span className="passenger-count">{passengerValue.rooms}</span>
                     <Button onClick={() => handlePassengerChange('rooms', true)} variant="outlined" size="small">
                       <AddIcon />
                     </Button>
