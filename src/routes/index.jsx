@@ -8,6 +8,7 @@ import MyService from "../pages/MyService.jsx";
 import HolidayPackage from "../pages/HolidayPackage.jsx";
 import SupportPage from "../pages/SupportPage.jsx";
 import MyTripService from "../pages/MyTrip.jsx";
+import Transport from "../pages/Transport.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: "/trips",
         element: <MyTripService />,
+      },
+      {
+        path: "/transport",
+        element: <Transport/>,
       },
     ],
   },

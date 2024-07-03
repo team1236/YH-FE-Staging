@@ -6,8 +6,6 @@ import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import BusAlertIcon from '@mui/icons-material/BusAlert';
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
 import CollectionsIcon from "@mui/icons-material/Collections";
@@ -26,11 +24,9 @@ const Sidenav = () => {
     } else if (path.includes('offer')) {
       setActiveTab('offers');
     } else if (path.includes('hotel')) {
-      setActiveTab('hotel'); 
-    } else if (path.includes('car')) {
-      setActiveTab('car');
-    } else if (path.includes('bus')) {
-      setActiveTab('bus');
+      setActiveTab('hotel');
+    } else if (path.includes('transport')) {
+      setActiveTab('transport');
     } else if (path.includes('trips')) {
       setActiveTab('trips');
     } else if (path.includes('holidayPackage')) {
@@ -53,88 +49,67 @@ const Sidenav = () => {
       <button className="menu-button" onClick={toggleSidebar}>
         {isSidebarVisible ? <CloseIcon /> : <MenuIcon />}
       </button>
-      <nav
-        className={`sidenav flex-column mt-3 ${
-          isSidebarVisible ? "visible" : ""
-        }`}
-      >
+      <nav className={`sidenav flex-column mt-3 ${isSidebarVisible ? 'visible' : ''}`}>
         <Link
           to="/"
-          className={`nav-link ${activeTab === "flights" ? "active" : ""}`}
-          onClick={() => setActiveTab("flights")}
+          className={`nav-link ${activeTab === 'flights' ? 'active' : ''}`}
+          onClick={() => setActiveTab('flights')}
         >
           <FlightIcon className="nav-icon" /> Flights
         </Link>
         <Link
           to="/hotel"
-          className={`nav-link ${activeTab === "hotel" ? "active" : ""}`}
-          onClick={() => setActiveTab("hotel")}
+          className={`nav-link ${activeTab === 'hotel' ? 'active' : ''}`}
+          onClick={() => setActiveTab('hotel')}
         >
-          <HotelIcon className="nav-icon" /> hotel
+          <HotelIcon className="nav-icon" /> Hotel
         </Link>
-        <div className="nav-link dropdown">
-          <Link to="#" className="drop-link">
-            <DirectionsBusIcon className="nav-icon" /> Transport{" "}
-            <span className="badge">NEW</span>
-          </Link>
-          <div className="dropdown-content">
-            <Link
-              to="/car"
-              className={`dropdown-item ${activeTab === "car" ? "active" : ""}`}
-              onClick={() => setActiveTab("car")}
-            >
-              <DirectionsCarIcon className="nav-icon" /> Car
-            </Link>
-            <Link
-              to="/bus"
-              className={`dropdown-item ${activeTab === "bus" ? "active" : ""}`}
-              onClick={() => setActiveTab("bus")}
-            >
-              <BusAlertIcon className="nav-icon" /> Bus
-            </Link>
-          </div>
-        </div>
+        <Link
+          to="/transport"
+          className={`nav-link ${activeTab === 'transport' ? 'active' : ''}`}
+          onClick={() => setActiveTab('transport')}
+        >
+          <DirectionsBusIcon className="nav-icon" /> Transport
+        </Link>
         <Link
           to="/offer"
-          className={`nav-link ${activeTab === "offers" ? "active" : ""}`}
-          onClick={() => setActiveTab("offers")}
+          className={`nav-link ${activeTab === 'offers' ? 'active' : ''}`}
+          onClick={() => setActiveTab('offers')}
         >
           <LocalOfferIcon className="nav-icon" /> Offers
         </Link>
         <Link
           to="/trips"
-          className={`nav-link ${activeTab === "trips" ? "active" : ""}`}
-          onClick={() => setActiveTab("trips")}
+          className={`nav-link ${activeTab === 'trips' ? 'active' : ''}`}
+          onClick={() => setActiveTab('trips')}
         >
           <TripOriginIcon className="nav-icon" /> My Trips
         </Link>
         <Link
           to="/holidayPackage"
-          className={`nav-link ${
-            activeTab === "holidayPackage" ? "active" : ""
-          }`}
-          onClick={() => setActiveTab("holidayPackage")}
+          className={`nav-link ${activeTab === 'holidayPackage' ? 'active' : ''}`}
+          onClick={() => setActiveTab('holidayPackage')}
         >
           <HolidayVillageIcon className="nav-icon" /> Holiday Package
         </Link>
         <Link
           to="/yhGallery"
-          className={`nav-link ${activeTab === "yhGallery" ? "active" : ""}`}
-          onClick={() => setActiveTab("yhGallery")}
+          className={`nav-link ${activeTab === 'yhGallery' ? 'active' : ''}`}
+          onClick={() => setActiveTab('yhGallery')}
         >
           <CollectionsIcon className="nav-icon" /> YH Gallery
         </Link>
         <Link
           to="/myService"
-          className={`nav-link ${activeTab === "myService" ? "active" : ""}`}
-          onClick={() => setActiveTab("myService")}
+          className={`nav-link ${activeTab === 'myService' ? 'active' : ''}`}
+          onClick={() => setActiveTab('myService')}
         >
           <ManageAccountsIcon className="nav-icon" /> My Service
         </Link>
         <Link
           to="/support"
-          className={`nav-link ${activeTab === "support" ? "active" : ""}`}
-          onClick={() => setActiveTab("support")}
+          className={`nav-link ${activeTab === 'support' ? 'active' : ''}`}
+          onClick={() => setActiveTab('support')}
         >
           <ContactSupportIcon className="nav-icon" /> Support
         </Link>

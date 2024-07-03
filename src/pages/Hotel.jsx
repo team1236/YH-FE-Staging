@@ -7,6 +7,7 @@ import Hotelbanner from '../components/Hotelbanner';
 import Trendinggetaway from '../components/Trendinggetaway';
 import Hoteldeal from '../components/Hoteldeal';
 import WhyChooseUs from "../components/WhyChooseUs";
+import Hotelcarausel from '../components/Hotelcarausel';
 
 
 const Hotel = () => {
@@ -24,6 +25,7 @@ const Hotel = () => {
             <Populardestination />
             <Hoteldeal />
             <Trendinggetaway />
+            <Hotelcarausel/>
             <WhyChooseUs />
           </div>
         </div>
