@@ -6,6 +6,8 @@ import HomePage from "../pages/HomePage.jsx";
 import Hotel from "../pages/Hotel.jsx";
 import MyService from "../pages/MyService.jsx";
 import HolidayPackage from "../pages/HolidayPackage.jsx";
+import SupportPage from "../pages/SupportPage.jsx";
+import MyTripService from "../pages/MyTrip.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ export const router = createBrowserRouter([
       {
         path: "/holidayPackage",
         element: <HolidayPackage />,
+      },
+      {
+        path: "/support",
+        element: <SupportPage />,
+      },
+      {
+        path: "/trips",
+        element: <MyTripService />,
       },
     ],
   },

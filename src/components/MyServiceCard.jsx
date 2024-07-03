@@ -90,13 +90,18 @@ export default function ActionAreaCard() {
       image:
         "https://5.imimg.com/data5/SE/WO/AK/SELLER-88382530/family-holiday-package.jpg",
     },
+    {
+      title: "B2B",
+      image:
+        "https://5.imimg.com/data5/SE/WO/AK/SELLER-88382530/family-holiday-package.jpg",
+    },
   ];
 
   return (
     <div
       style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
     >
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={2}>
         {ServiceCard.map((item, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
             <Card sx={{ maxWidth: 300, margin: "auto" }}>

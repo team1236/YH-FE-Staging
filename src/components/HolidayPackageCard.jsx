@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, Grid, IconButton } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { BookmarkAdd } from "@mui/icons-material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -73,9 +73,9 @@ export default function HolidayPackageCard() {
     <div
       style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
     >
-      <Grid container spacing={2} justifyContent="center">
-        {HolidayPackagePlace.map((item, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+    <Grid container spacing={2} justifyContent="center">
+        {HolidayPackagePlace.map((item, index) => ( 
+          <Grid item xs={12} sm={6} md={3} key={index}> 
             <Card
               sx={{
                 width: isMobile ? 350 : 260,
@@ -130,7 +130,7 @@ export default function HolidayPackageCard() {
             </Card>
           </Grid>
         ))}
-      </Grid>
+      </Grid>  
     </div>
   );
 }

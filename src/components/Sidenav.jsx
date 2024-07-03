@@ -26,7 +26,7 @@ const Sidenav = () => {
     } else if (path.includes('offer')) {
       setActiveTab('offers');
     } else if (path.includes('hotel')) {
-      setActiveTab('hotel');
+      setActiveTab('hotel'); 
     } else if (path.includes('car')) {
       setActiveTab('car');
     } else if (path.includes('bus')) {
