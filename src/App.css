@@ -480,6 +480,9 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 100% !important;
     margin-bottom: 10px;
   }
+  .search-button button{
+    margin-top: 10px;
+  }
 }
 .search-button button {
   position: relative;
