@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import EastIcon from '@mui/icons-material/East';
@@ -7,6 +7,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Hotelcarausel = () => {
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (sliderRef.current) {
+        sliderRef.current.slickNext();
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -45,7 +57,7 @@ const Hotelcarausel = () => {
         </div>
       </div>
       <div className="hotel-deal-box">
-        <Slider {...settings} className="slider">
+        <Slider ref={sliderRef} {...settings} className="slider">
           <div className="hotel-look">
             <div className="deal-img">
               <img src="deal1.png" alt="" />
