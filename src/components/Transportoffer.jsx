@@ -23,7 +23,11 @@ const Transportoffer = () => {
 
   return (
     <>
-    <div className="offer-cards-box pt-5">
+     <div className="offer-heading pt-5">
+        <h4>Transport Coupon</h4>
+      </div>
+    <div className="offer-cards-box">
+      
     <div className="coupon-card transport-card">
               <h3>20% flat off on all rides within the city using HDFC Credit Card</h3>
               <div className="coupon-row">

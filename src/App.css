@@ -1369,3 +1369,15 @@ margin-top: -30px;
       background-color: #4c3f90;
       top: 40px;
     }
+
+    .transport-heading h5{
+      font-family: "Euclid Circular A", sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #222020;
+      padding-left: 0 !important;
+    }
+    .know-btn button{
+      background-color: #222020;
+    }
+  
