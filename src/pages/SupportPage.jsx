@@ -4,7 +4,6 @@ function SupportPage() {
   return (
     <div>
       <SupportCard />
-      <img src ="/contact.svg"/>
     </div>
   );
 }

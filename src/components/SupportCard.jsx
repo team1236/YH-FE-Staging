@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import { Box, TextField, Button, Typography, Card, Grid } from "@mui/material";
+import {
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Card,
+  Grid,
+  useMediaQuery,
+} from "@mui/material";
 import { styled } from "@mui/system";
 
 const ContactFormContainer = styled(Box)(({ theme }) => ({
-  maxWidth: "500px",
+  maxWidth: "600px",
   margin: "auto",
   padding: theme.spacing(2),
   borderRadius: theme.shape.borderRadius,
-  // boxShadow: theme.shadows[3],
   backgroundColor: "#fff",
   [theme.breakpoints.down("sm")]: {
     padding: theme.spacing(1),
@@ -22,6 +29,8 @@ const ContactForm = () => {
     message: "",
   });
 
+  const isMobile = useMediaQuery("(max-width: 600px)");
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -34,13 +43,18 @@ const ContactForm = () => {
 
   return (
     <>
-      <main style={{ padding: "60px" }}>
+      <main style={{ padding: isMobile ? "15px" : "60px" }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <img
               src="/contact.svg"
               alt="Contact"
-              // style={{ width: "100%", height: "auto" }}
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                margin: "auto",
+              }}
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -48,7 +62,13 @@ const ContactForm = () => {
               <Typography variant="h4" component="h1" gutterBottom>
                 Contact Us
               </Typography>
-              <Card style={{ padding: "14px"}}>
+              <Card
+                sx={{
+                  padding: "14px",
+                  // width: isMobile ? "100%" : '100%',
+                  // margin: isMobile ? "0" : "auto",
+                }}
+              >
                 <form onSubmit={handleSubmit}>
                   <TextField
                     fullWidth
