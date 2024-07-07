@@ -52,11 +52,11 @@ const GalleryCarousel = ({ title, subtitle, images }) => {
           <h4>{title}</h4>
           <p>{subtitle}</p>
         </div>
-        <div>
+        {/* <div>
           <button>
             View More <EastIcon />
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="hotel-deal-box">
         <Slider ref={sliderRef} {...settings} className="slider">
