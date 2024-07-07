@@ -9,6 +9,7 @@ import HolidayPackage from "../pages/HolidayPackage.jsx";
 import SupportPage from "../pages/SupportPage.jsx";
 import MyTripService from "../pages/MyTrip.jsx";
 import Transport from "../pages/Transport.jsx";
+import YhGalleryPage from "../pages/YhGalleryPage.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -45,7 +46,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/transport",
-        element: <Transport/>,
+        element: <Transport />,
+      },
+      {
+        path: "/yhGallery",
+        element: <YhGalleryPage />,
       },
     ],
   },
