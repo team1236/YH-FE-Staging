@@ -16,8 +16,8 @@ const Transportservice = () => {
           <div className="plane-content-box">
             <h5>
             Intercity Trips
-            </h5>
-            <h6>
+            </h5> 
+            <h6>  
             On Yours Hospitality.com, you can turn all your plans into trips. From flight ticket bookings, and booking
             hotels online to airports.
             </h6>

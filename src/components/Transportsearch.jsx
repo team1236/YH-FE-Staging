@@ -10,6 +10,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -136,7 +137,15 @@ const Transportsearch = () => {
               </div>
             ) : (
               <div className="transport-date">
-                <input type="date" className='form-control' />
+                <TextField
+                  id="date"
+                  // label="Travel Date"
+                  type="date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  className='form-control'
+                />
               </div>
             )}
           </div>
