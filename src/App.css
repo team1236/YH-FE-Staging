@@ -1338,6 +1338,10 @@ margin-top: -30px;
   color: #FFC700;
   margin-bottom: 2px;
 }
+.review-box .css-vubbuv{
+  color: #FFC700;
+  height: 14px !important;
+}
 
 .slider .slick-slide {
   padding: 0 8px;
