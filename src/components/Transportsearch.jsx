@@ -10,7 +10,6 @@ import RadioGroup from '@mui/material/RadioGroup';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -20,6 +19,7 @@ const Transportsearch = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [carTripType, setCarTripType] = useState('One Way');
   const [departureDateValue, setDepartureDateValue] = useState(null);
+  const [departureTimeValue, setDepartureTimeValue] = useState(null);
   const [returnDateValue, setReturnDateValue] = useState(null);
 
   const handleInputChange = (event, setter) => {
@@ -136,16 +136,29 @@ const Transportsearch = () => {
                 </div>
               </div>
             ) : (
-              <div className="transport-date">
-                <TextField
-                  id="date"
-                  label="Select Date"
-                  type="date"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  className='form-control'
-                />
+              <div className="place-field transport-date">
+                <div className={`input-wrapper from-input ${departureDateValue ? 'active' : ''}`}>
+                  <DatePicker
+                    selected={departureDateValue}
+                    onChange={(date) => setDepartureDateValue(date)}
+                    className="input-field"
+                    dateFormat="dd-MM-yyyy"
+                    placeholderText="Departure Date"
+                  />
+                </div>
+                <div className={`input-wrapper to-input ${departureTimeValue ? 'active' : ''}`}>
+                  <DatePicker
+                    selected={departureTimeValue}
+                    onChange={(date) => setDepartureTimeValue(date)}
+                    className="input-field"
+                    showTimeSelect
+                    showTimeSelectOnly
+                    timeIntervals={15}
+                    timeCaption="Time"
+                    dateFormat="HH:mm"
+                    placeholderText="Departure Time"
+                  />
+                </div>
               </div>
             )}
           </div>
