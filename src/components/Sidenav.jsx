@@ -106,7 +106,7 @@ const Sidenav = () => {
           className={`nav-link ${activeTab === 'yhGallery' ? 'active' : ''}`}
           onClick={() => setActiveTab('yhGallery')}
         >
-          <CollectionsIcon className="nav-icon" /> YH Gallery
+          <CollectionsIcon className="nav-icon" />  Gallery
         </Link>
         <Link
           to="/myService"
