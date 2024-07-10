@@ -38,7 +38,7 @@ const Footer = () => {
           <Typography variant="body2" style={{ marginTop: "10px" }}>
             Email: info@yourshospitality.com
             <br />
-            Phone: 8510005461/62/63/64/65/67
+            Phone: 8510005460/61/62/63/64/65/67
           </Typography>
           <Grid container spacing={1} style={{ marginTop: "10px" }}>
             <Grid item>
