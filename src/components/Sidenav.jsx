@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import FlightIcon from '@mui/icons-material/Flight';
 import HotelIcon from '@mui/icons-material/Hotel';
@@ -6,9 +6,9 @@ import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
-import HolidayVillageIcon from "@mui/icons-material/HolidayVillage";
-import CollectionsIcon from "@mui/icons-material/Collections";
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
+import CollectionsIcon from '@mui/icons-material/Collections';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -19,7 +19,9 @@ const Sidenav = () => {
 
   useEffect(() => {
     const path = location.pathname;
-    if (path === '/') {
+    if (path.includes('yhhotel')) {
+      setActiveTab('yhhotel');
+    } else if (path === '/') {
       setActiveTab('flights');
     } else if (path.includes('offer')) {
       setActiveTab('offers');
@@ -30,19 +32,19 @@ const Sidenav = () => {
     } else if (path.includes('trips')) {
       setActiveTab('trips');
     } else if (path.includes('holidayPackage')) {
-      setActiveTab("holidayPackage");
+      setActiveTab('holidayPackage');
     } else if (path.includes('yhGallery')) {
-      setActiveTab("yhGallery");
+      setActiveTab('yhGallery');
     } else if (path.includes('myService')) {
-      setActiveTab("myService");
+      setActiveTab('myService');
     } else if (path.includes('support')) {
       setActiveTab('support');
     }
   }, [location]);
 
-  const toggleSidebar = () => {
-    setIsSidebarVisible(!isSidebarVisible);
-  };
+  const toggleSidebar = useCallback(() => {
+    setIsSidebarVisible(prevState => !prevState);
+  }, []);
 
   return (
     <>
@@ -77,6 +79,13 @@ const Sidenav = () => {
           onClick={() => setActiveTab('offers')}
         >
           <LocalOfferIcon className="nav-icon" /> Offers
+        </Link>
+        <Link
+          to="/yhhotel"
+          className={`nav-link ${activeTab === 'yhhotel' ? 'active' : ''}`}
+          onClick={() => setActiveTab('yhhotel')}
+        >
+          <HotelIcon className="nav-icon" /> YH Hotels
         </Link>
         <Link
           to="/trips"

@@ -1338,6 +1338,11 @@ margin-top: -30px;
   color: #FFC700;
   margin-bottom: 2px;
 }
+.review-box .css-vubbuv{
+  color: #FFC700;
+  height: 14px !important;
+  margin-bottom: 2px !important;
+}
 
 .slider .slick-slide {
   padding: 0 8px;
@@ -1381,3 +1386,6 @@ margin-top: -30px;
       background-color: #222020;
     }
   
+    .search-input-column .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+      padding: 0 10px !important;
+    }

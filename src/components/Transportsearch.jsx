@@ -19,6 +19,7 @@ const Transportsearch = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [carTripType, setCarTripType] = useState('One Way');
   const [departureDateValue, setDepartureDateValue] = useState(null);
+  const [departureTimeValue, setDepartureTimeValue] = useState(null);
   const [returnDateValue, setReturnDateValue] = useState(null);
 
   const handleInputChange = (event, setter) => {
@@ -135,8 +136,29 @@ const Transportsearch = () => {
                 </div>
               </div>
             ) : (
-              <div className="transport-date">
-                <input type="date" className='form-control' />
+              <div className="place-field transport-date">
+                <div className={`input-wrapper from-input ${departureDateValue ? 'active' : ''}`}>
+                  <DatePicker
+                    selected={departureDateValue}
+                    onChange={(date) => setDepartureDateValue(date)}
+                    className="input-field"
+                    dateFormat="dd-MM-yyyy"
+                    placeholderText="Departure Date"
+                  />
+                </div>
+                <div className={`input-wrapper to-input ${departureTimeValue ? 'active' : ''}`}>
+                  <DatePicker
+                    selected={departureTimeValue}
+                    onChange={(date) => setDepartureTimeValue(date)}
+                    className="input-field"
+                    showTimeSelect
+                    showTimeSelectOnly
+                    timeIntervals={15}
+                    timeCaption="Time"
+                    dateFormat="HH:mm"
+                    placeholderText="Departure Time"
+                  />
+                </div>
               </div>
             )}
           </div>

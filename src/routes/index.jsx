@@ -10,6 +10,7 @@ import SupportPage from "../pages/SupportPage.jsx";
 import MyTripService from "../pages/MyTrip.jsx";
 import Transport from "../pages/Transport.jsx";
 import YhGalleryPage from "../pages/YhGalleryPage.jsx";
+import Yhhotels from "../pages/Yhhotels.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "/offer",
         element: <Offer />,
+      },
+      {
+        path: "/yhhotel",
+        element: <Yhhotels />,
       },
       {
         path: "/hotel",
