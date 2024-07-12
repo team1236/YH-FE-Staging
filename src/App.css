@@ -1441,6 +1441,7 @@ padding: 5px 15px;
       margin-bottom: 2px;
     }
     .searched-filter .css-vubbuv{
+      cursor: pointer;
       font-size: 1rem !important;
       margin-bottom: 2px !important;
     }
