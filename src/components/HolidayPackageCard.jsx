@@ -1,15 +1,21 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Button, Grid } from "@mui/material";
-import { BookmarkAdd } from "@mui/icons-material";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  CardActions,
+  IconButton,
+  Typography,
+  Grid,
+  Button,
+  Box,
+  useMediaQuery
+} from "@mui/material";
+import BookmarkAddOutlined from "@mui/icons-material/BookmarkAddOutlined";
+// import useMediaQuery from "@mui/material";
 
 export default function HolidayPackageCard() {
   const isMobile = useMediaQuery("(max-width:600px)");
-
   const HolidayPackagePlace = [
     {
       title: "Manali",
@@ -40,7 +46,7 @@ export default function HolidayPackageCard() {
       duration: "9 nights and 10 days",
     },
     {
-      title: "Andaman and Nicobar Islands",
+      title: "UK",
       image:
         "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
       price: "$1500",
@@ -70,67 +76,70 @@ export default function HolidayPackageCard() {
   ];
 
   return (
-    <div
-      style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-    >
     <Grid container spacing={2} justifyContent="center">
-        {HolidayPackagePlace.map((item, index) => ( 
-          <Grid item xs={12} sm={6} md={3} key={index}> 
-            <Card
+      {HolidayPackagePlace.map((item, index) => (
+        <Grid item xs={12} sm={6} md={3} key={index}>
+          <Card
+            sx={{
+              maxWidth: isMobile ? 360 : 350,
+              width: isMobile ? "100%" : "auto",
+              position: "relative",
+              height: "100%",
+              margin: "auto",
+            }}
+          >
+            <CardContent>
+              <Typography variant="h6" component="div">
+                {item.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {item.duration}
+              </Typography>
+              <IconButton
+                aria-label={`bookmark ${item.title}`}
+                sx={{ position: "absolute", top: 8, right: 8 }}
+              >
+                <BookmarkAddOutlined />
+              </IconButton>
+            </CardContent>
+            <CardMedia
+              component="img"
+              height="140"
+              image={item.image}
+              alt={item.title}
+            />
+            <CardContent
               sx={{
-                width: isMobile ? 350 : 260,
-                height: 360,
                 display: "flex",
-                flexDirection: "column",
-                margin: "auto",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
-              <CardMedia
-                component="img"
-                height="160"
-                image={item.image}
-                alt={item.title}
-                sx={{ objectFit: "cover" }}
-              />
-              <CardContent sx={{ flexGrow: 1, padding: "8px" }}>
-                <Typography variant="h6" gutterBottom>
-                  {item.title}
+              <Box>
+                <Typography variant="body2" color="text.secondary">
+                  Total price:
                 </Typography>
-                <Typography variant="body2" gutterBottom>
-                  {item.duration}
+                <Typography variant="h6" component="div">
+                  {item.price}
                 </Typography>
-              </CardContent>
-              <CardContent
+              </Box>
+              <Button
+                variant="contained"
+                color="primary"
                 sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  padding: "8px",
+                  marginLeft: "auto",
+                  background: "#624fa8",
+                  "&:hover": {
+                    background: "#624fa8",
+                  },
                 }}
               >
-                <div>
-                  <Typography variant="body2">Total price:</Typography>
-                  <Typography variant="h6" component="div">
-                    {item.price}
-                  </Typography>
-                </div>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  sx={{
-                    alignSelf: "center",
-                    background: "#624fa8",
-                    "&:hover": {
-                      background: "#624fa8",
-                    },
-                  }}
-                >
-                  Explore
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>  
-    </div>
+                Explore
+              </Button>
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
   );
 }

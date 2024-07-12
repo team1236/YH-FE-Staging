@@ -42,7 +42,7 @@ body {
   }
 }
 .nav-logo {
-  height: 30px;
+  height: 35px;
   object-fit: contain;
 }
 .login-btn {
@@ -174,7 +174,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .nav-link .MuiSvgIcon-root {
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .nav-link .nav-icon {
