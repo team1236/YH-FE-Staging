@@ -11,8 +11,10 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from 'react-router-dom';
 
-const Hotelsearch = () => {
-  const [fromValue, setFromValue] = useState('');
+
+const Listingsearch = () => {
+
+    const [fromValue, setFromValue] = useState('');
   const [departureDateValue, setDepartureDateValue] = useState(null);
   const [returnDateValue, setReturnDateValue] = useState(null);
   const [passengerValue, setPassengerValue] = useState({ adults: 0, children: 0, infants: 0, rooms: 0 });
@@ -42,18 +44,9 @@ const Hotelsearch = () => {
   const id = open ? 'passenger-popover' : undefined;
 
   return (
-    <div className="search-section mt-3">
-      <div className="search-banner">
-        <div className='search-banner-text'>
-          <h4>Search Hotels</h4>
-          <p>Enjoy hassle-free bookings with Hospitality</p>
-        </div>
-        <div>
-          <img src="human.png" alt="" width={167} height={150} />
-        </div>
-      </div>
-
-      <div className="search-column">
+    <>
+    
+    <div className="">
         <div className="row search-input-column mt-3">
           <div className="col-lg-4 place-field">
             <div className={`location-input ${fromValue ? 'active' : ''}`}>
@@ -168,16 +161,9 @@ const Hotelsearch = () => {
             </div>
           </div>
         </div>
-        <div className="search-button">
-       <Link to="/hotellisting">
-       <button>
-            Search Hotels <span className="icon-wrapper"><HotelOutlinedIcon /></span>
-          </button>
-       </Link>
-        </div>
       </div>
-    </div>
-  );
-};
+    </>
+  )
+}
 
-export default Hotelsearch;
+export default Listingsearch

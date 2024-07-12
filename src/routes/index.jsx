@@ -11,6 +11,7 @@ import MyTripService from "../pages/MyTrip.jsx";
 import Transport from "../pages/Transport.jsx";
 import YhGalleryPage from "../pages/YhGalleryPage.jsx";
 import Yhhotels from "../pages/Yhhotels.jsx";
+import Hotellisting from "../pages/Hotellisting.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
       {
         path: "/yhGallery",
         element: <YhGalleryPage />,
+      },
+      {
+        path: "/hotellisting",
+        element: <Hotellisting />,
       },
     ],
   },

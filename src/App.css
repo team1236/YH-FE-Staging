@@ -1184,7 +1184,11 @@ input[type="number"]::-webkit-inner-spin-button {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
 }
-
+.hotel-deal-box2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
 .hotel-look {
   border-radius: 10px;
 }
@@ -1388,4 +1392,164 @@ margin-top: -30px;
   
     .search-input-column .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
       padding: 0 10px !important;
+    }
+
+    /*** Lisitng CSS ***/
+    .filter-row{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      overflow-x: scroll;
+    }
+ 
+.filter-row::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-row {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+.filter-drop{
+  cursor: pointer;
+}
+    .filter-text h5{
+      font-family: "Euclid Circular A", sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #4c3f90;
+      margin-bottom: 0;
+    }
+    .filter-drop h6{
+      font-family: "Euclid Circular A", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      color: #5b5b5b;
+border: 1px solid #dfdfdf;
+border-radius: 20px;
+margin-bottom: 0;
+padding-top: 8px !important;
+padding-right: 13px !important;
+padding: 5px 15px;
+    }
+    .filter-drop .css-i4bv87-MuiSvgIcon-root{
+      margin-bottom: 2px;
+    }
+    .filter-search input{
+      min-width: 250px;
+      height: 40px;
+      border-radius: 7px;
+      border: 1px solid #dfdfdf !important;
+      border: 1px solid ;
+      padding: 5px 15px;
+    }
+    .filter-search input:focus{
+      outline: 0;
+    }
+    @keyframes fadeInSlideDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .filter-popover .MuiPaper-root {
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      margin-top: 6px;
+      animation: fadeInSlideDown 0.3s ease-in-out;
+    }
+    
+    .filter-popover .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked{
+      color: #4c3f90;
+    }
+    .filter-popover .css-1m9pwf3{
+    background-color: #4c3f90;
+    }
+    .filter-popover-content {
+      min-width: 200px;
+      font-family: "Euclid Circular A", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      color: #5b5b5b;
+    }
+
+    
+    .filter-popover .MuiFormControlLabel-root {
+      margin: 5px 0;
+    }
+    
+    .filter-popover .MuiFormControlLabel-label {
+      font-size: 14px;
+    }
+    
+    .filter-popover .MuiCheckbox-root,
+    .filter-popover .MuiRadio-root {
+      padding: 4px;
+    }
+    
+    .filter-popover .MuiTypography-root {
+      font-family: "Euclid Circular A", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      margin: 5px 0;
+      color: #5b5b5b;
+    }
+    
+    .filter-popover .MuiList-root {
+      padding: 0;
+    }
+    
+    .filter-popover .MuiListItem-root {
+      padding: 4px 16px;
+    }
+    
+    .filter-popover .MuiListItemText-primary {
+      font-size: 14px;
+    }
+    
+    .filter-location-search {
+      width: 100%;
+      padding: 8px;
+      margin-top: 8px;
+      border: 1px solid #dfdfdf;
+      border-radius: 5px;
+    }
+    
+    .filter-location-search:focus {
+      outline: 0;
+    }
+    
+    .searched-filter{
+      display: flex;
+      gap: 10px;
+    }
+    .searched-filter h5{
+      font-family: "Euclid Circular A", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      color: #5b5b5b;
+border: 1px solid #dfdfdf;
+background-color: #f7f7f7;
+border-radius: 20px;
+margin-bottom: 0;
+padding-top: 8px !important;
+padding-right: 13px !important;
+padding: 5px 15px;
+    }
+    .searched-filter .css-i4bv87-MuiSvgIcon-root{
+      font-size: 17px;
+      margin-bottom: 2px;
+      cursor: pointer;
+    }
+
+    .list-banner img{
+      width: 100%;
     }

@@ -231,6 +231,7 @@ const Searchbar = () => {
           </button>
         </div>
       </div>
+
     </div>
   );
 };
