@@ -317,6 +317,9 @@ input[type="number"]::-webkit-inner-spin-button {
 .trip-buttons .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
   color: #624fa8 !important;
 }
+.trip-buttons .css-1m9pwf3{
+  color: #4c3f90;
+}
 .search-input-column input {
   height: 60px;
   border-radius: 5px;
@@ -1435,6 +1438,10 @@ padding-right: 13px !important;
 padding: 5px 15px;
     }
     .filter-drop .css-i4bv87-MuiSvgIcon-root{
+      margin-bottom: 2px;
+    }
+    .filter-drop .css-vubbuv{
+      font-size: 1rem;
       margin-bottom: 2px;
     }
     .filter-search input{
