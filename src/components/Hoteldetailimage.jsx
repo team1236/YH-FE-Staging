@@ -47,7 +47,7 @@ const Hoteldetailimage = () => {
           <button className="close-overlay" onClick={toggleOverlay}>
             <i className="bi bi-arrow-left"></i> Close
           </button>
-          <div className="gallery">
+          <div className="detail-gallery">
             <img src="detail1.webp" alt="Detail 1" />
             <img src="detail2.webp" alt="Detail 2" />
             <img src="detail3.webp" alt="Detail 3" />
