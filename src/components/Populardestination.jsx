@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { popularDestination } from "../store/api/flightPage";
 
 const Populardestination = () => {
-  const destinations = [
-    { name: 'Bali, Indonesia', image: 'destination.png' },
-    { name: 'Tokyo, Japan', image: 'destination4.png' },
-    { name: 'Sydney, Australia', image: 'destination2.png' },
-    { name: 'Paris, France', image: 'destination3.png' },
-  ];
+  const [destinations, setDestinations] = useState([]);
+
+  const popularDestinationApi = async () => {
+    const getData = await popularDestination();
+    setDestinations(getData.data.topDestination);
+  };
+
+  useEffect(() => {
+    Promise.allSettled([popularDestinationApi()]);
+  }, []);
 
   return (
     <div className="popular-destination pt-5">
@@ -17,9 +22,9 @@ const Populardestination = () => {
         {destinations.map((destination, index) => (
           <div className="destination-item" key={index}>
             <div className="image-container">
-              <img src={destination.image} alt={destination.name} />
+              <img src={destination.image} alt={destination.city} />
               <div className="overlay">
-                <h6>{destination.name}</h6>
+                <h6>{`${destination.city} ${destination.country}`}</h6>
               </div>
             </div>
           </div>
@@ -27,6 +32,6 @@ const Populardestination = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Populardestination;

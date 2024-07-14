@@ -8,12 +8,12 @@ body::-webkit-scrollbar {
   width: 10px;
   border-radius: 10px;
 }
- 
+
 body::-webkit-scrollbar-track {
   background-color: #d6cdff;
   border-radius: 10px;
 }
- 
+
 body::-webkit-scrollbar-thumb {
   background-color: #4c3f90;
   outline: 1px solid #4c3f90;
@@ -35,7 +35,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   z-index: 9;
 }
-@media(max-width:768px){
+@media (max-width: 768px) {
   .navbar {
     padding-left: 12%;
     padding-right: 4%;
@@ -207,7 +207,7 @@ input[type="number"]::-webkit-inner-spin-button {
   visibility: hidden;
 }
 
-@media (max-width:560px) {
+@media (max-width: 560px) {
   .dropdown .dropdown-content {
     width: 150px;
   }
@@ -288,7 +288,6 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 }
 
-
 .search-column {
   background-color: #ffffff;
   border-radius: 20px;
@@ -317,7 +316,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .trip-buttons .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
   color: #624fa8 !important;
 }
-.trip-buttons .css-1m9pwf3{
+.trip-buttons .css-1m9pwf3 {
   color: #4c3f90;
 }
 .search-input-column input {
@@ -329,14 +328,14 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: #fff !important;
   font-size: 14px;
 }
-.search-input-column input:disabled{
+.search-input-column input:disabled {
   background-color: #eaeaea !important;
 }
-@media (max-width:560px){
+@media (max-width: 560px) {
   .search-input-column input {
     background-color: #fff !important;
   }
-  .search-input-column input:disabled{
+  .search-input-column input:disabled {
     background-color: #eaeaea !important;
   }
 }
@@ -435,10 +434,10 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #666;
   font-size: 14px;
 }
-.from-input .react-datepicker{
+.from-input .react-datepicker {
   margin-left: 30px !important;
 }
-.to-input .react-datepicker{
+.to-input .react-datepicker {
   margin-right: 30px !important;
 }
 .passenger-popover {
@@ -482,7 +481,8 @@ input[type="number"]::-webkit-inner-spin-button {
     transform: translateX(0);
   }
 }
-.search-button .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+.search-button
+  .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
   width: 329px;
 }
 .search-button {
@@ -490,15 +490,16 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   justify-content: space-between;
 }
-@media(max-width:560px){
+@media (max-width: 560px) {
   .search-button {
     display: block;
   }
-  .search-button .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+  .search-button
+    .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
     width: 100% !important;
     margin-bottom: 10px;
   }
-  .search-button button{
+  .search-button button {
     margin-top: 10px;
   }
 }
@@ -681,13 +682,12 @@ input[type="number"]::-webkit-inner-spin-button {
     padding: 20px;
     width: 220px;
   }
- 
-  .recent-search-container{
+
+  .recent-search-container {
     -ms-overflow-style: none;
-  scrollbar-width: none;
+    scrollbar-width: none;
   }
 }
-
 
 .date-box {
   padding: 20px;
@@ -741,10 +741,9 @@ input[type="number"]::-webkit-inner-spin-button {
   height: 0;
 }
 
-.flight-banner img{
+.flight-banner img {
   width: 100%;
 }
-
 
 .flight-offer {
   padding-top: 5rem;
@@ -771,13 +770,13 @@ input[type="number"]::-webkit-inner-spin-button {
 @media (max-width: 768px) {
   .flight-box {
     flex: 1 1 100%;
-    max-width: 100%; 
+    max-width: 100%;
   }
 }
 
 @media (max-width: 576px) {
   .flight-box {
-    flex: 1 1 100%; 
+    flex: 1 1 100%;
     max-width: 100%;
   }
 }
@@ -788,7 +787,7 @@ input[type="number"]::-webkit-inner-spin-button {
   max-width: 200px;
   margin-right: 20px;
 }
-@media (max-width:560px){
+@media (max-width: 560px) {
   .plane-box {
     max-width: 180px;
   }
@@ -810,14 +809,14 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .plane-content-box p {
   margin-bottom: 0;
-  font-family: 'Euclid Circular A', sans-serif;
+  font-family: "Euclid Circular A", sans-serif;
   font-size: 13px;
   font-weight: 500;
   color: #5d5d5d;
 }
 
 .plane-content-box h5 {
-  font-family: 'Euclid Circular A', sans-serif;
+  font-family: "Euclid Circular A", sans-serif;
   color: #2f2b2b;
   font-size: 20px;
   font-weight: 600;
@@ -828,7 +827,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .plane-content-box h6 {
-  font-family: 'Euclid Circular A', sans-serif;
+  font-family: "Euclid Circular A", sans-serif;
   font-size: 15px;
   font-weight: 400;
   padding: 5px 0;
@@ -839,7 +838,7 @@ input[type="number"]::-webkit-inner-spin-button {
   padding: 10px 20px;
   background-color: #624fa8;
   color: #fff;
-  font-family: 'Euclid Circular A', sans-serif;
+  font-family: "Euclid Circular A", sans-serif;
   font-size: 15px;
   border: none;
   border-radius: 30px;
@@ -849,7 +848,7 @@ input[type="number"]::-webkit-inner-spin-button {
 /*** Testimonial CSS ***/
 
 .testimonials {
-  font-family: 'Euclid Circular A', sans-serif;
+  font-family: "Euclid Circular A", sans-serif;
 }
 
 .section-title {
@@ -883,7 +882,6 @@ input[type="number"]::-webkit-inner-spin-button {
   padding: 20px;
 }
 
-
 .testimonial-image {
   text-align: center;
   margin-top: 1px;
@@ -912,63 +910,63 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: center;
 }
 
-.why-us-section h1{
+.why-us-section h1 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: #312d2d;
 }
-.why-us-section h2{
+.why-us-section h2 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 2rem;
   margin-bottom: 10px;
   color: #312d2d;
 }
-.why-us-section h3{
+.why-us-section h3 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 1.6rem;
   margin-bottom: 10px;
   color: #312d2d;
 }
-.why-us-section p{
-    font-family: "Euclid Circular A", sans-serif;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    color: #4b4848;
-    line-height: 27px;
-  }
-  .why-us-section li{
-    margin: 10px 0;
-  }
+.why-us-section p {
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #4b4848;
+  line-height: 27px;
+}
+.why-us-section li {
+  margin: 10px 0;
+}
 
-  /*** Offer page CSS ***/
+/*** Offer page CSS ***/
 
-  .offer-tabs button{
-    margin:0 20px;
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-    font-family: "Euclid Circular A", sans-serif;
-    border-radius: 0;
-    padding: 2px;
-    font-size: 16px;
-    color: #454545;
-  }
-  .offer-tabs .offer-active{
-    border-bottom: 3px solid #624fa8;
-    color: #624fa8;
-    font-weight: 500;
-  }
-  .offer-cards-box {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  
+.offer-tabs button {
+  margin: 0 20px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: "Euclid Circular A", sans-serif;
+  border-radius: 0;
+  padding: 2px;
+  font-size: 16px;
+  color: #454545;
+}
+.offer-tabs .offer-active {
+  border-bottom: 3px solid #624fa8;
+  color: #624fa8;
+  font-weight: 500;
+}
+.offer-cards-box {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 5px;
+}
 
-.flight-card{
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('plane.png');
+.flight-card {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("plane.png");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -980,8 +978,9 @@ input[type="number"]::-webkit-inner-spin-button {
   max-width: 330px;
   margin: 10px 0;
 }
-.hotel-card{
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hotel.png');
+.hotel-card {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("hotel.png");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -993,8 +992,9 @@ input[type="number"]::-webkit-inner-spin-button {
   max-width: 300px;
   margin: 10px 0;
 }
-.transport-card{
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('car.png');
+.transport-card {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("car.png");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -1006,121 +1006,119 @@ input[type="number"]::-webkit-inner-spin-button {
   max-width: 330px;
   margin: 10px 0;
 }
-  .logo {
-    width: 80px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .coupon-card h3 {
-    font-size: 16px;
-    font-weight: 400;
-    font-family: "Euclid Circular A", sans-serif;
-    line-height: 28px;
-  }
-  .coupon-row{
-    display: flex;
-    align-items: center;
-    margin: 25px auto;
-    width: fit-content;
+.logo {
+  width: 80px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
 
-}
-.cpnCode{
-    border: 1px dashed #fff;
-    padding: 10px 20px;
-    border-right: 0;
-    font-family: "Euclid Circular A", sans-serif;
-}
-.cpnBtn{
+.coupon-card h3 {
+  font-size: 16px;
+  font-weight: 400;
   font-family: "Euclid Circular A", sans-serif;
-    border: 1px solid #fff;
-    background: #fff;
-    padding: 10px 10px;
-    color: #7158fe;
-    cursor: pointer;
+  line-height: 28px;
 }
-  .coupon-card p {
-    font-size: 14px;
-    font-family: "Euclid Circular A", sans-serif;
-    margin-bottom: 0;
-  }
-  
-  .coupon-row {
-    display: flex;
-    align-items: center;
-    margin: 5px auto;
-    width: fit-content;
-  }
-  
-  #cpnCode {
-    border: 1px dashed #fff;
-    padding: 10px 20px;
-    border-right: 0;
-  }
-  
-  #cpnBtn {
-    border: 1px solid #fff;
-    background: #fff;
-    padding: 10px 10px;
-    color: #7158fe;
-    cursor: pointer;
-  }
-  
-  .circle1,
-  .circle2 {
-    background: #ffffff;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .circle1 {
-    left: -8px;
-  }
-  
-  .circle2 {
-    right: -8px;
-  }
-  
-  /*** Hotels CSS ***/
-  .location-input {
-    position: relative;
-    margin-bottom: 1rem;
-    width: 100%;
-  }
-  .location-input input{
-    background-color: transparent !important;
-    padding: 0 30px;
-  }
-  .location-icon{
-    color: gray;
-    float: left;
-    margin-top: -43px !important;
-    margin-left: 5px;
-  }
-  .user-icon{
-    margin-top: -5px;
-    font-size: 1.2rem !important;
-  }
+.coupon-row {
+  display: flex;
+  align-items: center;
+  margin: 25px auto;
+  width: fit-content;
+}
+.cpnCode {
+  border: 1px dashed #fff;
+  padding: 10px 20px;
+  border-right: 0;
+  font-family: "Euclid Circular A", sans-serif;
+}
+.cpnBtn {
+  font-family: "Euclid Circular A", sans-serif;
+  border: 1px solid #fff;
+  background: #fff;
+  padding: 10px 10px;
+  color: #7158fe;
+  cursor: pointer;
+}
+.coupon-card p {
+  font-size: 14px;
+  font-family: "Euclid Circular A", sans-serif;
+  margin-bottom: 0;
+}
 
-  .offer-heading h4{
-    font-family: "Euclid Circular A", sans-serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: #222020;
-    margin: 10px;
-  }
-  .hotel-banner-box img{
-    width: 100%;
-    border-radius: 10px;
-    cursor: pointer;
-  }
+.coupon-row {
+  display: flex;
+  align-items: center;
+  margin: 5px auto;
+  width: fit-content;
+}
 
+#cpnCode {
+  border: 1px dashed #fff;
+  padding: 10px 20px;
+  border-right: 0;
+}
 
-.getaway-column img{
+#cpnBtn {
+  border: 1px solid #fff;
+  background: #fff;
+  padding: 10px 10px;
+  color: #7158fe;
+  cursor: pointer;
+}
+
+.circle1,
+.circle2 {
+  background: #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.circle1 {
+  left: -8px;
+}
+
+.circle2 {
+  right: -8px;
+}
+
+/*** Hotels CSS ***/
+.location-input {
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.location-input input {
+  background-color: transparent !important;
+  padding: 0 30px;
+}
+.location-icon {
+  color: gray;
+  float: left;
+  margin-top: -43px !important;
+  margin-left: 5px;
+}
+.user-icon {
+  margin-top: -5px;
+  font-size: 1.2rem !important;
+}
+
+.offer-heading h4 {
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #222020;
+  margin: 10px;
+}
+.hotel-banner-box img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.getaway-column img {
   width: 100%;
 }
 .getaway-column {
@@ -1138,12 +1136,12 @@ input[type="number"]::-webkit-inner-spin-button {
   transform: scale(1.02);
 }
 
-.image-group{
+.image-group {
   display: flex;
   gap: 2px;
   width: 100%;
 }
-.image-group img{
+.image-group img {
   width: 50%;
   height: 130px;
   object-fit: cover;
@@ -1151,7 +1149,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border-top-right-radius: 10px;
   padding-right: 3px;
 }
-.image-bottom img{
+.image-bottom img {
   width: 100%;
   object-fit: cover;
   height: 150px;
@@ -1160,25 +1158,25 @@ input[type="number"]::-webkit-inner-spin-button {
   border-bottom-right-radius: 10px;
 }
 
-.getaway-row{
+.getaway-row {
   --bs-gutter-x: 0.5rem !important;
 }
-.getaway-column{
+.getaway-column {
   margin: 10px 0;
 }
-.getaway-content h5{
+.getaway-content h5 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 17px;
   font-weight: 500;
   color: #222020;
 }
-.getaway-content h6{
+.getaway-content h6 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #4e4a4a;
 }
-.getaway-content .css-i4bv87-MuiSvgIcon-root{
+.getaway-content .css-i4bv87-MuiSvgIcon-root {
   font-size: 18px;
 }
 
@@ -1196,7 +1194,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 10px;
 }
 
-.deal-img img{
+.deal-img img {
   width: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -1205,7 +1203,7 @@ input[type="number"]::-webkit-inner-spin-button {
   z-index: 1;
   position: relative;
 }
-.deal-content{
+.deal-content {
   background-color: #ffffff !important;
   border-radius: 20px;
   margin-top: -20px;
@@ -1214,19 +1212,19 @@ input[type="number"]::-webkit-inner-spin-button {
   padding: 15px 10px;
   border: 1px solid #f0f0f0;
 }
-.deal-content h4{
+.deal-content h4 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 15px;
   font-weight: 600;
   color: #222020;
   margin-bottom: 4px;
 }
-.deal-content small{
+.deal-content small {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 11px;
   color: #737373;
 }
-.deal-heading h4{
+.deal-heading h4 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 1.8rem;
   margin-bottom: 15px;
@@ -1234,17 +1232,17 @@ input[type="number"]::-webkit-inner-spin-button {
   font-weight: 600;
   margin-bottom: 0;
 }
-.deal-heading p{
+.deal-heading p {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 14px;
   padding-top: 5px;
   color: #737373;
 }
-.deal-content .css-i4bv87-MuiSvgIcon-root{
-font-size: 14px;
-color: #737373;
+.deal-content .css-i4bv87-MuiSvgIcon-root {
+  font-size: 14px;
+  color: #737373;
 }
-.deal-heading{
+.deal-heading {
   display: flex;
   justify-content: space-between;
 }
@@ -1263,7 +1261,7 @@ color: #737373;
 }
 
 .deal-heading button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -75%;
@@ -1284,31 +1282,30 @@ color: #737373;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px;
   transform: translateY(-2px);
 }
-@media (max-width:560px){
-  .deal-heading{
+@media (max-width: 560px) {
+  .deal-heading {
     display: block;
   }
 }
-.price-book-btn{
+.price-book-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.price-book-btn h6{
+.price-book-btn h6 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 14px;
   color: #000;
   font-weight: 600;
   margin-bottom: 0;
 }
-.price-book-btn span{
+.price-book-btn span {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 12px;
-  color: 
-  #737373;
+  color: #737373;
   font-weight: 500;
 }
-.price-book-btn button{
+.price-book-btn button {
   background-color: #4c3f90;
   color: #fff;
   font-family: "Euclid Circular A", sans-serif;
@@ -1317,36 +1314,35 @@ color: #737373;
   padding: 8px 10px;
   border: none;
 }
-.review-box{
+.review-box {
   display: flex;
   justify-content: end;
 }
-.review-box h6{
+.review-box h6 {
   border-radius: 20px;
   border: 1px solid rgb(214, 214, 214);
   background-color: #fff;
   padding: 5px 10px;
   position: absolute;
-margin-top: -30px;
+  margin-top: -30px;
 }
-.review-box h6{
+.review-box h6 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 13px;
   color: #000;
   margin-bottom: 0;
 }
-.review-box span{
+.review-box span {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 12px;
-  color: 
-  #737373;
+  color: #737373;
 }
-.review-box .css-i4bv87-MuiSvgIcon-root{
-  color: #FFC700;
+.review-box .css-i4bv87-MuiSvgIcon-root {
+  color: #ffc700;
   margin-bottom: 2px;
 }
-.review-box .css-vubbuv{
-  color: #FFC700;
+.review-box .css-vubbuv {
+  color: #ffc700;
   height: 14px !important;
   margin-bottom: 2px !important;
 }
@@ -1356,208 +1352,221 @@ margin-top: -30px;
   cursor: grab;
 }
 
-.radio-icon .css-i4bv87-MuiSvgIcon-root{
+.radio-icon .css-i4bv87-MuiSvgIcon-root {
   font-size: 16px;
   margin-bottom: 5px;
-  }
+}
 
-  .search-tab .css-i4bv87-MuiSvgIcon-root{
-    font-size: 18px;
-    margin-bottom: 5px;
-    }
-    .search-tab button{
-      font-family: "Euclid Circular A", sans-serif;
-      font-size: 14px;
-    }
-    .search-tab .css-aym9vq-MuiButtonBase-root-MuiTab-root.Mui-selected{
-      color: #4c3f90;
-    }
-    .search-tab .css-aym9vq-MuiButtonBase-root-MuiTab-root {
-     min-height: 10px !important;
-     min-width: 20px !important;
-     display: block;
-    }
-    .search-tab .css-1aquho2-MuiTabs-indicator{
-      background-color: #4c3f90;
-      top: 40px;
-    }
+.search-tab .css-i4bv87-MuiSvgIcon-root {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.search-tab button {
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+}
+.search-tab .css-aym9vq-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #4c3f90;
+}
+.search-tab .css-aym9vq-MuiButtonBase-root-MuiTab-root {
+  min-height: 10px !important;
+  min-width: 20px !important;
+  display: block;
+}
+.search-tab .css-1aquho2-MuiTabs-indicator {
+  background-color: #4c3f90;
+  top: 40px;
+}
 
-    .transport-heading h5{
-      font-family: "Euclid Circular A", sans-serif;
-      font-size: 22px;
-      font-weight: 600;
-      color: #222020;
-      padding-left: 0 !important;
-    }
-    .know-btn button{
-      background-color: #222020;
-    }
-  
-    .search-input-column .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
-      padding: 0 10px !important;
-    }
+.transport-heading h5 {
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #222020;
+  padding-left: 0 !important;
+}
+.know-btn button {
+  background-color: #222020;
+}
 
-    /*** Lisitng CSS ***/
-    .filter-row{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      white-space: nowrap;
-      overflow-x: scroll;
-    }
- 
+.search-input-column .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 0 10px !important;
+}
+
+/*** Lisitng CSS ***/
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
 .filter-row::-webkit-scrollbar {
   display: none;
 }
 
 .filter-row {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.filter-drop{
+.filter-drop {
   cursor: pointer;
 }
-    .filter-text h5{
-      font-family: "Euclid Circular A", sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-      color: #4c3f90;
-      margin-bottom: 0;
-    }
-    .filter-drop h6{
-      font-family: "Euclid Circular A", sans-serif;
-      font-weight: 500;
-      font-size: 14px;
-      color: #5b5b5b;
-border: 1px solid #dfdfdf;
-border-radius: 20px;
-margin-bottom: 0;
-padding-top: 8px !important;
-padding-right: 13px !important;
-padding: 5px 15px;
-    }
-    .filter-drop .css-i4bv87-MuiSvgIcon-root{
-      margin-bottom: 2px;
-    }
-    .searched-filter .css-vubbuv{
-      cursor: pointer;
-      font-size: 1rem !important;
-      margin-bottom: 2px !important;
-    }
-    .filter-search input{
-      min-width: 250px;
-      height: 40px;
-      border-radius: 7px;
-      border: 1px solid #dfdfdf !important;
-      border: 1px solid ;
-      padding: 5px 15px;
-    }
-    .filter-search input:focus{
-      outline: 0;
-    }
-    @keyframes fadeInSlideDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .filter-popover .MuiPaper-root {
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 10px;
-      margin-top: 6px;
-      animation: fadeInSlideDown 0.3s ease-in-out;
-    }
-    
-    .filter-popover .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked{
-      color: #4c3f90;
-    }
-    .filter-popover .css-1m9pwf3{
-    background-color: #4c3f90;
-    }
-    .filter-popover-content {
-      min-width: 200px;
-      font-family: "Euclid Circular A", sans-serif;
-      font-weight: 500;
-      font-size: 14px;
-      color: #5b5b5b;
-    }
+.filter-text h5 {
+  font-family: "Euclid Circular A", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #4c3f90;
+  margin-bottom: 0;
+}
+.filter-drop h6 {
+  font-family: "Euclid Circular A", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #5b5b5b;
+  border: 1px solid #dfdfdf;
+  border-radius: 20px;
+  margin-bottom: 0;
+  padding-top: 8px !important;
+  padding-right: 13px !important;
+  padding: 5px 15px;
+}
+.filter-drop .css-i4bv87-MuiSvgIcon-root {
+  margin-bottom: 2px;
+}
+.searched-filter .css-vubbuv {
+  cursor: pointer;
+  font-size: 1rem !important;
+  margin-bottom: 2px !important;
+}
+.filter-search input {
+  min-width: 250px;
+  height: 40px;
+  border-radius: 7px;
+  border: 1px solid #dfdfdf !important;
+  border: 1px solid;
+  padding: 5px 15px;
+}
+.filter-search input:focus {
+  outline: 0;
+}
+@keyframes fadeInSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    
-    .filter-popover .MuiFormControlLabel-root {
-      margin: 5px 0;
-    }
-    
-    .filter-popover .MuiFormControlLabel-label {
-      font-size: 14px;
-    }
-    
-    .filter-popover .MuiCheckbox-root,
-    .filter-popover .MuiRadio-root {
-      padding: 4px;
-    }
-    
-    .filter-popover .MuiTypography-root {
-      font-family: "Euclid Circular A", sans-serif;
-      font-weight: 500;
-      font-size: 14px;
-      margin: 5px 0;
-      color: #5b5b5b;
-    }
-    
-    .filter-popover .MuiList-root {
-      padding: 0;
-    }
-    
-    .filter-popover .MuiListItem-root {
-      padding: 4px 16px;
-    }
-    
-    .filter-popover .MuiListItemText-primary {
-      font-size: 14px;
-    }
-    
-    .filter-location-search {
-      width: 100%;
-      padding: 8px;
-      margin-top: 8px;
-      border: 1px solid #dfdfdf;
-      border-radius: 5px;
-    }
-    
-    .filter-location-search:focus {
-      outline: 0;
-    }
-    
-    .searched-filter{
-      display: flex;
-      gap: 10px;
-    }
-    .searched-filter h5{
-      font-family: "Euclid Circular A", sans-serif;
-      font-weight: 500;
-      font-size: 14px;
-      color: #5b5b5b;
-border: 1px solid #dfdfdf;
-background-color: #f7f7f7;
-border-radius: 20px;
-margin-bottom: 0;
-padding-top: 8px !important;
-padding-right: 13px !important;
-padding: 5px 15px;
-    }
-    .searched-filter .css-i4bv87-MuiSvgIcon-root{
-      font-size: 17px;
-      margin-bottom: 2px;
-      cursor: pointer;
-    }
+.filter-popover .MuiPaper-root {
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-top: 6px;
+  animation: fadeInSlideDown 0.3s ease-in-out;
+}
 
-    .list-banner img{
-      width: 100%;
-    }
+.filter-popover .css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+  color: #4c3f90;
+}
+.filter-popover .css-1m9pwf3 {
+  background-color: #4c3f90;
+}
+.filter-popover-content {
+  min-width: 200px;
+  font-family: "Euclid Circular A", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #5b5b5b;
+}
+
+.filter-popover .MuiFormControlLabel-root {
+  margin: 5px 0;
+}
+
+.filter-popover .MuiFormControlLabel-label {
+  font-size: 14px;
+}
+
+.filter-popover .MuiCheckbox-root,
+.filter-popover .MuiRadio-root {
+  padding: 4px;
+}
+
+.filter-popover .MuiTypography-root {
+  font-family: "Euclid Circular A", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 5px 0;
+  color: #5b5b5b;
+}
+
+.filter-popover .MuiList-root {
+  padding: 0;
+}
+
+.filter-popover .MuiListItem-root {
+  padding: 4px 16px;
+}
+
+.filter-popover .MuiListItemText-primary {
+  font-size: 14px;
+}
+
+.filter-location-search {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+}
+
+.filter-location-search:focus {
+  outline: 0;
+}
+
+.searched-filter {
+  display: flex;
+  gap: 10px;
+}
+.searched-filter h5 {
+  font-family: "Euclid Circular A", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #5b5b5b;
+  border: 1px solid #dfdfdf;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  margin-bottom: 0;
+  padding-top: 8px !important;
+  padding-right: 13px !important;
+  padding: 5px 15px;
+}
+.searched-filter .css-i4bv87-MuiSvgIcon-root {
+  font-size: 17px;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.list-banner img {
+  width: 100%;
+}
+.no-data {
+  height: 60vh;
+  @media screen and (max-width: 625px) {
+    height: 50vh;
+  }
+}
+.contact-us-message {
+  color: white;
+  padding: 10px;
+  background-color: rgb(28, 181, 28);
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+}

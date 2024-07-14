@@ -13,8 +13,8 @@ const YhGalleryPage = () => {
             <div className="col-lg-2">
               <Sidenav />
             </div>
-                      <div className="col-lg-10">
-                          <GalleryCarausel/>
+            <div className="col-lg-10">
+              <GalleryCarausel />
               {/* <HolidayPackageCard /> */}
               <WhyChooseUs />
               {/* <Newsletter/> */}

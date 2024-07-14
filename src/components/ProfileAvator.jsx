@@ -3,6 +3,8 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Cookies from "js-cookie";
+
 
 export default function ProfileAvator() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -13,6 +15,13 @@ export default function ProfileAvator() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = () => {
+    Cookies.remove("yh_auth_token");
+    handleClose();
+    localStorage.clear();
+    window.location.href = "/";
+  }
 
   return (
     <div>
@@ -38,7 +47,7 @@ export default function ProfileAvator() {
         <MenuItem onClick={handleClose}>My account</MenuItem>
         <MenuItem onClick={handleClose}>Forgot Password</MenuItem>
 
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </div>
   );

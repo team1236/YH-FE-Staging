@@ -9,6 +9,8 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { styled } from "@mui/system";
+import { conatctAPI } from "../store/api/contact";
+import toast from "react-hot-toast";
 
 const ContactFormContainer = styled(Box)(({ theme }) => ({
   maxWidth: "600px",
@@ -24,26 +26,49 @@ const ContactFormContainer = styled(Box)(({ theme }) => ({
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
-    mobile: "",
+    mobileNumber: "",
     email: "",
-    message: "",
+    query: "",
   });
+  const [isShow, setShow] = useState(false);
 
-  const isMobile = useMediaQuery("(max-width: 600px)");
+  const ismobileNumber = useMediaQuery("(max-width: 600px)");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
+    const response = await conatctAPI(formData);
+    if (response?.success) {
+      toast.success("Thank you for contacting us ", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+      setShow(true);
+    } else {
+      toast.error("Something went wrong", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    }
   };
 
   return (
     <>
-      <main style={{ padding: isMobile ? "15px" : "60px" }}>
+      {isShow && (
+        <div className="contact-us-message">
+          Our support team will get back to you shortly.
+        </div>
+      )}
+      <main style={{ padding: ismobileNumber ? "15px" : "60px" }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <img
@@ -65,8 +90,8 @@ const ContactForm = () => {
               <Card
                 sx={{
                   padding: "14px",
-                  // width: isMobile ? "100%" : '100%',
-                  // margin: isMobile ? "0" : "auto",
+                  // width: ismobileNumber ? "100%" : '100%',
+                  // margin: ismobileNumber ? "0" : "auto",
                 }}
               >
                 <form onSubmit={handleSubmit}>
@@ -82,9 +107,9 @@ const ContactForm = () => {
                   />
                   <TextField
                     fullWidth
-                    label="Mobile"
-                    name="mobile"
-                    value={formData.mobile}
+                    label="mobileNumber"
+                    name="mobileNumber"
+                    value={formData.mobileNumber}
                     onChange={handleChange}
                     margin="normal"
                     variant="outlined"
@@ -103,9 +128,9 @@ const ContactForm = () => {
                   />
                   <TextField
                     fullWidth
-                    label="Message/Query"
-                    name="message"
-                    value={formData.message}
+                    label="query/Query"
+                    name="query"
+                    value={formData.query}
                     onChange={handleChange}
                     margin="normal"
                     variant="outlined"

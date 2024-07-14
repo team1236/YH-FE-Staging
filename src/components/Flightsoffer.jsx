@@ -1,42 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { flightOffer } from "../store/api/flightPage";
 
 const Flightsoffer = () => {
+  const [flightOfferData, setFlightOfferData] = useState([]);
+
+  const flightOfferApi = async () => {
+    const getData = await flightOffer();
+    setFlightOfferData(getData.data.flightOffer);
+    return getData.data;
+  };
+
+  useEffect(() => {
+    Promise.allSettled([flightOfferApi()]);
+  }, []);
+
   return (
     <div className="flight-offer pt-5">
       <div className="recent-search-heading">
         <h4>Flights Offer</h4>
       </div>
       <div className="flight-box-container">
-        <div className="flight-box">
-          <div className="plane-box">
-            <img src="plane.png" alt="plane" />
-          </div>
-          <div className="plane-content-box">
-            <p>Domestic Flights</p>
-            <h5>
-              Huge savings on flight with <span>Hospitality</span>.
-            </h5>
-            <h6>
-              Book your domestic flights starting @ just <b>₹999</b>
-            </h6>
-            <button>Book Now</button>
-          </div>
-        </div>
-        <div className="flight-box">
-          <div className="plane-box">
-            <img src="plane.png" alt="plane" />
-          </div>
-          <div className="plane-content-box">
-            <p>Domestic Flights</p>
-            <h5>
-              Huge savings on flight with <span>Hospitality</span>.
-            </h5>
-            <h6>
-              Book your domestic flights starting @ just <b>₹999</b>
-            </h6>
-            <button>Book Now</button>
-          </div>
-        </div>
+        {flightOfferData &&
+          flightOfferData.slice(0, 3).map((ele) => (
+            <div className="flight-box" key={ele._id}>
+              <div className="plane-box">
+                <img src="plane.png" alt="plane" />
+              </div>
+              <div className="plane-content-box">
+                <p>{ele.type}</p>
+                <h5>{ele.title}</h5>
+                <h6>
+                  {ele.details} ₹<b>{ele.price}</b>
+                </h6>
+                <button>Book Now</button>
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );

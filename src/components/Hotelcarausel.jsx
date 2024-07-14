@@ -1,14 +1,15 @@
-import React, { useEffect, useRef } from 'react';
-import Slider from 'react-slick';
-import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-import EastIcon from '@mui/icons-material/East';
-import GradeIcon from '@mui/icons-material/Grade';
+import React, { useEffect, useRef, useState } from "react";
+import Slider from "react-slick";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import EastIcon from "@mui/icons-material/East";
+import GradeIcon from "@mui/icons-material/Grade";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { hotelNeatBYAPI } from "../store/api/hotelPage";
 
 const Hotelcarausel = () => {
   const sliderRef = useRef(null);
-
+  const [nearBy, setNearBy] = useState([]);
   useEffect(() => {
     const interval = setInterval(() => {
       if (sliderRef.current) {
@@ -32,18 +33,27 @@ const Hotelcarausel = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+
+  const getNearBYData = async () => {
+    const getData = await hotelNeatBYAPI();
+    setNearBy(getData.data.findData);
+  };
+
+  useEffect(() => {
+    Promise.allSettled([getNearBYData()]);
+  }, []);
 
   return (
     <>
@@ -53,79 +63,45 @@ const Hotelcarausel = () => {
           <p>Quality as judged by customers. Book at the ideal price!</p>
         </div>
         <div>
-          <button> View More <EastIcon /></button>
+          <button>
+            {" "}
+            View More <EastIcon />
+          </button>
         </div>
       </div>
       <div className="hotel-deal-box">
         <Slider ref={sliderRef} {...settings} className="slider">
-          <div className="hotel-look">
-            <div className="deal-img">
-              <img src="deal1.png" alt="" />
-            </div>
-            <div className='deal-content'>
-              <div className='review-box'>
-                <h6><GradeIcon /> 4.96 <span>(672 reviews)</span> </h6>
+          {nearBy.map((ele) => {
+            return (
+              <div className="hotel-look">
+                <div className="deal-img">
+                  <img src={ele.img} alt="" />
+                </div>
+                <div className="deal-content">
+                  <div className="review-box">
+                    <h6>
+                      <GradeIcon /> {ele.stars}{" "}
+                      <span>({ele.reviews_count} reviews)</span>{" "}
+                    </h6>
+                  </div>
+                  <h4 className="pt-3">{ele.title}</h4>
+                  <small>
+                    <LocationOnOutlinedIcon /> {ele.city}, {ele.country}
+                  </small>
+                  <div className="price-book-btn pt-2">
+                    <h6>
+                      ₹{ele.price} <span>/ person</span>{" "}
+                    </h6>
+                    <button>Book Now</button>
+                  </div>
+                </div>
               </div>
-              <h4 className='pt-3'>California Sunset/Twilight Boat Cruise</h4>
-              <small><LocationOnOutlinedIcon /> Manchester, England</small>
-              <div className='price-book-btn pt-2'>
-                <h6>₹848.25 <span>/ person</span> </h6>
-                <button>Book Now</button>
-              </div>
-            </div>
-          </div>
-          <div className="hotel-look">
-            <div className="deal-img">
-              <img src="deal2.png" alt="" />
-            </div>
-            <div className='deal-content'>
-              <div className='review-box'>
-                <h6><GradeIcon /> 4.96 <span>(672 reviews)</span> </h6>
-              </div>
-              <h4 className='pt-3'>NYC: Food Tastings and Culture Tour</h4>
-              <small><LocationOnOutlinedIcon /> Manchester, England</small>
-              <div className='price-book-btn pt-2'>
-                <h6>₹848.25 <span>/ person</span> </h6>
-                <button>Book Now</button>
-              </div>
-            </div>
-          </div>
-          <div className="hotel-look">
-            <div className="deal-img">
-              <img src="deal3.png" alt="" />
-            </div>
-            <div className='deal-content'>
-              <div className='review-box'>
-                <h6><GradeIcon /> 4.96 <span>(672 reviews)</span> </h6>
-              </div>
-              <h4 className='pt-3'>Grand Canyon Horseshoe Bend 2 days</h4>
-              <small><LocationOnOutlinedIcon /> Manchester, England</small>
-              <div className='price-book-btn pt-2'>
-                <h6>₹848.25 <span>/ person</span> </h6>
-                <button>Book Now</button>
-              </div>
-            </div>
-          </div>
-          <div className="hotel-look">
-            <div className="deal-img">
-              <img src="deal1.png" alt="" />
-            </div>
-            <div className='deal-content'>
-              <div className='review-box'>
-                <h6><GradeIcon /> 4.96 <span>(672 reviews)</span> </h6>
-              </div>
-              <h4 className='pt-3'>California Sunset/Twilight Boat Cruise</h4>
-              <small><LocationOnOutlinedIcon /> Manchester, England</small>
-              <div className='price-book-btn pt-2'>
-                <h6>₹848.25 <span>/ person</span> </h6>
-                <button>Book Now</button>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </Slider>
       </div>
     </>
   );
-}
+};
 
 export default Hotelcarausel;

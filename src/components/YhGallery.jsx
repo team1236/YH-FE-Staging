@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import EastIcon from "@mui/icons-material/East";
 import GradeIcon from "@mui/icons-material/Grade";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { galleryAPI } from "../store/api/gallery";
 
 const GalleryCarousel = ({ title, subtitle, images }) => {
   const sliderRef = useRef(null);
@@ -52,18 +52,13 @@ const GalleryCarousel = ({ title, subtitle, images }) => {
           <h4>{title}</h4>
           <p>{subtitle}</p>
         </div>
-        {/* <div>
-          <button>
-            View More <EastIcon />
-          </button>
-        </div> */}
       </div>
       <div className="hotel-deal-box">
         <Slider ref={sliderRef} {...settings} className="slider">
           {images.map((image, index) => (
             <div key={index} className="hotel-look">
               <div className="deal-img">
-                <img src={image.src} alt={image.alt} />
+                <img src={image.src} alt={image.title} />
               </div>
               {image.content && (
                 <div className="deal-content">
@@ -94,95 +89,27 @@ const GalleryCarousel = ({ title, subtitle, images }) => {
 };
 
 const GalleryPage = () => {
-  const eventPhotos = [
-    {
-      src: "https://cdn.prod.website-files.com/61f29c609f84a86e418fbcfb/63ecdf6e6df724eab1f0e8ca_20230215T0132-25bece5c-5ab8-4c33-98c7-60ad2668054b.webp",
-      alt: "Event 1",
-      content: null,
-    },
-    {
-      src: "https://cdn.prod.website-files.com/61f29c609f84a86e418fbcfb/63ecdf6e6df724eab1f0e8ca_20230215T0132-25bece5c-5ab8-4c33-98c7-60ad2668054b.webp",
-      alt: "Event 2",
-      content: null,
-    },
-    {
-      src: "https://cdn.prod.website-files.com/61f29c609f84a86e418fbcfb/63ecdf6e6df724eab1f0e8ca_20230215T0132-25bece5c-5ab8-4c33-98c7-60ad2668054b.webp",
-      alt: "Event 3",
-      content: null,
-    },
-  ];
+  const [data, setData] = useState([]);
+  const getGalleryData = async () => {
+    const getData = await galleryAPI();
+    setData(getData.data.findData);
+  };
 
-  const teamPhotos = [
-    {
-      src: "https://media.istockphoto.com/id/1346944001/photo/close-up-of-co-workers-stacking-their-hands-together.jpg?s=612x612&w=0&k=20&c=lidJcFUSR3rkMt4B0yoNwH55lz3sth9o2280keqBXGE=",
-      alt: "Team 1",
-      content: null,
-    },
-    {
-      src: "https://media.istockphoto.com/id/1346944001/photo/close-up-of-co-workers-stacking-their-hands-together.jpg?s=612x612&w=0&k=20&c=lidJcFUSR3rkMt4B0yoNwH55lz3sth9o2280keqBXGE=",
-      alt: "Team 2",
-      content: null,
-    },
-    {
-      src: "https://media.istockphoto.com/id/1346944001/photo/close-up-of-co-workers-stacking-their-hands-together.jpg?s=612x612&w=0&k=20&c=lidJcFUSR3rkMt4B0yoNwH55lz3sth9o2280keqBXGE=",
-      alt: "Team 3",
-      content: null,
-    },
-  ];
-
-  const dealPhotos = [
-    {
-      src: "deal1.png",
-      alt: "Deal 1",
-      content: {
-        rating: "4.96",
-        reviews: "672",
-        title: "California Sunset/Twilight Boat Cruise",
-        location: "Manchester, England",
-        price: "848.25",
-      },
-    },
-    {
-      src: "deal2.png",
-      alt: "Deal 2",
-      content: {
-        rating: "4.96",
-        reviews: "672",
-        title: "NYC: Food Tastings and Culture Tour",
-        location: "Manchester, England",
-        price: "848.25",
-      },
-    },
-    {
-      src: "deal3.png",
-      alt: "Deal 3",
-      content: {
-        rating: "4.96",
-        reviews: "672",
-        title: "Grand Canyon Horseshoe Bend 2 days",
-        location: "Manchester, England",
-        price: "848.25",
-      },
-    },
-  ];
+  useEffect(() => {
+    Promise.allSettled([getGalleryData()]);
+  }, []);
 
   return (
     <div>
-      <GalleryCarousel
-        title="Event Photos"
-        subtitle="Memorable moments from our events."
-        images={eventPhotos}
-      />
-      <GalleryCarousel
-        title="Team Photos"
-        subtitle="Meet our amazing team."
-        images={teamPhotos}
-      />
-      {/* <GalleryCarousel
-        title="Nearby Shooting Ranges"
-        subtitle="Quality as judged by customers. Book at the ideal price!"
-        images={dealPhotos}
-      /> */}
+      {data.map((ele) => {
+        return (
+          <GalleryCarousel
+            title={ele.title}
+            subtitle={ele.description}
+            images={ele.img}
+          />
+        );
+      })}
     </div>
   );
 };

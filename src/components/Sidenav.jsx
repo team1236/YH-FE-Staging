@@ -11,6 +11,7 @@ import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import Cookies from "js-cookie";
 
 const Sidenav = () => {
   const location = useLocation();
@@ -87,13 +88,13 @@ const Sidenav = () => {
         >
           <HotelIcon className="nav-icon" /> YH Hotels
         </Link>
-        <Link
+        {Cookies.get("yh_auth_token") && <Link
           to="/trips"
           className={`nav-link ${activeTab === 'trips' ? 'active' : ''}`}
           onClick={() => setActiveTab('trips')}
         >
           <TripOriginIcon className="nav-icon" /> My Trips
-        </Link>
+        </Link>}
         <Link
           to="/holidayPackage"
           className={`nav-link ${activeTab === 'holidayPackage' ? 'active' : ''}`}

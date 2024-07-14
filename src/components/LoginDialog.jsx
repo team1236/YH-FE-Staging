@@ -9,6 +9,7 @@ import { Box, CircularProgress, InputAdornment, TextField } from "@mui/material"
 import { useMediaQuery } from "@mui/material";
 import toast from "react-hot-toast";
 import { useLoginapiMutation } from "../store/api/auth/login.api";
+import Cookies from "js-cookie";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -62,6 +63,8 @@ function LoginDialog({ open, setOpen, setOpenRegister }) {
             color: "#fff",
           },
         });
+        localStorage.setItem("yh_user_email", response.data.data.email);
+        Cookies.set("yh_auth_token", response.data.data.token);
         setTimeout(() => {
           window.location.reload();
         }, 1000);

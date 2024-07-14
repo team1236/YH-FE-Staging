@@ -1,79 +1,30 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardContent,
   CardMedia,
-  CardActions,
   IconButton,
   Typography,
   Grid,
   Button,
   Box,
-  useMediaQuery
+  useMediaQuery,
 } from "@mui/material";
 import BookmarkAddOutlined from "@mui/icons-material/BookmarkAddOutlined";
-// import useMediaQuery from "@mui/material";
+import { holidayPackageAPI } from "../store/api/holidayPackage";
 
 export default function HolidayPackageCard() {
   const isMobile = useMediaQuery("(max-width:600px)");
-  const HolidayPackagePlace = [
-    {
-      title: "Manali",
-      image:
-        "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-      price: "$500",
-      duration: "5 nights and 6 days",
-    },
-    {
-      title: "Goa",
-      image:
-        "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-      price: "$700",
-      duration: "4 nights and 5 days",
-    },
-    {
-      title: "Kerala",
-      image:
-        "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-      price: "$800",
-      duration: "7 nights and 8 days",
-    },
-    {
-      title: "Rajasthan",
-      image:
-        "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-      price: "$1000",
-      duration: "9 nights and 10 days",
-    },
-    {
-      title: "UK",
-      image:
-        "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-      price: "$1500",
-      duration: "6 nights and 7 days",
-    },
-    {
-      title: "Leh-Ladakh",
-      image:
-        "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-      price: "$1200",
-      duration: "10 nights and 11 days",
-    },
-    {
-      title: "Darjeeling",
-      image:
-        "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-      price: "$600",
-      duration: "3 nights and 4 days",
-    },
-    {
-      title: "Udaipur",
-      image:
-        "https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286",
-      price: "$900",
-      duration: "5 nights and 6 days",
-    },
-  ];
+  const [HolidayPackagePlace, setHolidayPackagePlace] = useState([]);
+
+  const getDataHoliday = async () => {
+    const getData = await holidayPackageAPI();
+    setHolidayPackagePlace(getData.data.findData);
+  };
+
+  useEffect(() => {
+    Promise.allSettled([getDataHoliday()]);
+  }, []);
 
   return (
     <Grid container spacing={2} justifyContent="center">
@@ -85,15 +36,17 @@ export default function HolidayPackageCard() {
               width: isMobile ? "100%" : "auto",
               position: "relative",
               height: "100%",
+              display: "flex",
+              flexDirection: "column",
               margin: "auto",
             }}
           >
-            <CardContent>
+            <CardContent sx={{ flexGrow: 1 }}>
               <Typography variant="h6" component="div">
                 {item.title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {item.duration}
+                {item.description}
               </Typography>
               <IconButton
                 aria-label={`bookmark ${item.title}`}
@@ -105,7 +58,7 @@ export default function HolidayPackageCard() {
             <CardMedia
               component="img"
               height="140"
-              image={item.image}
+              image={item.img}
               alt={item.title}
             />
             <CardContent
@@ -120,7 +73,7 @@ export default function HolidayPackageCard() {
                   Total price:
                 </Typography>
                 <Typography variant="h6" component="div">
-                  {item.price}
+                  ₹ {item.price}
                 </Typography>
               </Box>
               <Button

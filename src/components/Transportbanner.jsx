@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { flightBanner } from "../store/api/flightPage";
+import { transportBannerAPI } from "../store/api/transportPage";
 
-const Flightbanner = () => {
+const Transportbanner = () => {
   const [data, setData] = useState([]);
-  const flightBannderApi = async () => {
-    const getData = await flightBanner();
+  const transportBannderApi = async () => {
+    const getData = await transportBannerAPI();
     setData(getData.data.findData);
   };
   useEffect(() => {
-    Promise.allSettled([flightBannderApi()]);
+    Promise.allSettled([transportBannderApi()]);
   }, []);
   return (
     <>
@@ -24,4 +24,4 @@ const Flightbanner = () => {
   );
 };
 
-export default Flightbanner;
+export default Transportbanner;
