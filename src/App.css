@@ -940,8 +940,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /*** Offer page CSS ***/
-
-<<<<<<< HEAD .offer-tabs button {
+.offer-tabs button {
   margin: 0 20px;
   border: none;
   cursor: pointer;
@@ -963,7 +962,7 @@ input[type="number"]::-webkit-inner-spin-button {
   flex-wrap: wrap;
   gap: 5px;
 }
-======= .offer-tabs button {
+.offer-tabs button {
   margin: 0 20px;
   border: none;
   cursor: pointer;
@@ -991,7 +990,7 @@ input[type="number"]::-webkit-inner-spin-button {
     justify-content: center;
   }
 }
->>>>>>>b6faf559e00d69bdad123863d0c0d3b053fdfdcd .flight-card {
+.flight-card {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("plane.png");
   background-size: cover;
