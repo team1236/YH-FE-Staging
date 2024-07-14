@@ -941,8 +941,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /*** Offer page CSS ***/
 
-<<<<<<< HEAD
-.offer-tabs button {
+<<<<<<< HEAD .offer-tabs button {
   margin: 0 20px;
   border: none;
   cursor: pointer;
@@ -964,38 +963,35 @@ input[type="number"]::-webkit-inner-spin-button {
   flex-wrap: wrap;
   gap: 5px;
 }
-=======
-  .offer-tabs button{
-    margin:0 20px;
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-    font-family: "Euclid Circular A", sans-serif;
-    border-radius: 0;
-    padding: 2px;
-    font-size: 16px;
-    color: #454545;
-  }
-  .offer-tabs .offer-active{
-    border-bottom: 3px solid #624fa8;
-    color: #624fa8;
-    font-weight: 500;
-  }
+======= .offer-tabs button {
+  margin: 0 20px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: "Euclid Circular A", sans-serif;
+  border-radius: 0;
+  padding: 2px;
+  font-size: 16px;
+  color: #454545;
+}
+.offer-tabs .offer-active {
+  border-bottom: 3px solid #624fa8;
+  color: #624fa8;
+  font-weight: 500;
+}
+.offer-cards-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 560px) {
   .offer-cards-box {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;
   }
-
-  @media(max-width:560px){
-    .offer-cards-box {
-      justify-content: center;
-    }
-  }
->>>>>>> b6faf559e00d69bdad123863d0c0d3b053fdfdcd
-
-.flight-card {
+}
+>>>>>>>b6faf559e00d69bdad123863d0c0d3b053fdfdcd .flight-card {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("plane.png");
   background-size: cover;
@@ -1601,9 +1597,9 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 16px;
   margin-bottom: 20px;
 }
-    .list-banner img{
-      width: 100%;
-    }
+.list-banner img {
+  width: 100%;
+}
 
 /*** Hotel detail CSS ***/
 .hotel-name h3 {
@@ -1619,7 +1615,8 @@ input[type="number"]::-webkit-inner-spin-button {
   justify-content: space-between;
 }
 
-.col-left, .col-right {
+.col-left,
+.col-right {
   padding: 15px;
   box-sizing: border-box;
 }
@@ -1633,7 +1630,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border-bottom-left-radius: 15px;
   cursor: pointer;
 }
-@media(max-width:1400px){
+@media (max-width: 1400px) {
   .detail-img img {
     height: 365px !important;
   }
@@ -1657,16 +1654,17 @@ input[type="number"]::-webkit-inner-spin-button {
   object-fit: cover;
   cursor: pointer;
 }
-.col-left{
+.col-left {
   padding: 15px 0 !important;
   padding-left: 15px !important;
 }
 @media (max-width: 768px) {
-  .col-left, .col-right {
+  .col-left,
+  .col-right {
     flex: 0 0 100%;
     max-width: 100%;
   }
-  .col-left{
+  .col-left {
     padding: 15px !important;
   }
   .grid-container {
@@ -1674,12 +1672,13 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 
   .col-left .detail-img img {
-    height: auto; 
+    height: auto;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .col-left, .col-right {
+  .col-left,
+  .col-right {
     flex: 0 0 50%;
     max-width: 50%;
   }
@@ -1692,13 +1691,13 @@ input[type="number"]::-webkit-inner-spin-button {
   position: relative;
 }
 
-.button-over-image button{
+.button-over-image button {
   position: absolute;
   top: 80%;
   left: 50%;
   transform: translate(-10%, -30%);
   background-color: #fff;
-  padding: 7px  8px;
+  padding: 7px 8px;
   border: 1px solid #3c3c3c;
   border-radius: 5px;
   text-align: center;
@@ -1708,7 +1707,7 @@ input[type="number"]::-webkit-inner-spin-button {
   font-weight: 500;
   color: #000;
 }
-.button-over-image button:hover{
+.button-over-image button:hover {
   background-color: #ffffffef;
   transition: all ease-in 0.3s;
   transform: scale(0.95);
@@ -1717,7 +1716,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .overlay {
   position: fixed;
   top: 0;
-  right: -100%; 
+  right: -100%;
   width: 100%;
   height: 100%;
   background-color: #fff;
@@ -1725,7 +1724,7 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: right 1s ease; 
+  transition: right 1s ease;
 }
 
 .overlay.show {
@@ -1752,20 +1751,19 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 10px;
   max-width: 300px; /* Adjust as needed */
 }
-@media(max-width:560px){
-  .detail-gallery{
+@media (max-width: 560px) {
+  .detail-gallery {
     overflow: scroll;
     height: 100vh;
   }
   .detail-gallery::-webkit-scrollbar {
     display: none;
   }
-  
-  .detail-gallery {
-    -ms-overflow-style: none;  
-    scrollbar-width: none; 
-  }
 
+  .detail-gallery {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 .close-overlay {
   position: absolute;
@@ -1781,49 +1779,50 @@ input[type="number"]::-webkit-inner-spin-button {
   font-weight: 500;
 }
 
-.detail-name h4{
+.detail-name h4 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 24px;
   font-weight: 500;
   color: #222020;
   margin-bottom: 0;
 }
-.detail-name p{
+.detail-name p {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 15px;
   font-weight: 400;
   color: #3d3d3d;
   margin-top: 5px;
 }
-.short-review-box{
+.short-review-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 15px;
   border: 1px solid #f5f5f5;
   padding: 20px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
-.short-review-box:hover{
+.short-review-box:hover {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   transition: all ease-out 0.5s;
   cursor: pointer;
 }
-.short-review-box h5{
+.short-review-box h5 {
   font-family: "Euclid Circular A", sans-serif;
   color: #312d2d;
   font-size: 16px;
   text-align: center;
   margin-bottom: 0;
 }
-.short-review-box p{
+.short-review-box p {
   font-family: "Euclid Circular A", sans-serif;
   color: #211f1f;
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 0;
 }
-.short-review-box h6{
+.short-review-box h6 {
   font-family: "Euclid Circular A", sans-serif;
   color: #211f1f;
   font-size: 18px;
@@ -1831,159 +1830,159 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: center;
   margin-bottom: 0;
 }
-.short-review-box span{
+.short-review-box span {
   font-size: 13px;
   font-weight: 500;
   text-decoration: underline;
   color: #211f1f;
 }
-.short-review-box i{
- text-decoration: none !important;
- font-size: 12px; 
+.short-review-box i {
+  text-decoration: none !important;
+  font-size: 12px;
 }
 
-@media(max-width:560px){
-  .short-review-box{
+@media (max-width: 560px) {
+  .short-review-box {
     display: block;
   }
-  .short-review-box h6{
+  .short-review-box h6 {
     text-align: left;
   }
-  .short-review-box p{
+  .short-review-box p {
     margin-bottom: 10px;
   }
-  .short-review-box p br{
+  .short-review-box p br {
     display: none;
   }
-  .short-review-box h5{
+  .short-review-box h5 {
     text-align: left;
     margin-bottom: 10px;
   }
-  .num-box{
+  .num-box {
     margin-bottom: 10px;
   }
 }
 
-.detail-pay-column{
+.detail-pay-column {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 20px;
   border-radius: 10px;
   border: 1px solid #e7e7e7;
 }
-.detail-pay-column h4{
+.detail-pay-column h4 {
   font-family: "Euclid Circular A", sans-serif;
   color: #211f1f;
   font-size: 20px;
   font-weight: 500;
 }
-.date-detail-box{
+.date-detail-box {
   display: flex;
 }
 
-.date-guest-box input{
+.date-guest-box input {
   border: 1px solid #c5c5c5 !important;
   height: 60px;
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
-.detail-passenger input{
+.detail-passenger input {
   height: 60px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-left-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
 }
-.detail-passenger{
+.detail-passenger {
   margin-top: -15px;
 }
-.cancel-box{
+.cancel-box {
   border: 1px solid #c5c5c5;
   border-radius: 10px;
   padding: 15px;
 }
-.policy-box h5{
+.policy-box h5 {
   font-family: "Euclid Circular A", sans-serif;
   color: #131313;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 12px;
 }
-.cancel-box label{
+.cancel-box label {
   font-family: "Euclid Circular A", sans-serif;
   color: #000000;
   font-size: 14px;
   font-weight: 400;
 }
-.cancel-box p{
+.cancel-box p {
   font-family: "Euclid Circular A", sans-serif;
   color: #808080;
   font-size: 12px;
   font-weight: 400;
   margin-bottom: 0;
 }
-.policy-radio{
+.policy-radio {
   display: flex;
   justify-content: space-between;
 }
-.policy-radio input{
+.policy-radio input {
   cursor: pointer;
   border: 1px solid #4c3f90;
 }
-.policy-radio .form-check-input:checked{
+.policy-radio .form-check-input:checked {
   background-color: #4c3f90 !important;
 }
-.policy-radio .form-check-input{
+.policy-radio .form-check-input {
   width: 1.2rem;
   height: 1.2rem;
 }
-.reserve-button button{
+.reserve-button button {
   width: 100%;
   background-color: #4c3f90;
   padding: 12px 10px;
   border: none;
   font-family: "Euclid Circular A", sans-serif;
-color: #fff;
-font-size: 16px;
-border-radius: 7px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 7px;
 }
-.breakdown-box{
+.breakdown-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.price-detail-box{
+.price-detail-box {
   border: 1px solid #c5c5c5;
   border-radius: 10px;
   padding: 10px;
 }
-.price-detail-box h4{
+.price-detail-box h4 {
   border: none;
   font-family: "Euclid Circular A", sans-serif;
-color: #252424;
-font-size: 16px;
-font-weight: 600;
+  color: #252424;
+  font-size: 16px;
+  font-weight: 600;
 }
-.breakdown-box h5{
+.breakdown-box h5 {
   font-family: "Euclid Circular A", sans-serif;
   color: #252424;
   font-size: 15px;
   font-weight: 400;
   margin: 5px 0;
 }
-.breakdown-box h6{
+.breakdown-box h6 {
   font-family: "Euclid Circular A", sans-serif;
   color: #252424;
   font-size: 15px;
   font-weight: 600;
   margin: 5px 0;
 }
-.about-hotel h5{
+.about-hotel h5 {
   font-family: "Euclid Circular A", sans-serif;
   color: #252424;
   font-size: 22px;
   font-weight: 600;
 }
-.about-hotel p{
+.about-hotel p {
   font-family: "Euclid Circular A", sans-serif;
   color: #1a1a1a;
   font-size: 15px;
@@ -2028,7 +2027,7 @@ font-weight: 600;
   }
 }
 
-.amenities h4{
+.amenities h4 {
   font-family: "Euclid Circular A", sans-serif;
   color: #252424;
   font-size: 22px;
