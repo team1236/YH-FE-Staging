@@ -1,6 +1,7 @@
 import React from 'react'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import GradeIcon from '@mui/icons-material/Grade';
+import { Link } from 'react-router-dom';
 const Hotellistcard = () => {
   return (
     <>
@@ -25,7 +26,7 @@ Boat Cruise</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -44,7 +45,7 @@ Culture Tour</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -63,7 +64,7 @@ Culture Tour</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -82,7 +83,7 @@ Culture Tour</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -101,7 +102,7 @@ Bend 2 days</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -120,7 +121,7 @@ Boat Cruise</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -139,7 +140,7 @@ Boat Cruise</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -158,7 +159,7 @@ Culture Tour</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -186,7 +187,7 @@ Boat Cruise</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -205,7 +206,7 @@ Culture Tour</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -224,7 +225,7 @@ Culture Tour</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -243,7 +244,7 @@ Culture Tour</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -262,7 +263,7 @@ Bend 2 days</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -281,7 +282,7 @@ Boat Cruise</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -300,7 +301,7 @@ Boat Cruise</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
@@ -319,7 +320,7 @@ Culture Tour</h4>
 
 <div className='price-book-btn pt-2'>
 <h6>₹848.25 <span>/ person</span> </h6>
-<button>Book Now</button>
+<Link className='book-link' to="/hoteldetail"><button>Book Now</button></Link>
 </div>
 
 </div>
