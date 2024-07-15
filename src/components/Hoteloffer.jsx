@@ -30,7 +30,7 @@ const Hoteloffer = () => {
         btn.removeEventListener("click", handleCopyCode)
       );
     };
-  }, []);
+  }, [hotelOffer]);
 
   return (
     <>

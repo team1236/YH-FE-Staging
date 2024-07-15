@@ -4,35 +4,22 @@ import { offerAPI } from "../store/api/offerPage";
 const Offercard = () => {
   const [activeTab, setActiveTab] = useState("Flights");
   const [offerData, setOfferData] = useState([]);
-
   useEffect(() => {
-    const handleCopyCode = (e) => {
-      const cpnCode = e.target.previousElementSibling;
-      navigator.clipboard.writeText(cpnCode.innerHTML);
-      e.target.innerHTML = "COPIED";
-      setTimeout(() => {
-        e.target.innerHTML = "COPY CODE";
-      }, 3000);
+    const handleTabClick = async () => {
+      const getData = await offerAPI(activeTab.toLowerCase());
+      setOfferData(getData.data.findData);
     };
 
-    const cpnBtns = document.querySelectorAll(".cpnBtn");
-    cpnBtns.forEach((btn) => btn.addEventListener("click", handleCopyCode));
-
-    return () => {
-      cpnBtns.forEach((btn) =>
-        btn.removeEventListener("click", handleCopyCode)
-      );
-    };
-  }, []);
-
-  const handleTabClick = async () => {
-    const getData = await offerAPI(activeTab.toLowerCase());
-    setOfferData(getData.data.findData);
-  };
-
-  useEffect(() => {
-    Promise.allSettled([handleTabClick()]);
+    handleTabClick();
   }, [activeTab]);
+
+  const handleCopyCode = (cpnCode, btn) => {
+    navigator.clipboard.writeText(cpnCode);
+    btn.innerHTML = "COPIED";
+    setTimeout(() => {
+      btn.innerHTML = "COPY CODE";
+    }, 3000);
+  };
 
   const renderOfferCards = () => {
     switch (activeTab) {
@@ -45,7 +32,12 @@ const Offercard = () => {
                   <h3>{ele.description}</h3>
                   <div className="coupon-row">
                     <span className="cpnCode">{ele.coupen_code}</span>
-                    <span className="cpnBtn">Copy Code</span>
+                    <span
+                      className="cpnBtn"
+                      onClick={(e) => handleCopyCode(ele.coupen_code, e.target)}
+                    >
+                      Copy Code
+                    </span>
                   </div>
                   <p>Valid Till: {ele.validity}</p>
                   <div className="circle1"></div>
@@ -64,7 +56,12 @@ const Offercard = () => {
                   <h3>{ele.description}</h3>
                   <div className="coupon-row">
                     <span className="cpnCode">{ele.coupen_code}</span>
-                    <span className="cpnBtn">Copy Code</span>
+                    <span
+                      className="cpnBtn"
+                      onClick={(e) => handleCopyCode(ele.coupen_code, e.target)}
+                    >
+                      Copy Code
+                    </span>
                   </div>
                   <p>Valid Till: {ele.validity}</p>
                   <div className="circle1"></div>
@@ -83,7 +80,12 @@ const Offercard = () => {
                   <h3>{ele.description}</h3>
                   <div className="coupon-row">
                     <span className="cpnCode">{ele.coupen_code}</span>
-                    <span className="cpnBtn">Copy Code</span>
+                    <span
+                      className="cpnBtn"
+                      onClick={(e) => handleCopyCode(ele.coupen_code, e.target)}
+                    >
+                      Copy Code
+                    </span>
                   </div>
                   <p>Valid Till: {ele.validity}</p>
                   <div className="circle1"></div>

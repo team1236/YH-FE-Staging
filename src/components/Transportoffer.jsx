@@ -21,7 +21,7 @@ const Transportoffer = () => {
         btn.removeEventListener("click", handleCopyCode)
       );
     };
-  }, []);
+  }, [transportOffer]);
 
   const getTransportOffer = async () => {
     const getData = await transportOffersAPI();

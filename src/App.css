@@ -1063,6 +1063,7 @@ input[type="number"]::-webkit-inner-spin-button {
   padding: 10px 10px;
   color: #7158fe;
   cursor: pointer;
+  width: max-content;
 }
 .coupon-card p {
   font-size: 14px;
