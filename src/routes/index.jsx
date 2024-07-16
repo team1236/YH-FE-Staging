@@ -13,6 +13,7 @@ import YhGalleryPage from "../pages/YhGalleryPage.jsx";
 import Yhhotels from "../pages/Yhhotels.jsx";
 import Hotellisting from "../pages/Hotellisting.jsx";
 import Hoteldetail from "../pages/Hoteldetail.jsx";
+import Hotelcheckoutpage from "../pages/Hotelcheckoutpage.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
       {
         path: "/hoteldetail",
         element: <Hoteldetail />,
+      },
+      {
+        path: "/checkout",
+        element: <Hotelcheckoutpage />,
       },
     ],
   },

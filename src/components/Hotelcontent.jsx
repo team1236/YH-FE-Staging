@@ -70,6 +70,28 @@ const Hotelcontent = () => {
         </div>
 </div>
 
+<hr />
+<div className="hotel-location">
+      <h4>Where You will be</h4>
+      <iframe
+        title="Hotel Location"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.187127549951!2d-122.41771742411485!3d37.809085671976746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580e2fc1c4833%3A0x2c5c3c50aa6ed5be!2sRed%20and%20White%20Fleet%20San%20Francisco%20Bay%20Cruises!5e0!3m2!1sen!2sin!4v1721151722143!5m2!1sen!2sin"
+        frameBorder="0"
+        
+        allowFullScreen
+        loading="lazy"
+      ></iframe>
+
+<h6>California Sunset/Twilight Boat Cruise</h6>
+<p>Be immersed in an atmosphere of Thai-Chinese commercial culture in this bustling neighborhood where there are many herb
+markets and traditional medicine shops. There is a great bar on the main floor of the building and the famous street
+food of Chinatown is just a five-minute walk away. Other great, unique bars in the area include Tep Bar, Teens of Thailand,
+and El Chiringuito!</p>
+
+    </div>
+
+    <hr />
+
       </div>
     </>
   );

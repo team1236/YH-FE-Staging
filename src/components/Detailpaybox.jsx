@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { Link } from 'react-router-dom';
 
 const Detailpaybox = () => {
 
@@ -173,7 +174,7 @@ const Detailpaybox = () => {
 </div>
 
     <div className="reserve-button mt-4">
-        <button>Book Room</button>
+       <Link to="/checkout"> <button>Book Room</button></Link>
     </div>
 
     </div>
