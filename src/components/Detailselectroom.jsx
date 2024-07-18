@@ -9,8 +9,9 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Link } from 'react-router-dom';
 
-const Detailpaybox = () => {
+const Detailselectroom = () => {
 
+    
     const [passengerValue, setPassengerValue] = useState({ adults: 0, children: 0, infants: 0, rooms: 0 });
     const [anchorEl, setAnchorEl] = useState(null);
   
@@ -34,9 +35,10 @@ const Detailpaybox = () => {
     const open = Boolean(anchorEl);
     const id = open ? 'passenger-popover' : undefined;
   
+
   return (
-    <>
-    <div className="detail-pay-column">
+ <>
+ <div className="detail-pay-column">
         <h4>₹8,993 night</h4>
 <div className="date-guest-box pt-4">
 <div className="date-detail-box">
@@ -133,6 +135,35 @@ const Detailpaybox = () => {
 </div>
 
 <div className="policy-box pt-3">
+        <h5>Select Room</h5>
+        <div className="cancel-box">
+            <div className="deluxe-room">
+            <div className='select-room-box'>
+          <img src="detail3.webp" alt="" />
+        </div>
+        <div className="room-type-box">
+        <p>Deluxe Room </p>
+        </div>
+        <div className="policy-radio">
+             <input className="form-check-input" type="radio" name="flexRadioDefault0" id="flexRadioDefault0"/>
+             </div>
+            </div>
+            <hr />
+            <div className="deluxe-room">
+            <div className='select-room-box'>
+          <img src="detail3.webp" alt="" />
+        </div>
+        <div className="room-type-box">
+        <p>Basic Room </p>
+        </div>
+        <div className="policy-radio">
+             <input className="form-check-input" type="radio" name="flexRadioDefault0" id="flexRadioDefault0"/>
+             </div>
+            </div>
+        </div>
+    </div>
+
+<div className="policy-box pt-3">
         <h5>Cancellation Policies</h5>
         <div className="cancel-box">
             <div>
@@ -152,38 +183,14 @@ const Detailpaybox = () => {
         </div>
     </div>
 
-<div className="price-detail-box mt-3">
-    <h4>Price Breakup Details</h4>
-    <div className='breakdown-box'>
-        <h5>₹8,993 x 5 nights</h5>
-        <h6>₹44,500</h6>
-    </div>
-    <div className='breakdown-box'>
-        <h5>Service Fee</h5>
-        <h6>₹1000</h6>
-    </div>
-    <div className='breakdown-box'>
-        <h5>Tax Fee</h5>
-        <h6>₹500</h6>
-    </div>
-    <div className='breakdown-box'>
-        <h5>Coupon Discount</h5>
-        <h6>- ₹500</h6>
-    </div>
-    <hr />
-    <div className='total-price breakdown-box'>
-        <h5>Total Price</h5>
-        <h6>₹46,000</h6>
-    </div>
-</div>
 
     <div className="reserve-button mt-4">
-       <Link to=""> <button>Book Room</button></Link>
+       <Link to="/checkout"> <button>Book Room</button></Link>
     </div>
 
     </div>
-    </>
+ </>
   )
 }
 
-export default Detailpaybox
+export default Detailselectroom

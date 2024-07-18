@@ -2164,159 +2164,179 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 
-.fl-left{float: left}
-
-.card
-{
-  display: table-row;
-  width: 100%;
-  background-color: #ffffff;
-  color: #989898;
-  margin-bottom: 10px;
-  font-family: 'Euclid Circular A', sans-serif;
-  text-transform: uppercase;
-  border-radius: 4px;
-  position: relative;
-  border:none;
+.booking-card{
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 20px;
   border-radius: 10px;
 }
-
-.card + .card{margin-left: 2%}
-
-.date
-{
-  display: table-cell;
-  width: 25%;
-  position: relative;
-  text-align: center;
-  border-right: 2px dashed #dadde6
+.card-heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
 }
-
-/* .date:before,
-.date:after
-{
-  content: "";
-  display: block;
-  width: 30px;
-  height: 30px;
-  background-color: #ffffff;
-  position: absolute;
-  top: -15px ;
-  right: -15px;
-  z-index: 1;
-  border-radius: 50%
-} */
-
-.date:after
-{
-  top: auto;
-  bottom: -15px
+.card-img{
+  max-width: 130px;
+  height: auto;
 }
-
-.date time
-{
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%)
+.card-img img{
+  width: 100%;
+  object-fit: cover;
+  height: 120px;
+  border-radius: 10px;
 }
-
-.date time span{display: block}
-
-.date time span:first-child
-{
-  color: #2b2b2b;
+.card-text small{
+  font-family: "Euclid Circular A", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #646464;
+}
+.card-text h3{
+  font-family: "Euclid Circular A", sans-serif;
   font-weight: 600;
-  font-size: 250%
+  font-size: 22px;
+  color: #242222;
+  padding: 8px 0;
+  margin-bottom: 0;
+}
+.star-icon svg{
+  font-size: 20px;
+}
+.card-heading{
+  border-bottom: 1px dashed #bdbdbd;
+}
+.check-details{
+  display: flex;
+  justify-content: space-between;
+}
+.check-details{
+  justify-content: space-between;
+  align-items: center;
+ padding-top: 10px;
+}
+.check-details h5{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  color: #696969;
+  font-weight: 500;
+  margin-bottom: 0;
 }
 
-.date time span:last-child
-{
-  text-transform: uppercase;
+.check-details h3{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 22px;
+  color: #2d2a2a;
   font-weight: 600;
-  margin-top: -10px
+  margin-bottom: 0;
+  padding: 7px 0;
 }
-
-.card-cont
-{
-  display: table-cell;
-  width: 75%;
-  font-size: 85%;
-  padding: 10px 10px 30px 50px
-}
-
-.card-cont h3
-{
-  color: #3C3C3C;
-  font-size: 130%
-}
-
-
-.card-cont > div
-{
-  display: table-row
-}
-
-.card-cont .even-date i,
-.card-cont .even-info i,
-.card-cont .even-date time,
-.card-cont .even-info p
-{
-  display: table-cell
-}
-
-.card-cont .even-date i,
-.card-cont .even-info i
-{
-  padding: 5% 5% 0 0
-}
-
-.card-cont .even-info p
-{
-  padding: 30px 50px 0 0
-}
-
-.card-cont .even-date time span
-{
-  display: block
-}
-
-.card-cont a
-{
-  display: block;
-  text-decoration: none;
-  width: 80px;
-  height: 30px;
-  background-color: #D8DDE0;
-  color: #fff;
-  text-align: center;
-  line-height: 30px;
+.check-details span{
+  background-color: #4c3f90;
+  padding: 4px 8px;
   border-radius: 2px;
-  position: absolute;
-  right: 10px;
-  bottom: 10px
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+  border-radius: 2px;
+}
+.check-margin{
+margin-top: 10px;
+}
+@media (max-width:768px){
+  .check-details .check-margin:nth-child(4) {
+    border-top: 1px solid #c4c4c4;
+    padding: 10px;
+    }
 }
 
+.select-room-box{
+  max-width: 130px;
+  height: auto;
+}
+.select-room-box img{
+  width: 100%;
+  object-fit: cover;
+  height: 90px;
+  border-radius: 10px;
+}
+.deluxe-room{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.room-type-box p{
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Euclid Circular A", sans-serif;
+  color: #131313;
+  text-align: left !important;
+  margin-bottom: 0;
+}
+.selected-room-img img{
+  width: 100%;
+  border-radius: 6px;
+}
+.selected-room h4{
+  font-family: "Euclid Circular A", sans-serif;
+  color: #252424;
+  font-size: 22px;
+  font-weight: 600;
+}
+.guest-detail-box h4 {
+  font-family: "Euclid Circular A", sans-serif;
+  color: #252424;
+  font-size: 22px;
+  font-weight: 600;
+}
+.guest-detail-box p{
+  font-family: "Euclid Circular A", sans-serif;
+  color: #4a4a4a;
+  font-size: 16px;
+}
+.guest-form .MuiOutlinedInput-root {
+  height: 60px;
+  border-radius: 6px;
+}
 
-@media screen and (max-width: 860px)
-{
-  .card
-  {
-    display: block;
-    float: none;
-    width: 100%;
-    margin-bottom: 10px
-  }
-  
-  .card + .card{margin-left: 0}
-  
-  .card-cont .even-date,
-  .card-cont .even-info
-  {
-    font-size: 75%
-  }
+.guest-form .MuiOutlinedInput-notchedOutline {
+  border-color: #c7c7c7;
+}
+
+.guest-form .MuiInputBase-input {
+  font-family: "Euclid Circular A", sans-serif;
+  color: #606060;
+}
+
+.guest-form .MuiInputLabel-root {
+  font-family: "Euclid Circular A", sans-serif;
+  color: #c4c4c4;
+}
+
+.guest-form .MuiInputLabel-shrink {
+  color: #252424 !important;
+}
+
+.MuiTabs-centered {
+  justify-content: start !important;
+  gap: 10px;
+}
+.MuiTabs-centered button{
+  font-family: "Euclid Circular A", sans-serif;
+ background-color: #ffffff;
+ border: 1px solid #cbcbcb;
+ min-width: 80px;
+ max-width: 100px;
+ min-height: 20px;
+ border-radius: 20px;
+ font-weight: 500;
+ text-transform: capitalize;
+}
+.MuiTabs-centered  .Mui-selected{
+  background-color: #dddddd;
+}
+.MuiTab-root {
+  font-family: "Euclid Circular A", sans-serif;
+}
+.guest-tab .MuiTabs-indicator {
+  display: none;
 }
