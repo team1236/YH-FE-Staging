@@ -33,7 +33,7 @@ body {
   padding-left: 8%;
   padding-right: 8%;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  z-index:11;
+  z-index: 11;
 }
 @media (max-width: 768px) {
   .navbar {
@@ -2033,25 +2033,25 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 22px;
   font-weight: 600;
 }
-.hotel-location h4{
+.hotel-location h4 {
   font-family: "Euclid Circular A", sans-serif;
   color: #252424;
   font-size: 22px;
   margin-bottom: 20px;
 }
-.hotel-location h6{
+.hotel-location h6 {
   font-family: "Euclid Circular A", sans-serif;
   color: #303030;
   font-size: 17px;
   margin-bottom: 10px;
 }
-.hotel-location p{
+.hotel-location p {
   font-family: "Euclid Circular A", sans-serif;
   color: #555555;
   font-size: 15px;
   margin-bottom: 10px;
 }
-.hotel-location iframe{
+.hotel-location iframe {
   width: 100%;
   height: 300px;
   border-radius: 10px;
@@ -2113,7 +2113,7 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 5px 0;
   font-size: 12px;
 }
-.review-rating svg{
+.review-rating svg {
   color: #000;
   font-size: 13px;
 }
@@ -2133,17 +2133,18 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-top: auto;
 }
 
-.thumb-up-button, .thumb-down-button {
+.thumb-up-button,
+.thumb-down-button {
   color: inherit;
 }
-.thumb-up-button svg{
+.thumb-up-button svg {
   color: #4c3f90;
 }
-.thumb-down-button svg{
+.thumb-down-button svg {
   color: #cd3636;
 }
 
-.hotel-review-container h3{
+.hotel-review-container h3 {
   font-family: "Euclid Circular A", sans-serif;
   font-weight: 600;
   font-size: 25px;
@@ -2163,35 +2164,34 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 }
 
-
-.booking-card{
+.booking-card {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 20px;
   border-radius: 10px;
 }
-.card-heading{
+.card-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 20px;
 }
-.card-img{
+.card-img {
   max-width: 130px;
   height: auto;
 }
-.card-img img{
+.card-img img {
   width: 100%;
   object-fit: cover;
   height: 120px;
   border-radius: 10px;
 }
-.card-text small{
+.card-text small {
   font-family: "Euclid Circular A", sans-serif;
   font-weight: 500;
   font-size: 15px;
   color: #646464;
 }
-.card-text h3{
+.card-text h3 {
   font-family: "Euclid Circular A", sans-serif;
   font-weight: 600;
   font-size: 22px;
@@ -2199,22 +2199,22 @@ input[type="number"]::-webkit-inner-spin-button {
   padding: 8px 0;
   margin-bottom: 0;
 }
-.star-icon svg{
+.star-icon svg {
   font-size: 20px;
 }
-.card-heading{
+.card-heading {
   border-bottom: 1px dashed #bdbdbd;
 }
-.check-details{
+.check-details {
   display: flex;
   justify-content: space-between;
 }
-.check-details{
+.check-details {
   justify-content: space-between;
   align-items: center;
- padding-top: 10px;
+  padding-top: 10px;
 }
-.check-details h5{
+.check-details h5 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 14px;
   color: #696969;
@@ -2222,7 +2222,7 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-bottom: 0;
 }
 
-.check-details h3{
+.check-details h3 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 22px;
   color: #2d2a2a;
@@ -2230,7 +2230,7 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-bottom: 0;
   padding: 7px 0;
 }
-.check-details span{
+.check-details span {
   background-color: #4c3f90;
   padding: 4px 8px;
   border-radius: 2px;
@@ -2239,32 +2239,32 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #ffffff;
   border-radius: 2px;
 }
-.check-margin{
-margin-top: 10px;
+.check-margin {
+  margin-top: 10px;
 }
-@media (max-width:768px){
+@media (max-width: 768px) {
   .check-details .check-margin:nth-child(4) {
     border-top: 1px solid #c4c4c4;
     padding: 10px;
-    }
+  }
 }
 
-.select-room-box{
+.select-room-box {
   max-width: 130px;
   height: auto;
 }
-.select-room-box img{
+.select-room-box img {
   width: 100%;
   object-fit: cover;
   height: 90px;
   border-radius: 10px;
 }
-.deluxe-room{
+.deluxe-room {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.room-type-box p{
+.room-type-box p {
   font-size: 16px;
   font-weight: 500;
   font-family: "Euclid Circular A", sans-serif;
@@ -2272,11 +2272,11 @@ margin-top: 10px;
   text-align: left !important;
   margin-bottom: 0;
 }
-.selected-room-img img{
+.selected-room-img img {
   width: 100%;
   border-radius: 6px;
 }
-.selected-room h4{
+.selected-room h4 {
   font-family: "Euclid Circular A", sans-serif;
   color: #252424;
   font-size: 22px;
@@ -2288,7 +2288,7 @@ margin-top: 10px;
   font-size: 22px;
   font-weight: 600;
 }
-.guest-detail-box p{
+.guest-detail-box p {
   font-family: "Euclid Circular A", sans-serif;
   color: #4a4a4a;
   font-size: 16px;
@@ -2320,18 +2320,18 @@ margin-top: 10px;
   justify-content: start !important;
   gap: 10px;
 }
-.MuiTabs-centered button{
+.MuiTabs-centered button {
   font-family: "Euclid Circular A", sans-serif;
- background-color: #ffffff;
- border: 1px solid #cbcbcb;
- min-width: 80px;
- max-width: 100px;
- min-height: 20px;
- border-radius: 20px;
- font-weight: 500;
- text-transform: capitalize;
+  background-color: #ffffff;
+  border: 1px solid #cbcbcb;
+  min-width: 80px;
+  max-width: 100px;
+  min-height: 20px;
+  border-radius: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
 }
-.MuiTabs-centered  .Mui-selected{
+.MuiTabs-centered .Mui-selected {
   background-color: #dddddd;
 }
 .MuiTab-root {
@@ -2339,4 +2339,113 @@ margin-top: 10px;
 }
 .guest-tab .MuiTabs-indicator {
   display: none;
+}
+.guest-detail-box p {
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  color: #303030;
+}
+.add-guest-box button {
+  background-color: transparent;
+  border: 1px solid #505050;
+  color: #292929;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.add-guest-box button:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transform: scale(1.03);
+}
+.dialog-heading h6 {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Euclid Circular A", sans-serif;
+}
+
+.guest-name p {
+  font-size: 16px;
+  font-family: "Euclid Circular A", sans-serif;
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+.guest-name span {
+  font-weight: 500;
+}
+.guest-name {
+  display: flex;
+  margin-bottom: 15px;
+}
+.guest-name svg {
+  margin-top: -7px;
+}
+.special-request-box h4 {
+  font-family: "Euclid Circular A", sans-serif;
+  color: #252424;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+.add-on-box label{
+  font-family: "Euclid Circular A", sans-serif;
+  color: #2d2b2b;
+  font-size: 15px;
+}
+.add-on-box svg{
+  font-size: 20px;
+  color: #1a1a1a;
+  margin-right: 3px;
+}
+.add-on-box input{
+  color: #4c3f90 !important;
+}
+.add-on-box .css-1m9pwf3{
+  color: #4c3f90 !important;
+}
+
+
+
+.apply-coupon-box {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e7e7e7;
+}
+
+.apply-coupon-box h4 {
+  font-family: "Euclid Circular A", sans-serif;
+  color: #211f1f;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.coupon-box{
+  display: flex;
+}
+.coupon-box input{
+  height: 55px;
+  border-radius: 7px;
+  border: 1px solid #ababab;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+.coupon-box input:focus{
+  box-shadow: none;
+  outline: 0;
+}
+.coupon-box button{
+  background-color: #4c3f90;
+  color: #fff;
+  font-family: "Euclid Circular A", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  padding: 5px 20px;
+  text-transform: uppercase;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
