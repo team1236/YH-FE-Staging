@@ -118,7 +118,7 @@ const Yhhotellist = () => {
                 <Button
                   variant="contained"
                   //   color="primary"
-                  sx={{ ml: 2, background: "#624fa8", color: "white" }}
+                  sx={{ ml: 4, background: "#624fa8", color: "white" }}
                 >
                   Book Now
                 </Button>
@@ -129,7 +129,7 @@ const Yhhotellist = () => {
                   startIcon={<WhatsAppIcon />}
                   variant="outlined"
                   color="success"
-                  sx={{ ml: 2 }}
+                  sx={{ ml: 0 }}
                 >
                   WhatsApp
                 </Button>
@@ -139,7 +139,7 @@ const Yhhotellist = () => {
                   color="secondary"
                   sx={{ ml: 2 }}
                 >
-                  Contact
+                  Book Now
                 </Button>
               </>
             )}
