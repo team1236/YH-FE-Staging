@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, Grid } from "@mui/material";
 import { myServiceAPI } from "../store/api/myService";
-import { Flight_Recent_Searches } from "./Shimmer";
+import { MyService } from "./Shimmer";
 
 export default function ActionAreaCard() {
   const [ServiceCard, setServiceCard] = useState([]);
@@ -57,7 +57,11 @@ export default function ActionAreaCard() {
             ))
           : Array.from({ length: 20 }).map((_, index) => (
               <Grid item xs={12} sm={6} md={3} key={index}>
-                <Flight_Recent_Searches key={index} />
+                <Card sx={{ maxWidth: 300, margin: "auto" }}>
+                  <CardActionArea>
+                    <MyService key={index} />
+                  </CardActionArea>
+                </Card>
               </Grid>
             ))}
       </Grid>
