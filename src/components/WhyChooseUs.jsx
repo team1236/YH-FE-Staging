@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { whyYHChoose } from "../store/api/flightPage";
+import { Why_Choose_Us } from "./Shimmer";
 // import { Grid, Typography } from "@mui/material";
 
 const WhyChooseUs = () => {
@@ -12,11 +13,21 @@ const WhyChooseUs = () => {
   useEffect(() => {
     Promise.allSettled([getDescription()]);
   }, []);
-  
-  return <div
-  className="why-us-section pt-5"
-  dangerouslySetInnerHTML={{ __html: description.data }}
-/>;
+
+  return (
+    <>
+      {description.data ? (
+        <div
+          className="why-us-section pt-5"
+          dangerouslySetInnerHTML={{ __html: description.data }}
+        />
+      ) : (
+        <div className="why-us-section pt-5">
+          <Why_Choose_Us />
+        </div>
+      )}
+    </>
+  );
 };
 
 export default WhyChooseUs;

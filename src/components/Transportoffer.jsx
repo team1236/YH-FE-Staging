@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { transportOffersAPI } from "../store/api/transportPage";
+import { Hotel_Coupon } from "./Shimmer";
 
 const Transportoffer = () => {
   const [transportOffer, setTransportOffer] = useState([]);
@@ -37,20 +38,29 @@ const Transportoffer = () => {
         <h4>Transport Coupon</h4>
       </div>
       <div className="offer-cards-box">
-        {transportOffer.slice(0, 3).map((ele) => {
-          return (
-            <div className="coupon-card transport-card">
-              <h3>{ele.description}</h3>
-              <div className="coupon-row">
-                <span className="cpnCode">{ele.coupen_code}</span>
-                <span className="cpnBtn">Copy Code</span>
+        {transportOffer.length > 0
+          ? transportOffer.slice(0, 3).map((ele) => {
+              return (
+                <div className="coupon-card transport-card">
+                  <h3>{ele.description}</h3>
+                  <div className="coupon-row">
+                    <span className="cpnCode">{ele.coupen_code}</span>
+                    <span className="cpnBtn">Copy Code</span>
+                  </div>
+                  <p>Valid Till: {ele.validity}</p>
+                  <div className="circle1"></div>
+                  <div className="circle2"></div>
+                </div>
+              );
+            })
+          : Array.from({ length: 3 }).map((_, index) => (
+              <div
+                className="coupon-card transport-card"
+                style={{ width: "100%", background: "transparent" }}
+              >
+                <Hotel_Coupon key={index} />
               </div>
-              <p>Valid Till: {ele.validity}</p>
-              <div className="circle1"></div>
-              <div className="circle2"></div>
-            </div>
-          );
-        })}
+            ))}
       </div>
     </>
   );

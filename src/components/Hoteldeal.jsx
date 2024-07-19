@@ -3,6 +3,7 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import EastIcon from "@mui/icons-material/East";
 import GradeIcon from "@mui/icons-material/Grade";
 import { hotelDealsAPI } from "../store/api/hotelPage";
+import { Flight_Testimonial } from "./Shimmer";
 
 const Hoteldeal = () => {
   const [hotels, setHotels] = useState([]);
@@ -28,35 +29,41 @@ const Hoteldeal = () => {
         </div>
       </div>
       <div className="hotel-deal-box">
-        {hotels.map((ele) => {
-          return (
-            <div className="hotel-look">
-              <div className="deal-img">
-                <img src={ele.img} alt="" />
-              </div>
-              <div className="deal-content">
-                <div className="review-box">
-                  <h6>
-                    <GradeIcon /> {""} {ele.stars}{" "}
-                    <span>({ele.reviews_count} reviews)</span>{" "}
-                  </h6>
-                </div>
-                <h4 className="pt-3">{ele.title}</h4>
-                <small>
-                  {" "}
-                  <LocationOnOutlinedIcon /> {ele.city}, {ele.country}
-                </small>
+        {hotels.length > 0
+          ? hotels.map((ele) => {
+              return (
+                <div className="hotel-look">
+                  <div className="deal-img">
+                    <img src={ele.img} alt="" />
+                  </div>
+                  <div className="deal-content">
+                    <div className="review-box">
+                      <h6>
+                        <GradeIcon /> {""} {ele.stars}{" "}
+                        <span>({ele.reviews_count} reviews)</span>{" "}
+                      </h6>
+                    </div>
+                    <h4 className="pt-3">{ele.title}</h4>
+                    <small>
+                      {" "}
+                      <LocationOnOutlinedIcon /> {ele.city}, {ele.country}
+                    </small>
 
-                <div className="price-book-btn pt-2">
-                  <h6>
-                    ₹{ele.price} <span>/ person</span>{" "}
-                  </h6>
-                  <button>Book Now</button>
+                    <div className="price-book-btn pt-2">
+                      <h6>
+                        ₹{ele.price} <span>/ person</span>{" "}
+                      </h6>
+                      <button>Book Now</button>
+                    </div>
+                  </div>
                 </div>
+              );
+            })
+          : Array.from({ length: 8 }).map((_, index) => (
+              <div className="hotel-look" style={{ width: "100%" }}>
+                <Flight_Testimonial key={index} />
               </div>
-            </div>
-          );
-        })}
+            ))}
       </div>
     </>
   );

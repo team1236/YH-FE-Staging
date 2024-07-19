@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { transportBannerAPI } from "../store/api/transportPage";
+import { Flight_Banner } from "./Shimmer";
 
 const Transportbanner = () => {
   const [data, setData] = useState([]);
@@ -12,14 +13,20 @@ const Transportbanner = () => {
   }, []);
   return (
     <>
-      {data &&
-        data.map((ele, index) => {
-          return (
+      {data.length > 0
+        ? data &&
+          data.map((ele, index) => {
+            return (
+              <div className="flight-banner pt-5">
+                <img src={ele.url} alt="" />
+              </div>
+            );
+          })
+        : Array.from({ length: 1 }).map((_, index) => (
             <div className="flight-banner pt-5">
-              <img src={ele.url} alt="" />
+              <Flight_Banner key={index} />
             </div>
-          );
-        })}
+          ))}
     </>
   );
 };

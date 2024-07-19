@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { flightOffer } from "../store/api/flightPage";
+import { Flight_Offers } from "./Shimmer";
 
 const Flightsoffer = () => {
   const [flightOfferData, setFlightOfferData] = useState([]);
@@ -20,22 +21,28 @@ const Flightsoffer = () => {
         <h4>Flights Offer</h4>
       </div>
       <div className="flight-box-container">
-        {flightOfferData &&
-          flightOfferData.slice(0, 3).map((ele) => (
-            <div className="flight-box" key={ele._id}>
-              <div className="plane-box">
-                <img src="plane.png" alt="plane" />
+        {flightOfferData.length > 0
+          ? flightOfferData &&
+            flightOfferData.slice(0, 3).map((ele) => (
+              <div className="flight-box" key={ele._id}>
+                <div className="plane-box">
+                  <img src="plane.png" alt="plane" />
+                </div>
+                <div className="plane-content-box">
+                  <p>{ele.type}</p>
+                  <h5>{ele.title}</h5>
+                  <h6>
+                    {ele.details} ₹<b>{ele.price}</b>
+                  </h6>
+                  <button>Book Now</button>
+                </div>
               </div>
-              <div className="plane-content-box">
-                <p>{ele.type}</p>
-                <h5>{ele.title}</h5>
-                <h6>
-                  {ele.details} ₹<b>{ele.price}</b>
-                </h6>
-                <button>Book Now</button>
+            ))
+          : Array.from({ length: 2 }).map((_, index) => (
+              <div className="flight-box" key={index}>
+                <Flight_Offers key={index} />
               </div>
-            </div>
-          ))}
+            ))}
       </div>
     </div>
   );

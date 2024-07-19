@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { flightTestimonial } from "../store/api/flightPage";
+import { Flight_Testimonial } from "./Shimmer";
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -17,23 +18,31 @@ const Testimonials = () => {
     <section className="testimonials pt-5">
       <h2 className="section-title">Testimonials</h2>
       <div className="row">
-        {testimonials.map((testimonial) => (
-          <div key={testimonial._id} className="col-lg-4 col-md-6">
-            <div className="testimonial-box">
-              <div className="testimonial-content">
-                <p className="quote">{testimonial.description}</p>
-                <p className="name">{testimonial.title}</p>
+        {testimonials.length > 0
+          ? testimonials.map((testimonial) => (
+              <div key={testimonial._id} className="col-lg-4 col-md-6">
+                <div className="testimonial-box">
+                  <div className="testimonial-content">
+                    <p className="quote">{testimonial.description}</p>
+                    <p className="name">{testimonial.title}</p>
+                  </div>
+                  <div className="testimonial-image">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.title}
+                      className="img-fluid rounded-circle"
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="testimonial-image">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.title}
-                  className="img-fluid rounded-circle"
-                />
+            ))
+          : Array.from({ length: 3 }).map((_, index) => (
+              <div key={index} className="col-lg-4 col-md-6">
+                <div className="testimonial-box">
+                  <Flight_Testimonial key={index} />
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            ))}
       </div>
     </section>
   );

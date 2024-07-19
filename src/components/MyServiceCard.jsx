@@ -5,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, Grid } from "@mui/material";
 import { myServiceAPI } from "../store/api/myService";
+import { Flight_Recent_Searches } from "./Shimmer";
 
 export default function ActionAreaCard() {
   const [ServiceCard, setServiceCard] = useState([]);
@@ -22,37 +23,43 @@ export default function ActionAreaCard() {
       style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
     >
       <Grid container spacing={2}>
-        {ServiceCard.map((item, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Card sx={{ maxWidth: 300, margin: "auto" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="110"
-                  image={item.img}
-                  alt={item.title}
-                />
-                <CardContent
-                  sx={{
-                    height: 60,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Typography
-                    gutterBottom
-                    variant="h6"
-                    component="div"
-                    align="center"
-                  >
-                    {item.title}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        ))}
+        {ServiceCard.length > 0
+          ? ServiceCard.map((item, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Card sx={{ maxWidth: 300, margin: "auto" }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="110"
+                      image={item.img}
+                      alt={item.title}
+                    />
+                    <CardContent
+                      sx={{
+                        height: 60,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Typography
+                        gutterBottom
+                        variant="h6"
+                        component="div"
+                        align="center"
+                      >
+                        {item.title}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            ))
+          : Array.from({ length: 20 }).map((_, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Flight_Recent_Searches key={index} />
+              </Grid>
+            ))}
       </Grid>
     </div>
   );
