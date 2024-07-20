@@ -2449,3 +2449,190 @@ input[type="number"]::-webkit-inner-spin-button {
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
 }
+
+
+.cab-books{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+.cab-books .cab-book-card__time{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #4c3f90;
+  margin-bottom: 0;
+}
+.cab-books  .cab-book-card__day{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4c3f90;
+  margin-bottom: 0;
+}
+.cab-books .cab-book-card__city{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #4c3f90;
+  margin-bottom: 0;
+}
+.cab-book-card__route p{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4c3f90;
+  margin-bottom: 0;
+}
+.cab-books img {
+  display: block;
+  max-width: 100%;
+}
+.cab-button {
+  font-family: "Euclid Circular A", sans-serif;
+  border-radius: 6px;
+  padding: 8px 30px;
+  appearance: none;
+  background-color: #4c3f90;
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.7s cubic-bezier(0.25, 1, 0.5, 1), color 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.cab-button:hover {
+  background-color: #4835a7;
+  color: hsl(0, 0%, 100%);
+}
+
+.styled-price {
+  font-size: 26px;
+  color: #4c3f90;
+  font-weight: 600;
+  font-family: "Euclid Circular A", sans-serif;
+  margin-bottom: 0;
+}
+.styled-price sup {
+  vertical-align: top;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.styled-price sub {
+  vertical-align: bottom;
+  font-size: 14px;
+  font-weight: 400;
+}
+.route-line {
+  position: relative;
+  margin: 1rem 0 0;
+  width: 100%;
+  height: 1px;
+  border: 1.5px dashed hsl(239, 39%, 45%);
+}
+.route-line__stop {
+  border-radius: 100%;
+  box-sizing: content-box;
+  width: 0.7rem;
+  height: 0.7rem;
+  position: absolute;
+  top: 50%;
+  background-color: hsl(239, 39%, 45%);
+  transform: translate3d(-50%, -50%, 0);
+}
+.route-line__start {
+  left: 0;
+  border: 0.4rem solid hsl(239, 39%, 45%);
+  background-color: #fff;
+}
+.route-line__end {
+  right: 0;
+  border: 0.4rem solid hsl(240, 52%, 94%);
+  transform: translate3d(50%, -50%, 0);
+}
+.cab-books-list__item:not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+.cab-book-card {
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+}
+@media(max-width:768px){
+  .cab-book-card {
+    display: block;
+  }
+  .cab-book-card__arrival {
+    margin-right: 0 !important;
+    text-align: left !important;
+    margin-bottom: 10px;
+}
+.cab-book-card__departure {
+  margin-left: 0 !important;
+  margin-bottom: 10px;
+}
+.cab-book-card__action {
+  text-align: left !important;
+}
+.cab-book-card__route {
+  justify-content: left;
+  padding: 0 !important;
+}
+}
+.cab-book-card__airline {
+  border-radius: 100%;
+  overflow: hidden;
+  flex: 0 1 5rem;
+  border: 0.2rem solid #fff;
+}
+.cab-book-card__airline + .cab-book-card__airline {
+  position: relative;
+  top: -1.5rem;
+}
+.cab-book-card__departure {
+  margin-left: 2rem;
+}
+.cab-book-card__arrival {
+  margin-right: 3rem;
+  text-align: right;
+}
+.cab-book-card__route {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4rem;
+}
+.cab-book-card__duration,
+.cab-book-card__type {
+  font-size: 1.4rem;
+}
+.cab-book-card__type {
+  margin-top: 1rem;
+}
+.cab-book-card__action {
+  text-align: center;
+}
+.cab-book-card__time {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.cab-book-card__city {
+  margin-bottom: 0.4rem;
+  font-size: 1.8rem;
+}
+.cab-book-card__day {
+  font-size: 1.4rem;
+}
+.cab-book-card__price {
+  margin-bottom: 1rem;
+}
+.cab-book-card__cta {
+  min-width: 16rem;
+}

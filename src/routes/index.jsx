@@ -14,6 +14,8 @@ import Yhhotels from "../pages/Yhhotels.jsx";
 import Hotellisting from "../pages/Hotellisting.jsx";
 import Hoteldetail from "../pages/Hoteldetail.jsx";
 import Hotelcheckoutpage from "../pages/Hotelcheckoutpage.jsx";
+import Transportlisitng from "../pages/Transportlisitng.jsx";
+import Cabcheckout from "../pages/Cabcheckout.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -71,6 +73,14 @@ export const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Hotelcheckoutpage />,
+      },
+      {
+        path: "/transportlist",
+        element: <Transportlisitng />,
+      },
+      {
+        path: "/cabcheckout",
+        element: <Cabcheckout />,
       },
     ],
   },
