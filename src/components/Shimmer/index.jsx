@@ -20,6 +20,23 @@ const Flight_Recent_Searches = () => {
   );
 };
 
+const MyService = () => {
+  const isMobile = useMediaQuery("(max-width:600px)");
+  return (
+    <Stack
+      spacing={1}
+      sx={{
+        backgroundColor: "#eef2ff",
+        padding: "10px",
+        width: "100%",
+      }}
+    >
+      <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+      <Skeleton variant="rounded" height={60} />
+    </Stack>
+  );
+};
+
 const Flight_Top_Visited = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
   return (
@@ -148,4 +165,5 @@ export {
   Flight_Testimonial,
   Why_Choose_Us,
   Hotel_Coupon,
+  MyService,
 };
