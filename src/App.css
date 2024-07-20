@@ -583,6 +583,11 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /*** Popular Destination ***/
 
+.popular-destination{
+  position: relative;
+  z-index: 1;
+}
+
 .destination-heading h4 {
   font-family: "Euclid Circular A", sans-serif;
   font-size: 1.8rem;
