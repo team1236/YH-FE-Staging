@@ -94,12 +94,10 @@ const Yhhotellist = () => {
           alt={item.title}
         />
         <CardContent sx={{ flex: "1 0 auto" }}>
-          {type === "hotel" && (
             <Typography component="div" variant="h7">
               <GradeIcon /> {item.rating} <span>({item.reviews} reviews)</span>
             </Typography>
-          )}
-          <Typography variant="h6" component="div" sx={{ pt: 3 }}>
+          <Typography variant="h7" component="div" sx={{ pt: 3,fontWeight:"550" }}>
             {item.title}
           </Typography>
           <Typography
@@ -125,6 +123,7 @@ const Yhhotellist = () => {
               </>
             ) : (
               <>
+              
                 <Button
                   startIcon={<WhatsAppIcon />}
                   variant="outlined"

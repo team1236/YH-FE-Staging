@@ -17,6 +17,8 @@ import {
 import BookmarkAddOutlined from "@mui/icons-material/BookmarkAddOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import { holidayPackageAPI } from "../store/api/holidayPackage";
 
 export default function HolidayPackageCard() {
@@ -25,6 +27,7 @@ export default function HolidayPackageCard() {
   const [open, setOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [members, setMembers] = useState(1);
 
   const getDataHoliday = async () => {
     const getData = await holidayPackageAPI();
@@ -49,6 +52,16 @@ export default function HolidayPackageCard() {
     // Handle form submission logic
     setOpen(false);
     setSnackbarOpen(true);
+  };
+
+  const handleIncrement = () => {
+    setMembers(members + 1);
+  };
+
+  const handleDecrement = () => {
+    if (members > 1) {
+      setMembers(members - 1);
+    }
   };
 
   return (
@@ -179,23 +192,38 @@ export default function HolidayPackageCard() {
                   }}
                   required
                 />
-                <TextField
-                  fullWidth
-                  label="Tour End Date"
-                  type="date"
-                  margin="normal"
-                  InputLabelProps={{
-                    shrink: true,
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    mt: 2,
                   }}
-                  required
-                />
-                <TextField
+                >
+                  <Typography variant="body1" sx={{ mr: 2 }}>
+                    Number of Members:
+                  </Typography>
+                  <IconButton onClick={handleDecrement}>
+                    <RemoveIcon />
+                  </IconButton>
+                  <TextField
+                    value={members}
+                    inputProps={{
+                      readOnly: true,
+                      style: { textAlign: "center", width: "50px" },
+                    }}
+                    sx={{ mx: 1 }}
+                  />
+                  <IconButton onClick={handleIncrement}>
+                    <AddIcon />
+                  </IconButton>
+                </Box>
+                {/* <TextField
                   fullWidth
                   label="Message"
                   margin="normal"
                   multiline
                   rows={4}
-                />
+                /> */}
                 <Button
                   type="submit"
                   variant="contained"
