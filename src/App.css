@@ -1055,8 +1055,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .offer-cards-box > .flight-card:nth-child(2):only-child {
-  flex: none;
-  max-width: 100%;
+display: flex;
+justify-content: start;
 }
 
 .offer-cards-box > .flight-card:nth-child(2) {
