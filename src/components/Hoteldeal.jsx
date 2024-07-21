@@ -4,6 +4,7 @@ import EastIcon from "@mui/icons-material/East";
 import GradeIcon from "@mui/icons-material/Grade";
 import { hotelDealsAPI } from "../store/api/hotelPage";
 import { Flight_Testimonial } from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Hoteldeal = () => {
   const [hotels, setHotels] = useState([]);
@@ -22,10 +23,12 @@ const Hoteldeal = () => {
           <p>Quality as judged by customers. Book at the ideal price!</p>
         </div>
         <div>
-          <button>
-            {" "}
-            View More {""} <EastIcon />
-          </button>
+          <Link to="/Hotellisting" style={{ textDecoration: "none" }}>
+            <button>
+              View More
+              <EastIcon />
+            </button>
+          </Link>
         </div>
       </div>
       <div className="hotel-deal-box">

@@ -4,6 +4,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Cookies from "js-cookie";
+import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 
 export default function ProfileAvator() {
@@ -25,16 +27,23 @@ export default function ProfileAvator() {
 
   return (
     <div>
-      <Button
-        id="basic-button"
-        aria-controls={open ? "basic-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
+      <Link to="/MyProfile" style={{ textDecoration: "none" }}>
+        <Button>
+          <AccountCircleIcon style={{ color: "#624fa8", fontSize: "28px" }} />
+          <Typography sx={{ ml: 1, color: "#624fa8" }}>Robin khan</Typography>
+        </Button>
+      </Link>
+      {/* <Button
+      // id="basic-button"
+      // aria-controls={open ? "basic-menu" : undefined}
+      // aria-haspopup="true"
+      // aria-expanded={open ? "true" : undefined}
+      // onClick={handleClick}
       >
         <AccountCircleIcon style={{ color: "#624fa8", fontSize: "28px" }} />
-      </Button>
-      <Menu
+        <Typography sx={{ ml: 1, color: "#624fa8" }}>Robin khan</Typography>
+      </Button> */}
+      {/* <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
@@ -48,7 +57,7 @@ export default function ProfileAvator() {
         <MenuItem onClick={handleClose}>Forgot Password</MenuItem>
 
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
-      </Menu>
+      </Menu> */}
     </div>
   );
 }

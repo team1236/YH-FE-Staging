@@ -6,6 +6,7 @@ import GradeIcon from "@mui/icons-material/Grade";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { hotelNeatBYAPI } from "../store/api/hotelPage";
+import { Link } from "react-router-dom";
 
 const Hotelcarausel = () => {
   const sliderRef = useRef(null);
@@ -63,10 +64,12 @@ const Hotelcarausel = () => {
           <p>Quality as judged by customers. Book at the ideal price!</p>
         </div>
         <div>
-          <button>
-            {" "}
-            View More <EastIcon />
-          </button>
+          <Link to="/Hotellisting" style={{ textDecoration: "none" }}>
+            <button>
+              View More
+              <EastIcon />
+            </button>
+          </Link>
         </div>
       </div>
       <div className="hotel-deal-box">
