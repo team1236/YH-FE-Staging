@@ -961,12 +961,6 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #624fa8;
   font-weight: 500;
 }
-.offer-cards-box {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 5px;
-}
 .offer-tabs button {
   margin: 0 20px;
   border: none;
@@ -985,7 +979,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .offer-cards-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -995,6 +989,9 @@ input[type="number"]::-webkit-inner-spin-button {
     justify-content: center;
   }
 }
+
+
+
 .flight-card {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("plane.png");
@@ -1006,7 +1003,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 15px;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
   position: relative;
-  max-width: 300px;
+  max-width: 320px;
   margin: 10px 0;
 }
 .hotel-card {
@@ -1020,7 +1017,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 15px;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
   position: relative;
-  max-width: 300px;
+  max-width: 320px;
   margin: 10px 0;
 }
 .transport-card {
@@ -1034,9 +1031,49 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 15px;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15);
   position: relative;
-  max-width: 300px;
+  max-width: 320px;
   margin: 10px 0;
 }
+
+.offer-cards-box > .hotel-card {
+  flex: 1;
+}
+
+.offer-cards-box > .hotel-card:nth-child(2):only-child {
+  flex: none;
+}
+
+.offer-cards-box > .hotel-card:nth-child(2) {
+  flex: 1;
+}
+
+
+
+.offer-cards-box > .flight-card {
+  flex: 1;
+}
+
+.offer-cards-box > .flight-card:nth-child(2):only-child {
+  flex: none;
+}
+
+.offer-cards-box > .flight-card:nth-child(2) {
+  flex: 1;
+}
+
+
+.offer-cards-box > .transport-card {
+  flex: 1;
+}
+
+.offer-cards-box > .transport-card:nth-child(2):only-child {
+  flex: none;
+}
+
+.offer-cards-box > .transport-card:nth-child(2) {
+  flex: 1;
+}
+
 .logo {
   width: 80px;
   border-radius: 8px;
