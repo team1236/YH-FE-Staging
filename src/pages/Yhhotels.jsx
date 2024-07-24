@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidenav from '../components/Sidenav'
 import Yhhotellist from '../components/Yhhotellist'
+import Yhsearchcard from '../components/Yhsearchcard'
 const Yhhotels = () => {
   return (
     <>
@@ -10,6 +11,7 @@ const Yhhotels = () => {
       <Sidenav />
     </div>
     <div className="col-lg-10">
+      <Yhsearchcard/>
         <Yhhotellist/>
     </div>
   </div>
