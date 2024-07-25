@@ -36,6 +36,7 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -50,6 +51,13 @@ const ContactForm = () => {
         },
       });
       setShow(true);
+      setFormData({
+        // Reset form fields
+        name: "",
+        mobileNumber: "",
+        email: "",
+        query: "",
+      });
     } else {
       toast.error("Something went wrong", {
         style: {
