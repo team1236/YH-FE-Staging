@@ -1684,7 +1684,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 @media (max-width: 1400px) {
   .detail-img img {
-    height: 365px !important;
+    height: 424px !important;
   }
 }
 
