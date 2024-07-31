@@ -1264,11 +1264,11 @@ input[type="number"]::-webkit-inner-spin-button {
 /* .hotel-deal-box .hotel-look{
   max-width: 255px;
   height: auto;
-}
+} */
 .hotel-deal-box2 .hotel-look{
   max-width: 312px;
   height: auto;
-} */
+} 
 .hotel-look {
   border-radius: 10px;
 }
