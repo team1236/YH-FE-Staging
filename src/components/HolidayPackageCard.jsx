@@ -20,6 +20,9 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { holidayPackageAPI } from "../store/api/holidayPackage";
+import handleRazorPay from "../utils/paymentMethod";
+import Cookies from "js-cookie";
+import toast from "react-hot-toast";
 
 export default function HolidayPackageCard() {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -28,7 +31,7 @@ export default function HolidayPackageCard() {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [members, setMembers] = useState(1);
-
+  const [tourData, setTour] = useState({});
   const getDataHoliday = async () => {
     const getData = await holidayPackageAPI();
     setHolidayPackagePlace(getData.data.findData);
@@ -39,6 +42,10 @@ export default function HolidayPackageCard() {
   }, []);
 
   const handleOpen = (item) => {
+    if (!Cookies.get("yh_auth_token")) {
+      toast.error("Please login to continue");
+      return;
+    }
     setSelectedPackage(item);
     setOpen(true);
   };
@@ -49,7 +56,19 @@ export default function HolidayPackageCard() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic
+    let data = {
+      location: selectedPackage.title,
+      details: selectedPackage.description,
+      price: selectedPackage.price * members,
+      name: tourData.name,
+      mobileNumber: tourData.mobileNumber,
+      date_of_travel: tourData.date_of_travel,
+      total_memebers: members,
+      dateOfBooking: new Date().toISOString().split("T")[0],
+      serviceType: "Holoiday Package",
+      email: localStorage.getItem("yh_user_email"),
+    };
+    handleRazorPay(data, selectedPackage.price * members);
     setOpen(false);
     setSnackbarOpen(true);
   };
@@ -62,6 +81,10 @@ export default function HolidayPackageCard() {
     if (members > 1) {
       setMembers(members - 1);
     }
+  };
+
+  const handleChange = (e) => {
+    setTour({ ...tourData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -175,17 +198,28 @@ export default function HolidayPackageCard() {
                 Price: ₹ {selectedPackage.price}
               </Typography>
               <form onSubmit={handleSubmit}>
-                <TextField fullWidth label="Name" margin="normal" required />
+                <TextField
+                  fullWidth
+                  label="Name"
+                  margin="normal"
+                  required
+                  name="name"
+                  onChange={handleChange}
+                />
                 <TextField
                   fullWidth
                   label="Contact Number"
                   margin="normal"
                   required
+                  name="mobileNumber"
+                  onChange={handleChange}
                 />
                 <TextField
                   fullWidth
                   label="Tour Start Date"
                   type="date"
+                  name="date_of_travel"
+                  onChange={handleChange}
                   margin="normal"
                   InputLabelProps={{
                     shrink: true,

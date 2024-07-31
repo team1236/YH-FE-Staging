@@ -16,10 +16,9 @@ const CustomCheckbox = styled(Checkbox)({
   },
 });
 
-const ListingFilter = () => {
+const ListingFilter = ({selectedFilters, setSelectedFilters}) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [currentFilter, setCurrentFilter] = useState(null);
-  const [selectedFilters, setSelectedFilters] = useState([]);
 
   const handleClick = (event, filter) => {
     setAnchorEl(event.currentTarget);
@@ -57,8 +56,8 @@ const ListingFilter = () => {
   const filters = {
     recommended: { type: 'radio', options: ['Recommended', 'Top Rated', 'Best View', 'Sea Facing'] },
     price: { type: 'radio', options: ['Low to High', 'High to Low'] },
-    star: { type: 'checkbox', options: ['1 Star', '2 Star', '3 Star', '4 Star', '5 Star'] },
-    rating: { type: 'checkbox', options: ['Excellent', 'Good', 'Average', 'Poor'] },
+    star_category: { type: 'checkbox', options: ['1 Star', '2 Star', '3 Star', '4 Star', '5 Star'] },
+    guest_rating: { type: 'checkbox', options: ['Excellent', 'Good', 'Average', 'Poor'] },
     location: { type: 'search', options: [] }
   };
 
@@ -114,10 +113,10 @@ const ListingFilter = () => {
         <div className="filter-drop" onClick={(e) => handleClick(e, 'price')}>
           <h6>Filter by Price <KeyboardArrowDownIcon /></h6>
         </div>
-        <div className="filter-drop" onClick={(e) => handleClick(e, 'star')}>
+        <div className="filter-drop" onClick={(e) => handleClick(e, 'star_category')}>
           <h6>Star Category <KeyboardArrowDownIcon /></h6>
         </div>
-        <div className="filter-drop" onClick={(e) => handleClick(e, 'rating')}>
+        <div className="filter-drop" onClick={(e) => handleClick(e, 'guest_rating')}>
           <h6>Guest Rating <KeyboardArrowDownIcon /></h6>
         </div>
         <div className="filter-drop" onClick={(e) => handleClick(e, 'location')}>

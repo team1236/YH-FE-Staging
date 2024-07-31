@@ -17,6 +17,7 @@ import Hotelcheckoutpage from "../pages/Hotelcheckoutpage.jsx";
 import Transportlisitng from "../pages/Transportlisitng.jsx";
 import Cabcheckout from "../pages/Cabcheckout.jsx";
 import MyProfilePage from "../pages/MyProfile.jsx";
+import Success from "../pages/Success.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ export const router = createBrowserRouter([
       {
         path: "/MyProfile",
         element: <MyProfilePage />,
+      },
+      {
+        path: "/success",
+        element: <Success />,
       },
     ],
   },

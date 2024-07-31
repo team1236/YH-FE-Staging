@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Typography, Link, IconButton } from "@mui/material";
 import { Facebook, Twitter, Instagram, LinkedIn } from "@mui/icons-material";
+import axios from "axios";
 
 const Footer = () => {
   const linkStyle = {
@@ -8,6 +9,25 @@ const Footer = () => {
     color: "textSecondary",
     textDecoration: "none",
   };
+
+  const [getURL, setURL] = useState({});
+
+  const getData = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_APP_API_URL}api/v1/get-social`
+      );
+
+      setURL(response.data.data.findData);
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <footer
@@ -43,7 +63,7 @@ const Footer = () => {
           <Grid container spacing={1} style={{ marginTop: "10px" }}>
             <Grid item>
               <IconButton
-                href="https://facebook.com"
+                href={getURL?.facebook}
                 target="_blank"
                 color="inherit"
               >
@@ -52,7 +72,7 @@ const Footer = () => {
             </Grid>
             <Grid item>
               <IconButton
-                href="https://twitter.com"
+                href={getURL?.twitter}
                 target="_blank"
                 color="inherit"
               >
@@ -61,7 +81,7 @@ const Footer = () => {
             </Grid>
             <Grid item>
               <IconButton
-                href="https://instagram.com"
+                href={getURL?.instagram}
                 target="_blank"
                 color="inherit"
               >
@@ -70,7 +90,7 @@ const Footer = () => {
             </Grid>
             <Grid item>
               <IconButton
-                href="https://linkedin.com"
+                href={getURL?.linkedin}
                 target="_blank"
                 color="inherit"
               >
@@ -85,15 +105,30 @@ const Footer = () => {
               <Typography variant="h6" gutterBottom style={linkStyle}>
                 Popular Domestic Flight
               </Typography>
-              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
+              <Link
+                className="footer-link"
+                href="#"
+                style={linkStyle}
+                color="textSecondary"
+              >
                 Delhi Goa flights
               </Link>
               <br />
-              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
+              <Link
+                className="footer-link"
+                href="#"
+                style={linkStyle}
+                color="textSecondary"
+              >
                 Mumbai Delhi flights
               </Link>
               <br />
-              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
+              <Link
+                className="footer-link"
+                href="#"
+                style={linkStyle}
+                color="textSecondary"
+              >
                 Delhi Kolkata flights
               </Link>
               <br />
@@ -104,15 +139,30 @@ const Footer = () => {
               <Typography variant="h6" gutterBottom>
                 Popular Hotels
               </Typography>
-              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
+              <Link
+                className="footer-link"
+                href="#"
+                style={linkStyle}
+                color="textSecondary"
+              >
                 Goa hotels
               </Link>
               <br />
-              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
+              <Link
+                className="footer-link"
+                href="#"
+                style={linkStyle}
+                color="textSecondary"
+              >
                 Mumbai hotels
               </Link>
               <br />
-              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
+              <Link
+                className="footer-link"
+                href="#"
+                style={linkStyle}
+                color="textSecondary"
+              >
                 Bangalore hotels
               </Link>
               <br />
@@ -122,15 +172,30 @@ const Footer = () => {
               <Typography variant="h6" gutterBottom>
                 Popular Hotel Chains
               </Typography>
-              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
+              <Link
+                className="footer-link"
+                href="#"
+                style={linkStyle}
+                color="textSecondary"
+              >
                 Taj Group
               </Link>
               <br />
-              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
+              <Link
+                className="footer-link"
+                href="#"
+                style={linkStyle}
+                color="textSecondary"
+              >
                 Sarovar Group of Hotels
               </Link>
               <br />
-              <Link className="footer-link" href="#" style={linkStyle} color="textSecondary">
+              <Link
+                className="footer-link"
+                href="#"
+                style={linkStyle}
+                color="textSecondary"
+              >
                 V Resorts
               </Link>
               <br />

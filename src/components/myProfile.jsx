@@ -12,6 +12,8 @@ import {
 import { styled } from "@mui/system";
 import axios from "axios";
 import LockIcon from "@mui/icons-material/Lock";
+import Cookies from "js-cookie";
+import toast from "react-hot-toast";
 
 const UserProfileContainer = styled(Paper)({
   padding: "20px",
@@ -19,27 +21,28 @@ const UserProfileContainer = styled(Paper)({
 });
 
 const MyProfile = () => {
-  const [profile, setProfile] = useState({
-    name: "",
-    mobile: "",
-    email: "",
-    address: "",
-  });
+  const [profile, setProfile] = useState({});
 
   const [passwordDetails, setPasswordDetails] = useState({
-    currentPassword: "",
+    oldPassword: "",
     newPassword: "",
     confirmPassword: "",
+    mobileNumber: localStorage.getItem("yh_user_mobile"),
   });
 
   const [passwordSuccess, setPasswordSuccess] = useState(false);
 
   useEffect(() => {
-    // Replace with your API endpoint
     axios
-      .get("https://api.example.com/user/profile")
+      .get(
+        `${
+          import.meta.env.VITE_APP_API_URL
+        }api/v1/get-profile-details?mobileNumber=${localStorage.getItem(
+          "yh_user_mobile"
+        )}`
+      )
       .then((response) => {
-        setProfile(response.data);
+        setProfile(response.data.data);
       })
       .catch((error) => {
         console.error("Error fetching profile data:", error);
@@ -51,11 +54,20 @@ const MyProfile = () => {
       alert("New password and confirmation do not match");
       return;
     }
-    // Replace with your change password endpoint
+
     axios
-      .post("https://api.example.com/user/change-password", passwordDetails)
+      .post(
+        `${import.meta.env.VITE_APP_API_URL}api/v1/change-password`,
+        passwordDetails
+      )
       .then((response) => {
         setPasswordSuccess(true);
+        toast.success(response.data.message);
+        setPasswordDetails({
+          oldPassword: "",
+          newPassword: "",
+          confirmPassword: "",
+        });
       })
       .catch((error) => {
         console.error("Error changing password:", error);
@@ -63,25 +75,30 @@ const MyProfile = () => {
   };
 
   const handleLogout = () => {
-    // Implement your logout functionality here
-    console.log("Logout clicked");
+    Cookies.remove("yh_auth_token");
+    localStorage.clear();
+    window.location.href = "/";
   };
 
   return (
-    <Container sx={{mt:6}}>
+    <Container sx={{ mt: 6 }}>
       <Typography variant="h4" gutterBottom>
         My Profile
       </Typography>
       <UserProfileContainer>
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} sm={4} md={3}>
-            <Avatar sx={{ width: 100, height: 100, margin: "auto" }}>U</Avatar>
+            <Avatar
+              sx={{ width: 100, height: 100, margin: "auto", fontSize: "5rem" }}
+            >
+              {profile && profile?.fullName?.slice(" ")[0]}
+            </Avatar>
           </Grid>
           <Grid item xs={12} sm={8} md={9}>
-            <Typography variant="h6">Name: {profile.name}</Typography>
-            <Typography variant="h6">Mobile: {profile.mobile}</Typography>
+            <Typography variant="h6">Name: {profile.fullName}</Typography>
+            <Typography variant="h6">Mobile: {profile.mobileNumber}</Typography>
             <Typography variant="h6">Email: {profile.email}</Typography>
-            <Typography variant="h6">Address: {profile.address}</Typography>
+            <Typography variant="h6">Gender: {profile.gender}</Typography>
           </Grid>
         </Grid>
       </UserProfileContainer>
@@ -96,11 +113,11 @@ const MyProfile = () => {
           variant="outlined"
           fullWidth
           margin="normal"
-          value={passwordDetails.currentPassword}
+          value={passwordDetails.oldPassword}
           onChange={(e) =>
             setPasswordDetails({
               ...passwordDetails,
-              currentPassword: e.target.value,
+              oldPassword: e.target.value,
             })
           }
         />

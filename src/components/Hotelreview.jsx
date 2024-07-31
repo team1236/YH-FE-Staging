@@ -49,17 +49,17 @@ const reviews = [
   }
 ];
 
-const HotelReview = () => {
+const HotelReview = ({getData}) => {
   return (
     <div className="hotel-review-container mt-4">
         <h3>Reviews</h3>
       <div className="review-grid">
-        {reviews.map((review, index) => (
+        {getData && getData?.description_reviews_data?.map((review, index) => (
           <div className="review-card" key={index}>
             <div className="review-header">
-              <img src={review.avatar} alt={review.name} className="review-avatar" />
+              <img src={reviews[index].avatar} alt={review.name} className="review-avatar" />
               <div className="review-details">
-                <h6 className="review-name">{review.name}</h6>
+                <h6 className="review-name">{review.title}</h6>
                 <p className="review-date">{review.date}</p>
               </div>
             </div>

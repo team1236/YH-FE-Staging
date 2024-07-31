@@ -6,8 +6,9 @@ import GradeIcon from "@mui/icons-material/Grade";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { hotelNeatBYAPI } from "../store/api/hotelPage";
+import { Link } from "react-router-dom";
 
-const Hotelsuggest = () => {
+const Hotelsuggest = ({ getData }) => {
   const sliderRef = useRef(null);
   const [nearBy, setNearBy] = useState([]);
   useEffect(() => {
@@ -62,42 +63,45 @@ const Hotelsuggest = () => {
           <h4>Similar Hotel Nearby</h4>
           <p>Quality as judged by customers. Book at the ideal price!</p>
         </div>
-        <div>
+        {/* <div>
           <button>
             {" "}
             View More <EastIcon />
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="hotel-deal-box">
         <Slider ref={sliderRef} {...settings} className="slider">
-          {nearBy.map((ele) => {
-            return (
-              <div className="hotel-look">
-                <div className="deal-img">
-                  <img src={ele.img} alt="" />
-                </div>
-                <div className="deal-content">
-                  <div className="review-box">
-                    <h6>
-                      <GradeIcon /> {ele.stars}{" "}
-                      <span>({ele.reviews_count} reviews)</span>{" "}
-                    </h6>
+          {getData &&
+            getData?.description_nearBy_hotels?.map((ele) => {
+              return (
+                <div className="hotel-look">
+                  <div className="deal-img">
+                    <img src={ele.image} alt="" />
                   </div>
-                  <h4 className="pt-3">{ele.title}</h4>
-                  <small>
-                    <LocationOnOutlinedIcon /> {ele.city}, {ele.country}
-                  </small>
-                  <div className="price-book-btn pt-2">
-                    <h6>
-                      ₹{ele.price} <span>/ person</span>{" "}
-                    </h6>
-                    <button>Book Now</button>
+                  <div className="deal-content">
+                    <div className="review-box">
+                      <h6>
+                        <GradeIcon /> {ele.star}{" "}
+                        <span>({ele.reviews} reviews)</span>{" "}
+                      </h6>
+                    </div>
+                    <h4 className="pt-3">{ele.hotelName}</h4>
+                    <small>
+                      <LocationOnOutlinedIcon /> {ele.city}, {ele.country}
+                    </small>
+                    <div className="price-book-btn pt-2">
+                      <h6>
+                        ₹{ele.price} <span>/ person</span>{" "}
+                      </h6>
+                      <Link to={`/hotellisting?location=${getData.city}`}>
+                        <button>Book Now</button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </Slider>
       </div>
     </>
