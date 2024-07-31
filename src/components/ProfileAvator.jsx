@@ -1,12 +1,8 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import Cookies from "js-cookie";
 import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-
 
 export default function ProfileAvator() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -18,19 +14,14 @@ export default function ProfileAvator() {
     setAnchorEl(null);
   };
 
-  const handleLogout = () => {
-    Cookies.remove("yh_auth_token");
-    handleClose();
-    localStorage.clear();
-    window.location.href = "/";
-  }
-
   return (
     <div>
       <Link to="/MyProfile" style={{ textDecoration: "none" }}>
         <Button>
           <AccountCircleIcon style={{ color: "#624fa8", fontSize: "28px" }} />
-          <Typography sx={{ ml: 1, color: "#624fa8" }}>Robin khan</Typography>
+          <Typography sx={{ ml: 1, color: "#624fa8" }}>
+            {localStorage.getItem("yh_user_name")}
+          </Typography>
         </Button>
       </Link>
       {/* <Button

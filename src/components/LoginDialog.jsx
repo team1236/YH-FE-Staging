@@ -5,7 +5,12 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { Box, CircularProgress, InputAdornment, TextField } from "@mui/material";
+import {
+  Box,
+  CircularProgress,
+  InputAdornment,
+  TextField,
+} from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 import toast from "react-hot-toast";
 import { useLoginapiMutation } from "../store/api/auth/login.api";
@@ -64,6 +69,8 @@ function LoginDialog({ open, setOpen, setOpenRegister }) {
           },
         });
         localStorage.setItem("yh_user_email", response.data.data.email);
+        localStorage.setItem("yh_user_name", response.data.data.name);
+        localStorage.setItem("yh_user_mobile", response.data.data.mobileNumber);
         Cookies.set("yh_auth_token", response.data.data.token);
         setTimeout(() => {
           window.location.reload();

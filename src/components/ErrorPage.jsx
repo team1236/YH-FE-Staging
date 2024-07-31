@@ -4,7 +4,7 @@ import React from 'react'
 function ErrorPage() {
   return (
       <div>
-          <Box>
+          <Box sx={{ textAlign: 'center' }}>
               <h2>No Results Found Here</h2>
           </Box>
     </div>

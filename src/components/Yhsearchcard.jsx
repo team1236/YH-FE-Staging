@@ -1,25 +1,33 @@
-import React, { useState } from 'react';
-import Popover from '@mui/material/Popover';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
-import DatePicker from 'react-datepicker';
+import React, { useEffect, useState } from "react";
+import Popover from "@mui/material/Popover";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import HotelOutlinedIcon from "@mui/icons-material/HotelOutlined";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import { Link } from "react-router-dom";
 
-const Yhsearchcard = () => {
-  const [fromValue, setFromValue] = useState('');
+const Yhsearchcard = ({
+  cabinClass,
+  setCabinClass,
+  fromValue,
+  setFromValue,
+}) => {
   const [departureDateValue, setDepartureDateValue] = useState(null);
   const [returnDateValue, setReturnDateValue] = useState(null);
-  const [passengerValue, setPassengerValue] = useState({ adults: 0, children: 0, infants: 0, rooms: 0 });
+  const [passengerValue, setPassengerValue] = useState({
+    adults: 0,
+    children: 0,
+    infants: 0,
+    rooms: 0,
+  });
   const [anchorEl, setAnchorEl] = useState(null);
-  const [cabinClass, setCabinClass] = useState('Hotels');
 
   const handleInputChange = (event, setter) => {
     const { value } = event.target;
@@ -42,12 +50,12 @@ const Yhsearchcard = () => {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'passenger-popover' : undefined;
+  const id = open ? "passenger-popover" : undefined;
 
   return (
     <div className="search-section mt-3">
       <div className="search-banner">
-        <div className='search-banner-text'>
+        <div className="search-banner-text">
           <h4>Search Hotels</h4>
           <p>Enjoy hassle-free bookings with Hospitality</p>
         </div>
@@ -59,21 +67,27 @@ const Yhsearchcard = () => {
       <div className="search-column">
         <div className="row search-input-column mt-3">
           <div className="col-lg-4 place-field">
-            <div className={`location-input ${fromValue ? 'active' : ''}`}>
+            <div className={`location-input ${fromValue ? "active" : ""}`}>
               <input
                 type="text"
                 id="from"
                 className="input-field"
-                placeholder='Hotel Destinations'
+                placeholder="Hotel Destinations"
                 value={fromValue}
                 onChange={(event) => handleInputChange(event, setFromValue)}
               />
-              <span className='location-icon'><LocationOnOutlinedIcon /></span>
+              <span className="location-icon">
+                <LocationOnOutlinedIcon />
+              </span>
             </div>
           </div>
 
           <div className="col-lg-4 place-field">
-            <div className={`input-wrapper from-input ${departureDateValue ? 'active' : ''}`}>
+            <div
+              className={`input-wrapper from-input ${
+                departureDateValue ? "active" : ""
+              }`}
+            >
               <DatePicker
                 selected={departureDateValue}
                 onChange={(date) => setDepartureDateValue(date)}
@@ -82,7 +96,11 @@ const Yhsearchcard = () => {
                 placeholderText="Check-in"
               />
             </div>
-            <div className={`input-wrapper to-input ${returnDateValue ? 'active' : ''}`}>
+            <div
+              className={`input-wrapper to-input ${
+                returnDateValue ? "active" : ""
+              }`}
+            >
               <DatePicker
                 selected={returnDateValue}
                 onChange={(date) => setReturnDateValue(date)}
@@ -94,19 +112,44 @@ const Yhsearchcard = () => {
           </div>
 
           <div className="col-lg-4 popover-box">
-            <div className={`input-wrapper passenger-input ${passengerValue.adults > 0 || passengerValue.children > 0 || passengerValue.infants > 0 || passengerValue.rooms > 0 ? 'active' : ''}`}>
+            <div
+              className={`input-wrapper passenger-input ${
+                passengerValue.adults > 0 ||
+                passengerValue.children > 0 ||
+                passengerValue.infants > 0 ||
+                passengerValue.rooms > 0
+                  ? "active"
+                  : ""
+              }`}
+            >
               <label htmlFor="passenger" className="input-label">
-                <PersonOutlineOutlinedIcon className='user-icon' /> Guest room
+                <PersonOutlineOutlinedIcon className="user-icon" /> Guest room
               </label>
               <input
                 type="text"
                 id="passenger"
                 className="input-field"
                 value={
-                  `${passengerValue.adults > 0 ? passengerValue.adults + ' Adult(s), ' : ''}`
-                  + `${passengerValue.children > 0 ? passengerValue.children + ' Child(ren), ' : ''}`
-                  + `${passengerValue.infants > 0 ? passengerValue.infants + ' Infant(s), ' : ''}`
-                  + `${passengerValue.rooms > 0 ? passengerValue.rooms + ' Room(s)' : ''}`
+                  `${
+                    passengerValue.adults > 0
+                      ? passengerValue.adults + " Adult(s), "
+                      : ""
+                  }` +
+                  `${
+                    passengerValue.children > 0
+                      ? passengerValue.children + " Child(ren), "
+                      : ""
+                  }` +
+                  `${
+                    passengerValue.infants > 0
+                      ? passengerValue.infants + " Infant(s), "
+                      : ""
+                  }` +
+                  `${
+                    passengerValue.rooms > 0
+                      ? passengerValue.rooms + " Room(s)"
+                      : ""
+                  }`
                 }
                 readOnly
                 onClick={handleClick}
@@ -117,52 +160,96 @@ const Yhsearchcard = () => {
                 anchorEl={anchorEl}
                 onClose={handleClose}
                 anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
+                  vertical: "bottom",
+                  horizontal: "left",
                 }}
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
+                  vertical: "top",
+                  horizontal: "left",
                 }}
               >
                 <Box p={2} className="passenger-popover">
                   <div className="passenger-item">
                     <div>Adults:</div>
-                    <Button onClick={() => handlePassengerChange('adults', false)} variant="outlined" size="small" className="ms-3">
+                    <Button
+                      onClick={() => handlePassengerChange("adults", false)}
+                      variant="outlined"
+                      size="small"
+                      className="ms-3"
+                    >
                       <RemoveIcon />
                     </Button>
-                    <span className="passenger-count">{passengerValue.adults}</span>
-                    <Button onClick={() => handlePassengerChange('adults', true)} variant="outlined" size="small">
+                    <span className="passenger-count">
+                      {passengerValue.adults}
+                    </span>
+                    <Button
+                      onClick={() => handlePassengerChange("adults", true)}
+                      variant="outlined"
+                      size="small"
+                    >
                       <AddIcon />
                     </Button>
                   </div>
                   <div className="passenger-item">
                     <div>Children:</div>
-                    <Button onClick={() => handlePassengerChange('children', false)} variant="outlined" size="small" className="ms-1">
+                    <Button
+                      onClick={() => handlePassengerChange("children", false)}
+                      variant="outlined"
+                      size="small"
+                      className="ms-1"
+                    >
                       <RemoveIcon />
                     </Button>
-                    <span className="passenger-count">{passengerValue.children}</span>
-                    <Button onClick={() => handlePassengerChange('children', true)} variant="outlined" size="small">
+                    <span className="passenger-count">
+                      {passengerValue.children}
+                    </span>
+                    <Button
+                      onClick={() => handlePassengerChange("children", true)}
+                      variant="outlined"
+                      size="small"
+                    >
                       <AddIcon />
                     </Button>
                   </div>
                   <div className="passenger-item">
                     <div>Infants:</div>
-                    <Button onClick={() => handlePassengerChange('infants', false)} variant="outlined" size="small" className="ms-3">
+                    <Button
+                      onClick={() => handlePassengerChange("infants", false)}
+                      variant="outlined"
+                      size="small"
+                      className="ms-3"
+                    >
                       <RemoveIcon />
                     </Button>
-                    <span className="passenger-count">{passengerValue.infants}</span>
-                    <Button onClick={() => handlePassengerChange('infants', true)} variant="outlined" size="small">
+                    <span className="passenger-count">
+                      {passengerValue.infants}
+                    </span>
+                    <Button
+                      onClick={() => handlePassengerChange("infants", true)}
+                      variant="outlined"
+                      size="small"
+                    >
                       <AddIcon />
                     </Button>
                   </div>
                   <div className="passenger-item">
                     <div>Rooms:</div>
-                    <Button onClick={() => handlePassengerChange('rooms', false)} variant="outlined" size="small" className="ms-3">
+                    <Button
+                      onClick={() => handlePassengerChange("rooms", false)}
+                      variant="outlined"
+                      size="small"
+                      className="ms-3"
+                    >
                       <RemoveIcon />
                     </Button>
-                    <span className="passenger-count">{passengerValue.rooms}</span>
-                    <Button onClick={() => handlePassengerChange('rooms', true)} variant="outlined" size="small">
+                    <span className="passenger-count">
+                      {passengerValue.rooms}
+                    </span>
+                    <Button
+                      onClick={() => handlePassengerChange("rooms", true)}
+                      variant="outlined"
+                      size="small"
+                    >
                       <AddIcon />
                     </Button>
                   </div>
@@ -172,7 +259,7 @@ const Yhsearchcard = () => {
           </div>
         </div>
         <div className="search-button">
-        <Select
+          <Select
             value={cabinClass}
             onChange={(event) => setCabinClass(event.target.value)}
             displayEmpty
@@ -181,11 +268,12 @@ const Yhsearchcard = () => {
             <MenuItem value="Hotels">Hotels</MenuItem>
             <MenuItem value="Apartments">Apartments</MenuItem>
           </Select>
-       <Link to="">
-       <button>
-            Search Hotels <span className="icon-wrapper"><HotelOutlinedIcon /></span>
-          </button>
-       </Link>
+          {/* <button >
+            Search Hotels{" "}
+            <span className="icon-wrapper">
+              <HotelOutlinedIcon />
+            </span>
+          </button> */}
         </div>
       </div>
     </div>

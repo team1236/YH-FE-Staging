@@ -1,47 +1,92 @@
-import React from 'react'
-import StarIcon from '@mui/icons-material/Star';
+import React from "react";
+import StarIcon from "@mui/icons-material/Star";
 
-const Hotelbookingdetail = () => {
+const Hotelbookingdetail = ({ paramsData }) => {
+  function formatDate(dateStr) {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    // Split the date string into components
+    const [day, month, year] = dateStr.split("-");
+
+    // Convert month to the month name
+    const monthName = months[parseInt(month, 10) - 1];
+
+    // Return the formatted date
+    return `${day} ${monthName}`;
+  }
+
+  function dateDifference(date1, date2) {
+    // Parse the dates with a consistent format
+    const [day1, month1, year1] = date1.split("-").map(Number);
+    const [day2, month2, year2] = date2.split("-").map(Number);
+
+    // Create Date objects with the correct order: year, month (0-indexed), day
+    const d1 = new Date(year1, month1 - 1, day1);
+    const d2 = new Date(year2, month2 - 1, day2);
+
+    // Calculate the difference in time
+    const timeDifference = Math.abs(d1 - d2);
+
+    // Convert time difference from milliseconds to days
+    const dayDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+    return dayDifference;
+  }
+
   return (
     <>
-    <div className="booking-card">
-      <div className="card-heading">
-        <div className='card-text'>
-        <small>Booking Details</small>
-        <h3>California Sunset/Twilight Boat Cruise</h3>
-        <div className='star-icon'>
-          <StarIcon/> <StarIcon/> <StarIcon/> <StarIcon/> <StarIcon/>
-          
+      <div className="booking-card">
+        <div className="card-heading">
+          <div className="card-text">
+            <small>Booking Details</small>
+            <h3>{paramsData.hotelName}</h3>
+            <div className="star-icon">
+              <StarIcon /> <StarIcon /> <StarIcon /> <StarIcon /> <StarIcon />
+            </div>
+          </div>
+          <div className="card-img">
+            <img src="kasol2.jpg" alt="" />
+          </div>
         </div>
-        </div>
-        <div className='card-img'>
-          <img src="kasol2.jpg" alt="" />
-        </div>
-      </div>
-      <div className='row check-details'>
-<div className='check-margin col-4 col-lg-3'>
-<h5>Check-in</h5>
-        <h3>24 July</h3>
-        <h5>Wed, 12:00pm</h5>
-</div>
-<div className='check-margin col-4 col-lg-2'>
-  <span>2 Night</span>
-</div>
-<div className='check-margin col-4 col-lg-3'>
-<h5>Check-out</h5>
-        <h3>26 July</h3>
-        <h5>Wed, 12:00pm</h5>
-</div>
+        <div className="row check-details">
+          <div className="check-margin col-4 col-lg-3">
+            <h5>Check-in</h5>
+            <h3>{formatDate(paramsData.check_in)}</h3>
+            <h5>12:00pm</h5>
+          </div>
+          <div className="check-margin col-4 col-lg-2">
+            <span>
+              {dateDifference(paramsData.checkout, paramsData.check_in)} Night
+            </span>
+          </div>
+          <div className="check-margin col-4 col-lg-3">
+            <h5>Check-out</h5>
+            <h3>{formatDate(paramsData.checkout)}</h3>
+            <h5>12:00pm</h5>
+          </div>
 
-<div className='check-margin col-12 col-lg-4'>
-<h5>Rooms & Guests</h5>
-        <h3>2 Room & 4 Guest</h3>
-        <h5>2 Adults, 2 Children</h5>
-</div>
+          <div className="check-margin col-12 col-lg-4">
+            <h5>Rooms & Guests</h5>
+            <h3>{paramsData.total_room} Room & {paramsData.total_passenger} Guest</h3>
+            {/* <h5>2 Adults, 2 Children</h5> */}
+          </div>
+        </div>
       </div>
-    </div>
     </>
-  )
-}
+  );
+};
 
-export default Hotelbookingdetail
+export default Hotelbookingdetail;
