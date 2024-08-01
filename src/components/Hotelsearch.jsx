@@ -56,7 +56,6 @@ const Hotelsearch = () => {
           <img src="human.png" alt="" width={167} height={150} />
         </div>
       </div>
-
       <div className="search-column">
         <div className="row search-input-column mt-3">
           <div className="col-lg-4 place-field">
@@ -258,7 +257,7 @@ const Hotelsearch = () => {
             )}`}
           >
             <button>
-              Search Hotels{" "}
+              Search Hotels
               <span className="icon-wrapper">
                 <HotelOutlinedIcon />
               </span>

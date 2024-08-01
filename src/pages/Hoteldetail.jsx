@@ -28,6 +28,10 @@ const Hoteldetail = () => {
   useEffect(() => {
     getDescData()
   }, [])
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <>
       <div className="container pt-4">
