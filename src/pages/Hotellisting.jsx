@@ -9,7 +9,7 @@ const Hotellisting = () => {
   const location = useLocation();
   const [getData, setData] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState([]);
-  
+
   const searchParams = new URLSearchParams(location.search);
   let paramsData = {
     location: searchParams.get("location"),
@@ -20,18 +20,32 @@ const Hotellisting = () => {
 
   const getListData = async () => {
     try {
-      // Convert selected filters to query parameters
-      const filterParams = selectedFilters.map(
-        (filter) => `${filter.filterType}=${encodeURIComponent(filter.option)}`
-      ).join('&');
+      const filterParams = selectedFilters
+        .map(
+          (filter) =>
+            `${filter.filterType}=${encodeURIComponent(filter.option)}`
+        )
+        .join("&");
 
-      const response = await axios.get(
-        `${import.meta.env.VITE_APP_API_URL}api/v1/get-hotelListing?location=${
-          paramsData.location
-        }&${filterParams}`
-      );
+      if (selectedFilters && selectedFilters[0]?.filterType === "location") {
+        const response = await axios.get(
+          `${
+            import.meta.env.VITE_APP_API_URL
+          }api/v1/get-hotelListing?${filterParams}`
+        );
 
-      setData(response.data.data.findData);
+        setData(response.data.data.findData);
+      } else {
+        const response = await axios.get(
+          `${
+            import.meta.env.VITE_APP_API_URL
+          }api/v1/get-hotelListing?location=${
+            paramsData.location
+          }&${filterParams}`
+        );
+
+        setData(response.data.data.findData);
+      }
     } catch (error) {
       console.log("Error", error);
       return error;
@@ -41,7 +55,6 @@ const Hotellisting = () => {
   useEffect(() => {
     getListData();
   }, [paramsData.location, selectedFilters]);
-  console.log("selectedFilters", selectedFilters)
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -49,7 +62,10 @@ const Hotellisting = () => {
           <Listingsearch paramsData={paramsData} />
         </div>
         <div className="col-lg-12">
-          <Listingfilter selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} />
+          <Listingfilter
+            selectedFilters={selectedFilters}
+            setSelectedFilters={setSelectedFilters}
+          />
           <Hotellistcard getData={getData} />
         </div>
       </div>
