@@ -1254,11 +1254,21 @@ input[type="number"]::-webkit-inner-spin-button {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
 }
+
 .hotel-deal-box2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
 }
+
+/* .hotel-deal-box .hotel-look{
+  max-width: 255px;
+  height: auto;
+} */
+.hotel-deal-box2 .hotel-look{
+  max-width: 312px;
+  height: auto;
+} 
 .hotel-look {
   border-radius: 10px;
 }
@@ -1674,7 +1684,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 @media (max-width: 1400px) {
   .detail-img img {
-    height: 365px !important;
+    height: 424px !important;
   }
 }
 
@@ -1689,6 +1699,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .grid-container .grid-item:nth-child(4) img {
   border-bottom-right-radius: 10px;
+}
+.grid-item{
+  max-height: 207px;
 }
 .grid-item img {
   width: 100%;
