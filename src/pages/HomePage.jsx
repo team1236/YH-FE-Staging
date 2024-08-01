@@ -18,7 +18,7 @@ const HomePage = () => {
             <div className="col-lg-2">
               <Sidenav />
             </div>
-            <div className="col-lg-10">
+             <div className="col-lg-10">
               <Searchbar />
               <Recentsearch />
               <Populardestination />

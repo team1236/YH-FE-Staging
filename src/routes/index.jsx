@@ -18,6 +18,7 @@ import Transportlisitng from "../pages/Transportlisitng.jsx";
 import Cabcheckout from "../pages/Cabcheckout.jsx";
 import MyProfilePage from "../pages/MyProfile.jsx";
 import Success from "../pages/Success.jsx";
+import MySingleService from "../components/MySingleService.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -91,6 +92,10 @@ export const router = createBrowserRouter([
       {
         path: "/success",
         element: <Success />,
+      },
+      {
+        path: "/my-service",
+        element: <MySingleService />,
       },
     ],
   },
