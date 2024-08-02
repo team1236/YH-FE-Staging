@@ -12,11 +12,7 @@ const Hotel = () => {
             <Sidenav />
           </div>
           <div className="col-lg-10">
-            {/* <Hotelsearch /> */}
             <MyServiceCard/>
-            {/* <Hotelbanner /> */}
-            {/* <Hoteloffer /> */}
-            {/* <Populardestination /> */}
           </div>
         </div>
       </div>
