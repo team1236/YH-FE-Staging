@@ -8,6 +8,7 @@ import Trendinggetaway from '../components/Trendinggetaway';
 import Hoteldeal from '../components/Hoteldeal';
 import WhyChooseUs from "../components/WhyChooseUs";
 import Hotelcarausel from '../components/Hotelcarausel';
+import OurPartners from '../components/Ourpartners';
 
 
 const Hotel = () => {
@@ -27,6 +28,7 @@ const Hotel = () => {
             <Trendinggetaway />
             <Hotelcarausel/>
             <WhyChooseUs />
+            <OurPartners/>
           </div>
         </div>
       </div>

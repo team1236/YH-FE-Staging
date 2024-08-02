@@ -1,6 +1,7 @@
 import React from "react";
 import Sidenav from "../components/Sidenav";
 import MyServiceCard from "../components/MyServiceCard";
+import OurPartners from "../components/Ourpartners";
 
 
 const Hotel = () => {

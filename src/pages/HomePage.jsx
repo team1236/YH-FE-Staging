@@ -8,6 +8,7 @@ import Flightbanner from "../components/Flightbanner";
 import Flightsoffer from "../components/Flightsoffer";
 // import Newsletter from "../components/NewsLetter";
 import Testimonials from "../components/Testimonials";
+import Ourpartners from "../components/Ourpartners";
 
 const HomePage = () => {
   return (
@@ -27,6 +28,7 @@ const HomePage = () => {
               <Testimonials />
               <WhyChooseUs />
               {/* <Newsletter/> */}
+              <Ourpartners/>
             </div>
           </div>
         </div>

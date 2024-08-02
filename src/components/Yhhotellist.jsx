@@ -57,42 +57,38 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
         </div>
       </div>
 
-      {findData &&
-        findData.map((ele, i) => {
-          return (
-            <>
-              <div className="hotel-deal-box2">
-                <div className="hotel-look">
-                  <div className="deal-img">
-                    <img src={ele.image} alt="" />
-                  </div>
-                  <div className="deal-content">
-                    <div className="review-box">
-                      <h6>
-                        <GradeIcon /> {""} {ele.star}{" "}
-                        <span>(672 {ele.reviews})</span>{" "}
-                      </h6>
-                    </div>
-                    <h4 className="pt-3">{ele.title}</h4>
-                    <small>
-                      {" "}
-                      <LocationOnOutlinedIcon /> {ele.city}, {ele.country}
-                    </small>
+      <div className="hotel-deal-box2">
+        {findData &&
+          findData.map((ele, i) => (
+            <div className="hotel-look" key={i}>
+              <div className="deal-img">
+                <img src={ele.image} alt={ele.title} />
+              </div>
+              <div className="deal-content">
+                <div className="review-box">
+                  <h6>
+                    <GradeIcon /> {ele.star} <span>(672 {ele.reviews})</span>
+                  </h6>
+                </div>
+                <h4 className="pt-3">{ele.title}</h4>
+                <small>
+                  <LocationOnOutlinedIcon /> {ele.city}, {ele.country}
+                </small>
 
-                    <div className="price-book-btn pt-2">
-                      <h6>
-                        ₹{ele.price} <span>/ person</span>{" "}
-                      </h6>
-                      <button onClick={() => handleClick(ele)}>Book Now</button>
-                    </div>
-                  </div>
+                <div className="price-book-btn pt-2">
+                  <h6>
+                    ₹{ele.price} <span>/ person</span>
+                  </h6>
+                  <button onClick={() => handleClick(ele)}>Book Now</button>
                 </div>
               </div>
-            </>
-          );
-        })}
+            </div>
+          ))}
+      </div>
     </>
   );
 };
 
+
 export default Yhhotellist;
+

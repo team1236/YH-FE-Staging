@@ -2,6 +2,7 @@ import Sidenav from "../components/Sidenav";
 import WhyChooseUs from "../components/WhyChooseUs";
 // import Newsletter from "../components/NewsLetter";
 import HolidayPackageCard from "../components/HolidayPackageCard";
+import OurPartners from "../components/Ourpartners";
 
 const HolidayPackage = () => {
   return (
@@ -16,6 +17,7 @@ const HolidayPackage = () => {
              <HolidayPackageCard/>
               <WhyChooseUs />
               {/* <Newsletter/> */}
+              <OurPartners/>
             </div>
           </div>
         </div>

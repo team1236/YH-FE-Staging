@@ -18,7 +18,10 @@ import Transportlisitng from "../pages/Transportlisitng.jsx";
 import Cabcheckout from "../pages/Cabcheckout.jsx";
 import MyProfilePage from "../pages/MyProfile.jsx";
 import Success from "../pages/Success.jsx";
+import Placesdetails from "../pages/Placesdetails.jsx";
+
 import MySingleService from "../components/MySingleService.jsx";
+
 
 export const router = createBrowserRouter([
   {
@@ -94,8 +97,13 @@ export const router = createBrowserRouter([
         element: <Success />,
       },
       {
+        path: "/placedetail",
+        element: <Placesdetails />,
+      },
+      {
         path: "/my-service",
         element: <MySingleService />,
+
       },
     ],
   },
