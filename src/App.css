@@ -2705,3 +2705,146 @@ input[type="number"]::-webkit-inner-spin-button {
 .success-img {
   height: 20vh;
 }
+
+ /* Explore CSS */
+ 
+ .places-details {
+  font-family: 'Euclid Circular A', sans-serif;
+  color: #333;
+}
+
+.banner {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.banner-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fade 10s infinite;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.banner-image-1 {
+  background-image: url('udaipur.jpg');
+  animation-delay: 0s;
+}
+
+.banner-image-2 {
+  background-image: url('citypalace.webp');
+  animation-delay: 5s;
+}
+
+@keyframes fade {
+  0%, 20% { opacity: 1; }
+  40%, 100% { opacity: 0; }
+}
+
+.content-section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f0f4f7;
+}
+
+.content-section h1 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  color: #6c63ff;
+}
+
+.places-description {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.places-description.reverse {
+  flex-direction: row-reverse;
+}
+
+.place {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.place-image {
+  max-width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.description {
+  max-width: 60%;
+  text-align: left;
+  margin-left: 20px;
+}
+@media (max-width:768px) {
+  .place {
+    display: block;
+  }
+  
+.place-image img{
+width: 100%;
+}
+
+.description {
+  max-width: 100%;
+}
+.banner {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  object-fit: contain;
+  background-size: 100%;
+  overflow: hidden;
+}
+
+}
+.description h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.description p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.description ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.description ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.description ul li::before {
+  content: '✓';
+  margin-right: 10px;
+  color: #6c63ff;
+  font-size: 1.2rem;
+}
