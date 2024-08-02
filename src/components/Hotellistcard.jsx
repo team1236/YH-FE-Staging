@@ -2,16 +2,20 @@ import React from "react";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import GradeIcon from "@mui/icons-material/Grade";
 import { Link } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
 const Hotellistcard = ({ getData }) => {
+        console.log("getData", getData);
   return (
     <>
-      <div className="deal-heading pt-3 mb-3">
-        <div>
-          <h4>Showing Results as per your Search</h4>
-          <p>Quality as judged by customers. Book at the ideal price!</p>
+      {getData.length > 0 && (
+        <div className="deal-heading pt-3 mb-3">
+          <div>
+            <h4>Showing Results as per your Search</h4>
+            <p>Quality as judged by customers. Book at the ideal price!</p>
+          </div>
         </div>
-      </div>
-      {getData &&
+      )}
+      {getData.length > 0 ? (
         getData.map((ele) => {
           return (
             <div className="hotel-deal-box2">
@@ -47,7 +51,10 @@ const Hotellistcard = ({ getData }) => {
               </div>
             </div>
           );
-        })}
+        })
+      ) : (
+        <ErrorPage />
+      )}
 
       {/* <div className="list-banner pt-5 pb-5">
         <img src="list-banner.png" alt="" />

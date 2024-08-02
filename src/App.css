@@ -2848,3 +2848,45 @@ width: 100%;
   color: #6c63ff;
   font-size: 1.2rem;
 }
+
+ /* Our Partners CSS */
+
+ .our-partners-section {
+  padding: 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.our-partners-section h4 {
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #222020;
+  font-weight: 600;
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+
+.logo-slide {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-slide img{
+  object-fit: contain;
+}
+.partner-logo {
+  max-width: 100%;
+  max-height: 70px; 
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+}
+
+.partner-logo:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}

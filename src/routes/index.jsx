@@ -20,6 +20,9 @@ import MyProfilePage from "../pages/MyProfile.jsx";
 import Success from "../pages/Success.jsx";
 import Placesdetails from "../pages/Placesdetails.jsx";
 
+import MySingleService from "../components/MySingleService.jsx";
+
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -96,6 +99,11 @@ export const router = createBrowserRouter([
       {
         path: "/placedetail",
         element: <Placesdetails />,
+      },
+      {
+        path: "/my-service",
+        element: <MySingleService />,
+
       },
     ],
   },

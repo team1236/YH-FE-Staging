@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Sidenav from "../components/Sidenav";
 import Yhhotellist from "../components/Yhhotellist";
 import Yhsearchcard from "../components/Yhsearchcard";
+import OurPartners from "../components/Ourpartners";
 const Yhhotels = () => {
   const [cabinClass, setCabinClass] = useState("Hotels");
   const [fromValue, setFromValue] = useState("");
@@ -21,6 +22,7 @@ const Yhhotels = () => {
               setFromValue={setFromValue}
             />
             <Yhhotellist cabinClass={cabinClass} fromValue={fromValue}/>
+            <OurPartners/>
           </div>
         </div>
       </div>

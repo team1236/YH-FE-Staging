@@ -224,7 +224,7 @@ const Transportsearch = () => {
             )?.toLowerCase()}`}
           >
             <button>
-              Search Vehicle{" "}
+              Search Vehicle
               <span className="icon-wrapper">
                 <DirectionsBusIcon />
               </span>

@@ -5,6 +5,7 @@ import Transportoffer from "../components/Transportoffer";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Transportservice from "../components/Transportservice";
 import Transportbanner from "../components/Transportbanner";
+import OurPartners from "../components/Ourpartners";
 
 const Transport = () => {
   return (
@@ -20,6 +21,7 @@ const Transport = () => {
             <Transportoffer />
             <Transportservice />
             <WhyChooseUs />
+            <OurPartners/>
           </div>
         </div>
       </div>

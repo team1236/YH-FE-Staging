@@ -2,6 +2,7 @@ import React from 'react'
 import MyTripCard from '../components/MyTripCard'
 import Sidenav from '../components/Sidenav';
 import WhyChooseUs from '../components/WhyChooseUs';
+import OurPartners from '../components/Ourpartners';
 
 function MyTripService() {
   return (
@@ -16,6 +17,7 @@ function MyTripService() {
               <MyTripCard/>
               <WhyChooseUs />
               {/* <Newsletter/> */}
+              <OurPartners/>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cabpaybox from "../components/Cabpaybox";
 import Cabbookingdetail from "../components/Cabbookingdetail";
 import Cabpassengerdetail from "../components/Cabpassengerdetail";
@@ -31,6 +31,11 @@ const Cabcheckout = () => {
     },
     additionalPassengers: [],
   });
+
+
+     useEffect(() => {
+       window.scrollTo(0, 0);
+     }, []);
 
   return (
     <div className="container mt-4 pt-4">

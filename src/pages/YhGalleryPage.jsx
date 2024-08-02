@@ -3,6 +3,7 @@ import WhyChooseUs from "../components/WhyChooseUs";
 // import Newsletter from "../components/NewsLetter";
 import HolidayPackageCard from "../components/HolidayPackageCard";
 import GalleryCarausel from "../components/YhGallery";
+import OurPartners from "../components/Ourpartners";
 
 const YhGalleryPage = () => {
   return (
@@ -18,6 +19,7 @@ const YhGalleryPage = () => {
               {/* <HolidayPackageCard /> */}
               <WhyChooseUs />
               {/* <Newsletter/> */}
+              <OurPartners/>
             </div>
           </div>
         </div>

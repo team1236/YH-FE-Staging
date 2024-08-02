@@ -8,6 +8,7 @@ import Flightbanner from "../components/Flightbanner";
 import Flightsoffer from "../components/Flightsoffer";
 // import Newsletter from "../components/NewsLetter";
 import Testimonials from "../components/Testimonials";
+import Ourpartners from "../components/Ourpartners";
 
 const HomePage = () => {
   return (
@@ -18,7 +19,7 @@ const HomePage = () => {
             <div className="col-lg-2">
               <Sidenav />
             </div>
-            <div className="col-lg-10">
+             <div className="col-lg-10">
               <Searchbar />
               <Recentsearch />
               <Populardestination />
@@ -27,6 +28,7 @@ const HomePage = () => {
               <Testimonials />
               <WhyChooseUs />
               {/* <Newsletter/> */}
+              <Ourpartners/>
             </div>
           </div>
         </div>
