@@ -333,7 +333,10 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
             <h5>Total Price</h5>
             <h6>
               ₹
-              {Number(paramsData.price) +
+              {Number(paramsData.price) *
+                Number(
+                  dateDifference(paramsData.checkout, paramsData.check_in)
+                ) +
                 Number(paramsData.service) +
                 Number(paramsData.tax) -
                 (coupenData ? Number(coupenData) : 0)}

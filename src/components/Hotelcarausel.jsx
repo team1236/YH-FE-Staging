@@ -63,14 +63,14 @@ const Hotelcarausel = () => {
           <h4>Nearby Shooting Ranges</h4>
           <p>Quality as judged by customers. Book at the ideal price!</p>
         </div>
-        <div>
+        {/* <div>
           <Link to="/Hotellisting" style={{ textDecoration: "none" }}>
             <button>
               View More
               <EastIcon />
             </button>
           </Link>
-        </div>
+        </div> */}
       </div>
       <div className="hotel-deal-box">
         <Slider ref={sliderRef} {...settings} className="slider">
@@ -78,16 +78,16 @@ const Hotelcarausel = () => {
             return (
               <div className="hotel-look">
                 <div className="deal-img">
-                  <img src={ele.img} alt="" />
+                  <img src={ele.image} alt="" />
                 </div>
                 <div className="deal-content">
                   <div className="review-box">
                     <h6>
-                      <GradeIcon /> {ele.stars}{" "}
-                      <span>({ele.reviews_count} reviews)</span>{" "}
+                      <GradeIcon /> {ele.star_category}{" "}
+                      <span>({ele.reviews} reviews)</span>{" "}
                     </h6>
                   </div>
-                  <h4 className="pt-3">{ele.title}</h4>
+                  <h4 className="pt-3">{ele.hotelName}</h4>
                   <small>
                     <LocationOnOutlinedIcon /> {ele.city}, {ele.country}
                   </small>
@@ -95,7 +95,9 @@ const Hotelcarausel = () => {
                     <h6>
                       ₹{ele.price} <span>/ person</span>{" "}
                     </h6>
-                    <button>Book Now</button>
+                    <Link to={`/hoteldetail?_id=${ele._id}&from=shootingRange`}>
+                      <button>Book Now</button>
+                    </Link>
                   </div>
                 </div>
               </div>
