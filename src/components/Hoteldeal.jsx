@@ -23,7 +23,14 @@ const Hoteldeal = () => {
           <p>Quality as judged by customers. Book at the ideal price!</p>
         </div>
         <div>
-          <Link to="/Hotellisting" style={{ textDecoration: "none" }}>
+          <Link
+            to={`/hotellisting?location=${"india"}&checkin=${
+              new Date().toISOString().split("T")[0]
+            }&checkout=${
+              new Date().toISOString().split("T")[0]
+            }&passengerValue=${JSON.stringify([])}`}
+            style={{ textDecoration: "none" }}
+          >
             <button>
               View More
               <EastIcon />
@@ -37,16 +44,16 @@ const Hoteldeal = () => {
               return (
                 <div className="hotel-look">
                   <div className="deal-img">
-                    <img src={ele.img} alt="" />
+                    <img src={ele.image} alt="" />
                   </div>
                   <div className="deal-content">
                     <div className="review-box">
                       <h6>
-                        <GradeIcon /> {""} {ele.stars}{" "}
-                        <span>({ele.reviews_count} reviews)</span>{" "}
+                        <GradeIcon /> {""} {ele.star_category}{" "}
+                        <span>({ele.reviews} reviews)</span>{" "}
                       </h6>
                     </div>
-                    <h4 className="pt-3">{ele.title}</h4>
+                    <h4 className="pt-3">{ele.hotelName}</h4>
                     <small>
                       {" "}
                       <LocationOnOutlinedIcon /> {ele.city}, {ele.country}
@@ -56,7 +63,9 @@ const Hoteldeal = () => {
                       <h6>
                         ₹{ele.price} <span>/ person</span>{" "}
                       </h6>
+                      <Link to={`/hoteldetail?_id=${ele._id}&from=hotelMain`}>
                       <button>Book Now</button>
+                    </Link>
                     </div>
                   </div>
                 </div>
