@@ -87,7 +87,7 @@ export const router = createBrowserRouter([
       {
         path: "/cabcheckout",
         element: <Cabcheckout />,
-      },
+      },  
       {
         path: "/MyProfile",
         element: <MyProfilePage />,

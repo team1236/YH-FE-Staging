@@ -13,6 +13,7 @@ import Box from "@mui/material/Box";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Transportsearch = () => {
   const [fromValue, setFromValue] = useState("");
@@ -216,20 +217,33 @@ const Transportsearch = () => {
           </div>
         </div>
         <div className="search-button">
-          <Link
-            to={`/transportlist?type=${getTabValue(
-              selectedTab
-            )}&from=${fromValue}&to=${toValue}&date=${departureDateValue?.getDate()}&month=${getMonthValue(
-              departureDateValue?.getMonth() + 1
-            )?.toLowerCase()}`}
-          >
-            <button>
+          {fromValue && toValue && departureDateValue ? (
+            <Link
+              to={`/transportlist?type=${getTabValue(
+                selectedTab
+              )}&from=${fromValue}&to=${toValue}&date=${departureDateValue?.getDate()}&month=${getMonthValue(
+                departureDateValue?.getMonth() + 1
+              )?.toLowerCase()}`}
+            >
+              <button>
+                Search Vehicle
+                <span className="icon-wrapper">
+                  <DirectionsBusIcon />
+                </span>
+              </button>
+            </Link>
+          ) : (
+            <button
+              onClick={() => {
+                toast.error("Please fill all fields");
+              }}
+            >
               Search Vehicle
               <span className="icon-wrapper">
                 <DirectionsBusIcon />
               </span>
             </button>
-          </Link>
+          )}
         </div>
       </div>
     </div>
