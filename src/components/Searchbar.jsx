@@ -57,7 +57,7 @@ const Searchbar = () => {
           <p>Enjoy hassle-free bookings with Hospitality</p>
         </div>
         <div>
-          <img src="human.png" alt="" width={167} height={150} />
+          <img src="human.png" alt="" width={180} height={150} />
         </div>
       </div>
 
