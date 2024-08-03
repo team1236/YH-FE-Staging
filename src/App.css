@@ -2733,13 +2733,18 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .banner-image-1 {
-  background-image: url('udaipur.jpg');
+  /* background-image: url('udaipur.jpg'); */
   animation-delay: 0s;
 }
 
 .banner-image-2 {
-  background-image: url('citypalace.webp');
+  /* background-image: url('citypalace.webp'); */
   animation-delay: 5s;
+}
+
+.banner-image-3 {
+  /* background-image: url('citypalace.webp'); */
+  animation-delay: 7s;
 }
 
 @keyframes fade {

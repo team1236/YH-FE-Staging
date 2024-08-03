@@ -23,6 +23,7 @@ import { holidayPackageAPI } from "../store/api/holidayPackage";
 import handleRazorPay from "../utils/paymentMethod";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 export default function HolidayPackageCard() {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -138,6 +139,7 @@ export default function HolidayPackageCard() {
                     ₹ {item.price}
                   </Typography>
                 </Box>
+                <Link to={`/placedetail?_id=${item._id}`}>
                 <Button
                   variant="contained"
                   color="primary"
@@ -148,10 +150,10 @@ export default function HolidayPackageCard() {
                       background: "#624fa8",
                     },
                   }}
-                  onClick={() => handleOpen(item)}
                 >
                   Explore
                 </Button>
+                </Link>
               </CardContent>
             </Card>
           </Grid>

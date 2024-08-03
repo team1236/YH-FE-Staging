@@ -10,6 +10,7 @@ import HotelOutlinedIcon from "@mui/icons-material/HotelOutlined";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Hotelsearch = () => {
   const [fromValue, setFromValue] = useState("");
@@ -251,18 +252,31 @@ const Hotelsearch = () => {
           </div>
         </div>
         <div className="search-button">
-          <Link
-            to={`/hotellisting?location=${fromValue}&checkin=${departureDateValue}&checkout=${departureDateValue}&passengerValue=${JSON.stringify(
-              passengerValue
-            )}`}
-          >
-            <button>
+          {fromValue && departureDateValue && passengerValue ? (
+            <Link
+              to={`/hotellisting?location=${fromValue}&checkin=${departureDateValue}&checkout=${departureDateValue}&passengerValue=${JSON.stringify(
+                passengerValue
+              )}`}
+            >
+              <button>
+                Search Hotels
+                <span className="icon-wrapper">
+                  <HotelOutlinedIcon />
+                </span>
+              </button>
+            </Link>
+          ) : (
+            <button
+              onClick={() => {
+                toast.error("Please fill all the fields");
+              }}
+            >
               Search Hotels
               <span className="icon-wrapper">
                 <HotelOutlinedIcon />
               </span>
             </button>
-          </Link>
+          )}
         </div>
       </div>
     </div>

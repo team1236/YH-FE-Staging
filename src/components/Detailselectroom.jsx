@@ -63,6 +63,9 @@ const Detailselectroom = ({ getData }) => {
     if (!Cookies.get("yh_auth_token")) {
       toast.error("Please login to continue");
       return;
+    } else {
+      toast.error("Please fill the details to continue");
+      return;
     }
   };
 
@@ -324,7 +327,11 @@ const Detailselectroom = ({ getData }) => {
         </div>
 
         <div className="reserve-button mt-4">
-          {Cookies.get("yh_auth_token") ? (
+          {Cookies.get("yh_auth_token") &&
+          selectedRoom &&
+          checkInDate &&
+          checkOutDate &&
+          passengerValue.rooms ? (
             <Link
               to={`/checkout?hotelName=${getData.hotelName}&location=${
                 getData.city
