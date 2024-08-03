@@ -59,9 +59,9 @@ const Yhsearchcard = ({
           <h4>Search Hotels</h4>
           <p>Enjoy hassle-free bookings with Hospitality</p>
         </div>
-        {/* <div>
-          <img src="human.png" alt="" width={167} height={150} />
-        </div> */}
+        <div>
+          <img src="human.png" alt="" width={180} height={150} />
+        </div>
       </div>
 
       <div className="search-column">
