@@ -20,7 +20,7 @@ export default function ProfileAvator() {
         <Button>
           <AccountCircleIcon style={{ color: "#624fa8", fontSize: "28px" }} />
           <Typography sx={{ ml: 1, color: "#624fa8" }}>
-            {localStorage.getItem("yh_user_name")}
+            Hi, {localStorage.getItem("yh_user_name")?.split(" ")[0]}
           </Typography>
         </Button>
       </Link>
