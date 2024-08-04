@@ -7,8 +7,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { hotelNeatBYAPI } from "../store/api/hotelPage";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const Hotelsuggest = ({ getData }) => {
+const Hotelsuggest = ({ getData, from }) => {
   const sliderRef = useRef(null);
   const [nearBy, setNearBy] = useState([]);
   useEffect(() => {
@@ -48,8 +49,20 @@ const Hotelsuggest = ({ getData }) => {
   };
 
   const getNearBYData = async () => {
-    const getData = await hotelNeatBYAPI();
-    setNearBy(getData.data.findData);
+    if (from === "hotelMain") {
+      const getData = await axios.get(
+        `${import.meta.env.VITE_APP_API_URL}api/v1/get-hotelswithdeal`
+      );
+      setNearBy(getData.data.data.findData);
+    } else if (from === "shootingRange") {
+      const getData = await hotelNeatBYAPI();
+      setNearBy(getData.data.findData);
+    } else {
+      const getData = await axios.get(
+        `${import.meta.env.VITE_APP_API_URL}api/v1/get-hotelListing`
+      );
+      setNearBy(getData.data.data.findData);
+    }
   };
 
   useEffect(() => {
@@ -72,8 +85,8 @@ const Hotelsuggest = ({ getData }) => {
       </div>
       <div className="hotel-deal-box">
         <Slider ref={sliderRef} {...settings} className="slider">
-          {getData &&
-            getData?.description_nearBy_hotels?.map((ele) => {
+          {nearBy &&
+            nearBy?.map((ele) => {
               return (
                 <div className="hotel-look">
                   <div className="deal-img">
@@ -94,9 +107,9 @@ const Hotelsuggest = ({ getData }) => {
                       <h6>
                         ₹{ele.price} <span>/ person</span>{" "}
                       </h6>
-                      <Link to={`/hotellisting?location=${getData.city}`}>
+                      <a href={`/hoteldetail?_id=${ele._id}&from=${from}`}>
                         <button>Book Now</button>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

@@ -63,7 +63,7 @@ const Hoteldetail = () => {
           </div>
           <div className="col-lg-12">
             <HotelReview getData={getData} />
-            <Hotelsuggest getData={getData} />
+            <Hotelsuggest getData={getData} from={searchParams.get("from")}/>
           </div>
         </div>
       </div>
