@@ -89,7 +89,12 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
 
   const handlePayment = () => {
     let final_Amount =
-      Number(paramsData.price) +
+      Number(paramsData.price) *
+        Number(
+          dateDifference(paramsData.checkout, paramsData.check_in) === 0
+            ? 1
+            : dateDifference(paramsData.checkout, paramsData.check_in)
+        ) +
       Number(paramsData.service) +
       Number(paramsData.tax) -
       (coupenData ? Number(coupenData) : 0);
@@ -304,13 +309,18 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
           <div className="breakdown-box">
             <h5>
               ₹{paramsData.price} x{" "}
-              {dateDifference(paramsData.checkout, paramsData.check_in)} nights
+              {dateDifference(paramsData.checkout, paramsData.check_in) === 0
+                ? 1
+                : dateDifference(paramsData.checkout, paramsData.check_in)}{" "}
+              nights
             </h5>
             <h6>
               ₹
               {Number(paramsData.price) *
                 Number(
-                  dateDifference(paramsData.checkout, paramsData.check_in)
+                  dateDifference(paramsData.checkout, paramsData.check_in) === 0
+                    ? 1
+                    : dateDifference(paramsData.checkout, paramsData.check_in)
                 )}
             </h6>
           </div>
@@ -335,7 +345,9 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
               ₹
               {Number(paramsData.price) *
                 Number(
-                  dateDifference(paramsData.checkout, paramsData.check_in)
+                  dateDifference(paramsData.checkout, paramsData.check_in) === 0
+                    ? 1
+                    : dateDifference(paramsData.checkout, paramsData.check_in)
                 ) +
                 Number(paramsData.service) +
                 Number(paramsData.tax) -
