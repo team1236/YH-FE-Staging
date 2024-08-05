@@ -83,12 +83,12 @@ const Hotelsuggest = ({ getData, from }) => {
           </button>
         </div> */}
       </div>
-      <div className="hotel-deal-box">
+      <div className="row">
         <Slider ref={sliderRef} {...settings} className="slider">
           {nearBy &&
             nearBy?.map((ele) => {
               return (
-                <div className="hotel-look">
+                <div className="col-lg-4">
                   <div className="deal-img">
                     <img src={ele.image} alt="" />
                   </div>
