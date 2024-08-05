@@ -16,7 +16,6 @@ import handleRazorPay from "../utils/paymentMethod";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 
-
 const Placesdetails = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -28,7 +27,7 @@ const Placesdetails = () => {
   });
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const [placeDatas, setPlaceData] = useState([]);
+  const [placeData, setPlaceData] = useState(null);
 
   const getPlaceData = async () => {
     try {
@@ -40,8 +39,8 @@ const Placesdetails = () => {
 
       setPlaceData(response.data.data.findData);
     } catch (error) {
-      console.log("error", error);
-      return error;
+      console.error("Error fetching place data:", error);
+      toast.error("Failed to fetch place data");
     }
   };
 
@@ -67,110 +66,73 @@ const Placesdetails = () => {
       toast.error("Please login to continue");
       return;
     }
-    if(tourData.name === "" || tourData.mobileNumber === "" || tourData.date_of_travel === "") {
+    if (
+      tourData.name === "" ||
+      tourData.mobileNumber === "" ||
+      tourData.date_of_travel === ""
+    ) {
       toast.error("Please fill all the fields");
       return;
     }
-    let data = {
-      location: placeDatas.title,
-      details: placeDatas.description,
-      price: placeDatas.price * members,
+    const data = {
+      location: placeData.title,
+      details: placeData.description,
+      price: placeData.price * members,
       name: tourData.name,
       mobileNumber: tourData.mobileNumber,
       date_of_travel: tourData.date_of_travel,
-      total_memebers: members,
+      total_members: members,
       dateOfBooking: new Date().toISOString().split("T")[0],
-      serviceType: "Holoiday Package",
+      serviceType: "Holiday Package",
       email: localStorage.getItem("yh_user_email"),
     };
-    handleRazorPay(data, placeDatas.price * members);
+    handleRazorPay(data, placeData.price * members);
+  };
+
+  const renderBannerImages = () => {
+    return placeData?.placeData?.map((ele, i) => (
+      <div
+        className={`banner-image banner-image-${i + 1}`}
+        key={i}
+        style={{ backgroundImage: `url(${ele.image})` }}
+      ></div>
+    ));
+  };
+
+  const renderPlaceDetails = (index) => {
+    const place = placeData?.placeData?.[index];
+    if (!place) return null;
+
+    return (
+      <div className="places-description">
+        <div className="place">
+          <img src={place.image} alt={place.title} className="place-image" />
+          <div className="description">
+            <h2>{place.title}</h2>
+            <p>{place.description}</p>
+            <ul>
+              {place.list_desc.split(",").map((ele, index) => (
+                <li key={index}>{ele}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
     <div className="places-details">
-      <div className="banner">
-        {placeDatas.placeData &&
-          placeDatas?.placeData.map((ele, i) => {
-            return (
-              <div
-                className={`banner-image banner-image-${i + 1}`}
-                key={i}
-                style={{ backgroundImage: `url(${ele.image})` }}
-              ></div>
-            );
-          })}
-      </div>
+      <div className="banner">{renderBannerImages()}</div>
 
       <section className="content-section">
         <h1>
-          {placeDatas.title}: {placeDatas.sub_desc}
+          {placeData?.title}: {placeData?.sub_desc}
         </h1>
 
-        <div className="places-description">
-          <div className="place">
-            <img
-              src={placeDatas.placeData && placeDatas?.placeData[0]?.image}
-              alt="City Palace"
-              className="place-image"
-            />
-            <div className="description">
-              <h2>{placeDatas.placeData && placeDatas?.placeData[0]?.title}</h2>
-              <p>
-                {placeDatas.placeData && placeDatas?.placeData[0]?.description}
-              </p>
-              <ul>
-                {placeDatas.placeData &&
-                  placeDatas?.placeData[0]?.list_desc.split(",").map((ele) => {
-                    return <li>{ele}</li>;
-                  })}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="places-description reverse">
-          <div className="place">
-            <img
-              src={placeDatas.placeData && placeDatas?.placeData[1]?.image}
-              alt="City Palace"
-              className="place-image"
-            />
-            <div className="description">
-              <h2>{placeDatas.placeData && placeDatas?.placeData[1]?.title}</h2>
-              <p>
-                {placeDatas.placeData && placeDatas?.placeData[1]?.description}
-              </p>
-              <ul>
-                {placeDatas.placeData &&
-                  placeDatas?.placeData[1]?.list_desc.split(",").map((ele) => {
-                    return <li>{ele}</li>;
-                  })}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="places-description">
-          <div className="place">
-            <img
-              src={placeDatas.placeData && placeDatas?.placeData[2]?.image}
-              alt="City Palace"
-              className="place-image"
-            />
-            <div className="description">
-              <h2>{placeDatas.placeData && placeDatas?.placeData[2]?.title}</h2>
-              <p>
-                {placeDatas.placeData && placeDatas?.placeData[2]?.description}
-              </p>
-              <ul>
-                {placeDatas.placeData &&
-                  placeDatas?.placeData[2]?.list_desc.split(",").map((ele) => {
-                    return <li>{ele}</li>;
-                  })}
-              </ul>
-            </div>
-          </div>
-        </div>
+        {renderPlaceDetails(0)}
+        {renderPlaceDetails(1)}
+        {renderPlaceDetails(2)}
 
         <div className="row justify-content-center">
           <div className="col-lg-6">
