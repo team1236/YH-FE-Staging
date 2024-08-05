@@ -88,6 +88,15 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
   };
 
   const handlePayment = () => {
+    if (
+      !formData.mainPassenger.firstName ||
+      !formData.mainPassenger.lastName ||
+      !formData.mainPassenger.email ||
+      !formData.mainPassenger.mobileNumber
+    ) {
+      toast.error("Please fill all the required fields");
+      return;
+    }
     let final_Amount =
       Number(paramsData.price) *
         Number(
