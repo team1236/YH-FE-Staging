@@ -44,7 +44,7 @@ const Hoteldeal = () => {
               return (
                 <div className="hotel-look">
                   <div className="deal-img">
-                    <img src={ele.image} alt="" />
+                    <img src={ele.image} alt="" height={210} />
                   </div>
                   <div className="deal-content">
                     <div className="review-box">

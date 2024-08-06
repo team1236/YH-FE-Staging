@@ -53,9 +53,9 @@ const HotelReview = ({getData}) => {
   return (
     <div className="hotel-review-container mt-4">
         <h3>Reviews</h3>
-      <div className="review-grid">
+      <div className="row">
         {getData && getData?.description_reviews_data?.map((review, index) => (
-          <div className="review-card" key={index}>
+          <div className="review-card-new col-lg-4" key={index}>
             <div className="review-header">
               <img src={reviews[index].avatar} alt={review.name} className="review-avatar" />
               <div className="review-details">

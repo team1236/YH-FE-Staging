@@ -90,7 +90,7 @@ const Hotelsuggest = ({ getData, from }) => {
               return (
                 <div className="col-lg-4">
                   <div className="deal-img">
-                    <img src={ele.image} alt="" />
+                    <img src={ele.image} alt="" height={339} />
                   </div>
                   <div className="deal-content">
                     <div className="review-box">
