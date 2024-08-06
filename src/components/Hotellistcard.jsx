@@ -90,7 +90,7 @@ const Hotellistcard = ({ getData }) => {
           {getData.map((ele) => (
             <div key={ele._id} className="col-lg-3">
               <div className="deal-img">
-                <img src={ele.image} alt="" />
+                <img src={ele.image} alt="" height={250} />
               </div>
               <div className="deal-content">
                 <div className="review-box">
