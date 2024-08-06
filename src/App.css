@@ -1759,8 +1759,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .button-over-image button {
   position: absolute;
-  top: 80%;
-  left: 50%;
+  top: 85%;
+  left: 88%;
   transform: translate(-10%, -30%);
   background-color: #fff;
   padding: 7px 8px;

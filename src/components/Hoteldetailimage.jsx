@@ -36,7 +36,7 @@ const Hoteldetailimage = ({ getData }) => {
         </div>
         <div className="col-lg-6 col-right">
           <div className="grid-container">
-            {descriptionImages.slice(2, 5).map((ele, i) => (
+            {descriptionImages.slice(2, 6).map((ele, i) => (
               <div className="grid-item" key={i}>
                 <img
                   src={ele}
@@ -49,7 +49,7 @@ const Hoteldetailimage = ({ getData }) => {
               </div>
             ))}
             <div className="grid-item">
-              <img src="detail5.webp" alt="Detail 5" onClick={toggleOverlay} />
+              {/* <img src="detail5.webp" alt="Detail 5" onClick={toggleOverlay} /> */}
               <div className="button-over-image">
                 <button onClick={toggleOverlay}>
                   <i className="bi bi-camera-fill"></i> See all photos
