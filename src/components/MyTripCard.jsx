@@ -65,7 +65,7 @@ function MyTripCard({ trip }) {
                       display="flex"
                       alignItems="center"
                     >
-                      <AttachMoneyIcon sx={{ marginRight: 1 }} />
+                      {/* <AttachMoneyIcon sx={{ marginRight: 1 }} /> */}
                       <strong>Amount:</strong> ₹ {trip.amount}
                     </Typography>
                   </Grid>

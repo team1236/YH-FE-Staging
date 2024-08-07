@@ -15,6 +15,9 @@ import { useLocation } from "react-router-dom";
 import handleRazorPay from "../utils/paymentMethod";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
+import WhyChooseUs from "../components/WhyChooseUs";
+import OurPartners from "../components/Ourpartners";
+import Sidenav from "../components/Sidenav";
 
 const Placesdetails = () => {
   const theme = useTheme();
@@ -122,109 +125,127 @@ const Placesdetails = () => {
   };
 
   return (
-    <div className="places-details">
-      <div className="banner">{renderBannerImages()}</div>
+    <>
+      <div className="app-container">
+        <main className="app-main">
+          <div className="container mt-4">
+            <div className="row">
+              <div className="col-lg-2">
+                <Sidenav />
+              </div>
+              <div className="col-lg-10">
+                <div className="places-details">
+                  <div className="banner">{renderBannerImages()}</div>
 
-      <section className="content-section">
-        <h1>
-          {placeData?.title}: {placeData?.sub_desc}
-        </h1>
+                  <section className="content-section">
+                    <h1>
+                      {placeData?.title}: {placeData?.sub_desc}
+                    </h1>
 
-        {renderPlaceDetails(0)}
-        {renderPlaceDetails(1)}
-        {renderPlaceDetails(2)}
+                    {renderPlaceDetails(0)}
+                    {renderPlaceDetails(1)}
+                    {renderPlaceDetails(2)}
 
-        <div className="row justify-content-center">
-          <div className="col-lg-6">
-            <Box
-              component="form"
-              sx={{
-                mt: 4,
-                p: 2,
-                bgcolor: "#f8f8f8",
-                borderRadius: 2,
-                boxShadow: 1,
-              }}
-              onSubmit={handleSubmit}
-            >
-              <Typography variant="h6" component="h2" gutterBottom>
-                Book Your Tour
-              </Typography>
-              <TextField
-                fullWidth
-                label="Name"
-                margin="normal"
-                required
-                name="name"
-                value={tourData.name}
-                onChange={handleChange}
-              />
-              <TextField
-                fullWidth
-                label="Contact Number"
-                margin="normal"
-                required
-                name="mobileNumber"
-                value={tourData.mobileNumber}
-                onChange={handleChange}
-              />
-              <TextField
-                fullWidth
-                label="Tour Start Date"
-                type="date"
-                name="date_of_travel"
-                value={tourData.date_of_travel}
-                onChange={handleChange}
-                margin="normal"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                required
-              />
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  mt: 2,
-                }}
-              >
-                <Typography variant="body1" sx={{ mr: 2 }}>
-                  Number of Members:
-                </Typography>
-                <IconButton onClick={handleDecrement}>
-                  <RemoveIcon />
-                </IconButton>
-                <TextField
-                  value={members}
-                  inputProps={{
-                    readOnly: true,
-                    style: { textAlign: "center", width: "50px" },
-                  }}
-                  sx={{ mx: 1 }}
-                />
-                <IconButton onClick={handleIncrement}>
-                  <AddIcon />
-                </IconButton>
-              </Box>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                sx={{
-                  mt: 2,
-                  background: "#624fa8",
-                  "&:hover": {
-                    background: "#624fa8",
-                  },
-                }}
-              >
-                Submit
-              </Button>
-            </Box>
+                    <div className="row justify-content-center">
+                      <div className="col-lg-6">
+                        <Box
+                          component="form"
+                          sx={{
+                            mt: 4,
+                            p: 2,
+                            bgcolor: "#f8f8f8",
+                            borderRadius: 2,
+                            boxShadow: 1,
+                          }}
+                          onSubmit={handleSubmit}
+                        >
+                          <Typography variant="h6" component="h2" gutterBottom>
+                            Book Your Tour
+                          </Typography>
+                          <TextField
+                            fullWidth
+                            label="Name"
+                            margin="normal"
+                            required
+                            name="name"
+                            value={tourData.name}
+                            onChange={handleChange}
+                          />
+                          <TextField
+                            fullWidth
+                            label="Contact Number"
+                            margin="normal"
+                            required
+                            name="mobileNumber"
+                            value={tourData.mobileNumber}
+                            onChange={handleChange}
+                          />
+                          <TextField
+                            fullWidth
+                            label="Tour Start Date"
+                            type="date"
+                            name="date_of_travel"
+                            value={tourData.date_of_travel}
+                            onChange={handleChange}
+                            margin="normal"
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                            required
+                          />
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              mt: 2,
+                            }}
+                          >
+                            <Typography variant="body1" sx={{ mr: 2 }}>
+                              Number of Members:
+                            </Typography>
+                            <IconButton onClick={handleDecrement}>
+                              <RemoveIcon />
+                            </IconButton>
+                            <TextField
+                              value={members}
+                              inputProps={{
+                                readOnly: true,
+                                style: { textAlign: "center", width: "50px" },
+                              }}
+                              sx={{ mx: 1 }}
+                            />
+                            <IconButton onClick={handleIncrement}>
+                              <AddIcon />
+                            </IconButton>
+                          </Box>
+                          <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            sx={{
+                              mt: 2,
+                              background: "#624fa8",
+                              "&:hover": {
+                                background: "#624fa8",
+                              },
+                            }}
+                          >
+                            Submit
+                          </Button>
+                        </Box>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <WhyChooseUs />
+                {/* <Newsletter/> */}
+                <OurPartners />
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </main>
+      </div>
+    </>
   );
 };
 
