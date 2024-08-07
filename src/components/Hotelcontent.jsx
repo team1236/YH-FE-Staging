@@ -60,68 +60,18 @@ const Hotelcontent = ({ getData }) => {
         <div className="amenities pt-4">
           <h4>Amenities We offer</h4>
           <div className="facility-box">
-            {getData &&
-              getData?.description_amentities?.map((ele) => {
-                if (ele.includes("Wi-Fi")) {
-                  return (
-                    <div className="facility-list" key="wifi">
-                      <h5>
-                        <WifiOutlinedIcon /> Fast wifi – 500 Mbps
-                      </h5>
-                    </div>
-                  );
-                } else if (ele.includes("Vehicle parking")) {
-                  return (
-                    <div className="facility-list" key="parking">
-                      <h5>
-                        <NoCrashOutlinedIcon /> Free Vehicle parking
-                      </h5>
-                    </div>
-                  );
-                } else if (ele.includes("HDTV")) {
-                  return (
-                    <div className="facility-list" key="tv">
-                      <h5>
-                        <TvOutlinedIcon /> HDTV with standard cable
-                      </h5>
-                    </div>
-                  );
-                } else if (ele.includes("Air conditioning")) {
-                  return (
-                    <div className="facility-list" key="ac">
-                      <h5>
-                        <AcUnitOutlinedIcon /> Air conditioning
-                      </h5>
-                    </div>
-                  );
-                } else if (ele.includes("Luggage drop-off")) {
-                  return (
-                    <div className="facility-list" key="luggage">
-                      <h5>
-                        <LuggageOutlinedIcon /> Luggage drop-off
-                      </h5>
-                    </div>
-                  );
-                } else if (ele.includes("Security cameras")) {
-                  return (
-                    <div className="facility-list" key="security">
-                      <h5>
-                        <SecurityOutlinedIcon /> Security cameras on property
-                      </h5>
-                    </div>
-                  );
-                } else if (ele.includes("Swimming Pool")) {
-                  return (
-                    <div className="facility-list" key="pool">
-                      <h5>
-                        <PoolOutlinedIcon /> Swimming Pool
-                      </h5>
-                    </div>
-                  );
-                } else {
-                  return null;
-                }
-              })}
+            {getData && getData?.description_amentities?.map((ele) =>
+            {
+              return (
+                <div className="facility-list" key="wifi">
+                  <h5>
+                    {ele}
+                  </h5>
+                </div>
+              );
+            }
+            )}
+             
           </div>
         </div>
 

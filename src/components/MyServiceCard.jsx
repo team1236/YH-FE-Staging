@@ -28,7 +28,7 @@ export default function ActionAreaCard() {
           ? ServiceCard.map((item, index) => (
               <Grid item xs={12} sm={6} md={3} key={index}>
                 <Link to={`/my-service?_id=${item._id}`} style={{textDecoration:"none"}}>
-                  <Card sx={{ maxWidth: 300, margin: "auto" }}>
+                  <Card sx={{ maxWidth: 500, margin: "auto" }}>
                     <CardActionArea>
                       <CardMedia
                         component="img"
