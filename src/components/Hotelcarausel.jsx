@@ -78,7 +78,7 @@ const Hotelcarausel = () => {
             return (
               <div className="hotel-look">
                 <div className="deal-img">
-                  <img src={ele.image} alt="" />
+                  <img src={ele.image} alt="" height={279} />
                 </div>
                 <div className="deal-content">
                   <div className="review-box">
