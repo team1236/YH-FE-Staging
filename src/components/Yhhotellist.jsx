@@ -57,10 +57,10 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
         </div>
       </div>
 
-      <div className="hotel-deal-box2">
+      <div className="row">
         {findData &&
           findData.map((ele, i) => (
-            <div className="hotel-look" key={i}>
+            <div className="col-lg-4 hotel-look" key={i}>
               <div className="deal-img">
                 <img src={ele.image} alt={ele.title} />
               </div>

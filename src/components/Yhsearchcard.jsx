@@ -72,7 +72,7 @@ const Yhsearchcard = ({
                 type="text"
                 id="from"
                 className="input-field"
-                placeholder="Hotel Destinations"
+                placeholder={cabinClass === "Hotels" ? "Hotel Destinations" : "Our Apartments"}
                 value={fromValue}
                 onChange={(event) => handleInputChange(event, setFromValue)}
               />
@@ -268,12 +268,7 @@ const Yhsearchcard = ({
             <MenuItem value="Hotels">Hotels</MenuItem>
             <MenuItem value="Apartments">Apartments</MenuItem>
           </Select>
-          {/* <button >
-            Search Hotels{" "}
-            <span className="icon-wrapper">
-              <HotelOutlinedIcon />
-            </span>
-          </button> */}
+   
         </div>
       </div>
     </div>
