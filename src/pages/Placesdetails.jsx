@@ -12,12 +12,15 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import Slider from "react-slick"; // Import Slider
 import handleRazorPay from "../utils/paymentMethod";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 import WhyChooseUs from "../components/WhyChooseUs";
 import OurPartners from "../components/Ourpartners";
 import Sidenav from "../components/Sidenav";
+import "slick-carousel/slick/slick.css"; // Import slick-carousel styles
+import "slick-carousel/slick/slick-theme.css";
 
 const Placesdetails = () => {
   const theme = useTheme();
@@ -92,14 +95,32 @@ const Placesdetails = () => {
     handleRazorPay(data, placeData.price * members);
   };
 
+  // Slider settings
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
+
   const renderBannerImages = () => {
-    return placeData?.placeData?.map((ele, i) => (
-      <div
-        className={`banner-image banner-image-${i + 1}`}
-        key={i}
-        style={{ backgroundImage: `url(${ele.image})` }}
-      ></div>
-    ));
+    return (
+      <Slider {...sliderSettings}>
+        {placeData?.placeData?.map((ele, i) => (
+          <div key={i}>
+            <img
+              src={ele.image}
+              alt={`Banner ${i + 1}`}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </div>
+        ))}
+      </Slider>
+    );
   };
 
   const renderPlaceDetails = (index) => {
