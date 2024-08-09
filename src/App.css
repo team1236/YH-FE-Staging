@@ -2134,7 +2134,9 @@ input[type="number"]::-webkit-inner-spin-button {
   flex-wrap: wrap;
   gap: 16px;
 }
-
+.hotel-review-container .col-lg-4{
+  width: 31.33333333% !important;
+}
 .review-card {
   flex: 1 1 calc(33.333% - 16px);
   border: 1px solid #e0e0e0;
@@ -2147,6 +2149,7 @@ input[type="number"]::-webkit-inner-spin-button {
     border: 1px solid #e0e0e0;
   border-radius: 20px;
   padding: 16px;
+  margin: 10px;
 }
 
 .review-header {
