@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid, Typography, Link, IconButton } from "@mui/material";
 import { Facebook, Twitter, Instagram, LinkedIn } from "@mui/icons-material";
 import axios from "axios";
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const Footer = () => {
   const linkStyle = {
@@ -95,6 +96,15 @@ const Footer = () => {
                 color="inherit"
               >
                 <LinkedIn />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <IconButton
+                href={getURL?.youtube}
+                target="_blank"
+                color="inherit"
+              >
+                <YouTubeIcon />
               </IconButton>
             </Grid>
           </Grid>

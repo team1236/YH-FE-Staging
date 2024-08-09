@@ -6,6 +6,28 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { galleryAPI } from "../store/api/gallery";
 
+// Component for the top section with image
+const GalleryHeader = ({ mainTitle, subtitle, image }) => {
+  return (
+    <div
+      className="gallery-header"
+      style={{
+        backgroundImage: `url(${image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        color: "#fff",
+        padding: "60px 20px",
+        textAlign: "center",
+        position: "relative",
+      }}
+    >
+      <div className="overlay" />
+      <h1 className="main-title">{mainTitle}</h1>
+      <p className="main-subtitle">{subtitle}</p>
+    </div>
+  );
+};
+
 const GalleryCarousel = ({ title, subtitle, images }) => {
   const sliderRef = useRef(null);
 
@@ -49,8 +71,8 @@ const GalleryCarousel = ({ title, subtitle, images }) => {
     <>
       <div className="deal-heading pt-5 mb-3">
         <div>
-          <h4>{title}</h4>
-          <p>{subtitle}</p>
+          <h4 className="carousel-title">{title}</h4>
+          <p className="carousel-subtitle">{subtitle}</p>
         </div>
       </div>
       <div className="hotel-deal-box">
@@ -58,25 +80,29 @@ const GalleryCarousel = ({ title, subtitle, images }) => {
           {images.map((image, index) => (
             <div key={index} className="hotel-look">
               <div className="deal-img">
-                <img src={image.src} alt={image.title} />
+                <img src={image.src} alt={image.title} className="deal-image" />
               </div>
               {image.content && (
                 <div className="deal-content">
                   <div className="review-box">
-                    <h6>
-                      <GradeIcon /> {image.content.rating}{" "}
-                      <span>({image.content.reviews} reviews)</span>{" "}
+                    <h6 className="review-text">
+                      <GradeIcon className="grade-icon" />{" "}
+                      {image.content.rating}{" "}
+                      <span className="review-count">
+                        ({image.content.reviews} reviews)
+                      </span>{" "}
                     </h6>
                   </div>
-                  <h4 className="pt-3">{image.content.title}</h4>
-                  <small>
-                    <LocationOnOutlinedIcon /> {image.content.location}
+                  <h4 className="content-title pt-3">{image.content.title}</h4>
+                  <small className="location-text">
+                    <LocationOnOutlinedIcon className="location-icon" />{" "}
+                    {image.content.location}
                   </small>
                   <div className="price-book-btn pt-2">
-                    <h6>
+                    <h6 className="price-text">
                       ₹{image.content.price} <span>/ person</span>{" "}
                     </h6>
-                    <button>Book Now</button>
+                    <button className="book-now-button">Book Now</button>
                   </div>
                 </div>
               )}
@@ -90,26 +116,38 @@ const GalleryCarousel = ({ title, subtitle, images }) => {
 
 const GalleryPage = () => {
   const [data, setData] = useState([]);
+
   const getGalleryData = async () => {
-    const getData = await galleryAPI();
-    setData(getData.data.findData);
+    try {
+      const getData = await galleryAPI();
+      setData(getData.data.findData);
+    } catch (error) {
+      console.error("Error fetching gallery data:", error);
+    }
   };
 
   useEffect(() => {
-    Promise.allSettled([getGalleryData()]);
+    getGalleryData();
   }, []);
 
   return (
-    <div>
-      {data.map((ele) => {
-        return (
-          <GalleryCarousel
-            title={ele.title}
-            subtitle={ele.description}
-            images={ele.img}
-          />
-        );
-      })}
+    <div className="gallery-page">
+      {/* {data.map((ele, index) => (
+        <GalleryHeader
+          key={`header-${index}`}
+          image={ele.img.length > 0 ? ele.img[0].src : ""}
+          mainTitle="Explore Our Exclusive Gallery"
+          subtitle="Discover beautiful destinations and experiences"
+        />
+      ))} */}
+      {data.map((ele, index) => (
+        <GalleryCarousel
+          key={`carousel-${index}`}
+          title={ele.title}
+          subtitle={ele.description}
+          images={ele.img}
+        />
+      ))}
     </div>
   );
 };
