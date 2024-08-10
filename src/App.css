@@ -2834,7 +2834,7 @@ width: 100%;
 }
 .banner {
   position: relative;
-  height: 80vh;
+  height: auto;
   width: 100%;
   object-fit: contain;
   background-size: 100%;
