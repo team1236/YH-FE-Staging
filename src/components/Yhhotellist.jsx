@@ -62,7 +62,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
           findData.map((ele, i) => (
             <div className="col-lg-4 hotel-look" key={i}>
               <div className="deal-img">
-                <img src={ele.image} alt={ele.title} />
+                <img src={ele.image} alt={ele.title} height={255} />
               </div>
               <div className="deal-content">
                 <div className="review-box">
