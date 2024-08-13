@@ -15,6 +15,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import { Link } from 'react-router-dom';
 
 const Searchbar = () => {
   const [tripType, setTripType] = useState('oneWay');
@@ -226,9 +227,9 @@ const Searchbar = () => {
             <MenuItem value="business">Business</MenuItem>
             <MenuItem value="firstClass">First Class</MenuItem>
           </Select>
-          <button>
+     <Link to="/flightlisting">     <button>
             Search Flights <span className="icon-wrapper"><FlightTakeoffIcon /></span>
-          </button>
+          </button></Link>
         </div>
       </div>
 
