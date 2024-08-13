@@ -2914,3 +2914,645 @@ width: 100%;
   filter: grayscale(0%);
   transform: scale(1.05);
 }
+
+
+/*** FLight listing ***/
+
+.list-heading{
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort-content h3{
+  color: #1C2B38;
+  font-family: "Sora", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+}
+.sort-content h6{
+  color: #767B7F;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+.sort-select{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sort-select h6{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1C2B38;
+  margin-bottom: 0;
+}
+
+.sort-select select{
+  background-color: #F4F4F5;
+  border-radius: 3px;
+  border: none;
+  color: #495560;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  width: 300px;
+  height: 44px;
+  cursor: pointer;
+}
+.sort-select select:focus{
+  box-shadow: none;
+  outline: 0;
+}
+
+@media(max-width:768px){
+  .list-heading{
+    display: block;
+  }
+  .sort-select{
+    margin-top: 10px;
+  }
+  .sort-select select{
+    width: 280px;
+  }
+}
+
+
+.flight-place{
+  display: flex;
+  gap: 20px;
+}
+.flight-place h6{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333030;
+  margin-bottom: 0;
+}
+.flight-place p{
+  color: #453F3F;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.flight-column{
+  border: 1px solid #E5E7EB;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.flight-heading{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  border-bottom: 1px solid #E5E7EB;
+}
+.flight-name-box h6{
+color: #505050;
+font-family: "Euclid Circular A", sans-serif;
+font-size: 14px;
+font-weight: 500;
+margin-bottom: 0;
+padding: 5px 0;
+}
+.flight-name-box p{
+  color: #505050;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.flight-inner-row{
+  padding: 20px;
+  justify-content: space-between;
+}
+.flight-info h6{
+  color: #000000;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.flight-info p{
+  color: #4E4E4E;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding: 15px 0;
+}
+.flight-info h5{
+  color: #000000;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22px;
+  margin-bottom: 0;
+}
+.flight-time-took{
+  text-align: center;
+  color: #4E4E4E;
+}
+.flight-time-took p{
+  margin-bottom: 0;
+  color: #4E4E4E;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+.flight-btn button{
+  background-color: #4c3f90;
+  color: #fff;
+  padding: 6px 15px;
+  border-radius: 4px;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  
+  border: none;
+}
+
+/*** Flight CHeckout CSS ***/
+.flight-time-info{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.flight-info1 h6{
+  color: #000000;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.flight-info1 p{
+  color: #4E4E4E;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 0;
+  padding: 8px 0;
+}
+.flight-info1 h5{
+  color: #000000;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22px;
+  margin-bottom: 0;
+}
+.flight-info-took p{
+  margin-bottom: 0;
+  color: #4E4E4E;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+.flight-info-took{
+  text-align: left;
+  color: #4E4E4E;
+  padding: 15px 0;
+}
+
+.flight-detail-info{
+  border-left: 2px dashed #777777;
+  padding-left: 20px;
+  position: relative;
+}
+.flight-detail-info:before, 
+.flight-detail-info:after {
+    position: absolute; 
+    bottom: -6px; 
+    left: -6px; 
+    height: 10px; 
+    width: 10px; 
+    background: #777777; 
+    content: ""; 
+    border-radius: 5px;
+}
+
+.flight-detail-info:after {
+    top: 0; 
+}
+.policy-answer p{
+  color: #585252;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25px;
+}
+.flight-policy{
+  border: 0.6px solid #E5E7EB;
+  border-radius: 5px;
+}
+.policy-heading{
+  background-color: #E1EBFF;
+  padding: 15px;
+}
+.policy-heading h4{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222020;
+  margin-bottom: 0;
+}
+.policy-content{
+  padding: 15px;
+}
+.policy-question{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.policy-question h6{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3A3636;
+  margin-bottom: 0;
+}
+.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.policy-question i {
+  transition: transform 0.3s ease;
+}
+.flight-policy hr{
+  margin: 0;
+}
+
+
+.btn-group label{
+  border-radius: 5px !important;
+  padding: 14px 20px;
+  border: 0.8px solid #AAAAAA ;
+  margin: 10px 0;
+  width: 100%;
+}
+.btn-group p{
+  margin-bottom: 0;
+  text-align: left !important;
+  color: #717171;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+.btn-group span{
+  margin-bottom: 0;
+  text-align: left !important;
+  color: #3E3939;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.btn-group .btn-check:checked+.btn p{
+  color: #fff !important;
+}
+.btn-group .btn-check:checked+.btn span{
+  color: #fff !important;
+}
+.flight-search span{
+  text-align: left !important;
+  float: left;
+  margin-left: 0;
+  margin-top: -25px;
+}
+.flight-search input{
+  padding-left: 30px !important;
+}
+.availability-filter{
+  box-shadow: 0px 4px 10px 0px #0000001A;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+.availability-filter hr{
+ margin: 0;
+}
+.availability-filter h5{
+  color: 
+  #1C2B38;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0;
+  padding: 10px 20px;
+}
+.filter-form{
+  padding: 10px 20px;
+}
+.filter-form label{
+  color: 
+  #1C2B38;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.filter-form input{
+  height: 44px;
+  background-color: 
+  #F4F4F5;
+  border-radius: 3px;
+  border: none;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4C5359;
+}
+.filter-form input:focus{
+  box-shadow: none;
+  border: 1px solid #f4f4f5;
+}
+
+.avail-btn button{
+  width: 100%;
+  height: 50px;
+  background-color: #4c3f90;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  font-family: "Mulish", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+.filter-form span{
+  color:#4B4B4B;
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.horizontal-slider {
+  width: 100%;
+  height: 5px;
+  background: #ddd;
+  border-radius: 4px;
+  position: relative;
+  margin: 20px 0;
+}
+
+.track {
+  background: #4c3f90;
+  position: absolute;
+  height: 5px;
+  border-radius: 4px;
+}
+
+.thumb {
+  height: 25px;
+  width: 25px;
+  background-color: #4c3f90;
+  border-radius: 50%;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.thumb:hover {
+  background-color: #4c3f90;
+  border: 3px solid #ffffff;
+}
+
+.filter-form .form-check{
+  display: flex;
+  gap: 10px;
+}
+.filter-form .form-check input{
+  height: 17px;
+  border: 1px solid #a1a1a1;
+  width: 17px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+.check-filter{
+  display: flex;
+  justify-content: space-between;
+}
+.filter-form .form-check label{
+  color:#4B4B4B;
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+.check-filter{
+  margin: 15px 0;
+}
+.flight-place h4{
+  font-size: 18px;
+  font-family: "Euclid Circular A", sans-serif;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.amount-info-box p{
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 10px;
+  color: #6B7280;
+}
+.amount-info-box button{
+  background-color: #4c3f90;
+  height: 44px;
+  width: 100%;
+  border-radius: 8px;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+  box-shadow: 0px 1px 2px 0px #1F293714;
+}
+.pay-column-card{
+  box-shadow: 0px 10px 10px 0px #1F29370A;
+box-shadow: 0px 20px 25px 0px #1F29371A;
+padding: 20px;
+border: 1px solid #E5E7EB;
+border-radius: 8px;
+}
+.pay-column-card h6{
+font-family: 'Inter', sans-serif;
+font-size: 20px;
+font-weight: 500;
+line-height: 32px;
+}
+.pay-column-card span{
+  font-family: 'Inter', sans-serif;
+font-size: 16px;
+font-weight: 400;
+}
+
+.guest-detail-box h4 {
+  font-family: "Euclid Circular A", sans-serif;
+  color: #252424;
+  font-size: 22px;
+  font-weight: 600;
+}
+.guest-detail-box p {
+  font-family: "Euclid Circular A", sans-serif;
+  color: #4a4a4a;
+  font-size: 16px;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-container label {
+  position: absolute;
+  top: 50%;
+  left:15px;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  color: #aaa;
+  font-size: 16px;
+}
+
+.input-container input {
+  border: 0.8px solid #CCCCCC;
+  height: 60px;
+  border-radius: 5px;
+  margin: 10px 0;
+  color: #8E8E8E;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.input-container input:focus {
+  border-color: #4c3f90;
+  box-shadow: none;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-100%);
+  font-size: 12px;
+  color: #8E8E8E;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  left: 0;
+}
+
+.add-on-box label{
+  font-family: 'Euclid Circular A', sans-serif;
+font-size: 16px;
+font-weight: 400;
+line-height: 20.29px;
+text-align: left;
+color: 
+#302D2D;
+}
+.add-on-box input{
+  cursor: pointer;
+}
+.add-on-box i{
+  font-size: 13px;
+  margin-right: 3px;
+}
+.add-on-box .form-check{
+  margin: 10px 0;
+}
+
+
+.add-guest-detail h4 {
+  font-family: "Euclid Circular A", sans-serif;
+  color: #252424;
+  font-size: 22px;
+  font-weight: 600;
+}
+.add-guest-detail p {
+  font-family: "Euclid Circular A", sans-serif;
+  color: #4a4a4a;
+  font-size: 16px;
+}
+
+.add-guest-detail button{
+background-color: transparent;
+color: #4c3f90;
+border: none;
+font-family: "Euclid Circular A", sans-serif;
+font-size: 15px;
+font-weight: 500;
+}
+.guest-dialog input{
+  width: 330px;
+  height: 50px;
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 0.8px solid #CCCCCC;
+  color: #8E8E8E;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+.guest-dialog input:focus{
+  outline: 0;
+  border: 0.8px solid #4c3f90;
+}
+
+.save-guest-btn button{
+  background-color: #4c3f90;
+  color: #fff;
+  padding: 5px 20px;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 3px;
+  border: none;
+  margin-top: 10px;
+}
+.guest-dialog h4{
+  font-family: "Euclid Circular A", sans-serif;
+  color: #252424;
+  font-size: 18px;
+  font-weight: 600;
+}
+.guest-list p{
+  font-family: "Euclid Circular A", sans-serif;
+  color: #252424;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.guest-list button{
+  background-color: transparent;border: none;
+  color: #0077B5;
+  margin: 10px 5px;
+}
+
+.check-tab-box{
+  display: flex;
+  gap: 10px;
+}
+.check-tab-box button{
+  background-color: transparent;
+  border: 0.5px solid #BEBEBE;
+  color: #959595;
+  font-family: "Euclid Circular A", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 8px 25px;
+}
+.button-active{
+background-color: #DDDDDD !important;
+color: #4c3f90 !important;
+}
+.btn-check:checked+.btn-outline-primary{
+  background-color: #4c3f90 !important;
+}

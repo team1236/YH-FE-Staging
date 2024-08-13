@@ -19,6 +19,8 @@ import Cabcheckout from "../pages/Cabcheckout.jsx";
 import MyProfilePage from "../pages/MyProfile.jsx";
 import Success from "../pages/Success.jsx";
 import Placesdetails from "../pages/Placesdetails.jsx";
+import Flightlisting from "../pages/Flightlisting.jsx";
+import Flightcheckout from "../pages/Flightcheckout.jsx";
 
 import MySingleService from "../components/MySingleService.jsx";
 
@@ -103,6 +105,16 @@ export const router = createBrowserRouter([
       {
         path: "/my-service",
         element: <MySingleService />,
+
+      },
+      {
+        path: "/flightlisting",
+        element: <Flightlisting />,
+
+      },
+      {
+        path: "/flightcheckout",
+        element: <Flightcheckout />,
 
       },
     ],
