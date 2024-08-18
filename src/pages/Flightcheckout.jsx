@@ -149,7 +149,7 @@ const Flightcheckout = () => {
                                 )}
                             </div>
                         </div>
-
+{/* 
                         <div className="guest-detail-box pt-5">
             <h4>Add-ons</h4>
       <p>
@@ -201,7 +201,7 @@ const Flightcheckout = () => {
                 </div>
               </form>
 
-      </div>
+      </div> */}
 
       <div className="guest-detail-box pt-5">
             <h4><i className="bi bi-luggage-fill me-2"></i> Add Extra Luggage</h4>
