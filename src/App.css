@@ -2915,6 +2915,7 @@ width: 100%;
   transform: scale(1.05);
 }
 
+<<<<<<< Updated upstream
 
 /*** FLight listing ***/
 
@@ -3556,3 +3557,33 @@ color: #4c3f90 !important;
 .btn-check:checked+.btn-outline-primary{
   background-color: #4c3f90 !important;
 }
+=======
+/* List View */
+.list-view .col-12 {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.list-deal-img {
+  flex: 2 0 200px; /* Make sure the image doesn't stretch */
+  max-width: 400px;
+  margin-right: 20px;
+}
+
+.list-deal-content {
+  flex: 1;
+}
+
+/* Example Styling */
+.toggle-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+>>>>>>> Stashed changes
