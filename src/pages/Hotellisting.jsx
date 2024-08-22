@@ -4,11 +4,19 @@ import Listingfilter from "../components/Listingfilter";
 import Hotellistcard from "../components/Hotellistcard";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { format } from "date-fns";
+
+const getDate = (value) => {
+  const date = new Date(value);
+  const formattedDate = format(date, "yyyy-MM-dd");
+  return formattedDate;
+};
 
 const Hotellisting = () => {
   const location = useLocation();
   const [getData, setData] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const searchParams = new URLSearchParams(location.search);
   let paramsData = {
@@ -31,23 +39,34 @@ const Hotellisting = () => {
         const response = await axios.get(
           `${
             import.meta.env.VITE_APP_API_URL
-          }api/v1/get-hotelListing?${filterParams}`
+          }api/v1/hotelData-api-cleartrip?checkInDate=${getDate(
+            paramsData.checkin
+          )}&checkOutDate=${getDate(paramsData.checkout)}&noOfRoom=${
+            paramsData.passengerValue.rooms
+          }&noOfAdt=${paramsData.passengerValue.adults}&noOfChd=${
+            paramsData.passengerValue.children
+          }&name=${paramsData.location}`
         );
-
-        setData(response.data.data.findData);
+        setData(response.data.findData);
+        setLoading(false);
       } else {
         const response = await axios.get(
           `${
             import.meta.env.VITE_APP_API_URL
-          }api/v1/get-hotelListing?location=${
-            paramsData.location
-          }&${filterParams}`
+          }api/v1/hotelData-api-cleartrip?checkInDate=${getDate(
+            paramsData.checkin
+          )}&checkOutDate=${getDate(paramsData.checkout)}&noOfRoom=${
+            paramsData.passengerValue.rooms
+          }&noOfAdt=${paramsData.passengerValue.adults}&noOfChd=${
+            paramsData.passengerValue.children
+          }&name=${paramsData.location}`
         );
-
-        setData(response.data.data.findData);
+        setData(response.data.data.filterData);
+        setLoading(false);
       }
     } catch (error) {
       console.log("Error", error);
+      setLoading(false);
       return error;
     }
   };
@@ -66,7 +85,7 @@ const Hotellisting = () => {
             selectedFilters={selectedFilters}
             setSelectedFilters={setSelectedFilters}
           />
-          <Hotellistcard getData={getData} />
+          <Hotellistcard getData={getData} paramsData={paramsData} loading={loading}/>
         </div>
       </div>
     </div>
