@@ -29,7 +29,7 @@ const Hoteldetailimage = ({ getData }) => {
                 src={
                   getData.descriptionImages
                     ? getData.descriptionImages[0]
-                    : getData.descriptionImages[0].url
+                    : getData.hotelGallery[0].url
                 }
                 alt="Detail 1"
                 onClick={toggleOverlay}

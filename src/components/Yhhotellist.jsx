@@ -74,7 +74,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
               }}
             >
               <div className="deal-img">
-                <img src={ele.image} alt={ele.title} height={255} />
+                <img src={ele.image} alt={ele.hotelName} height={255} />
               </div>
               <div className="deal-content">
                 <div className="review-box">
@@ -82,7 +82,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
                     <GradeIcon /> {ele.star} <span>(672 {ele.reviews})</span>
                   </h6>
                 </div>
-                <h4 className="pt-3">{ele.title}</h4>
+                <h4 className="pt-3">{ele.hotelName}</h4>
                 <small>
                   <LocationOnOutlinedIcon /> {ele.city}, {ele.country}
                 </small>
