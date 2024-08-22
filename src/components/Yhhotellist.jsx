@@ -13,7 +13,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
       const response = await axios.get(
         `${
           import.meta.env.VITE_APP_API_URL
-        }api/v1/get-yhhotels?location=${fromValue}&type=${cabinClass}`
+        }api/v1/get-yhhotels?location=${fromValue}&type=${cabinClass.toLowerCase()}`
       );
       setFindData(response.data.data.findData);
     } catch (error) {
@@ -60,7 +60,19 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
       <div className="row">
         {findData &&
           findData.map((ele, i) => (
-            <div className="col-lg-4 hotel-look" key={i}>
+            <div
+              className="col-lg-4 hotel-look"
+              key={i}
+              style={{
+                display: `${
+                  ele.type === "appartments"
+                    ? ele.active
+                      ? "block"
+                      : "none"
+                    : "block"
+                }`,
+              }}
+            >
               <div className="deal-img">
                 <img src={ele.image} alt={ele.title} height={255} />
               </div>
@@ -79,7 +91,18 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
                   <h6>
                     ₹{ele.price} <span>/ person</span>
                   </h6>
-                  <button onClick={() => handleClick(ele)}>Book Now</button>
+                  <Link
+                    className="book-link"
+                    to={`/hoteldetail?from=yhhotels&price=${
+                      ele.price
+                    }&hotelCode=${
+                      ele._id
+                    }&checkInDate=${""}&checkOutDate=${""}&noOfRoom=${""}&noOfAdt=${""}&noOfChd=${""}&provider=${""}&fullName=${
+                      ele.city
+                    }&name=${ele.hotelName}&type=${ele.type}`}
+                  >
+                    <button>Book Now</button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -89,6 +112,4 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
   );
 };
 
-
 export default Yhhotellist;
-

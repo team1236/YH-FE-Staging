@@ -27,6 +27,7 @@ const Hoteldetail = () => {
     fullName: searchParams.get("fullName"),
     name: searchParams.get("name"),
     price: searchParams.get("price"),
+    type: searchParams.get("type"),
   };
   const [getData, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -36,18 +37,29 @@ const Hoteldetail = () => {
         const response = await axios.get(
           `${
             import.meta.env.VITE_APP_API_URL
-          }api/v1/get-shootingrangeById?_id=${searchParams.get("_id")}`
+          }api/v1/get-shootingrangeById?_id=${payload.hotelCode}`
         );
         setData(response.data.data.findData);
+        setLoading(false);
       } else if (searchParams.get("from") === "hotelMain") {
         const response = await axios.get(
           `${
             import.meta.env.VITE_APP_API_URL
-          }api/v1/get-hotelswithdealbyid?_id=${searchParams.get("_id")}`
+          }api/v1/get-hotelswithdealbyid?_id=${payload.hotelCode}`
         );
         setData(response.data.data.findData);
         setLoading(false);
-      } else {
+      } 
+      else if(searchParams.get("from") === "yhhotels") {
+        const response = await axios.get(
+          `${
+            import.meta.env.VITE_APP_API_URL
+          }api/v1/get-yhhotels-byid?_id=${payload.hotelCode}`
+        );
+        setData(response.data.data.findData);
+        setLoading(false);
+      }
+      else {
         const response = await axios.get(
           `${
             import.meta.env.VITE_APP_API_URL
@@ -78,6 +90,8 @@ const Hoteldetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  console.log("getData", getData);
   return (
     <>
       <div className="container pt-4">

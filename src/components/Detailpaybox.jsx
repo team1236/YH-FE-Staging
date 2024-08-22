@@ -107,7 +107,7 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
       Number(paramsData.service) +
       Number(paramsData.tax) -
       (coupenData ? Number(coupenData) : 0);
-
+    let serchType = paramsData.type === "appartments" ? "apartment" : "hotel";
     let data = {
       hotelName: paramsData.hotelName,
       location: paramsData.location,
@@ -115,7 +115,7 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
       checkout: paramsData.checkout,
       room_type: paramsData.room_type,
       total_room: paramsData.total_room,
-      serviceType: "hotel",
+      serviceType: serchType,
       total_passenger: formData.additionalPassengers.length + 1,
       guest_details: JSON.stringify(formData.additionalPassengers),
       add_ons: JSON.stringify(addOns),
@@ -128,6 +128,7 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
       dateOfBooking: new Date().toISOString().split("T")[0],
       email: formData.mainPassenger.email,
     };
+    console.log("data", data)
     handleRazorPay(data, final_Amount);
   };
 

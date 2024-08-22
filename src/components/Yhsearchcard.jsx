@@ -266,7 +266,7 @@ const Yhsearchcard = ({
             className="cabin-class-select col-lg-4"
           >
             <MenuItem value="Hotels">Hotels</MenuItem>
-            <MenuItem value="Apartments">Apartments</MenuItem>
+            <MenuItem value="appartments">Apartments</MenuItem>
           </Select>
    
         </div>

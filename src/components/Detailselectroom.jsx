@@ -292,7 +292,11 @@ const Detailselectroom = ({ getData, payload }) => {
             <div>
               <div className="policy-radio">
                 <label htmlFor="">
-                  Non-refundable · ₹{payload.price - 800} total{" "}
+                  Non-refundable · ₹
+                  {getData.description_nonRefundable
+                    ? getData.description_nonRefundable
+                    : payload.price - 800}{" "}
+                  total{" "}
                 </label>
                 <input
                   className="form-check-input"
@@ -307,7 +311,11 @@ const Detailselectroom = ({ getData, payload }) => {
             <div>
               <div className="policy-radio">
                 <label htmlFor="">
-                  Refundable · ₹{payload.price - 500} total{" "}
+                  Refundable · ₹
+                  {getData.description_Refundable
+                    ? getData.description_Refundable
+                    : payload.price - 500}{" "}
+                  total{" "}
                 </label>
                 <input
                   className="form-check-input"
@@ -341,9 +349,15 @@ const Detailselectroom = ({ getData, payload }) => {
                 passengerValue.adults +
                 passengerValue.children +
                 passengerValue.infants
-              }&price=${payload.price}&service=${payload.price - 1000}&tax=${
-                payload.price - 1500
-              }`}
+              }&price=${payload.price}&service=${
+                getData?.description_price_breakup_serviceFees
+                  ? getData?.description_price_breakup_serviceFees
+                  : payload.price - 1000
+              }&tax=${
+                getData?.description_price_breakup_taxFee
+                  ? getData?.description_price_breakup_taxFee
+                  : payload.price - 1500
+              }&type=${payload.type}`}
             >
               <button>Book Room</button>
             </Link>

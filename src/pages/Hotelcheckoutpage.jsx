@@ -37,8 +37,8 @@ const Hotelcheckoutpage = () => {
     price: searchParams.get("price"),
     service: searchParams.get("service"),
     tax: searchParams.get("tax"),
+    type: searchParams.get("type"),
   };
-
 
     useEffect(() => {
       window.scrollTo(0, 0);

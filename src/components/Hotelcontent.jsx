@@ -7,16 +7,24 @@ const Hotelcontent = ({ getData }) => {
       <div className="hotel-content">
         <div className="detail-name">
           <h4>
-            Room in {getData && getData?.hotelAddress?.city},{" "}
-            {getData && getData?.hotelAddress?.country}
+            Room in{" "}
+            {getData && getData.city
+              ? getData?.city
+              : getData?.hotelAddress?.city}
+            ,{" "}
+            {getData && getData.country
+              ? getData?.country
+              : getData?.hotelAddress?.country}
           </h4>
           <p>
             {getData && getData?.descriptionbed} queen bed - Dedicated bathroom
           </p>
-          <p>
-            CheckIn - {getData && getData?.chkInTime}, Checkout -{" "}
-            {getData && getData?.chkOutTime}
-          </p>
+          {getData?.chkInTime && (
+            <p>
+              CheckIn - {getData && getData?.chkInTime}, Checkout -{" "}
+              {getData && getData?.chkOutTime}
+            </p>
+          )}
         </div>
         <div className="short-review-box mt-5">
           <div>
@@ -27,13 +35,24 @@ const Hotelcontent = ({ getData }) => {
           <div>
             <p>
               One of the most loved hotel on <b>Yours Hospitality</b> <br /> in{" "}
-              {getData && getData?.hotelAddress?.country} by our Guests
+              {getData && getData.country
+                ? getData?.country
+                : getData?.hotelAddress?.country}{" "}
+              by our Guests
             </p>
           </div>
           <div className="num-box">
-            <h6>{getData && getData?.startRating}</h6>
+            <h6>
+              {getData && getData?.star_category
+                ? getData?.star_category
+                : getData?.startRating}
+            </h6>
             <span>
-              {Array(getData && getData?.startRating)
+              {Array(
+                getData && getData?.star_category
+                  ? getData?.star_category
+                  : getData?.startRating
+              )
                 .fill()
                 .map((_, index) => (
                   <StarIcon key={index} />
@@ -41,7 +60,11 @@ const Hotelcontent = ({ getData }) => {
             </span>
           </div>
           <div className="num-box">
-            <h6>{getData && getData?.startRating * 50}</h6>
+            <h6>
+              {getData && getData?.star_category
+                ? getData?.star_category
+                : getData?.startRating * 50}
+            </h6>
             <span>Reviews</span>
           </div>
         </div>
@@ -58,14 +81,21 @@ For those seeking to explore, we are just minutes away from ${getData?.hotelAddr
         <div className="amenities pt-4">
           <h4>Amenities We offer</h4>
           <div className="facility-box">
-            {getData &&
-              getData?.hotelAmenities?.map((ele) => {
-                return (
-                  <div className="facility-list" key="wifi">
-                    <h5>{ele}</h5>
-                  </div>
-                );
-              })}
+            {getData && getData?.description_amentities
+              ? getData?.description_amentities?.map((ele) => {
+                  return (
+                    <div className="facility-list" key="wifi">
+                      <h5>{ele}</h5>
+                    </div>
+                  );
+                })
+              : getData?.hotelAmenities?.map((ele) => {
+                  return (
+                    <div className="facility-list" key="wifi">
+                      <h5>{ele}</h5>
+                    </div>
+                  );
+                })}
           </div>
         </div>
 
@@ -74,18 +104,24 @@ For those seeking to explore, we are just minutes away from ${getData?.hotelAddr
           <h4>Where You will be</h4>
           <iframe
             title="Hotel Location"
-            src={`https://www.google.com/maps?q=${getData?.lati},${getData?.longi}&output=embed`}
+            src={
+              getData.description_google_map
+                ? getData?.description_google_map
+                : `https://www.google.com/maps?q=${getData?.lati},${getData?.longi}&output=embed`
+            }
             frameBorder="0"
             allowFullScreen
             loading="lazy"
           ></iframe>
 
-          <h4>{"Hotel Policy"}</h4>
-          <p>
-            {getData?.hotelPolicy?.map((ele, i) => {
-              return <li key={i}>{ele.heading}</li>;
-            })}
-          </p>
+          {getData?.hotelPolicy && <h4>{"Hotel Policy"}</h4>}
+          {getData?.hotelPolicy && (
+            <p>
+              {getData?.hotelPolicy?.map((ele, i) => {
+                return <li key={i}>{ele.heading}</li>;
+              })}
+            </p>
+          )}
         </div>
 
         <hr />
