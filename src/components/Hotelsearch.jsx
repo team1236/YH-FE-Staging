@@ -254,7 +254,7 @@ const Hotelsearch = () => {
         <div className="search-button">
           {fromValue && departureDateValue && passengerValue ? (
             <Link
-              to={`/hotellisting?location=${fromValue}&checkin=${departureDateValue}&checkout=${departureDateValue}&passengerValue=${JSON.stringify(
+              to={`/hotellisting?location=${fromValue}&checkin=${departureDateValue}&checkout=${returnDateValue}&passengerValue=${JSON.stringify(
                 passengerValue
               )}`}
             >

@@ -12,7 +12,7 @@ import { format, parse } from "date-fns";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 
-const Detailselectroom = ({ getData }) => {
+const Detailselectroom = ({ getData, payload }) => {
   const [passengerValue, setPassengerValue] = useState({
     adults: 0,
     children: 0,
@@ -72,7 +72,7 @@ const Detailselectroom = ({ getData }) => {
   return (
     <>
       <div className="detail-pay-column">
-        <h4>₹{getData.price} night</h4>
+        <h4>₹{payload && payload?.price} night</h4>
         <div className="date-guest-box pt-4">
           <div className="date-detail-box">
             <div className="input-wrapper from-input">
@@ -292,7 +292,11 @@ const Detailselectroom = ({ getData }) => {
             <div>
               <div className="policy-radio">
                 <label htmlFor="">
-                  Non-refundable · ₹{getData.description_nonRefundable} total{" "}
+                  Non-refundable · ₹
+                  {getData.description_nonRefundable
+                    ? getData.description_nonRefundable
+                    : payload.price - 800}{" "}
+                  total{" "}
                 </label>
                 <input
                   className="form-check-input"
@@ -307,7 +311,11 @@ const Detailselectroom = ({ getData }) => {
             <div>
               <div className="policy-radio">
                 <label htmlFor="">
-                  Refundable · ₹{getData.description_Refundable} total{" "}
+                  Refundable · ₹
+                  {getData.description_Refundable
+                    ? getData.description_Refundable
+                    : payload.price - 500}{" "}
+                  total{" "}
                 </label>
                 <input
                   className="form-check-input"
@@ -316,12 +324,12 @@ const Detailselectroom = ({ getData }) => {
                   id="flexRadioDefault2"
                 />
               </div>
-              <p>
+              {/* <p>
                 Free cancellation before{" "}
-                {getData.description_cancellation_before}. Cancel before{" "}
-                {getData.description_cancellation_before_partial} for a partial
+                {getData && getData?.description_cancellation_before}. Cancel before{" "}
+                {getData && getData?.description_cancellation_before_partial} for a partial
                 refund.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -333,17 +341,23 @@ const Detailselectroom = ({ getData }) => {
           checkOutDate &&
           passengerValue.rooms ? (
             <Link
-              to={`/checkout?hotelName=${getData.hotelName}&location=${
-                getData.city
+              to={`/checkout?hotelName=${getData?.hotelName}&location=${
+                getData?.hotelAddress?.city
               }&room_type=${selectedRoom}&check_in=${checkInDate}&checkout=${checkOutDate}&total_room=${
                 passengerValue.rooms
               }&total_passenger=${
                 passengerValue.adults +
                 passengerValue.children +
                 passengerValue.infants
-              }&price=${getData.price}&service=${
-                getData.description_price_breakup_serviceFee
-              }&tax=${getData.description_price_breakup_taxFee}`}
+              }&price=${payload.price}&service=${
+                getData?.description_price_breakup_serviceFees
+                  ? getData?.description_price_breakup_serviceFees
+                  : payload.price - 1000
+              }&tax=${
+                getData?.description_price_breakup_taxFee
+                  ? getData?.description_price_breakup_taxFee
+                  : payload.price - 1500
+              }&type=${payload.type}`}
             >
               <button>Book Room</button>
             </Link>

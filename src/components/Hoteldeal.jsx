@@ -63,7 +63,7 @@ const Hoteldeal = () => {
                       <h6>
                         ₹{ele.price} <span>/ person</span>{" "}
                       </h6>
-                      <Link to={`/hoteldetail?_id=${ele._id}&from=hotelMain`}>
+                      <Link to={`/hoteldetail?hotelCode=${ele._id}&from=hotelMain&price=${ele.price}`}>
                       <button>Book Now</button>
                     </Link>
                     </div>

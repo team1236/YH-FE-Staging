@@ -95,7 +95,7 @@ const Hotelcarausel = () => {
                     <h6>
                       ₹{ele.price} <span>/ person</span>{" "}
                     </h6>
-                    <Link to={`/hoteldetail?_id=${ele._id}&from=shootingRange`}>
+                    <Link to={`/hoteldetail?hotelCode=${ele._id}&from=shootingRange&price=${ele.price}`}>
                       <button>Book Now</button>
                     </Link>
                   </div>

@@ -26,12 +26,18 @@ function MyTripCard({ trip }) {
 
   return (
     <Box sx={{ width: "100%", marginBottom: 3 }}>
-      <Card variant="outlined" sx={{ width: "100%", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"  }}>
+      <Card
+        variant="outlined"
+        sx={{
+          width: "100%",
+          boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+        }}
+      >
         <CardActionArea onClick={handleCardClick}>
           <CardContent>
             <Typography variant="h6" gutterBottom>
-              {trip.serviceType === "hotel"
-                ? `Hotel Booking: ${trip.to}`
+              {trip.serviceType.toLowerCase() === "hotel" || trip.serviceType === "Apartment"
+                ? `Hotel Booking: ${trip.to == "undefined" ? trip.serviceType : trip.to}`
                 : trip.serviceType === "cab"
                 ? `Cab Booking Details`
                 : `Trip to ${trip.to}`}

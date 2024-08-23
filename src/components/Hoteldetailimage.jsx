@@ -8,8 +8,12 @@ const Hoteldetailimage = ({ getData }) => {
   };
 
   // Check if getData and its properties are defined
-  const hotelName = getData?.hotelName || "No hotel name available";
-  const descriptionImages = getData?.descriptionImages || [];
+  const hotelName =
+    (getData && getData?.hotelName) || "No hotel name available";
+  const descriptionImages =
+    getData && getData.descriptionImages
+      ? getData?.descriptionImages
+      : getData?.hotelGallery || [];
   const hasDescriptionImages = descriptionImages.length > 0;
 
   return (
@@ -22,7 +26,11 @@ const Hoteldetailimage = ({ getData }) => {
           <div className="detail-img">
             {hasDescriptionImages ? (
               <img
-                src={descriptionImages[0]}
+                src={
+                  getData.descriptionImages
+                    ? getData.descriptionImages[0]
+                    : getData.hotelGallery[0].url
+                }
                 alt="Detail 1"
                 onClick={toggleOverlay}
                 onError={(e) => {
@@ -39,7 +47,7 @@ const Hoteldetailimage = ({ getData }) => {
             {descriptionImages.slice(2, 6).map((ele, i) => (
               <div className="grid-item" key={i}>
                 <img
-                  src={ele}
+                  src={getData.descriptionImages ? ele : ele.url}
                   alt={`Detail ${i + 2}`}
                   onClick={toggleOverlay}
                   onError={(e) => {
@@ -68,9 +76,9 @@ const Hoteldetailimage = ({ getData }) => {
           </button>
           <div className="detail-gallery">
             {hasDescriptionImages ? (
-              descriptionImages.map((ele, index) => (
+              descriptionImages.slice(0, 8).map((ele, index) => (
                 <img
-                  src={ele}
+                  src={getData.descriptionImages ? ele : ele.url}
                   alt={`Detail ${index + 1}`}
                   key={index}
                   onError={(e) => {

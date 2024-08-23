@@ -1,11 +1,4 @@
 import React from "react";
-import WifiOutlinedIcon from "@mui/icons-material/WifiOutlined";
-import NoCrashOutlinedIcon from "@mui/icons-material/NoCrashOutlined";
-import TvOutlinedIcon from "@mui/icons-material/TvOutlined";
-import AcUnitOutlinedIcon from "@mui/icons-material/AcUnitOutlined";
-import LuggageOutlinedIcon from "@mui/icons-material/LuggageOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
-import PoolOutlinedIcon from "@mui/icons-material/PoolOutlined";
 import StarIcon from "@mui/icons-material/Star";
 
 const Hotelcontent = ({ getData }) => {
@@ -15,11 +8,23 @@ const Hotelcontent = ({ getData }) => {
         <div className="detail-name">
           <h4>
             Room in{" "}
-            {getData?.city?.charAt(0)?.toUpperCase() + getData?.city?.slice(1)},{" "}
-            {getData?.country?.charAt(0)?.toUpperCase() +
-              getData?.country?.slice(1)}
+            {getData && getData.city
+              ? getData?.city
+              : getData?.hotelAddress?.city}
+            ,{" "}
+            {getData && getData.country
+              ? getData?.country
+              : getData?.hotelAddress?.country}
           </h4>
-          <p>{getData.descriptionbed} queen bed - Dedicated bathroom</p>
+          <p>
+            {getData && getData?.descriptionbed} queen bed - Dedicated bathroom
+          </p>
+          {getData?.chkInTime && (
+            <p>
+              CheckIn - {getData && getData?.chkInTime}, Checkout -{" "}
+              {getData && getData?.chkOutTime}
+            </p>
+          )}
         </div>
         <div className="short-review-box mt-5">
           <div>
@@ -30,15 +35,24 @@ const Hotelcontent = ({ getData }) => {
           <div>
             <p>
               One of the most loved hotel on <b>Yours Hospitality</b> <br /> in{" "}
-              {getData?.country?.charAt(0)?.toUpperCase() +
-                getData?.country?.slice(1)}{" "}
+              {getData && getData.country
+                ? getData?.country
+                : getData?.hotelAddress?.country}{" "}
               by our Guests
             </p>
           </div>
           <div className="num-box">
-            <h6>{getData.star_category}</h6>
+            <h6>
+              {getData && getData?.star_category
+                ? getData?.star_category
+                : getData?.startRating}
+            </h6>
             <span>
-              {Array(getData.star_category)
+              {Array(
+                getData && getData?.star_category
+                  ? getData?.star_category
+                  : getData?.startRating
+              )
                 .fill()
                 .map((_, index) => (
                   <StarIcon key={index} />
@@ -46,32 +60,42 @@ const Hotelcontent = ({ getData }) => {
             </span>
           </div>
           <div className="num-box">
-            <h6>{getData.reviews}</h6>
+            <h6>
+              {getData && getData?.star_category
+                ? getData?.star_category
+                : getData?.startRating * 50}
+            </h6>
             <span>Reviews</span>
           </div>
         </div>
 
         <div className="about-hotel pt-5">
           <h5>About this place</h5>
-          <p className="mt-3">{getData.description_about}</p>
-          <p>{getData.descriptionDedicated}</p>
+          <p className="mt-3">{`${getData?.hotelName}, where luxury meets comfort in the heart of ${getData?.hotelAddress?.city}. Nestled in a prime location, our hotel offers breathtaking views of ${getData?.hotelAddress?.locality}, making it an ideal retreat for both business and leisure travelers.
+
+Our elegantly designed rooms and suites are equipped with modern amenities, ensuring a relaxing stay. Whether you’re here to unwind by the pool, indulge in gourmet dining at our on-site restaurant, or stay active in our state-of-the-art fitness center, ${getData?.hotelName} provides a tranquil oasis amidst the bustling city.
+
+For those seeking to explore, we are just minutes away from ${getData?.hotelAddress?.city} and ${getData?.hotelAddress?.locality}, offering convenient access to the city’s top attractions. Our dedicated concierge team is always on hand to assist with personalized recommendations and bookings, ensuring your stay is tailored to your preferences.`}</p>
         </div>
 
         <div className="amenities pt-4">
           <h4>Amenities We offer</h4>
           <div className="facility-box">
-            {getData && getData?.description_amentities?.map((ele) =>
-            {
-              return (
-                <div className="facility-list" key="wifi">
-                  <h5>
-                    {ele}
-                  </h5>
-                </div>
-              );
-            }
-            )}
-             
+            {getData && getData?.description_amentities
+              ? getData?.description_amentities?.map((ele) => {
+                  return (
+                    <div className="facility-list" key="wifi">
+                      <h5>{ele}</h5>
+                    </div>
+                  );
+                })
+              : getData?.hotelAmenities?.map((ele) => {
+                  return (
+                    <div className="facility-list" key="wifi">
+                      <h5>{ele}</h5>
+                    </div>
+                  );
+                })}
           </div>
         </div>
 
@@ -80,14 +104,24 @@ const Hotelcontent = ({ getData }) => {
           <h4>Where You will be</h4>
           <iframe
             title="Hotel Location"
-            src={getData.description_google_map}
+            src={
+              getData.description_google_map
+                ? getData?.description_google_map
+                : `https://www.google.com/maps?q=${getData?.lati},${getData?.longi}&output=embed`
+            }
             frameBorder="0"
             allowFullScreen
             loading="lazy"
           ></iframe>
 
-          <h6>{getData.hotelName}</h6>
-          <p>{getData.description_hotel_details}</p>
+          {getData?.hotelPolicy && <h4>{"Hotel Policy"}</h4>}
+          {getData?.hotelPolicy && (
+            <p>
+              {getData?.hotelPolicy?.map((ele, i) => {
+                return <li key={i}>{ele.heading}</li>;
+              })}
+            </p>
+          )}
         </div>
 
         <hr />
