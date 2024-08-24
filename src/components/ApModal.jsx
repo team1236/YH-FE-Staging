@@ -21,7 +21,12 @@ const style = {
   boxShadow: 24,
   p: 4,
   height: "90vh",
-  width: "50vw",
+  width: {
+    xs: "90vw", // For phones
+    sm: "70vw", // For tablets
+    md: "60vw", // For small laptops
+    lg: "50vw", // For larger screens
+  },
   overflowY: "scroll",
 };
 
@@ -80,8 +85,7 @@ export default function ApModal({ open, setOpen }) {
       description_nonRefundable: 1500,
       description_Refundable: 1000,
       description_google_map: location,
-    }
-    console.log("ppppppppp", payload)
+    };
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_APP_API_URL}api/v1/add-yhhotels`,
