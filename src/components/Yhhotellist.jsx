@@ -4,9 +4,11 @@ import GradeIcon from "@mui/icons-material/Grade";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import ApModal from "./ApModal";
 
 const Yhhotellist = ({ fromValue, cabinClass }) => {
   const [findData, setFindData] = useState([]);
+  const [open, setOpen] = useState(false);
 
   const getFindData = async () => {
     try {
@@ -48,6 +50,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
       return error;
     }
   };
+  
   return (
     <>
       <div className="deal-heading pt-3 mb-3">
@@ -55,6 +58,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
           <h4>Showing Results as per your Search</h4>
           <p>Quality as judged by customers. Book at the ideal price!</p>
         </div>
+        {cabinClass === "appartments" && <button style={{ height: "50px" }} onClick={() => setOpen(true)}>Add Apartment</button>}
       </div>
 
       <div className="row">
@@ -108,6 +112,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
             </div>
           ))}
       </div>
+      <ApModal open={open} setOpen={setOpen}/>
     </>
   );
 };
