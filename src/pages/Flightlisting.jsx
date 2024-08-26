@@ -7,9 +7,9 @@ import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 import { Flight_Testimonial } from "../components/Shimmer";
 import shuffleArray from "../utils/Filter";
-import { Box,Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
-
+import FlightshuffleArray from "../utils/FlightFilter";
 
 const getDate = (value) => {
   if (value === "null") return "";
@@ -113,7 +113,7 @@ const Flightlisting = () => {
         </Box>
       );
     } else {
-      return shuffleArray(getData, sortFilter).map((ele, index) => (
+      return FlightshuffleArray(getData, sortFilter).map((ele, index) => (
         <div className="flight-column" key={index}>
           <div className="flight-heading">
             <div className="flight-place">
