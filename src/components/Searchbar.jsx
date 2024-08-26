@@ -22,10 +22,10 @@ const Searchbar = () => {
   const [tripType, setTripType] = useState("oneWay");
   const [fromValue, setFromValue] = useState("");
   const [toValue, setToValue] = useState("");
-  const [departureDateValue, setDepartureDateValue] = useState(null);
+  const [departureDateValue, setDepartureDateValue] = useState(new Date());
   const [returnDateValue, setReturnDateValue] = useState(null);
   const [passengerValue, setPassengerValue] = useState({
-    adults: 0,
+    adults: 1,
     children: 0,
     infants: 0,
   });
