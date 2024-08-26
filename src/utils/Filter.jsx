@@ -1,7 +1,7 @@
 function shuffleArray(array, filters) {
   let filteredArray = [...array];
 
-  filters.forEach((filter) => {
+  filters && filters?.forEach((filter) => {
     const { filterType, option } = filter;
 
     if (filterType === "price" && option === "Low to High") {
