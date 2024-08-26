@@ -25,7 +25,7 @@ const CustomCheckbox = styled(Checkbox)({
   },
 });
 
-const ListingFilter = ({ selectedFilters, setSelectedFilters }) => {
+const ListingFilter = ({ selectedFilters, setSelectedFilters, getData }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [currentFilter, setCurrentFilter] = useState(null);
   const [searchText, setSearchText] = useState("");

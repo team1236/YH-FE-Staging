@@ -21,8 +21,7 @@ export default function ActionAreaCard() {
 
   return (
     <div
-      style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-    >
+      style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
       <Grid container spacing={2}>
         {ServiceCard.length > 0
           ? ServiceCard.map((item, index) => (
