@@ -99,6 +99,7 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
     }
     let final_Amount =
       Number(paramsData.price) *
+        Number(paramsData.total_room) *
         Number(
           dateDifference(paramsData.checkout, paramsData.check_in) === 0
             ? 1
@@ -128,7 +129,6 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
       dateOfBooking: new Date().toISOString().split("T")[0],
       email: formData.mainPassenger.email,
     };
-    console.log("data", data)
     handleRazorPay(data, final_Amount);
   };
 
@@ -318,7 +318,7 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
           <h4>Price Breakup Details</h4>
           <div className="breakdown-box">
             <h5>
-              ₹{paramsData.price} x{" "}
+              ₹{paramsData.price} + {paramsData.total_room} rooms x{" "}
               {dateDifference(paramsData.checkout, paramsData.check_in) === 0
                 ? 1
                 : dateDifference(paramsData.checkout, paramsData.check_in)}{" "}
@@ -327,6 +327,7 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
             <h6>
               ₹
               {Number(paramsData.price) *
+                Number(paramsData.total_room) *
                 Number(
                   dateDifference(paramsData.checkout, paramsData.check_in) === 0
                     ? 1
@@ -354,6 +355,7 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
             <h6>
               ₹
               {Number(paramsData.price) *
+                Number(paramsData.total_room) *
                 Number(
                   dateDifference(paramsData.checkout, paramsData.check_in) === 0
                     ? 1

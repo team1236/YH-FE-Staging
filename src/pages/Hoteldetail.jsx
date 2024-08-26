@@ -91,7 +91,6 @@ const Hoteldetail = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  console.log("getData", getData);
   return (
     <>
       <div className="container pt-4">

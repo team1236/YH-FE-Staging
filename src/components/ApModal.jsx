@@ -6,7 +6,16 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { Button, TextField, Stepper, Step, StepLabel, Autocomplete, Checkbox, IconButton } from "@mui/material";
+import {
+  Button,
+  TextField,
+  Stepper,
+  Step,
+  StepLabel,
+  Autocomplete,
+  Checkbox,
+  IconButton,
+} from "@mui/material";
 import axios from "axios";
 import toast from "react-hot-toast";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
@@ -18,7 +27,6 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
   bgcolor: "background.paper",
   borderRadius: "10px",
   boxShadow: 24,
@@ -46,7 +54,7 @@ const steps = [
   "Enter Description",
   "Enter Price",
   "Enter Hotel Name and City",
-  "Review & Submit" // Added review step
+  "Review & Submit", // Added review step
 ];
 
 const amenitiesList = [
@@ -79,7 +87,7 @@ const placeList = [
 
 const guestPlaceList = ["Entire Place", "A Room", "A Shared Room"];
 
-export default function ApModal({ open, setOpen }) {
+export default function ApModal({ open, setOpen, cabinClass }) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [amenities, setAmenities] = React.useState([]);
   const [reservation, setReserve] = React.useState("");
@@ -94,8 +102,10 @@ export default function ApModal({ open, setOpen }) {
 
   const handleClose = () => setOpen(false);
 
-  const handleNext = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  const handleBack = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  const handleNext = () =>
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  const handleBack = () =>
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
 
   const handleFileChange = (event) => {
     const files = Array.from(event.target.files);
@@ -109,8 +119,9 @@ export default function ApModal({ open, setOpen }) {
   };
 
   const handleSubmit = async () => {
+    const types = cabinClass === "Hotels" ? "hotels" : "appartments";
     const payload = {
-      type: appartments || hotels,  //add hotel and apartments 
+      type: types,
       hotelName,
       city,
       country: "India",
@@ -138,7 +149,7 @@ export default function ApModal({ open, setOpen }) {
         payload
       );
       if (response.status === 200) {
-        setActiveStep(steps.length - 1); // Move to review step
+        setActiveStep(steps.length - 1);
       } else {
         toast.error("Something went wrong");
       }
@@ -148,9 +159,10 @@ export default function ApModal({ open, setOpen }) {
     }
   };
 
+  console.log("cabinClass", cabinClass);
+
   const handleFinalSubmit = () => {
-    handleSubmit()
-    // Handle final submission logic here if necessary
+    handleSubmit();
     toast.success("Successfully listed your property!");
     setOpen(false);
   };

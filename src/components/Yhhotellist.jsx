@@ -50,7 +50,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
       return error;
     }
   };
-  
+
   return (
     <>
       <div className="deal-heading pt-3 mb-3">
@@ -58,7 +58,9 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
           <h4>Showing Results as per your Search</h4>
           <p>Quality as judged by customers. Book at the ideal price!</p>
         </div>
-        <button style={{ height: "50px" }} onClick={() => setOpen(true)}>List your Property</button>
+        <button style={{ height: "50px" }} onClick={() => setOpen(true)}>
+          List your Property
+        </button>
       </div>
 
       <div className="row">
@@ -68,13 +70,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
               className="col-lg-4 hotel-look"
               key={i}
               style={{
-                display: `${
-                  ele.type === "appartments"
-                    ? ele.active
-                      ? "block"
-                      : "none"
-                    : "block"
-                }`,
+                display: `${ele.active ? "block" : "none"}`,
               }}
             >
               <div className="deal-img">
@@ -112,7 +108,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
             </div>
           ))}
       </div>
-      <ApModal open={open} setOpen={setOpen}/>
+      <ApModal open={open} setOpen={setOpen} cabinClass={cabinClass}/>
     </>
   );
 };
