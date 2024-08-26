@@ -58,7 +58,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
           <h4>Showing Results as per your Search</h4>
           <p>Quality as judged by customers. Book at the ideal price!</p>
         </div>
-        {cabinClass === "appartments" && <button style={{ height: "50px" }} onClick={() => setOpen(true)}>Add Apartment</button>}
+        <button style={{ height: "50px" }} onClick={() => setOpen(true)}>List your Property</button>
       </div>
 
       <div className="row">

@@ -19,11 +19,14 @@ const Hotellistcard = ({ getData, paramsData, loading }) => {
 
       {(() => {
         if (loading) {
-          return Array.from({ length: 8 }).map((_, index) => (
-            <div className="hotel-look" style={{ width: "100%" }}>
-              <Flight_Testimonial key={index} />
-            </div>
-          ));
+          return (
+            <h1>Robin</h1>
+          )
+          // return Array.from({ length: 8 }).map((_, index) => (
+          //   <div className="hotel-look" style={{ width: "100%" }}>
+          //     <Flight_Testimonial key={index} />
+          //   </div>
+          // ));
         }
         if (getData && getData?.length > 0 && !loading) {
           if (getData && getData?.length === 0) {
@@ -51,7 +54,7 @@ const Hotellistcard = ({ getData, paramsData, loading }) => {
 
                       <div className="price-book-btn pt-2">
                         <h6>
-                          ₹{ele.hotelPrice.basePrice} <span>/ person</span>{" "}
+                          ₹{ele.hotelPrice.basePrice} <span>/ Night</span>{" "}
                         </h6>
                         <Link
                           className="book-link"

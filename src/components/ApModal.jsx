@@ -6,9 +6,12 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Stepper, Step, StepLabel, Autocomplete, Checkbox, IconButton } from "@mui/material";
 import axios from "axios";
 import toast from "react-hot-toast";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const style = {
   position: "absolute",
@@ -25,14 +28,60 @@ const style = {
     xs: "90vw", // For phones
     sm: "70vw", // For tablets
     md: "60vw", // For small laptops
-    lg: "50vw", // For larger screens
+    lg: "70vw", // For larger screens
   },
   overflowY: "scroll",
 };
 
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
+const steps = [
+  "Describe the Place",
+  "Select Amenities",
+  "Choose Reservation",
+  "Guest Place",
+  "Enter Location",
+  "Enter Images",
+  "Enter Description",
+  "Enter Price",
+  "Enter Hotel Name and City",
+  "Review & Submit" // Added review step
+];
+
+const amenitiesList = [
+  "Wi-Fi",
+  "TV",
+  "Kitchen",
+  "Washing Machine",
+  "Free Parking on Premises",
+  "Paid Parking on Premises",
+  "Air Conditioning",
+  "Dedicated Workspace",
+];
+
+const reservationList = ["Air YH Guest", "Any experience guest"];
+
+const placeList = [
+  "House",
+  "Hotel",
+  "Bed & breakfast",
+  "Boat",
+  "Cabin",
+  "Campervan/motorhome",
+  "Casa particular",
+  "Castle",
+  "Cave",
+  "Container",
+  "Cycladic home",
+  "Flat/apartment",
+];
+
+const guestPlaceList = ["Entire Place", "A Room", "A Shared Room"];
+
 export default function ApModal({ open, setOpen }) {
-  const handleClose = () => setOpen(false);
-  const [amenities, setAmenities] = React.useState("");
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [amenities, setAmenities] = React.useState([]);
   const [reservation, setReserve] = React.useState("");
   const [place, setPlace] = React.useState("");
   const [guestplace, setGuestPlace] = React.useState("");
@@ -40,290 +89,332 @@ export default function ApModal({ open, setOpen }) {
   const [images, setImages] = React.useState([]);
   const [description, setDescription] = React.useState("");
   const [price, setPrice] = React.useState("");
-  const [id, setID] = React.useState("");
   const [hotelName, setHotelName] = React.useState("");
   const [city, setCity] = React.useState("");
 
-  const handleChangeAmenities = (event) => {
-    setAmenities(event.target.value);
-  };
-  const handleChangeReservation = (event) => {
-    setReserve(event.target.value);
-  };
-  const handleChangePlace = (event) => {
-    setPlace(event.target.value);
-  };
-  const handleChangeGuestPlace = (event) => {
-    setGuestPlace(event.target.value);
+  const handleClose = () => setOpen(false);
+
+  const handleNext = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  const handleBack = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
+
+  const handleFileChange = (event) => {
+    const files = Array.from(event.target.files);
+    const newImages = files.map((file) => URL.createObjectURL(file));
+    setImages((prevImages) => [...prevImages, ...newImages]);
   };
 
-  const handleImageChange = (index, event) => {
-    const newImages = [...images];
-    newImages[index] = event.target.value;
-    setImages(newImages);
+  const handleRemoveImage = (index) => {
+    setImages(images.filter((_, i) => i !== index));
+    // Optionally, you could also revoke object URLs here to free up memory
   };
 
   const handleSubmit = async () => {
     const payload = {
-      type: "appartments",
-      hotelName: hotelName,
-      city: city,
+      type: appartments || hotels,  //add hotel and apartments 
+      hotelName,
+      city,
       country: "India",
       state: "4",
       image: images[0],
       reviews: "102",
-      price: price,
+      price,
       room_avaliable_count: "150",
       recommended: "Good",
       guest_rating: "Good",
       star_category: "5",
       descriptionImages: images,
       description_about: description,
-      description_amentities: [amenities],
+      description_amentities: amenities,
       description_price_breakup_serviceFee: 850,
       description_price_breakup_taxFee: 450,
       description_nonRefundable: 1500,
       description_Refundable: 1000,
       description_google_map: location,
     };
+
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_APP_API_URL}api/v1/add-yhhotels`,
         payload
       );
-      if (response.status) {
-        toast.success("Apartment Applied Successfully");
+      if (response.status === 200) {
+        setActiveStep(steps.length - 1); // Move to review step
       } else {
         toast.error("Something went wrong");
       }
-      window.location.reload();
     } catch (error) {
-      console.log("error", error);
-      return;
+      console.error("Error submitting form", error);
+      toast.error("Something went wrong");
+    }
+  };
+
+  const handleFinalSubmit = () => {
+    handleSubmit()
+    // Handle final submission logic here if necessary
+    toast.success("Successfully listed your property!");
+    setOpen(false);
+  };
+
+  const renderStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return (
+          <FormControl fullWidth>
+            <InputLabel>Describe the Place</InputLabel>
+            <Select
+              value={place}
+              label="Describe the Place"
+              onChange={(e) => setPlace(e.target.value)}
+            >
+              {placeList.map((item) => (
+                <MenuItem key={item} value={item}>
+                  {item}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        );
+
+      case 1:
+        return (
+          <FormControl fullWidth>
+            <InputLabel id="reservation-label">Choose Reservation</InputLabel>
+            <Select
+              labelId="reservation-label"
+              value={reservation}
+              label="reservation-label"
+              onChange={(e) => setReserve(e.target.value)}
+            >
+              {reservationList.map((item) => (
+                <MenuItem key={item} value={item}>
+                  {item}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        );
+
+      case 2:
+        return (
+          <FormControl fullWidth>
+            <Autocomplete
+              multiple
+              id="checkboxes-tags-demo"
+              options={amenitiesList}
+              disableCloseOnSelect
+              value={amenities}
+              onChange={(event, newValue) => setAmenities(newValue)}
+              getOptionLabel={(option) => option}
+              renderOption={(props, option, { selected }) => (
+                <li {...props}>
+                  <Checkbox
+                    icon={icon}
+                    checkedIcon={checkedIcon}
+                    style={{ marginRight: 8 }}
+                    checked={selected}
+                  />
+                  {option}
+                </li>
+              )}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Select Amenities"
+                  placeholder="Choose amenities"
+                />
+              )}
+            />
+          </FormControl>
+        );
+      case 3:
+        return (
+          <FormControl fullWidth>
+            <InputLabel>Guest Place</InputLabel>
+            <Select
+              value={guestplace}
+              label="Guest Place"
+              onChange={(e) => setGuestPlace(e.target.value)}
+            >
+              {guestPlaceList.map((item) => (
+                <MenuItem key={item} value={item}>
+                  {item}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        );
+      case 4:
+        return (
+          <TextField
+            label="Enter Location"
+            variant="outlined"
+            fullWidth
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        );
+      case 5:
+        return (
+          <>
+            <input
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={handleFileChange}
+              style={{ marginBottom: "16px", display: "block" }}
+            />
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  style={{ position: "relative", margin: "8px" }}
+                >
+                  <img
+                    src={image}
+                    alt={`Uploaded preview ${index}`}
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                      objectFit: "cover",
+                      borderRadius: "8px",
+                    }}
+                  />
+                  <IconButton
+                    onClick={() => handleRemoveImage(index)}
+                    style={{ position: "absolute", top: "4px", right: "4px" }}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </div>
+              ))}
+            </div>
+          </>
+        );
+      case 6:
+        return (
+          <TextField
+            label="Enter Description for flat/apartment"
+            variant="outlined"
+            fullWidth
+            multiline
+            rows={4}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        );
+      case 7:
+        return (
+          <TextField
+            label="Enter Price"
+            variant="outlined"
+            fullWidth
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        );
+      case 8:
+        return (
+          <>
+            <TextField
+              label="Enter Hotel Name"
+              variant="outlined"
+              fullWidth
+              onChange={(e) => setHotelName(e.target.value)}
+              style={{ marginBottom: "10px", width: "100%" }}
+            />
+            <TextField
+              label="Enter City"
+              variant="outlined"
+              fullWidth
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </>
+        );
+      case 9: // Review step
+        return (
+          <Box>
+            <Typography variant="h6" gutterBottom>
+              Review Your Details
+            </Typography>
+            <Typography>
+              <strong>Hotel Name:</strong> {hotelName}
+            </Typography>
+            <Typography>
+              <strong>City:</strong> {city}
+            </Typography>
+            <Typography>
+              <strong>Description:</strong> {description}
+            </Typography>
+            <Typography>
+              <strong>Price:</strong> {price}
+            </Typography>
+            <Typography>
+              <strong>Location:</strong> {location}
+            </Typography>
+            <Typography>
+              <strong>Amenities:</strong> {amenities.join(", ")}
+            </Typography>
+            <Box sx={{ display: "flex", flexWrap: "wrap", marginTop: "16px" }}>
+              {images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Uploaded preview ${index}`}
+                  style={{
+                    width: "100px",
+                    height: "100px",
+                    objectFit: "cover",
+                    borderRadius: "8px",
+                    marginRight: "8px",
+                  }}
+                />
+              ))}
+            </Box>
+          </Box>
+        );
+      default:
+        return null;
     }
   };
 
   return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Add Apartment Form
-          </Typography>
+    <Modal open={open} onClose={handleClose}>
+      <Box sx={style}>
+        <Typography variant="h6">Add Apartment /Hotel Form</Typography>
+        <Stepper activeStep={activeStep} alternativeLabel>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        <Box
+          sx={{ paddingTop: "1rem", display: "flex", flexDirection: "column" }}
+        >
+          {renderStepContent(activeStep)}
           <Box
             sx={{
-              paddingTop: "1rem",
+              marginTop: "1rem",
               display: "flex",
-              gap: "1rem",
-              flexDirection: "column",
+              justifyContent: "space-between",
             }}
           >
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">
-                  Select Amenities
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={amenities}
-                  label="Select Amenities"
-                  onChange={handleChangeAmenities}
-                >
-                  <MenuItem value={"wifi"}>Wi-Fi</MenuItem>
-                  <MenuItem value={"tv"}>TV</MenuItem>
-                  <MenuItem value={"kitchen"}>Kitchen</MenuItem>
-                  <MenuItem value={"washing"}>Washing Machine</MenuItem>
-                  <MenuItem value={"freeparking"}>
-                    Free Parking on Premises
-                  </MenuItem>
-                  <MenuItem value={"paidparking"}>
-                    Paid Parking on Premises
-                  </MenuItem>
-                  <MenuItem value={"aircondition"}>Air Conditioning</MenuItem>
-                  <MenuItem value={"dedicatedworkspace"}>
-                    Dedicated Workspace
-                  </MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">
-                  Choose your reservation
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={reservation}
-                  label="Choose your reservation"
-                  onChange={handleChangeReservation}
-                >
-                  <MenuItem value={"air"}>Air YH Guest</MenuItem>
-                  <MenuItem value={"any"}>Any experience guest</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">
-                  Choose best Place you describe
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={place}
-                  label="Choose best Place you describe"
-                  onChange={handleChangePlace}
-                >
-                  <MenuItem value={"house"}>House</MenuItem>
-                  <MenuItem value={"barn"}>Barn</MenuItem>
-                  <MenuItem value={"bed"}>Bed & breakfast</MenuItem>
-                  <MenuItem value={"boat"}>Boat</MenuItem>
-                  <MenuItem value={"cabin"}>Cabin</MenuItem>
-                  <MenuItem value={"campervanr"}>Campervan/motorhome</MenuItem>
-                  <MenuItem value={"case"}>Casa particular</MenuItem>
-                  <MenuItem value={"castle"}>Castle</MenuItem>
-                  <MenuItem value={"cave"}>Cave</MenuItem>
-                  <MenuItem value={"container"}>Container</MenuItem>
-                  <MenuItem value={"cycladic"}>Cycladic home</MenuItem>
-                  <MenuItem value={"flat"}>Flat/apartment</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">
-                  Guest Place
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={guestplace}
-                  label="Guest Place"
-                  onChange={handleChangeGuestPlace}
-                >
-                  <MenuItem value={"place"}>A Entire Place</MenuItem>
-                  <MenuItem value={"room"}>A Room</MenuItem>
-                  <MenuItem value={"sharedRoom"}>A Shared Room</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter you location"
-                variant="outlined"
-                onChange={(e) => setLocation(e.target.value)}
-                fullWidth
-              />
-            </Box>
-
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter Image 1 URL"
-                variant="outlined"
-                onChange={(e) => handleImageChange(0, e)}
-                fullWidth
-              />
-            </Box>
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter Image 2 URL"
-                variant="outlined"
-                onChange={(e) => handleImageChange(1, e)}
-                fullWidth
-              />
-            </Box>
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter Image 3 URL"
-                variant="outlined"
-                onChange={(e) => handleImageChange(2, e)}
-                fullWidth
-              />
-            </Box>
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter Image 4 URL"
-                variant="outlined"
-                onChange={(e) => handleImageChange(3, e)}
-                fullWidth
-              />
-            </Box>
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter Image 5 URL"
-                variant="outlined"
-                onChange={(e) => handleImageChange(4, e)}
-                fullWidth
-              />
-            </Box>
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter Description for flat/apartment"
-                variant="outlined"
-                onChange={(e) => setDescription(e.target.value)}
-                fullWidth
-                rows={4}
-                multiline
-              />
-            </Box>
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter Price"
-                variant="outlined"
-                onChange={(e) => setPrice(e.target.value)}
-                fullWidth
-              />
-            </Box>
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter Image URL for Govt. ID"
-                variant="outlined"
-                onChange={(e) => handleImageChange(4, e)}
-                fullWidth
-              />
-            </Box>
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter Hotel Name"
-                variant="outlined"
-                onChange={(e) => setHotelName(e.target.value)}
-                fullWidth
-              />
-            </Box>
-            <Box>
-              <TextField
-                id="outlined-basic"
-                label="Enter City"
-                variant="outlined"
-                onChange={(e) => setCity(e.target.value)}
-                fullWidth
-              />
-            </Box>
-            <Box>
-              <Button variant="contained" onClick={handleSubmit}>
-                Apply
+            <Button
+              variant="contained"
+              onClick={handleBack}
+              disabled={activeStep === 0}
+            >
+              Back
+            </Button>
+            {activeStep === steps.length - 1 ? (
+              <Button variant="contained" onClick={handleFinalSubmit}>
+                Confirm Submission
               </Button>
-            </Box>
+            ) : (
+              <Button variant="contained" onClick={handleNext}>
+                Next
+              </Button>
+            )}
           </Box>
         </Box>
-      </Modal>
-    </div>
+      </Box>
+    </Modal>
   );
 }
