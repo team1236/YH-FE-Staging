@@ -14,13 +14,13 @@ import toast from "react-hot-toast";
 
 const Hotelsearch = () => {
   const [fromValue, setFromValue] = useState("");
-  const [departureDateValue, setDepartureDateValue] = useState(null);
-  const [returnDateValue, setReturnDateValue] = useState(null);
+  const [departureDateValue, setDepartureDateValue] = useState(new Date());
+  const [returnDateValue, setReturnDateValue] = useState(new Date(new Date().setDate(new Date().getDate()+1)));
   const [passengerValue, setPassengerValue] = useState({
-    adults: 0,
+    adults: 2,
     children: 0,
     infants: 0,
-    rooms: 0,
+    rooms: 1,
   });
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -163,6 +163,27 @@ const Hotelsearch = () => {
               >
                 <Box p={2} className="passenger-popover">
                   <div className="passenger-item">
+                    <div>Rooms:</div>
+                    <Button
+                      onClick={() => handlePassengerChange("rooms", false)}
+                      variant="outlined"
+                      size="small"
+                      className="ms-3"
+                    >
+                      <RemoveIcon />
+                    </Button>
+                    <span className="passenger-count">
+                      {passengerValue.rooms}
+                    </span>
+                    <Button
+                      onClick={() => handlePassengerChange("rooms", true)}
+                      variant="outlined"
+                      size="small"
+                    >
+                      <AddIcon />
+                    </Button>
+                  </div>
+                  <div className="passenger-item">
                     <div>Adults:</div>
                     <Button
                       onClick={() => handlePassengerChange("adults", false)}
@@ -219,27 +240,6 @@ const Hotelsearch = () => {
                     </span>
                     <Button
                       onClick={() => handlePassengerChange("infants", true)}
-                      variant="outlined"
-                      size="small"
-                    >
-                      <AddIcon />
-                    </Button>
-                  </div>
-                  <div className="passenger-item">
-                    <div>Rooms:</div>
-                    <Button
-                      onClick={() => handlePassengerChange("rooms", false)}
-                      variant="outlined"
-                      size="small"
-                      className="ms-3"
-                    >
-                      <RemoveIcon />
-                    </Button>
-                    <span className="passenger-count">
-                      {passengerValue.rooms}
-                    </span>
-                    <Button
-                      onClick={() => handlePassengerChange("rooms", true)}
                       variant="outlined"
                       size="small"
                     >

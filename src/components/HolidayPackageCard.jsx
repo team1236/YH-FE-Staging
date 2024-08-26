@@ -90,7 +90,8 @@ export default function HolidayPackageCard() {
 
   return (
     <>
-      <Grid container spacing={2} justifyContent="center">
+     <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+          <Grid container spacing={1}>
         {HolidayPackagePlace.map((item, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
             <Card
@@ -159,126 +160,6 @@ export default function HolidayPackageCard() {
           </Grid>
         ))}
       </Grid>
-      <Modal open={open} onClose={handleClose}>
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: isMobile ? "90%" : "50%",
-            height: isMobile ? "80%" : "auto",
-            maxHeight: "80%",
-            bgcolor: "background.paper",
-            boxShadow: 24,
-            p: 4,
-            overflowY: "auto",
-            outline: "none",
-          }}
-        >
-          {selectedPackage && (
-            <>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: 2,
-                }}
-              >
-                <Typography variant="h6" component="h2">
-                  {selectedPackage.title}
-                </Typography>
-                <IconButton onClick={handleClose}>
-                  <CloseIcon />
-                </IconButton>
-              </Box>
-              <Typography variant="body1" gutterBottom>
-                {selectedPackage.description}
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Price: ₹ {selectedPackage.price}
-              </Typography>
-              <form onSubmit={handleSubmit}>
-                <TextField
-                  fullWidth
-                  label="Name"
-                  margin="normal"
-                  required
-                  name="name"
-                  onChange={handleChange}
-                />
-                <TextField
-                  fullWidth
-                  label="Contact Number"
-                  margin="normal"
-                  required
-                  name="mobileNumber"
-                  onChange={handleChange}
-                />
-                <TextField
-                  fullWidth
-                  label="Tour Start Date"
-                  type="date"
-                  name="date_of_travel"
-                  onChange={handleChange}
-                  margin="normal"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  required
-                />
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    mt: 2,
-                  }}
-                >
-                  <Typography variant="body1" sx={{ mr: 2 }}>
-                    Number of Members:
-                  </Typography>
-                  <IconButton onClick={handleDecrement}>
-                    <RemoveIcon />
-                  </IconButton>
-                  <TextField
-                    value={members}
-                    inputProps={{
-                      readOnly: true,
-                      style: { textAlign: "center", width: "50px" },
-                    }}
-                    sx={{ mx: 1 }}
-                  />
-                  <IconButton onClick={handleIncrement}>
-                    <AddIcon />
-                  </IconButton>
-                </Box>
-                {/* <TextField
-                  fullWidth
-                  label="Message"
-                  margin="normal"
-                  multiline
-                  rows={4}
-                /> */}
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  sx={{
-                    mt: 2,
-                    background: "#624fa8",
-                    "&:hover": {
-                      background: "#624fa8",
-                    },
-                  }}
-                >
-                  Submit
-                </Button>
-              </form>
-            </>
-          )}
-        </Box>
-      </Modal>
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={3000}
@@ -301,6 +182,7 @@ export default function HolidayPackageCard() {
           Successfully connected with us, wait for our response.
         </Alert>
       </Snackbar>
+    </div>
     </>
   );
 }

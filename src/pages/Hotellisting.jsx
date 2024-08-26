@@ -77,6 +77,7 @@ const Hotellisting = () => {
           <Listingfilter
             selectedFilters={selectedFilters}
             setSelectedFilters={setSelectedFilters}
+            getData={getData}
           />
           <Hotellistcard getData={getData} paramsData={paramsData} loading={loading} selectedFilters={selectedFilters}/>
         </div>

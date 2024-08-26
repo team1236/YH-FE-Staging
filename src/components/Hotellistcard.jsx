@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import { Flight_Testimonial } from "./Shimmer";
 import shuffleArray from "../utils/Filter";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const Hotellistcard = ({ getData, paramsData, loading, selectedFilters }) => {
   return (
@@ -20,11 +23,35 @@ const Hotellistcard = ({ getData, paramsData, loading, selectedFilters }) => {
 
       {(() => {
         if (loading) {
-          return Array.from({ length: 8 }).map((_, index) => (
-            <div className="hotel-look" style={{ width: "100%" }}>
-              <Flight_Testimonial key={index} />
-            </div>
-          ));
+          return (
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              minHeight="60vh"
+              textAlign="center"
+            >
+              <CircularProgress
+                size={60}
+                thickness={4.5}
+                style={{ color: "#624fa8" }}
+              />
+              <Typography
+                variant="h5"
+                style={{ marginTop: "20px", fontWeight: "bold" }}
+              >
+                Thanks for searching with Yourshospitality Travel Company!
+              </Typography>
+              <Typography
+                variant="body1"
+                style={{ marginTop: "10px", color: "#555" }}
+              >
+                We are finding the best deals for your stay. Please wait a
+                moment while we bring you the top options.
+              </Typography>
+            </Box>
+          );
         }
         if (getData && getData?.length > 0 && !loading) {
           if (getData && getData?.length === 0) {
@@ -52,11 +79,11 @@ const Hotellistcard = ({ getData, paramsData, loading, selectedFilters }) => {
 
                       <div className="price-book-btn pt-2">
                         <h6>
-                          ₹{ele.hotelPrice.basePrice} <span>/ person</span>{" "}
+                          ₹{ele.hotelPrice.basePrice} <span>/ Night</span>{" "}
                         </h6>
                         <Link
                           className="book-link"
-                          to={`/hoteldetail?price=${ele.hotelPrice.basePrice}&hotelCode=${ele.hotelCode}&checkInDate=${paramsData.checkin}&checkOutDate=${paramsData.checkout}&noOfRoom=${paramsData.passengerValue.rooms}&noOfAdt=${paramsData.passengerValue.adults}&noOfChd=${paramsData.passengerValue.children}&provider=${ele.provider}&fullName=${paramsData.location}&name=${ele.hotelName}`}
+                          to={`/hoteldetail?price=${ele.hotelPrice.basePrice}&hotelCode=${ele.hotelCode}&checkInDate=${paramsData.checkin}&checkOutDate=${paramsData.checkout}&noOfRoom=${paramsData.passengerValue.rooms}&noOfAdt=${paramsData.passengerValue.adults}&noOfChd=${paramsData.passengerValue.children}&provider=${ele.provider}&fullName=${paramsData.location}&name={ele.hotelName}`}
                         >
                           <button>Book Now</button>
                         </Link>
