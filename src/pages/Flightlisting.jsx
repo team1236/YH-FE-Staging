@@ -6,6 +6,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 import { Flight_Testimonial } from "../components/Shimmer";
+import shuffleArray from "../utils/Filter";
 
 const getDate = (value) => {
   if (value === "null") return "";
@@ -38,11 +39,10 @@ const Flightlisting = () => {
     infant: searchParams.get("infant"),
   };
 
-  console.log("payload", payload);
-
   const [priceRange, setPriceRange] = useState([500, 10000]);
   const [getData, setGetData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sortFilter, setSortFilter] = useState("");
 
   const getFlightData = async () => {
     try {
@@ -69,26 +69,7 @@ const Flightlisting = () => {
 
   useEffect(() => {
     getFlightData();
-  }, []);
-
-  const handlePriceChange = (values) => setPriceRange(values);
-
-  const renderCheckboxes = (labels) =>
-    labels.map((label, index) => (
-      <div className="check-filter" key={index}>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id={`flexCheck${label}`}
-          />
-          <label className="form-check-label" htmlFor={`flexCheck${label}`}>
-            {label}
-          </label>
-        </div>
-        <span>(123)</span>
-      </div>
-    ));
+  }, [sortFilter]);
 
   const handleOpen = () => {
     if (!Cookies.get("yh_auth_token")) {
@@ -105,7 +86,7 @@ const Flightlisting = () => {
         </div>
       ));
     } else {
-      return getData.map((ele, index) => (
+      return shuffleArray(getData, sortFilter).map((ele, index) => (
         <div className="flight-column" key={index}>
           <div className="flight-heading">
             <div className="flight-place">
@@ -230,6 +211,7 @@ const Flightlisting = () => {
       ));
     }
   };
+
   return (
     <div className="container pt-4 mt-2">
       <div className="list-heading">
@@ -245,11 +227,14 @@ const Flightlisting = () => {
         </div>
         <div className="sort-select">
           <h6>Sort by:</h6>
-          <select className="form-select">
+          <select
+            className="form-select"
+            onChange={(e) => setSortFilter(e.target.value)}
+          >
             <option defaultValue="Popularity">Popularity</option>
-            <option value="1">Rating</option>
-            <option value="2">Star</option>
-            <option value="3">View</option>
+            <option value="Rating">Rating</option>
+            <option value="Star">Star</option>
+            <option value="Price">Price</option>
           </select>
         </div>
       </div>
@@ -295,54 +280,8 @@ const Flightlisting = () => {
                     </div>
                   )
                 )}
-                {/* <div className="avail-btn">
-                  <button>Check Availability</button>
-                </div> */}
               </form>
             </div>
-            {/* <div className="availability-filter">
-              <h5>Price</h5>
-              <hr />
-              <form className="filter-form">
-                <label>
-                  AUD {priceRange[0]} - AUD {priceRange[1]}
-                </label>
-                <div className="range-input">
-                  <ReactSlider
-                    className="horizontal-slider"
-                    thumbClassName="thumb"
-                    trackClassName="track"
-                    min={500}
-                    max={10000}
-                    value={priceRange}
-                    onChange={handlePriceChange}
-                    minDistance={100}
-                  />
-                </div>
-              </form>
-            </div> */}
-            {/* {["Day", "Airline", "Cabin"].map((title, index) => (
-              <div className="availability-filter" key={index}>
-                <h5>{title}</h5>
-                <hr />
-                <form className="filter-form">
-                  {renderCheckboxes(
-                    title === "Day"
-                      ? [
-                          "Monday",
-                          "Tuesday",
-                          "Wednesday",
-                          "Thursday",
-                          "Friday",
-                          "Saturday",
-                        ]
-                      : title === "Airline"
-                      ? ["Air Asia", "Emirates", "Indigo", "Air Asia X"]
-                      : ["Economy", "Basic Economy", "Business", "Mixed"]
-                  )}
-                </form>
-              </div>
-            ))} */}
           </div>
         </div>
         <div className="col-lg-9 pt-2">{renderFlights()}</div>

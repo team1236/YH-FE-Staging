@@ -28,13 +28,6 @@ const Hotellisting = () => {
 
   const getListData = async () => {
     try {
-      const filterParams = selectedFilters
-        .map(
-          (filter) =>
-            `${filter.filterType}=${encodeURIComponent(filter.option)}`
-        )
-        .join("&");
-
       if (selectedFilters && selectedFilters[0]?.filterType === "location") {
         const response = await axios.get(
           `${
@@ -85,7 +78,7 @@ const Hotellisting = () => {
             selectedFilters={selectedFilters}
             setSelectedFilters={setSelectedFilters}
           />
-          <Hotellistcard getData={getData} paramsData={paramsData} loading={loading}/>
+          <Hotellistcard getData={getData} paramsData={paramsData} loading={loading} selectedFilters={selectedFilters}/>
         </div>
       </div>
     </div>
