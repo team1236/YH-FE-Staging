@@ -4,11 +4,12 @@ import GradeIcon from "@mui/icons-material/Grade";
 import { Link } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import { Flight_Testimonial } from "./Shimmer";
+import shuffleArray from "../utils/Filter";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const Hotellistcard = ({ getData, paramsData, loading }) => {
+const Hotellistcard = ({ getData, paramsData, loading, selectedFilters }) => {
   return (
     <>
       {getData && getData?.length > 0 && (
@@ -59,7 +60,7 @@ const Hotellistcard = ({ getData, paramsData, loading }) => {
           return (
             <div className="row">
               {getData &&
-                getData?.map((ele) => (
+                shuffleArray(getData, selectedFilters)?.map((ele) => (
                   <div key={ele._id} className="col-lg-3">
                     <div className="deal-img">
                       <img src={ele.hotelGallery.url} alt="" height={250} />
