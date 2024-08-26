@@ -50,6 +50,10 @@ export const router = createBrowserRouter([
         path: "/myService",
         element: <MyService />,
       },
+      // {
+      //   path: "/applyVisa",
+      //   element: <MyService />,
+      // },
       {
         path: "/holidayPackage",
         element: <HolidayPackage />,
@@ -89,7 +93,7 @@ export const router = createBrowserRouter([
       {
         path: "/cabcheckout",
         element: <Cabcheckout />,
-      },  
+      },
       {
         path: "/MyProfile",
         element: <MyProfilePage />,
@@ -105,17 +109,14 @@ export const router = createBrowserRouter([
       {
         path: "/my-service",
         element: <MySingleService />,
-
       },
       {
         path: "/flightlisting",
         element: <Flightlisting />,
-
       },
       {
         path: "/flightcheckout",
         element: <Flightcheckout />,
-
       },
     ],
   },

@@ -83,7 +83,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
               <div className="deal-content">
                 <div className="review-box">
                   <h6>
-                    <GradeIcon /> {ele.star} <span>(672 {ele.reviews})</span>
+                    <GradeIcon /> {ele.star} <span>({ele.reviews})</span>
                   </h6>
                 </div>
                 <h4 className="pt-3">{ele.hotelName}</h4>

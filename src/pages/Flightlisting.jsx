@@ -5,7 +5,9 @@ import { format } from "date-fns";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
-import { Flight_Testimonial } from "../components/Shimmer";
+import { Box,Typography } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+
 
 const getDate = (value) => {
   if (value === "null") return "";
@@ -99,11 +101,35 @@ const Flightlisting = () => {
 
   const renderFlights = () => {
     if (loading) {
-      return Array.from({ length: 8 }).map((_, index) => (
-        <div className="hotel-look" style={{ width: "100%" }}>
-          <Flight_Testimonial key={index} />
-        </div>
-      ));
+      return (
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          minHeight="60vh"
+          textAlign="center"
+        >
+          <CircularProgress
+            size={60}
+            thickness={4.5}
+            style={{ color: "#624fa8" }}
+          />
+          <Typography
+            variant="h5"
+            style={{ marginTop: "20px", fontWeight: "bold" }}
+          >
+            Thanks for searching with Yourshospitality Travel Company!
+          </Typography>
+          <Typography
+            variant="body1"
+            style={{ marginTop: "10px", color: "#555" }}
+          >
+            We are finding the best deals for your stay. Please wait a moment
+            while we bring you the top options.
+          </Typography>
+        </Box>
+      );
     } else {
       return getData.map((ele, index) => (
         <div className="flight-column" key={index}>
