@@ -86,6 +86,7 @@ const Hotelsearch = () => {
                 onChange={(date) => setDepartureDateValue(date)}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
+                minDate={new Date()} // Disable past dates
                 placeholderText="Check-in"
               />
             </div>
@@ -99,6 +100,7 @@ const Hotelsearch = () => {
                 onChange={(date) => setReturnDateValue(date)}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
+                minDate={new Date()} // Disable past dates
                 placeholderText="Check-out"
               />
             </div>

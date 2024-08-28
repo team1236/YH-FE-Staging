@@ -51,13 +51,17 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
     }
   };
 
+  console.log("findData", findData);
+  
   return (
     <>
       <div className="deal-heading pt-3 mb-3">
-        <div>
-          <h4>Showing Results as per your Search</h4>
-          <p>Quality as judged by customers. Book at the ideal price!</p>
-        </div>
+        {findData.length > 0 && (
+          <div>
+            <h4>Showing Results as per your Search</h4>
+            <p>Quality as judged by customers. Book at the ideal price!</p>
+          </div>
+        )}
         <button style={{ height: "50px" }} onClick={() => setOpen(true)}>
           List your Property
         </button>
@@ -108,7 +112,7 @@ const Yhhotellist = ({ fromValue, cabinClass }) => {
             </div>
           ))}
       </div>
-      <ApModal open={open} setOpen={setOpen} cabinClass={cabinClass}/>
+      <ApModal open={open} setOpen={setOpen} />
     </>
   );
 };

@@ -31,10 +31,10 @@ const Hoteldeal = () => {
             }&passengerValue=${JSON.stringify([])}`}
             style={{ textDecoration: "none" }}
           >
-            <button>
+            {/* <button>
               View More
               <EastIcon />
-            </button>
+            </button> */}
           </Link>
         </div>
       </div>
@@ -61,7 +61,7 @@ const Hoteldeal = () => {
 
                     <div className="price-book-btn pt-2">
                       <h6>
-                        ₹{ele.price} <span>/ person</span>{" "}
+                        ₹{ele.price} <span>/ Night</span>{" "}
                       </h6>
                       <Link to={`/hoteldetail?hotelCode=${ele._id}&from=hotelMain&price=${ele.price}`}>
                       <button>Book Now</button>

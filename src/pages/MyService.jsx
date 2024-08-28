@@ -1,8 +1,8 @@
 import React from "react";
 import Sidenav from "../components/Sidenav";
 import MyServiceCard from "../components/MyServiceCard";
+import WhyChooseUs from "../components/WhyChooseUs";
 import OurPartners from "../components/Ourpartners";
-
 
 const Hotel = () => {
   return (
@@ -13,7 +13,9 @@ const Hotel = () => {
             <Sidenav />
           </div>
           <div className="col-lg-10">
-            <MyServiceCard/>
+            <MyServiceCard />
+            <WhyChooseUs />
+            <OurPartners/>
           </div>
         </div>
       </div>

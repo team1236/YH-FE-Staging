@@ -148,6 +148,7 @@ const Searchbar = () => {
                 onChange={(date) => setDepartureDateValue(date)}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
+                minDate={new Date()} // Disable past dates
                 placeholderText="Departure-date"
               />
             </div>
@@ -161,6 +162,7 @@ const Searchbar = () => {
                 onChange={(date) => setReturnDateValue(date)}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
+                minDate={new Date()} // Disable past dates
                 placeholderText="Return-date"
                 disabled={tripType === "oneWay"}
               />
