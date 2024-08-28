@@ -93,7 +93,7 @@ const Hotelcarausel = () => {
                   </small>
                   <div className="price-book-btn pt-2">
                     <h6>
-                      ₹{ele.price} <span>/ person</span>{" "}
+                      ₹{ele.price} <span>/ Night</span>{" "}
                     </h6>
                     <Link to={`/hoteldetail?hotelCode=${ele._id}&from=shootingRange&price=${ele.price}`}>
                       <button>Book Now</button>

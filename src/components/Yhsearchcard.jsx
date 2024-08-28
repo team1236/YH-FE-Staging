@@ -22,10 +22,10 @@ const Yhsearchcard = ({
   const [departureDateValue, setDepartureDateValue] = useState(null);
   const [returnDateValue, setReturnDateValue] = useState(null);
   const [passengerValue, setPassengerValue] = useState({
+    rooms: 0,
     adults: 0,
     children: 0,
     infants: 0,
-    rooms: 0,
   });
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -72,7 +72,11 @@ const Yhsearchcard = ({
                 type="text"
                 id="from"
                 className="input-field"
-                placeholder={cabinClass === "Hotels" ? "Hotel Destinations" : "Our Apartments"}
+                placeholder={
+                  cabinClass === "Hotels"
+                    ? "Hotel Destinations"
+                    : "Our Apartments"
+                }
                 value={fromValue}
                 onChange={(event) => handleInputChange(event, setFromValue)}
               />
@@ -170,6 +174,27 @@ const Yhsearchcard = ({
               >
                 <Box p={2} className="passenger-popover">
                   <div className="passenger-item">
+                    <div>Rooms:</div>
+                    <Button
+                      onClick={() => handlePassengerChange("rooms", false)}
+                      variant="outlined"
+                      size="small"
+                      className="ms-3"
+                    >
+                      <RemoveIcon />
+                    </Button>
+                    <span className="passenger-count">
+                      {passengerValue.rooms}
+                    </span>
+                    <Button
+                      onClick={() => handlePassengerChange("rooms", true)}
+                      variant="outlined"
+                      size="small"
+                    >
+                      <AddIcon />
+                    </Button>
+                  </div>
+                  <div className="passenger-item">
                     <div>Adults:</div>
                     <Button
                       onClick={() => handlePassengerChange("adults", false)}
@@ -190,6 +215,7 @@ const Yhsearchcard = ({
                       <AddIcon />
                     </Button>
                   </div>
+
                   <div className="passenger-item">
                     <div>Children:</div>
                     <Button
@@ -232,27 +258,6 @@ const Yhsearchcard = ({
                       <AddIcon />
                     </Button>
                   </div>
-                  <div className="passenger-item">
-                    <div>Rooms:</div>
-                    <Button
-                      onClick={() => handlePassengerChange("rooms", false)}
-                      variant="outlined"
-                      size="small"
-                      className="ms-3"
-                    >
-                      <RemoveIcon />
-                    </Button>
-                    <span className="passenger-count">
-                      {passengerValue.rooms}
-                    </span>
-                    <Button
-                      onClick={() => handlePassengerChange("rooms", true)}
-                      variant="outlined"
-                      size="small"
-                    >
-                      <AddIcon />
-                    </Button>
-                  </div>
                 </Box>
               </Popover>
             </div>
@@ -268,7 +273,6 @@ const Yhsearchcard = ({
             <MenuItem value="Hotels">Hotels</MenuItem>
             <MenuItem value="appartments">Apartments</MenuItem>
           </Select>
-   
         </div>
       </div>
     </div>

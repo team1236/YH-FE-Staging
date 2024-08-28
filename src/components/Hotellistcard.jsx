@@ -41,7 +41,7 @@ const Hotellistcard = ({ getData, paramsData, loading, selectedFilters }) => {
                 variant="h5"
                 style={{ marginTop: "20px", fontWeight: "bold" }}
               >
-                Thanks for searching with Yourshospitality Travel Company!
+                Thanks for searching with Yours Hospitality Travel Company!
               </Typography>
               <Typography
                 variant="body1"
