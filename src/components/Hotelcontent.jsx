@@ -1,5 +1,6 @@
 import React from "react";
 import StarIcon from "@mui/icons-material/Star";
+import getHotelCount from "../utils/getData";
 
 const Hotelcontent = ({ getData }) => {
   return (
@@ -17,7 +18,10 @@ const Hotelcontent = ({ getData }) => {
               : getData?.hotelAddress?.country}
           </h4>
           <p>
-            {getData && getData?.descriptionbed} queen bed - Dedicated bathroom
+            Total Room available -{" "}
+            {getData && getData?.hotelRoomDetails
+              ? getData?.hotelRoomDetails[0]?.roomSize
+              : getHotelCount()}
           </p>
           {getData?.chkInTime && (
             <p>

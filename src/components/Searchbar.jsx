@@ -97,7 +97,7 @@ const Searchbar = () => {
                   className="small-radio"
                 />
               }
-              label="Round Trip"
+              label="Return Trip"
               classes={{ label: "small-label" }}
             />
           </RadioGroup>

@@ -46,6 +46,33 @@ const Hotelbookingdetail = ({ paramsData }) => {
     return dayDifference;
   }
 
+  function formatDateConevrt(dateString) {
+    const date = new Date(dateString);
+
+    const options = {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    };
+
+    // Convert the date to the desired format
+    return date.toLocaleDateString("en-US", options);
+  }
+
+  function calculateNights(startDate, endDate) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    // Calculate the difference in time (in milliseconds)
+    const differenceInTime = end - start;
+
+    // Convert the difference from milliseconds to days
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+
+    return differenceInDays;
+  }
+
   return (
     <>
       <div className="booking-card">
@@ -58,29 +85,35 @@ const Hotelbookingdetail = ({ paramsData }) => {
             </div>
           </div>
           <div className="card-img">
-            <img src="kasol2.jpg" alt="" />
+            <img src={paramsData.img1} alt="" />
           </div>
         </div>
         <div className="row check-details">
           <div className="check-margin col-4 col-lg-3">
             <h5>Check-in</h5>
-            <h3>{formatDate(paramsData.check_in)}</h3>
+            <h3>{formatDateConevrt(paramsData.check_in)}</h3>
             <h5>12:00pm</h5>
           </div>
           <div className="check-margin col-4 col-lg-2">
             <span>
-              {dateDifference(paramsData.checkout, paramsData.check_in)} Night
+              {calculateNights(
+                formatDateConevrt(paramsData.check_in),
+                formatDateConevrt(paramsData.checkout)
+              )}{" "}
+              Night
             </span>
           </div>
           <div className="check-margin col-4 col-lg-3">
             <h5>Check-out</h5>
-            <h3>{formatDate(paramsData.checkout)}</h3>
+            <h3>{formatDateConevrt(paramsData.checkout)}</h3>
             <h5>12:00pm</h5>
           </div>
 
           <div className="check-margin col-12 col-lg-4">
             <h5>Rooms & Guests</h5>
-            <h3>{paramsData.total_room} Room & {paramsData.total_passenger} Guest</h3>
+            <h3>
+              {paramsData.total_room} Room & {paramsData.total_passenger} Guest
+            </h3>
             {/* <h5>2 Adults, 2 Children</h5> */}
           </div>
         </div>

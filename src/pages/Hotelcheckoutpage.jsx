@@ -38,6 +38,8 @@ const Hotelcheckoutpage = () => {
     service: searchParams.get("service"),
     tax: searchParams.get("tax"),
     type: searchParams.get("type"),
+    img1: searchParams.get("img1"),
+    img2: searchParams.get("img2"),
   };
 
     useEffect(() => {

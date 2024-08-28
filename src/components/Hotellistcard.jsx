@@ -83,7 +83,7 @@ const Hotellistcard = ({ getData, paramsData, loading, selectedFilters }) => {
                         </h6>
                         <Link
                           className="book-link"
-                          to={`/hoteldetail?price=${ele.hotelPrice.basePrice}&hotelCode=${ele.hotelCode}&checkInDate=${paramsData.checkin}&checkOutDate=${paramsData.checkout}&noOfRoom=${paramsData.passengerValue.rooms}&noOfAdt=${paramsData.passengerValue.adults}&noOfChd=${paramsData.passengerValue.children}&provider=${ele.provider}&fullName=${paramsData.location}&name={ele.hotelName}`}
+                          to={`/hoteldetail?price=${ele.hotelPrice.basePrice}&hotelCode=${ele.hotelCode}&checkInDate=${paramsData.checkin}&checkOutDate=${paramsData.checkout}&noOfRoom=${paramsData.passengerValue.rooms}&noOfAdt=${paramsData.passengerValue.adults}&noOfChd=${paramsData.passengerValue.children}&provider=${ele.provider}&fullName=${paramsData.location}&name=${ele.hotelName}`}
                         >
                           <button>Book Now</button>
                         </Link>

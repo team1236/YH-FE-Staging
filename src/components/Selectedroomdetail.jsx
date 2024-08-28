@@ -14,7 +14,7 @@ const Selectedroomdetail = ({ paramsData }) => {
         <h4>{paramsData.hotelName}</h4>
         <div className="col-lg-3 pt-4">
           <div className="selected-room-img">
-            <img src="detail3.webp" alt="" />
+            <img src={paramsData?.img2} alt="" />
           </div>
         </div>
         <div className="col-lg-9">

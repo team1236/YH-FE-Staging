@@ -38,17 +38,16 @@ const Detailselectroom = ({ getData, payload }) => {
 
   const open = Boolean(anchorEl);
   const id = open ? "passenger-popover" : undefined;
-    const parseDateSafely = (dateString) => {
-      const parsedDate = new Date(dateString);
-      return isNaN(parsedDate) ? null : parsedDate;
-    };
-   const initialDate = payload.checkInDate
-     ? parseDateSafely(payload.checkInDate)
-     : null;
-   const checkout_Date = payload.checkOutDate
-     ? parseDateSafely(payload.checkOutDate)
-     : null;
-
+  const parseDateSafely = (dateString) => {
+    const parsedDate = new Date(dateString);
+    return isNaN(parsedDate) ? null : parsedDate;
+  };
+  const initialDate = payload.checkInDate
+    ? parseDateSafely(payload.checkInDate)
+    : null;
+  const checkout_Date = payload.checkOutDate
+    ? parseDateSafely(payload.checkOutDate)
+    : null;
 
   const [selectedRoom, setSelectedRoom] = useState("");
   const [checkInDate, setCheckInDate] = useState(initialDate);
@@ -79,8 +78,6 @@ const Detailselectroom = ({ getData, payload }) => {
       return;
     }
   };
-
-  console.log("payload",payload)
 
   return (
     <>
@@ -257,47 +254,83 @@ const Detailselectroom = ({ getData, payload }) => {
 
         <div className="policy-box pt-3">
           <h5>Select Room</h5>
-          <div className="cancel-box">
-            <div className="deluxe-room">
-              <div className="select-room-box">
-                <img src="detail3.webp" alt="Deluxe Room" />
+          {getData?.hotelRoomDetails ? (
+            <div className="cancel-box">
+              {getData.hotelRoomDetails.map((data) => (
+                <div key={data.id} className="deluxe-room">
+                  <div className="select-room-box">
+                    <img
+                      src={data.imgUrl}
+                      alt={data.roomType}
+                      style={{
+                        width: "75px",
+                        height: "70px",
+                        marginRight: "15px",
+                        marginBottom: "10px",
+                      }}
+                    />
+                  </div>
+                  <div className="room-type-box">
+                    <p style={{ fontSize: "14px" }}>{data.roomType}</p>
+                  </div>
+                  <div className="policy-radio">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="roomType"
+                      id={data.roomType}
+                      value={data.roomType}
+                      onChange={() => handleRoomSelect(data.roomType)}
+                      checked={selectedRoom === data.roomType}
+                    />
+                  </div>
+                  <hr />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="cancel-box">
+              <div className="deluxe-room">
+                <div className="select-room-box">
+                  <img src="detail3.webp" alt="Deluxe Room" />
+                </div>
+                <div className="room-type-box">
+                  <p>Deluxe Room</p>
+                </div>
+                <div className="policy-radio">
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="roomType"
+                    id="deluxeRoom"
+                    value="Deluxe Room"
+                    onChange={() => handleRoomSelect("Deluxe Room")}
+                    checked={selectedRoom === "Deluxe Room"}
+                  />
+                </div>
               </div>
-              <div className="room-type-box">
-                <p>Deluxe Room</p>
-              </div>
-              <div className="policy-radio">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="roomType"
-                  id="deluxeRoom"
-                  value="Deluxe Room"
-                  onChange={() => handleRoomSelect("Deluxe Room")}
-                  checked={selectedRoom === "Deluxe Room"}
-                />
+              <hr />
+              <div className="deluxe-room">
+                <div className="select-room-box">
+                  <img src="detail3.webp" alt="Basic Room" />
+                </div>
+                <div className="room-type-box">
+                  <p>Basic Room</p>
+                </div>
+                <div className="policy-radio">
+                  <input
+                    className="form-check-input"
+                    type="radio"
+                    name="roomType"
+                    id="basicRoom"
+                    value="Basic Room"
+                    onChange={() => handleRoomSelect("Basic Room")}
+                    checked={selectedRoom === "Basic Room"}
+                  />
+                </div>
               </div>
             </div>
-            <hr />
-            <div className="deluxe-room">
-              <div className="select-room-box">
-                <img src="detail3.webp" alt="Basic Room" />
-              </div>
-              <div className="room-type-box">
-                <p>Basic Room</p>
-              </div>
-              <div className="policy-radio">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="roomType"
-                  id="basicRoom"
-                  value="Basic Room"
-                  onChange={() => handleRoomSelect("Basic Room")}
-                  checked={selectedRoom === "Basic Room"}
-                />
-              </div>
-            </div>
-          </div>
+          )}
           <p>Selected Room: {selectedRoom}</p>
         </div>
 
@@ -372,7 +405,9 @@ const Detailselectroom = ({ getData, payload }) => {
                 getData?.description_price_breakup_taxFee
                   ? getData?.description_price_breakup_taxFee
                   : payload.price - 1500
-              }&type=${payload.type}`}
+              }&type=${payload.type}&img1=${
+                getData?.hotelGallery[0].url
+              }&img2=${getData?.hotelGallery[1].url}`}
             >
               <button>Book Room</button>
             </Link>

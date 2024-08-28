@@ -101,9 +101,15 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
       Number(paramsData.price) *
         Number(paramsData.total_room) *
         Number(
-          dateDifference(paramsData.checkout, paramsData.check_in) === 0
+          calculateNights(
+            formatDateConevrt(paramsData.check_in),
+            formatDateConevrt(paramsData.checkout)
+          ) === 0
             ? 1
-            : dateDifference(paramsData.checkout, paramsData.check_in)
+            : calculateNights(
+                formatDateConevrt(paramsData.check_in),
+                formatDateConevrt(paramsData.checkout)
+              )
         ) +
       Number(paramsData.service) +
       Number(paramsData.tax) -
@@ -131,6 +137,33 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
     };
     handleRazorPay(data, final_Amount);
   };
+
+  function formatDateConevrt(dateString) {
+    const date = new Date(dateString);
+
+    const options = {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    };
+
+    // Convert the date to the desired format
+    return date.toLocaleDateString("en-US", options);
+  }
+
+  function calculateNights(startDate, endDate) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    // Calculate the difference in time (in milliseconds)
+    const differenceInTime = end - start;
+
+    // Convert the difference from milliseconds to days
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+
+    return differenceInDays;
+  }
 
   return (
     <>
@@ -319,9 +352,15 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
           <div className="breakdown-box">
             <h5>
               ₹{paramsData.price} + {paramsData.total_room} rooms x{" "}
-              {dateDifference(paramsData.checkout, paramsData.check_in) === 0
+              {calculateNights(
+                formatDateConevrt(paramsData.check_in),
+                formatDateConevrt(paramsData.checkout)
+              ) === 0
                 ? 1
-                : dateDifference(paramsData.checkout, paramsData.check_in)}{" "}
+                : calculateNights(
+                    formatDateConevrt(paramsData.check_in),
+                    formatDateConevrt(paramsData.checkout)
+                  )}{" "}
               nights
             </h5>
             <h6>
@@ -329,9 +368,15 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
               {Number(paramsData.price) *
                 Number(paramsData.total_room) *
                 Number(
-                  dateDifference(paramsData.checkout, paramsData.check_in) === 0
+                  calculateNights(
+                    formatDateConevrt(paramsData.check_in),
+                    formatDateConevrt(paramsData.checkout)
+                  ) === 0
                     ? 1
-                    : dateDifference(paramsData.checkout, paramsData.check_in)
+                    : calculateNights(
+                        formatDateConevrt(paramsData.check_in),
+                        formatDateConevrt(paramsData.checkout)
+                      )
                 )}
             </h6>
           </div>
@@ -357,9 +402,15 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
               {Number(paramsData.price) *
                 Number(paramsData.total_room) *
                 Number(
-                  dateDifference(paramsData.checkout, paramsData.check_in) === 0
+                  calculateNights(
+                    formatDateConevrt(paramsData.check_in),
+                    formatDateConevrt(paramsData.checkout)
+                  ) === 0
                     ? 1
-                    : dateDifference(paramsData.checkout, paramsData.check_in)
+                    : calculateNights(
+                        formatDateConevrt(paramsData.check_in),
+                        formatDateConevrt(paramsData.checkout)
+                      )
                 ) +
                 Number(paramsData.service) +
                 Number(paramsData.tax) -
