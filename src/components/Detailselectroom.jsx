@@ -14,10 +14,10 @@ import Cookies from "js-cookie";
 
 const Detailselectroom = ({ getData, payload }) => {
   const [passengerValue, setPassengerValue] = useState({
+    rooms: 0,
     adults: 0,
     children: 0,
     infants: 0,
-    rooms: 0,
   });
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -38,17 +38,28 @@ const Detailselectroom = ({ getData, payload }) => {
 
   const open = Boolean(anchorEl);
   const id = open ? "passenger-popover" : undefined;
+    const parseDateSafely = (dateString) => {
+      const parsedDate = new Date(dateString);
+      return isNaN(parsedDate) ? null : parsedDate;
+    };
+   const initialDate = payload.checkInDate
+     ? parseDateSafely(payload.checkInDate)
+     : null;
+   const checkout_Date = payload.checkOutDate
+     ? parseDateSafely(payload.checkOutDate)
+     : null;
+
 
   const [selectedRoom, setSelectedRoom] = useState("");
-  const [checkInDate, setCheckInDate] = useState(null);
-  const [checkOutDate, setCheckOutDate] = useState(null);
+  const [checkInDate, setCheckInDate] = useState(initialDate);
+  const [checkOutDate, setCheckOutDate] = useState(checkout_Date);
 
   const handleCheckInDateChange = (date) => {
-    setCheckInDate(date ? format(date, "dd-MM-yyyy") : null);
+    setCheckInDate(date);
   };
 
   const handleCheckOutDateChange = (date) => {
-    setCheckOutDate(date ? format(date, "dd-MM-yyyy") : null);
+    setCheckOutDate(date);
   };
 
   const parseDate = (dateString) => {
@@ -69,6 +80,8 @@ const Detailselectroom = ({ getData, payload }) => {
     }
   };
 
+  console.log("payload",payload)
+
   return (
     <>
       <div className="detail-pay-column">
@@ -77,19 +90,21 @@ const Detailselectroom = ({ getData, payload }) => {
           <div className="date-detail-box">
             <div className="input-wrapper from-input">
               <DatePicker
-                selected={checkInDate ? parseDate(checkInDate) : null}
+                selected={checkInDate}
                 onChange={handleCheckInDateChange}
                 className="input-field"
+                minDate={new Date()} // Disable past dates
                 dateFormat="dd-MM-yyyy"
                 placeholderText="Check-in"
               />
             </div>
             <div className="input-wrapper to-input">
               <DatePicker
-                selected={checkOutDate ? parseDate(checkOutDate) : null}
+                selected={checkOutDate}
                 onChange={handleCheckOutDateChange}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
+                minDate={new Date()} // Disable past dates
                 placeholderText="Check-out"
               />
             </div>
@@ -113,6 +128,11 @@ const Detailselectroom = ({ getData, payload }) => {
               className="input-field"
               value={
                 `${
+                  passengerValue.rooms > 0
+                    ? passengerValue.rooms + " Room(s)"
+                    : ""
+                }` +
+                `${
                   passengerValue.adults > 0
                     ? passengerValue.adults + " Adult(s), "
                     : ""
@@ -125,11 +145,6 @@ const Detailselectroom = ({ getData, payload }) => {
                 `${
                   passengerValue.infants > 0
                     ? passengerValue.infants + " Infant(s), "
-                    : ""
-                }` +
-                `${
-                  passengerValue.rooms > 0
-                    ? passengerValue.rooms + " Room(s)"
                     : ""
                 }`
               }
@@ -151,6 +166,27 @@ const Detailselectroom = ({ getData, payload }) => {
               }}
             >
               <Box p={2} className="passenger-popover">
+                <div className="passenger-item">
+                  <div>Rooms:</div>
+                  <Button
+                    onClick={() => handlePassengerChange("rooms", false)}
+                    variant="outlined"
+                    size="small"
+                    className="ms-3"
+                  >
+                    <RemoveIcon />
+                  </Button>
+                  <span className="passenger-count">
+                    {passengerValue.rooms}
+                  </span>
+                  <Button
+                    onClick={() => handlePassengerChange("rooms", true)}
+                    variant="outlined"
+                    size="small"
+                  >
+                    <AddIcon />
+                  </Button>
+                </div>
                 <div className="passenger-item">
                   <div>Adults:</div>
                   <Button
@@ -208,27 +244,6 @@ const Detailselectroom = ({ getData, payload }) => {
                   </span>
                   <Button
                     onClick={() => handlePassengerChange("infants", true)}
-                    variant="outlined"
-                    size="small"
-                  >
-                    <AddIcon />
-                  </Button>
-                </div>
-                <div className="passenger-item">
-                  <div>Rooms:</div>
-                  <Button
-                    onClick={() => handlePassengerChange("rooms", false)}
-                    variant="outlined"
-                    size="small"
-                    className="ms-3"
-                  >
-                    <RemoveIcon />
-                  </Button>
-                  <span className="passenger-count">
-                    {passengerValue.rooms}
-                  </span>
-                  <Button
-                    onClick={() => handlePassengerChange("rooms", true)}
                     variant="outlined"
                     size="small"
                   >
@@ -293,8 +308,8 @@ const Detailselectroom = ({ getData, payload }) => {
               <div className="policy-radio">
                 <label htmlFor="">
                   Non-refundable · ₹
-                  {getData.description_nonRefundable
-                    ? getData.description_nonRefundable
+                  {getData?.description_nonRefundable
+                    ? getData?.description_nonRefundable
                     : payload.price - 800}{" "}
                   total{" "}
                 </label>
