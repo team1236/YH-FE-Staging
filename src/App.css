@@ -3561,3 +3561,17 @@ color: #4c3f90 !important;
 .btn-check:checked+.btn-outline-primary{
   background-color: #4c3f90 !important;
 }
+
+/* flight-banner-image */
+.flight-banner img {
+  height: 300px; /* Set the desired fixed height */
+  width: 100%; /* Adjust the width to make sure the image fits within the banner */
+}
+
+@media (max-width: 768px){
+.flight-banner img {
+  height: 200px; /* Set the desired fixed height */
+  width: 100%; /* Adjust the width to make sure the image fits within the banner */
+}
+}
+  
