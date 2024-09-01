@@ -19,7 +19,7 @@ const Flightbanner = () => {
         data.map((ele, index) => {
           return (
             <div className="flight-banner pt-5">
-              <img src={ele.url} alt="" />
+              <img src={ele.url} alt="" className="flight-banner-image" />
             </div>
           );
         }) : 
