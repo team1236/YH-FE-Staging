@@ -5,8 +5,7 @@ import { format } from "date-fns";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
-import { Flight_Testimonial } from "../components/Shimmer";
-import shuffleArray from "../utils/Filter";
+
 import { Box, Typography } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import FlightshuffleArray from "../utils/FlightFilter";
@@ -32,8 +31,8 @@ const Flightlisting = () => {
   let ret_date = getDate(searchParams.get("returnDate"));
 
   const payload = {
-    from: searchParams.get("from"),
-    to: searchParams.get("to"),
+    from: searchParams.get("from").toLowerCase(),
+    to: searchParams.get("to").toLowerCase(),
     departureDate: dep_date,
     returnDate: ret_date,
     cabinClass: searchParams.get("cabinClass"),
@@ -213,8 +212,9 @@ const Flightlisting = () => {
                 <i className="bi bi-clock"></i>
                 <p>
                   {
-                    ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                      .flightTime
+                    // ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                    //   .flightTime
+                    ele.duration
                   }
                 </p>
               </div>
