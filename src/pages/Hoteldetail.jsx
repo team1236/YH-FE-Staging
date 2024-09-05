@@ -78,6 +78,9 @@ const Hoteldetail = () => {
       }
     } catch (error) {
       console.log("error", error);
+      if (error.response.status === 504) {
+        window.location.reload();
+      }
       setLoading(false);
       return error;
     }

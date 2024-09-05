@@ -59,6 +59,9 @@ const Hotellisting = () => {
       }
     } catch (error) {
       console.log("Error", error);
+      if (error.response.status === 504) {
+        window.location.reload();
+      }
       setLoading(false);
       return error;
     }
