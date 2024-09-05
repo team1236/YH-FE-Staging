@@ -17,6 +17,7 @@ const Hotellisting = () => {
   const [getData, setData] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [msg, setMsg] = useState("");
 
   const searchParams = new URLSearchParams(location.search);
   let paramsData = {
@@ -59,6 +60,7 @@ const Hotellisting = () => {
       }
     } catch (error) {
       console.log("Error", error);
+      setMsg(error.response.data.message);
       if (error.response.status === 504) {
         window.location.reload();
       }
@@ -70,6 +72,7 @@ const Hotellisting = () => {
   useEffect(() => {
     getListData();
   }, [paramsData.location, selectedFilters]);
+
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -80,9 +83,14 @@ const Hotellisting = () => {
           <Listingfilter
             selectedFilters={selectedFilters}
             setSelectedFilters={setSelectedFilters}
-            getData={getData}
           />
-          <Hotellistcard getData={getData} paramsData={paramsData} loading={loading} selectedFilters={selectedFilters}/>
+          <Hotellistcard
+            msg={msg}
+            getData={getData}
+            paramsData={paramsData}
+            loading={loading}
+            selectedFilters={selectedFilters}
+          />
         </div>
       </div>
     </div>

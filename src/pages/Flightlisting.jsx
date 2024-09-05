@@ -9,6 +9,7 @@ import Cookies from "js-cookie";
 import { Box, Typography } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 import FlightshuffleArray from "../utils/FlightFilter";
+import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 
 const getDate = (value) => {
   if (value === "null") return "";
@@ -39,12 +40,19 @@ const Flightlisting = () => {
     adult: searchParams.get("adult"),
     child: searchParams.get("child"),
     infant: searchParams.get("infant"),
+    tripType: searchParams.get("tripType"),
   };
 
   const [priceRange, setPriceRange] = useState([500, 10000]);
   const [getData, setGetData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortFilter, setSortFilter] = useState("");
+  const [isEdit, setEdit] = useState(false);
+  const [formValues, setFormValues] = useState({
+    leavingFrom: payload.from || "",
+    goingTo: payload.to || "",
+    date: dep_date || "",
+  });
 
   const getFlightData = async () => {
     try {
@@ -74,7 +82,12 @@ const Flightlisting = () => {
 
   useEffect(() => {
     getFlightData();
-  }, [sortFilter]);
+  }, [
+    sortFilter,
+    searchParams.get("from") ||
+      searchParams.get("to") ||
+      searchParams.get("departureDate"),
+  ]);
 
   const handleOpen = () => {
     if (!Cookies.get("yh_auth_token")) {
@@ -115,131 +128,203 @@ const Flightlisting = () => {
         </Box>
       );
     } else {
-      return FlightshuffleArray(getData, sortFilter).map((ele, index) => (
-        <div className="flight-column" key={index}>
-          <div className="flight-heading">
-            <div className="flight-place">
-              <h6>
-                <span>
-                  {ele.originCity} ({ele.departureCityWithCode})
-                </span>{" "}
-                <i className="bi bi-arrow-right-short"></i>{" "}
-                <span>
-                  {ele.destinationCity} ({ele.arrivalCityWithCode})
-                </span>
-              </h6>
-              <h4>₹ {ele.price}</h4>
-            </div>
-            <div className="flight-btn">
-              {Cookies.get("yh_auth_token") ? (
-                <Link
-                  to={`/flightcheckout?from=${payload.from}&to=${
-                    payload.to
-                  }&departureDate=${getDateFun(
-                    searchParams.get("departureDate")
-                  )}
-                      &cabinClass=${payload.cabinClass}&logo=${
-                    ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                      .airlineCode
-                  }&flightName=${
-                    ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                      .airline
-                  }&flightNumber=${ele.flightNumber}
-                        &flight_dep=${
-                          ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                            .departureTime
-                        }&flight_arr=${
-                    ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                      .arrivalTime
-                  }&flightTime=${
-                    ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                      .flightTime
-                  }&origin_airport=${`${ele.originAirportName}, ${ele.originCity}, India`}
-                      &destination_airport=${`${ele.destinationAirportName}, ${ele.destinationCity}, India`}
-                      &price=${ele.price}
-                      `}
-                >
-                  <button>Book Now</button>
-                </Link>
-              ) : (
-                <button className="cab-button" onClick={handleOpen}>
-                  Book Now
-                </button>
-              )}
-            </div>
-          </div>
-          <div className="row flight-inner-row">
-            <div className="col-lg-1">
-              <div className="flight-name-box">
-                <img
-                  src={`https://www.air.irctc.co.in/assets/img/flights-icon/${
-                    ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                      .airlineCode
-                  }.png`}
-                  width={32}
-                  height={32}
-                  alt="IndiGo"
-                />
+      return FlightshuffleArray(getData, sortFilter, isEdit).map(
+        (ele, index) => (
+          <div className="flight-column" key={index}>
+            <div className="flight-heading">
+              <div className="flight-place">
                 <h6>
-                  {
-                    ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                      .airline
-                  }
-                </h6>
-                <p>
-                  {ele.flightNumber}
-                  <br />
                   <span>
-                    {payload.cabinClass.charAt(0).toUpperCase() +
-                      payload.cabinClass.slice(1)}
+                    {ele.originCity} ({ele.departureCityWithCode})
+                  </span>{" "}
+                  <i className="bi bi-arrow-right-short"></i>{" "}
+                  <span>
+                    {ele.destinationCity} ({ele.arrivalCityWithCode})
                   </span>
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-3">
-              <div className="flight-info">
-                <h6>
-                  {
-                    ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                      .departureTime
-                  }
                 </h6>
-                <p>{getDateFun(searchParams.get("departureDate"))}</p>
-                <h5>
-                  {ele.originAirportName}, {ele.originCity}, India
-                </h5>
+                <h4>₹ {payload.tripType ? ele.price * 2 : ele.price}</h4>
+              </div>
+              <div className="flight-btn">
+                {Cookies.get("yh_auth_token") ? (
+                  <Link
+                    to={`/flightcheckout?from=${payload.from}&to=${
+                      payload.to
+                    }&departureDate=${getDateFun(
+                      searchParams.get("departureDate")
+                    )}
+            &cabinClass=${payload.cabinClass}&logo=${
+                      ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                        .airlineCode
+                    }&flightName=${
+                      ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                        .airline
+                    }&flightNumber=${ele.flightNumber}
+            &flight_dep=${
+              ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                .departureTime
+            }&flight_arr=${
+                      ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                        .arrivalTime
+                    }&flightTime=${
+                      ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                        .flightTime
+                    }&origin_airport=${`${ele.originAirportName}, ${ele.originCity}, India`}
+            &destination_airport=${`${ele.destinationAirportName}, ${ele.destinationCity}, India`}
+            &price=${payload.tripType ? ele.price * 2 : ele.price}
+            `}
+                  >
+                    <button>Book Now</button>
+                  </Link>
+                ) : (
+                  <button className="cab-button" onClick={handleOpen}>
+                    Book Now
+                  </button>
+                )}
               </div>
             </div>
-            <div className="col-lg-2">
-              <div className="flight-time-took">
-                <i className="bi bi-clock"></i>
-                <p>
-                  {
-                    // ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                    //   .flightTime
-                    ele.duration
-                  }
-                </p>
+
+            <div className="row flight-inner-row">
+              <div className="col-lg-1">
+                <div className="flight-name-box">
+                  <img
+                    src={`https://www.air.irctc.co.in/assets/img/flights-icon/${
+                      ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                        .airlineCode
+                    }.png`}
+                    width={32}
+                    height={32}
+                    alt={
+                      ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                        .airline
+                    }
+                  />
+                  <h6>
+                    {
+                      ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                        .airline
+                    }
+                  </h6>
+                  <p>
+                    {ele.flightNumber}
+                    <br />
+                    <span>
+                      {payload.cabinClass.charAt(0).toUpperCase() +
+                        payload.cabinClass.slice(1)}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="col-lg-3">
+                <div className="flight-info">
+                  <h6>
+                    {
+                      ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                        .departureTime
+                    }
+                  </h6>
+                  <p>{getDateFun(searchParams.get("departureDate"))}</p>
+                  <h5>
+                    {ele.originAirportName}, {ele.originCity}, India
+                  </h5>
+                </div>
+              </div>
+              <div className="col-lg-2">
+                <div className="flight-time-took">
+                  <i className="bi bi-clock"></i>
+                  <p>{ele.duration}</p>
+                </div>
+              </div>
+              <div className="col-lg-3">
+                <div className="flight-info">
+                  <h6>
+                    {
+                      ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                        .arrivalTime
+                    }
+                  </h6>
+                  <p>{getDateFun(searchParams.get("departureDate"))}</p>
+                  <h5>
+                    {ele.destinationAirportName}, {ele.destinationCity}, India
+                  </h5>
+                </div>
               </div>
             </div>
-            <div className="col-lg-3">
-              <div className="flight-info">
-                <h6>
-                  {
-                    ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
-                      .arrivalTime
-                  }
-                </h6>
-                <p>{getDateFun(searchParams.get("departureDate"))}</p>
-                <h5>
-                  {ele.destinationAirportName}, {ele.destinationCity}, India
-                </h5>
+
+            {payload.tripType === "true" && (
+              <div className="row flight-inner-row return-flight">
+                <h6>Round Trip</h6>
+                <div className="col-lg-1">
+                  <div className="flight-name-box">
+                    <img
+                      src={`https://www.air.irctc.co.in/assets/img/flights-icon/${
+                        ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                          .airlineCode
+                      }.png`}
+                      width={32}
+                      height={32}
+                      alt={
+                        ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                          .airline
+                      }
+                    />
+                    <h6>
+                      {
+                        ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                          .airline
+                      }
+                    </h6>
+                    <p>
+                      {ele?.flightNumber.includes("/")
+                        ? ele.lstFlightDetails[ele.lstFlightDetails.length - 1]
+                            .flightNumber
+                        : Number(ele.flightNumber) + 8}
+                      <br />
+                      <span>
+                        {payload.cabinClass.charAt(0).toUpperCase() +
+                          payload.cabinClass.slice(1)}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div className="col-lg-3">
+                  <div className="flight-info">
+                    <h6>{ele?.lstFlightDetails[0]?.arrivalTime}</h6>
+                    <p>{getDateFun(searchParams.get("returnDate"))}</p>
+                    <h5>
+                      {ele.destinationAirportName}, {ele.destinationCity}, India
+                    </h5>
+                  </div>
+                </div>
+                <div className="col-lg-2">
+                  <div className="flight-time-took">
+                    <i className="bi bi-clock"></i>
+                    <p>{ele.duration}</p>
+                  </div>
+                </div>
+                <div className="col-lg-3">
+                  <div className="flight-info">
+                    <h6>{ele.departureTime}</h6>
+                    <p>{getDateFun(searchParams.get("returnDate"))}</p>
+                    <h5>
+                      {ele.originAirportName}, {ele.originCity}, India
+                    </h5>
+                  </div>
+                </div>
               </div>
-            </div>
+            )}
           </div>
-        </div>
-      ));
+        )
+      );
     }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEdit(true);
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
   };
 
   return (
@@ -275,46 +360,71 @@ const Flightlisting = () => {
               <h5>Availability</h5>
               <hr />
               <form className="filter-form">
-                {["Leaving From", "Going To", "Date", "Departure Time"].map(
-                  (label, index) => (
-                    <div className="mb-3" key={index}>
-                      <label>{label}</label>
-                      <input
-                        type={
-                          label === "Date"
-                            ? "date"
-                            : label === "Departure Time"
-                            ? "time"
-                            : "text"
-                        }
-                        value={
+                {["Leaving From", "Going To", "Date"].map((label, index) => (
+                  <div className="mb-3" key={index}>
+                    <label>{label}</label>
+                    <input
+                      type={label === "Date" ? "date" : "text"}
+                      name={
+                        label === "Leaving From"
+                          ? "leavingFrom"
+                          : label === "Going To"
+                          ? "goingTo"
+                          : label === "Date"
+                          ? "date"
+                          : "departureTime"
+                      }
+                      value={
+                        formValues[
                           label === "Leaving From"
-                            ? payload.from.charAt(0).toUpperCase() +
-                              payload.from.slice(1)
+                            ? "leavingFrom"
                             : label === "Going To"
-                            ? payload.to.charAt(0).toUpperCase() +
-                              payload.to.slice(1)
+                            ? "goingTo"
                             : label === "Date"
-                            ? dep_date
-                            : ret_date
-                        }
-                        className="form-control"
-                        placeholder={
-                          label === "Leaving From"
-                            ? "Sydney, Australia"
-                            : label === "Going To"
-                            ? "Goa, India"
-                            : ""
-                        }
-                      />
-                    </div>
-                  )
-                )}
+                            ? "date"
+                            : "departureTime"
+                        ]
+                      }
+                      onChange={handleChange}
+                      className="form-control"
+                      placeholder={
+                        label === "Leaving From"
+                          ? "Sydney, Australia"
+                          : label === "Going To"
+                          ? "Goa, India"
+                          : ""
+                      }
+                    />
+                  </div>
+                ))}
+                <Link
+                  to={`/flightlisting?tripType=${payload.tripType}from=${
+                    formValues.leavingFrom
+                  }&to=${formValues.goingTo}&departureDate=${searchParams.get(
+                    "departureDate"
+                  )}&returnDate=${searchParams.get("returnDate")}&cabinClass=${
+                    payload.cabinClass
+                  }
+            &adult=${payload.adult}&child=${payload.child}&infant=${
+                    payload.infant
+                  }`}
+                >
+                  {" "}
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => setLoading(true)}
+                  >
+                    Search Flights{" "}
+                    <span className="icon-wrapper">
+                      <FlightTakeoffIcon sx={{ color: "white" }} />
+                    </span>
+                  </button>
+                </Link>
               </form>
             </div>
           </div>
         </div>
-        <div className="col-lg-9 pt-2">{renderFlights()}</div>
+        <div className="col-lg-9 pt-2">{renderFlights()} </div>
       </div>
     </div>
   );

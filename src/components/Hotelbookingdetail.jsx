@@ -46,18 +46,11 @@ const Hotelbookingdetail = ({ paramsData }) => {
     return dayDifference;
   }
 
-  function formatDateConevrt(dateString) {
-    const date = new Date(dateString);
-
-    const options = {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    };
-
-    // Convert the date to the desired format
-    return date.toLocaleDateString("en-US", options);
+  function formatDateConevrt(date) {
+    const res = `${date.split(" ")[0]} ${date.split(" ")[1]} ${
+      date.split(" ")[2]
+    } ${date.split(" ")[3]}`;
+    return res;
   }
 
   function calculateNights(startDate, endDate) {

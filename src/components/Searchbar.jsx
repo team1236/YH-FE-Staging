@@ -54,7 +54,7 @@ const Searchbar = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? "passenger-popover" : undefined;
-
+  
   return (
     <div className="search-section mt-3">
       <div className="search-banner">
@@ -303,8 +303,12 @@ const Searchbar = () => {
           </Select>
           {fromValue && toValue && cabinClass && departureDateValue ? (
             <Link
-              to={`/flightlisting?from=${fromValue}&to=${toValue}&departureDate=${departureDateValue}&returnDate=${returnDateValue}&cabinClass=${cabinClass}
-            &adult=${passengerValue.adults}&child=${passengerValue.children}&infant=${passengerValue.infants}`}
+              to={`/flightlisting?tripType=${
+                tripType === "roundTrip" ? true : false
+              }&from=${fromValue}&to=${toValue}&departureDate=${departureDateValue}&returnDate=${returnDateValue}&cabinClass=${cabinClass}
+            &adult=${passengerValue.adults}&child=${
+                passengerValue.children
+              }&infant=${passengerValue.infants}`}
             >
               {" "}
               <button>

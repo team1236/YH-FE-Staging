@@ -3,13 +3,18 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import GradeIcon from "@mui/icons-material/Grade";
 import { Link } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
-import { Flight_Testimonial } from "./Shimmer";
 import shuffleArray from "../utils/Filter";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const Hotellistcard = ({ getData, paramsData, loading, selectedFilters }) => {
+const Hotellistcard = ({
+  getData,
+  paramsData,
+  loading,
+  selectedFilters,
+  msg,
+}) => {
   return (
     <>
       {getData && getData?.length > 0 && (
@@ -53,10 +58,14 @@ const Hotellistcard = ({ getData, paramsData, loading, selectedFilters }) => {
             </Box>
           );
         }
+        if (
+          msg ===
+            "Cannot read properties of null (reading 'hotelDetailsSummary')" ||
+          getData?.length === 0
+        ) {
+          return <ErrorPage />;
+        }
         if (getData && getData?.length > 0 && !loading) {
-          if (getData && getData?.length === 0) {
-            return <ErrorPage />;
-          }
           return (
             <div className="row">
               {getData &&

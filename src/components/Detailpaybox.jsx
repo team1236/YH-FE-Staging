@@ -7,7 +7,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import handleRazorPay from "../utils/paymentMethod";
@@ -111,8 +110,8 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
                 formatDateConevrt(paramsData.checkout)
               )
         ) +
-      Number(paramsData.service) +
-      Number(paramsData.tax) -
+      734 +
+      254 -
       (coupenData ? Number(coupenData) : 0);
     let serchType = paramsData.type === "appartments" ? "apartment" : "hotel";
     let data = {
@@ -381,12 +380,12 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
             </h6>
           </div>
           <div className="breakdown-box">
-            <h5>Service Fee</h5>
-            <h6>₹{paramsData.service}</h6>
+            <h5>Convenience fee</h5>
+            <h6>₹254</h6>
           </div>
           <div className="breakdown-box">
-            <h5>Tax Fee</h5>
-            <h6>₹{paramsData.tax}</h6>
+            <h5>Hotel taxes</h5>
+            <h6>₹734</h6>
           </div>
           {coupenData && (
             <div className="breakdown-box">
@@ -412,8 +411,8 @@ const Detailpaybox = ({ formData, paramsData, addOns }) => {
                         formatDateConevrt(paramsData.checkout)
                       )
                 ) +
-                Number(paramsData.service) +
-                Number(paramsData.tax) -
+                734 +
+                254 -
                 (coupenData ? Number(coupenData) : 0)}
             </h6>
           </div>
