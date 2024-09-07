@@ -17,6 +17,8 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import airports from "../utils/airport";
+import TextInput from "./ReactSelect";
 
 const Searchbar = () => {
   const [tripType, setTripType] = useState("oneWay");
@@ -54,7 +56,14 @@ const Searchbar = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? "passenger-popover" : undefined;
-  
+
+  const filterData = airports.map((airport) => {
+    return {
+      value: airport.city,
+      label: `${airport.city} (${airport.iata})`,
+    };
+  });
+
   return (
     <div className="search-section mt-3">
       <div className="search-banner">
@@ -113,13 +122,14 @@ const Searchbar = () => {
               <label htmlFor="from" className="input-label">
                 <FlightTakeoffIcon className="flight-icon" /> From
               </label>
-              <input
+              {/* <input
                 type="text"
                 id="from"
                 className="input-field"
                 value={fromValue}
                 onChange={(event) => handleInputChange(event, setFromValue)}
-              />
+              /> */}
+              <TextInput airports={filterData} setData={setFromValue} text={"form"}/>
             </div>
             <div
               className={`input-wrapper to-input ${toValue ? "active" : ""}`}
@@ -127,13 +137,14 @@ const Searchbar = () => {
               <label htmlFor="to" className="input-label">
                 <FlightTakeoffIcon className="flight-icon" /> To
               </label>
-              <input
+              {/* <input
                 type="text"
                 id="to"
                 className="input-field"
                 value={toValue}
                 onChange={(event) => handleInputChange(event, setToValue)}
-              />
+              /> */}
+              <TextInput airports={filterData} setData={setToValue} text={"to"}/>
             </div>
           </div>
 

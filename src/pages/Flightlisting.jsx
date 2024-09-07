@@ -327,6 +327,8 @@ const Flightlisting = () => {
     });
   };
 
+  console.log("payload", payload)
+
   return (
     <div className="container pt-4 mt-2">
       <div className="list-heading">
@@ -398,7 +400,7 @@ const Flightlisting = () => {
                   </div>
                 ))}
                 <Link
-                  to={`/flightlisting?tripType=${payload.tripType}from=${
+                  to={`/flightlisting?tripType=${payload.tripType}&from=${
                     formValues.leavingFrom
                   }&to=${formValues.goingTo}&departureDate=${searchParams.get(
                     "departureDate"

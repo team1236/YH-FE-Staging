@@ -114,7 +114,7 @@ const Hoteldetail = () => {
                   <Hotelcontent getData={getData} />
                 </div>
                 <div className="col-lg-4">
-                  <Detailselectroom getData={getData} payload={payload} />
+                  <Detailselectroom getData={getData} payload={payload} backtrack={searchParams.get("from")}/>
                 </div>
               </div>
             );

@@ -12,7 +12,7 @@ import { format, parse } from "date-fns";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 
-const Detailselectroom = ({ getData, payload }) => {
+const Detailselectroom = ({ getData, payload, backtrack }) => {
   const [passengerValue, setPassengerValue] = useState({
     rooms: 0,
     adults: 0,
@@ -406,8 +406,18 @@ const Detailselectroom = ({ getData, payload }) => {
                   ? getData?.description_price_breakup_taxFee
                   : payload.price - 1500
               }&type=${payload.type}&img1=${
-                getData?.hotelGallery[0].url
-              }&img2=${getData?.hotelGallery[1].url}`}
+                backtrack === "hotelMain" ||
+                backtrack === "shootingRange" ||
+                backtrack === "yhhotels"
+                  ? getData.descriptionImages[0]
+                  : getData?.hotelGallery[0]?.url
+              }&img2=${
+                backtrack === "hotelMain" ||
+                backtrack === "shootingRange" ||
+                backtrack === "yhhotels"
+                  ? getData.descriptionImages[1]
+                  : getData?.hotelGallery[1]?.url
+              }`}
             >
               <button>Book Room</button>
             </Link>
