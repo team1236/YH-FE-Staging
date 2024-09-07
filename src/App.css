@@ -3575,3 +3575,7 @@ color: #4c3f90 !important;
 }
 }
   
+.place-field .select__input-container{
+  height: 51px;
+  padding-left: 35px;
+}
