@@ -129,7 +129,7 @@ const Searchbar = () => {
                 value={fromValue}
                 onChange={(event) => handleInputChange(event, setFromValue)}
               /> */}
-              <TextInput airports={filterData} setData={setFromValue} text={"form"}/>
+              <TextInput airports={filterData} setData={setFromValue} text={"From"}/>
             </div>
             <div
               className={`input-wrapper to-input ${toValue ? "active" : ""}`}
