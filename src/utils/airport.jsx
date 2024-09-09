@@ -220,6 +220,7 @@ const airports = [
   { iata: "YYZ", city: "Toronto", country: "Canada" },
   { iata: "CUN", city: "Cancun", country: "Mexico" },
   { iata: "CMB", city: "Colombo", country: "Sri Lanka" },
+  { iata: "ALA", city: "Almaty" },
 ];
 
 export default airports;
