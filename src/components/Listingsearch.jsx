@@ -6,20 +6,23 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import HotelOutlinedIcon from "@mui/icons-material/HotelOutlined";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
 
-const Listingsearch = ({ paramsData }) => {
-  const [fromValue, setFromValue] = useState("");
-  const [departureDateValue, setDepartureDateValue] = useState(null);
-  const [returnDateValue, setReturnDateValue] = useState(null);
+const Listingsearch = ({ paramsData, setLoading }) => {
+  const [fromValue, setFromValue] = useState(paramsData.location);
+  const [departureDateValue, setDepartureDateValue] = useState(
+    paramsData.checkin && paramsData.checkin
+  );
+  const [returnDateValue, setReturnDateValue] = useState(
+    paramsData.checkout && paramsData.checkout
+  );
   const [passengerValue, setPassengerValue] = useState({
-    adults: 0,
-    children: 0,
+    adults: paramsData.passengerValue.adults,
+    children: paramsData.passengerValue.children,
     infants: 0,
-    rooms: 0,
+    rooms: paramsData.passengerValue.rooms,
   });
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -57,7 +60,7 @@ const Listingsearch = ({ paramsData }) => {
                 id="from"
                 className="input-field"
                 placeholder="Hotel Destinations"
-                value={paramsData.location}
+                value={fromValue}
                 onChange={(event) => handleInputChange(event, setFromValue)}
               />
               <span className="location-icon">
@@ -73,7 +76,7 @@ const Listingsearch = ({ paramsData }) => {
               }`}
             >
               <DatePicker
-                selected={paramsData.checkin && paramsData.checkin}
+                selected={departureDateValue}
                 onChange={(date) => setDepartureDateValue(date)}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
@@ -86,7 +89,7 @@ const Listingsearch = ({ paramsData }) => {
               }`}
             >
               <DatePicker
-                selected={paramsData.checkout && paramsData.checkout}
+                selected={returnDateValue}
                 onChange={(date) => setReturnDateValue(date)}
                 className="input-field"
                 dateFormat="dd-MM-yyyy"
@@ -98,10 +101,14 @@ const Listingsearch = ({ paramsData }) => {
           <div className="col-lg-4 popover-box">
             <div
               className={`input-wrapper passenger-input ${
-                paramsData.passengerValue && paramsData.passengerValue.adults > 0 ||
-                paramsData.passengerValue && paramsData.passengerValue.children > 0 ||
-                paramsData.passengerValue && paramsData.passengerValue.infants > 0 ||
-                paramsData.passengerValue && paramsData.passengerValue.rooms > 0
+                (paramsData.passengerValue &&
+                  paramsData.passengerValue.adults > 0) ||
+                (paramsData.passengerValue &&
+                  paramsData.passengerValue.children > 0) ||
+                (paramsData.passengerValue &&
+                  paramsData.passengerValue.infants > 0) ||
+                (paramsData.passengerValue &&
+                  paramsData.passengerValue.rooms > 0)
                   ? "active"
                   : ""
               }`}
@@ -115,22 +122,26 @@ const Listingsearch = ({ paramsData }) => {
                 className="input-field"
                 value={
                   `${
-                    paramsData.passengerValue && paramsData.passengerValue.adults > 0
+                    paramsData.passengerValue &&
+                    paramsData.passengerValue.adults > 0
                       ? paramsData.passengerValue.adults + " Adult(s), "
                       : ""
                   }` +
                   `${
-                    paramsData.passengerValue && paramsData.passengerValue.children > 0
+                    paramsData.passengerValue &&
+                    paramsData.passengerValue.children > 0
                       ? paramsData.passengerValue.children + " Child(ren), "
                       : ""
                   }` +
                   `${
-                    paramsData.passengerValue && paramsData.passengerValue.infants > 0
+                    paramsData.passengerValue &&
+                    paramsData.passengerValue.infants > 0
                       ? paramsData.passengerValue.infants + " Infant(s), "
                       : ""
                   }` +
                   `${
-                    paramsData.passengerValue && paramsData.passengerValue.rooms > 0
+                    paramsData.passengerValue &&
+                    paramsData.passengerValue.rooms > 0
                       ? paramsData.passengerValue.rooms + " Room(s)"
                       : ""
                   }`
@@ -138,7 +149,7 @@ const Listingsearch = ({ paramsData }) => {
                 readOnly
                 onClick={handleClick}
               />
-              {/* <Popover
+              <Popover
                 id={id}
                 open={open}
                 anchorEl={anchorEl}
@@ -238,8 +249,19 @@ const Listingsearch = ({ paramsData }) => {
                     </Button>
                   </div>
                 </Box>
-              </Popover> */}
+              </Popover>
             </div>
+          </div>
+          <div className="col-lg-4" style={{ marginBottom: "15px" }}>
+            <Link
+              to={`/hotellisting?location=${fromValue}&checkin=${departureDateValue}&checkout=${returnDateValue}&passengerValue=${JSON.stringify(
+                passengerValue
+              )}`}
+            >
+              <Button variant="contained" onClick={() => setLoading(true)}>
+                Search
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

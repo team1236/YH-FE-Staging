@@ -77,7 +77,7 @@ const Hotellisting = () => {
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-lg-9">
-          <Listingsearch paramsData={paramsData} />
+          <Listingsearch paramsData={paramsData} setLoading={setLoading}/>
         </div>
         <div className="col-lg-12">
           <Listingfilter
