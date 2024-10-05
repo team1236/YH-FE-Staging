@@ -123,6 +123,12 @@ const Listingsearch = ({ paramsData, setLoading }) => {
                 value={
                   `${
                     paramsData.passengerValue &&
+                    paramsData.passengerValue.rooms > 0
+                      ? paramsData.passengerValue.rooms + " Room(s)"
+                      : ""
+                  }` +
+                  `${
+                    paramsData.passengerValue &&
                     paramsData.passengerValue.adults > 0
                       ? paramsData.passengerValue.adults + " Adult(s), "
                       : ""
@@ -137,12 +143,6 @@ const Listingsearch = ({ paramsData, setLoading }) => {
                     paramsData.passengerValue &&
                     paramsData.passengerValue.infants > 0
                       ? paramsData.passengerValue.infants + " Infant(s), "
-                      : ""
-                  }` +
-                  `${
-                    paramsData.passengerValue &&
-                    paramsData.passengerValue.rooms > 0
-                      ? paramsData.passengerValue.rooms + " Room(s)"
                       : ""
                   }`
                 }
@@ -164,6 +164,27 @@ const Listingsearch = ({ paramsData, setLoading }) => {
                 }}
               >
                 <Box p={2} className="passenger-popover">
+                  <div className="passenger-item">
+                    <div>Rooms:</div>
+                    <Button
+                      onClick={() => handlePassengerChange("rooms", false)}
+                      variant="outlined"
+                      size="small"
+                      className="ms-3"
+                    >
+                      <RemoveIcon />
+                    </Button>
+                    <span className="passenger-count">
+                      {passengerValue.rooms}
+                    </span>
+                    <Button
+                      onClick={() => handlePassengerChange("rooms", true)}
+                      variant="outlined"
+                      size="small"
+                    >
+                      <AddIcon />
+                    </Button>
+                  </div>
                   <div className="passenger-item">
                     <div>Adults:</div>
                     <Button
@@ -221,27 +242,6 @@ const Listingsearch = ({ paramsData, setLoading }) => {
                     </span>
                     <Button
                       onClick={() => handlePassengerChange("infants", true)}
-                      variant="outlined"
-                      size="small"
-                    >
-                      <AddIcon />
-                    </Button>
-                  </div>
-                  <div className="passenger-item">
-                    <div>Rooms:</div>
-                    <Button
-                      onClick={() => handlePassengerChange("rooms", false)}
-                      variant="outlined"
-                      size="small"
-                      className="ms-3"
-                    >
-                      <RemoveIcon />
-                    </Button>
-                    <span className="passenger-count">
-                      {passengerValue.rooms}
-                    </span>
-                    <Button
-                      onClick={() => handlePassengerChange("rooms", true)}
                       variant="outlined"
                       size="small"
                     >
